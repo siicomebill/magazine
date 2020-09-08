@@ -1,0 +1,7 @@
+{
+    "exclude": ["node_modules"],
+    "baseUrl": ".",
+    "paths": {
+        "@/*": "./resources/js/**"
+    }
+}
