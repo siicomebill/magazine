@@ -1,0 +1,3 @@
+[submodule "bill-environment"]
+	path = bill-environment
+	url = https://github.com/Laradock/laradock.git
