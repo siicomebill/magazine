@@ -1,61 +1,41 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Sii Come Bill - The online magazine 📰
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Made with ❤️, ☕, and **[Laravel](https://laravel.com)** by [Mattia Sinisi](https://linkedin.com/in/sinisimattia)
 
-## About Laravel
+## Bring up the development environment
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Before you begin
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The development environment is buil to run on [Docker](https://docker.com) so the only prerequisites you'll need are:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Docker 👉 [Download & Install](https://docs.docker.com/get-docker/)
+- Docker Compose 👉 [Download & Install](https://docs.docker.com/compose/install/)
 
-## Learning Laravel
+### Start the essentials
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+This configuration has **A LOT** of processes and hosts, but to get started you'll only need some of them.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Before doing anything though, copy the pre-configured environment file to the folder.
 
-## Laravel Sponsors
+> cp laradock.env bill-environment/.env
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+In order to start <u>only what you need to start the application</u> simply run the following command:
 
-### Premium Partners
+> docker-compose up -d nginx postgres
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+This command will only start the webserver (and the PHP engine) with a *PostgreSQL* database already connected to it.
 
-## Contributing
+*P.S.*
+Don't worry if the building process is slow,  you'll only have to sit through it for the first time.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### But wait... there's more!
 
-## Code of Conduct
+These are not the only processes that you can start, for a full list of what you can do with this Docker configuration visit the official [Laradock website](https://laradock.io).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Have fun coding!
 
-## Security Vulnerabilities
+Thank you for contributing to our project, please follow our [code of conduct](#) in order to keep everything clean and organized!
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+___
+#### Visit the website 👉 [here](#)
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
