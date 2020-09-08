@@ -17,11 +17,15 @@ This configuration has **A LOT** of processes and hosts, but to get started you'
 
 Before doing anything though, copy the pre-configured environment file to the folder.
 
-> cp laradock.env bill-environment/.env
+```bash
+cp laradock.env bill-environment/.env
+```
 
 In order to start <u>only what you need to start the application</u> simply run the following command:
 
-> docker-compose up -d nginx postgres
+```bash
+docker-compose up -d nginx postgres
+```
 
 This command will only start the webserver (and the PHP engine) with a *PostgreSQL* database already connected to it.
 
