@@ -10,6 +10,7 @@ The development environment is buil to run on [Docker](https://docker.com) so th
 
 - Docker 👉 [Download & Install](https://docs.docker.com/get-docker/)
 - Docker Compose 👉 [Download & Install](https://docs.docker.com/compose/install/)
+- Make (optional) 👉 [Information](https://www.tutorialspoint.com/unix_commands/make.htm)
 
 ### Start the essentials
 
@@ -25,6 +26,12 @@ In order to start <u>only what you need to start the application</u> simply run 
 
 ```bash
 docker-compose up -d nginx postgres
+```
+
+If you want to quickly set up your environment with only one command (using *Make*) simply use the following command:
+
+```bash
+make start
 ```
 
 This command will only start the webserver (and the PHP engine) with a *PostgreSQL* database already connected to it.
