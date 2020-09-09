@@ -28,10 +28,10 @@ In order to start <u>only what you need to start the application</u> simply run 
 docker-compose up -d nginx postgres
 ```
 
-If you want to quickly set up your environment with only one command (using *Make*) simply use the following command:
+If you want to quickly set up your environment with only one command simply run the following command:
 
 ```bash
-make start
+make
 ```
 
 This command will only start the webserver (and the PHP engine) with a *PostgreSQL* database already connected to it.
