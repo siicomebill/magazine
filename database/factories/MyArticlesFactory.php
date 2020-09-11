@@ -22,13 +22,28 @@ class MyArticlesFactory extends Factory
      */
     public function definition()
     {
-        $content = json_encode('{"type":"doc","content":[{"type": "paragraph","content":[{"type":"text","text":"This is some inserted text. 👋"}]}]');
-
         return [
+            "user_id" => 1,
             "title" => $this->faker->word,
             "snippet" => $this->faker->paragraph,
-            "content" => $content,
-            "user_id" => 1
+            "content" => [
+                'type' => 'doc',
+                'content' =>
+                [
+                    0 =>
+                    [
+                        'type' => 'paragraph',
+                        'content' =>
+                        [
+                            0 =>
+                            [
+                                'type' => 'text',
+                                'text' => 'This is some inserted text. 👋',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 }
