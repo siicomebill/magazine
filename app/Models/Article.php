@@ -18,4 +18,9 @@ class Article extends Model
     {
         return $this->belongsTo('App\Models\User', 'id', 'user_id', 'users');
     }
+
+    public function scopeUser($query, $user_id)
+    {
+        return $query->where('user_id', $user_id);
+    }
 }
