@@ -14,7 +14,7 @@ class DashboardController extends Controller
 
     public function listArticles(Request $request)
     {
-        $articles = Article::user($request->user()->id)->get();
+        $articles = Article::user($request->user()->id)->with(['author', 'category'])->get();
 
         return Inertia::render('ArticlesManager', [
             'articles' => $articles
