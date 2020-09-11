@@ -8,6 +8,10 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
+    public function index(){
+        return Inertia::render('Dashboard');
+    }
+
     public function listArticles(Request $request)
     {
         $articles = Article::user($request->user()->id)->get();
