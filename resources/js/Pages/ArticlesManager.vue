@@ -1,15 +1,13 @@
 <template>
   <div>
-      <p>yo</p>
+    <p v-for="article in articles" :key="article.id">{{article.title}}</p>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  props: {
+    articles: Array,
+  },
+};
 </script>
-
-<style>
-
-</style>
