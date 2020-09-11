@@ -8,6 +8,7 @@
 
 <script>
 import Card from "~/Card";
+
 export default {
   components: {
     Card,
