@@ -15,6 +15,10 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('category_id')->nullable();
+
+
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
 
