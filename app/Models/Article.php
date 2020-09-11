@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        "content" => "array"
+    ];
 
     public function category()
     {
