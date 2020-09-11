@@ -16,7 +16,7 @@ class Article extends Model
 
     public function author()
     {
-        return $this->belongsTo('App\Models\User', 'id', 'user_id', 'users');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id', 'users');
     }
 
     public function scopeUser($query, $user_id)
