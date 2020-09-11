@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'role:writer'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia\Inertia::render('Dashboard');
-    })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', function () {
+            return Inertia::render('Dashboard');
+        })->name('dashboard');
+
+        Route::prefix('content')->middleware('role:writer')->group(function () {
+            Route::prefix('articles')->group(function () {
+                Route::get('/', function () {
+                    return Inertia::render('ArticlesManager');
+                })->name('manage-articles');
+            });
+        });
+    });
 });
