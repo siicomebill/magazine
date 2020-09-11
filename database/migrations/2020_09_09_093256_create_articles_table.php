@@ -18,6 +18,10 @@ class CreateArticlesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
 
+            $table->string('title');
+            $table->string('snippet');
+            $table->jsonb('content');
+
             $table->timestamps();
         });
     }
