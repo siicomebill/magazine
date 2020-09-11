@@ -28,6 +28,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "laravel-mix-alias": "^1.0.2"
+        "laravel-mix-alias": "^1.0.2",
+        "vue-publisher": "^1.0.3"
     }
 }
