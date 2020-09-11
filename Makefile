@@ -8,5 +8,8 @@ start:
 stop:
 	(cd bill-environment && docker-compose stop)
 
+destroy:
+	(cd bill-environment && docker-compose down)
+
 build:
 	(cd bill-environment && docker-compose build nginx postgres)
