@@ -26,9 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
         Route::prefix('content')->middleware('role:writer')->group(function () {
             Route::prefix('articles')->group(function () {
-                Route::get('/', function () {
-                    return Inertia::render('ArticlesManager');
-                })->name('manage-articles');
+                Route::get('/', 'DashboardController@listArticles')->name('manage-articles');
             });
         });
     });
