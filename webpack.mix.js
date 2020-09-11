@@ -19,4 +19,5 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
 
 mix.alias({
     '@': '/resources/js',
+    '~': '/resources/js/Components',
 });
