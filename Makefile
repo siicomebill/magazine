@@ -13,3 +13,6 @@ destroy:
 
 build:
 	(cd bill-environment && docker-compose build nginx postgres)
+
+rebuild:
+	(cd bill-environment && docker-compose build --no-cache nginx postgres)
