@@ -12,12 +12,17 @@ require('laravel-mix-alias');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-]);
+mix
+    .js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
+        postCss: [
+            require('postcss-import'),
+            require('tailwindcss'),
+        ]
+    })
 
 mix.alias({
     '@': '/resources/js',
     '~': '/resources/js/Components',
-});
+})

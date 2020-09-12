@@ -1,0 +1,30 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// The editor's internal container
+.editor {
+    // The commands container
+    .commands.internal {
+        // The single command button
+        button {
+            background-color: red;
+            // A button when its property is activated
+            &.is-active {
+                background-color: green;
+            }
+        }
+    }
+    // The editor itself
+    .content {
+        color: black;
+    }
+}
+
+// The external component
+.reader {
+    // The content
+    .content {
+        color: black;
+    }
+}
