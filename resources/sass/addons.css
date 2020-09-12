@@ -1,9 +1,13 @@
+body{
+    @apply bg-gray-200 bg-opacity-25;
+}
+
 button:focus, input:focus, textarea:focus {
     @apply outline-none;
 }
 
 .editor .commands {
-    @apply justify-center;
+    @apply flex justify-center;
 }
 
 .editor .content {
@@ -11,7 +15,7 @@ button:focus, input:focus, textarea:focus {
 }
 
 .editor .commands button {
-    @apply shadow px-4 py-2 bg-gray-800 text-white rounded-lg;
+    @apply shadow px-4 py-2 mx-1 bg-gray-800 text-white rounded-lg;
 }
 
 .editor .commands button.is-active {
