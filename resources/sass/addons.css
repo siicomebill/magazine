@@ -1,0 +1,7 @@
+.editor .commands button {
+    @apply shadow p-4 bg-gray-800 text-white rounded-lg;
+}
+
+.editor .commands button.is-active {
+    @apply transition duration-100 bg-orange-500;
+}
