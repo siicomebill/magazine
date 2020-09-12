@@ -29,6 +29,6 @@
     },
     "dependencies": {
         "laravel-mix-alias": "^1.0.2",
-        "vue-publisher": "^1.0.7"
+        "vue-publisher": "^1.0.8"
     }
 }
