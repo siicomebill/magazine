@@ -20,4 +20,9 @@ class DashboardController extends Controller
             'articles' => $articles
         ]);
     }
+
+    public function newArticlePage()
+    {
+        return Inertia::render('NewArticle');
+    }
 }

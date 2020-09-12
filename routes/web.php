@@ -24,6 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::prefix('content')->middleware('role:writer')->group(function () {
             Route::prefix('articles')->group(function () {
                 Route::get('/', 'DashboardController@listArticles')->name('manage-articles');
+                Route::get('new', 'DashboardController@newArticlePage')->name('new-articles');
             });
         });
     });
