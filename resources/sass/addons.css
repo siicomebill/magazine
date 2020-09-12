@@ -2,8 +2,16 @@ button:focus, input:focus, textarea:focus {
     @apply outline-none;
 }
 
+.editor .commands {
+    @apply justify-center;
+}
+
+.editor .content {
+    @apply my-4
+}
+
 .editor .commands button {
-    @apply shadow p-4 bg-gray-800 text-white rounded-lg;
+    @apply shadow px-4 py-2 bg-gray-800 text-white rounded-lg;
 }
 
 .editor .commands button.is-active {
