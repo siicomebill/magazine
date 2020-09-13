@@ -31,7 +31,7 @@ class ArticleController extends Controller
         $article = Article::find($request->id);
 
         return Inertia::render('NewArticle', [
-            "stored" => $article ?? [],
+            "stored" => $article ?? null,
             "publishTo" => URL::route('articles.publish')
         ]);
     }
