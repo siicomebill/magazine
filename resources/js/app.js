@@ -10,6 +10,23 @@ Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
 
+Vue.mixin({
+    methods: {
+        error(field, errorBag = 'default') {
+            console.log(this.$page.errors);
+            if (!this.$page.errors.hasOwnProperty(errorBag)) {
+                return null;
+            }
+
+            if (this.$page.errors[errorBag].hasOwnProperty(field)) {
+                return this.$page.errors[errorBag][field][0];
+            }
+
+            return null;
+        }
+    }
+});
+
 const app = document.getElementById('app');
 
 new Vue({
