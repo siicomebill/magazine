@@ -14,6 +14,12 @@ class ArticleController extends Controller
     {
         $articles = Article::user($request->user()->id)->with(['author', 'category'])->get();
 
+        $articles->each(function ($value, $key) {
+            $value["links"] = [
+                "edit" => URL::route('articles.write', $value->id)
+            ];
+        });
+
         return Inertia::render('ArticlesManager', [
             //TODO Insert links to edit, remove, publish, etc.
             'articles' => $articles
@@ -34,19 +40,17 @@ class ArticleController extends Controller
     {
         $user = auth()->user();
 
-        if($request->id){
+        if ($request->id) {
             $article = $user->articles()->find($request->id);
 
-            if($article){
+            if ($article) {
                 $article->save($request->all());
                 return redirect()->route('articles.list');
-            }
-            else{
+            } else {
                 //TODO Populate error bag
                 return redirect()->back('500');
             }
-        }
-        else {
+        } else {
             $user->articles()->create($request->all());
             return redirect()->route('articles.list');
         }
