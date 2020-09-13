@@ -26,7 +26,7 @@ class ArticleRequest extends FormRequest
         return [
             "title" => "required|max:50",
             "snippet" => "required|max:150",
-            "content" => "required|json",
+            "content" => "required|array",
         ];
     }
 }
