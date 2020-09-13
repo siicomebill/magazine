@@ -24,6 +24,7 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
+            "id" => "numeric",
             "title" => "required|max:50",
             "snippet" => "required|max:150",
             "content" => "required|array",

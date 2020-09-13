@@ -21,13 +21,33 @@ class ArticleController extends Controller
 
     public function newArticlePage(Request $request)
     {
+        $article = Article::find($request->id);
+
         return Inertia::render('NewArticle', [
+            "stored" => $article ?? [],
             "publishTo" => URL::route('articles.publish')
         ]);
     }
 
     public function store(ArticleRequest $request)
     {
-        dd($request->all());
+        $user = auth()->user();
+
+        if($request->id){
+            $article = $user->articles()->find($request->id);
+
+            if($article){
+                $article->save($request->all());
+                return redirect()->route('articles.list');
+            }
+            else{
+                //TODO Populate error bag
+                return redirect()->back('500');
+            }
+        }
+        else {
+            $user->articles()->create($request->all());
+            return redirect()->route('articles.list');
+        }
     }
 }

@@ -9,6 +9,14 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "title",
+        "snippet",
+        "content",
+        "category",
+        "user"
+    ];
+
     protected $casts = [
         "content" => "array"
     ];

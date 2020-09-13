@@ -5,7 +5,7 @@
         <div class="mb-4">
           <input
             type="text"
-            v-model="article.title"
+            v-model="editedArticle.title"
             placeholder="Title"
             class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-3xl font-bold text-gray-700"
             :class="{ 'border border-red-500': error('title') }"
@@ -16,7 +16,7 @@
         <div class="my-4">
           <textarea
             type="text"
-            v-model="article.snippet"
+            v-model="editedArticle.snippet"
             placeholder="Snippet"
             class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-xl text-gray-700"
             :class="{ 'border border-red-500': error('snippet') }"
@@ -26,7 +26,7 @@
 
         <div class="my-4">
           <Publisher
-            v-model="article.content"
+            v-model="editedArticle.content"
             class="shadow rounded-lg p-2 bg-white"
             :class="{ 'border border-red-500': error('snippet') }"
           />
@@ -51,20 +51,27 @@ export default {
   },
   methods: {
     async publish() {
-      let response = await this.$inertia.post(this.publishTo, this.article);
+      await this.$inertia.post(this.publishTo, this.editedArticle);
     },
   },
   props: {
     publishTo: String,
+    stored: {
+      type: [Object, Array],
+      required: false
+    },
   },
   data() {
     return {
-      article: {
+      editedArticle: {
         title: "",
         snippet: "",
         content: {},
       },
     };
   },
+  mounted(){
+    this.editedArticle = this.editedArticle ?? this.stored
+  }
 };
 </script>
