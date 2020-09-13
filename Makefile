@@ -5,6 +5,9 @@ init:
 start:
 	(cd bill-environment && docker-compose up -d nginx postgres)
 
+restart:
+	(cd bill-environment && docker-compose restart nginx postgres)
+
 stop:
 	(cd bill-environment && docker-compose stop)
 
