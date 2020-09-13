@@ -15,6 +15,7 @@ class ArticleController extends Controller
         $articles = Article::user($request->user()->id)->with(['author', 'category'])->get();
 
         return Inertia::render('ArticlesManager', [
+            //TODO Insert links to edit, remove, publish, etc.
             'articles' => $articles
         ]);
     }
