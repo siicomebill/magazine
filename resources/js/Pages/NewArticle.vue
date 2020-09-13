@@ -71,7 +71,7 @@ export default {
     };
   },
   mounted(){
-    this.editedArticle = this.editedArticle ?? this.stored
+    this.editedArticle =  this.stored ?? this.editedArticle
   }
 };
 </script>
