@@ -13,7 +13,6 @@ Vue.use(PortalVue);
 Vue.mixin({
     methods: {
         error(field, errorBag = 'default') {
-            console.log(this.$page.errors);
             if (!this.$page.errors.hasOwnProperty(errorBag)) {
                 return null;
             }
