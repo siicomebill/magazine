@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::prefix('content')->middleware('role:writer')->group(function () {
             Route::prefix('articles')->group(function () {
                 Route::get('/', 'ArticleController@mine')->name('articles.list');
-                Route::get('write/{id?}', 'ArticleController@newArticlePage')->name('articles.new');
+                Route::get('write/{id?}', 'ArticleController@newArticlePage')->name('articles.write');
 
                 Route::post('publish', 'ArticleController@store')->name('articles.publish');
             });
