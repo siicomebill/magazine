@@ -5,8 +5,8 @@
         <template #footer>
           <div>
             <div class="justify-end flex">
-              <button class="mx-1 hover:shadow-xl bg-gray-100 px-4 py-2 rounded-lg transition-shadow duration-200">Edit</button>
-              <button class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200">Delete</button>
+              <a :href="article.links.edit" class="mx-1 hover:shadow-xl bg-gray-100 px-4 py-2 rounded-lg transition-shadow duration-200">Edit</a>
+              <a href="#" class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200">Delete</a>
             </div>
           </div>
         </template>
