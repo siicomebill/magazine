@@ -45,5 +45,11 @@
     <main>
       <slot></slot>
     </main>
+
+    <section class="py-6 bg-gray-200 text-gray-700">
+      <div class="container mx-auto">
+        <p>Sii Come Bill Magazine · Questa è solo una prova... infatti la grafica è da rivedere</p>
+      </div>
+    </section>
   </div>
 </template>
