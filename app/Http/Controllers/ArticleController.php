@@ -45,14 +45,14 @@ class ArticleController extends Controller
 
             if ($article) {
                 $article->update($request->all());
-                return redirect()->route('articles.list');
+                return redirect()->route('articles.list.mine');
             } else {
                 //TODO Populate error bag
                 return redirect()->back('500');
             }
         } else {
             $user->articles()->create($request->all());
-            return redirect()->route('articles.list');
+            return redirect()->route('articles.list.mine');
         }
     }
 }
