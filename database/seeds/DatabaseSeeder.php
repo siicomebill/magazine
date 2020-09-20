@@ -16,8 +16,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RolesTableSeeder::class,
-            UserSeeder::class,
-            ArticleSeeder::class,
         ]);
+
+        if(env('APP_ENV') != 'production'){
+            $this->call([
+                UserSeeder::class,
+                ArticleSeeder::class,
+            ]);
+        }
     }
 }
