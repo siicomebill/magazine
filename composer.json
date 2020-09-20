@@ -17,7 +17,8 @@
         "laravel/jetstream": "^1.0",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
-        "spatie/laravel-permission": "^3.16"
+        "spatie/laravel-permission": "^3.16",
+        "tightenco/ziggy": "^0.9.4"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

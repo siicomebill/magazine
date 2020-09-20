@@ -29,6 +29,7 @@
     },
     "dependencies": {
         "laravel-mix-alias": "^1.0.2",
-        "vue-publisher": "^1.0.12"
+        "vue-publisher": "^1.0.12",
+        "ziggy-js": "^0.9.4"
     }
 }

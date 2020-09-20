@@ -1,18 +1,20 @@
-require('./bootstrap');
+require("./bootstrap");
 
-import Vue from 'vue';
+import Vue from "vue";
 
-import { InertiaApp } from '@inertiajs/inertia-vue';
-import { InertiaForm } from 'laravel-jetstream';
-import PortalVue from 'portal-vue';
+import { InertiaApp } from "@inertiajs/inertia-vue";
+import { InertiaForm } from "laravel-jetstream";
+import PortalVue from "portal-vue";
+import route from "ziggy-js";
 
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
+Vue.prototype.$route = (...args) => route(...args).url(); //TODO Test this
 
 Vue.mixin({
     methods: {
-        error(field, errorBag = 'default') {
+        error(field, errorBag = "default") {
             if (!this.$page.errors.hasOwnProperty(errorBag)) {
                 return null;
             }
@@ -26,14 +28,14 @@ Vue.mixin({
     }
 });
 
-const app = document.getElementById('app');
+const app = document.getElementById("app");
 
 new Vue({
-    render: (h) =>
+    render: h =>
         h(InertiaApp, {
             props: {
                 initialPage: JSON.parse(app.dataset.page),
-                resolveComponent: (name) => require(`./Pages/${name}`).default,
-            },
-        }),
+                resolveComponent: name => require(`./Pages/${name}`).default
+            }
+        })
 }).$mount(app);
