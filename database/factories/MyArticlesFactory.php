@@ -26,6 +26,7 @@ class MyArticlesFactory extends Factory
             "user_id" => 1,
             "title" => $this->faker->word,
             "snippet" => $this->faker->paragraph,
+            "image" => "https://picsum.photos/seed/picsum/500/300",
             "content" => [
                 'type' => 'doc',
                 'content' =>
