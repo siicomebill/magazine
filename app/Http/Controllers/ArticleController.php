@@ -23,7 +23,6 @@ class ArticleController extends Controller
         });
 
         return Inertia::render('ArticlesManager', [
-            //TODO Insert links to edit, remove, publish, etc.
             'articles' => $articles
         ]);
     }
