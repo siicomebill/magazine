@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::all(["name", "id"]);
 
         return Inertia::render('Categories', [
             "categories" => $categories
