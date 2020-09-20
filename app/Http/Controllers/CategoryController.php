@@ -8,12 +8,17 @@ use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $categories = Category::all();
 
         return Inertia::render('Categories', [
             "categories" => $categories
         ]);
+    }
+
+    public function articlesOfCategory($id)
+    {
+        dd($id);
     }
 }

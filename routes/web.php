@@ -17,6 +17,7 @@ Route::get('/', 'PublicPagesController@index');
 
 Route::prefix('categories')->group(function () {
     Route::get('/', 'CategoryController@index')->name('categories');
+    Route::get('{id}', 'CategoryController@articlesOfCategory')->name('category.articles');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
