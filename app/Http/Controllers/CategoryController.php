@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
     public function articlesOfCategory($id)
     {
-        $articles = Category::findOrFail($id)->articles;
+        $articles = Category::findOrFail($id)->articles()->with('author')->get();
 
         return Inertia::render('ArticleList', [
             "articles" => $articles
