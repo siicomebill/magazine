@@ -6,7 +6,7 @@
     </div>
 
     <div class="container mx-auto my-5">
-      <Card v-bind="article" v-for="article in articles" :key="article.id" />
+      <Card v-bind="article" v-for="article in articles" :key="article.id" :href="$route('articles.read', article.id)"/>
     </div>
   </div>
 </template>
