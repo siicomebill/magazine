@@ -27,7 +27,7 @@
         <div class="my-4">
           <select class="bg-white rounded-lg p-4 shadow" v-model="edited.category_id">
             <option disabled :selected="!edited.category_id">Categoria</option>
-            <option v-for="category in categories" :key="category.id" :value="category_id">{{category.name}}</option>
+            <option v-for="category in categories" :key="category.id" :value="category.id">{{category.name}}</option>
           </select>
           <span class="text-red-500 text-sm italic" v-if="error('category_id')">{{error('category_id')}}</span>
         </div>
