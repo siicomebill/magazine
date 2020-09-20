@@ -25,6 +25,14 @@
         </div>
 
         <div class="my-4">
+          <select class="bg-white rounded-lg p-4 shadow" v-model="edited.category_id">
+            <option disabled :selected="!edited.category_id">Categoria</option>
+            <option v-for="category in categories" :key="category.id" :value="category_id">{{category.name}}</option>
+          </select>
+          <span class="text-red-500 text-sm italic" v-if="error('category_id')">{{error('category_id')}}</span>
+        </div>
+
+        <div class="my-4">
           <Publisher
             v-model="edited.content"
             class="shadow rounded-lg p-2 bg-white"
@@ -51,12 +59,16 @@ export default {
   components: {
     Publisher,
   },
+  props: {
+    categories: Array,
+  },
   data() {
     return {
       edited: {
         title: "",
         snippet: "",
         content: {},
+        category_id: "",
       },
     }
   }
