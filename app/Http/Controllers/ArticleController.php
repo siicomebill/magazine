@@ -62,7 +62,7 @@ class ArticleController extends Controller
     public function read($id)
     {
         return Inertia::render('Article', [
-            "article" => Article::findOrFail($id)
+            "article" => Article::with('category')->findOrFail($id)
         ]);
     }
 
