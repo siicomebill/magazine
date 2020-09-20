@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -24,6 +25,7 @@ class MyArticlesFactory extends Factory
     {
         return [
             "user_id" => 1,
+            "category_id" => Category::all()->random()->id,
             "title" => $this->faker->word,
             "snippet" => $this->faker->paragraph,
             "image" => "https://picsum.photos/seed/picsum/500/300",
