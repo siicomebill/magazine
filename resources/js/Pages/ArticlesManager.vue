@@ -6,7 +6,7 @@
           <div>
             <div class="justify-end flex">
               <a :href="article.links.edit" class="mx-1 hover:shadow-xl bg-gray-100 px-4 py-2 rounded-lg transition-shadow duration-200">Edit</a>
-              <a href="#" class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200">Delete</a>
+              <a :href="article.links.delete" class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200">Delete</a>
             </div>
           </div>
         </template>

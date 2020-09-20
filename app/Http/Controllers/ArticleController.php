@@ -16,7 +16,8 @@ class ArticleController extends Controller
 
         $articles->each(function ($value, $key) {
             $value["links"] = [
-                "edit" => URL::route('articles.write', $value->id)
+                "edit" => URL::route('articles.write', $value->id),
+                "delete" => URL::route('articles.delete', $value->id),
             ];
         });
 
@@ -54,5 +55,12 @@ class ArticleController extends Controller
             $user->articles()->create($request->all());
             return redirect()->route('articles.list.mine');
         }
+    }
+
+    public function delete($id)
+    {
+        Article::findOrFail($id)->delete();
+
+        return redirect()->route('articles.list.mine');
     }
 }
