@@ -44,7 +44,7 @@ class ArticleController extends Controller
             $article = $user->articles()->find($request->id);
 
             if ($article) {
-                $article->save($request->all());
+                $article->update($request->all());
                 return redirect()->route('articles.list');
             } else {
                 //TODO Populate error bag
