@@ -31,11 +31,11 @@
         </div>
         <div>
           <a
-            href="#"
+            :href="$route('login')"
             class="inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent mt-4 lg:mt-0"
           >Login</a>
           <a
-            href="#"
+            :href="$route('register')"
             class="inline-block text-sm px-4 py-2 leading-none mt-4 lg:mt-0"
           >Registrati</a>
         </div>
