@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:flex bg-white rounded-lg my-4 shadow-xl">
+  <a class="block w-full lg:flex bg-white rounded-lg my-4 shadow-xl" :href="href">
     <div v-if="image" class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t-lg lg:rounded-t-none lg:rounded-l-lg text-center overflow-hidden" :style="{ 'background-image': 'url(' + image + ')' }" title="Thumbnail"></div>
     <div class="flex flex-col p-4 w-full justify-between leading-normal">
       <div class="mb-8">
@@ -26,7 +26,7 @@
         <slot name="footer"></slot>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -44,6 +44,10 @@ export default {
     author: {
       type: Object,
       required: true,
+    },
+    href: {
+      type: String,
+      required: false,
     },
   },
 };
