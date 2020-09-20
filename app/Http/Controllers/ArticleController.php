@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
@@ -30,10 +31,12 @@ class ArticleController extends Controller
     public function newArticlePage(Request $request)
     {
         $article = Article::find($request->id);
+        $categories = Category::all(["name", "id"]);
 
         return Inertia::render('NewArticle', [
             "stored" => $article ?? null,
-            "publishTo" => URL::route('articles.publish')
+            "publishTo" => URL::route('articles.publish'),
+            "categories" => $categories
         ]);
     }
 
