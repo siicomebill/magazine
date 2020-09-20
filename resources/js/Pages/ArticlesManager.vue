@@ -17,8 +17,10 @@
 
 <script>
 import Card from "~/Card";
+import Layout from '@/Layouts/AppLayout'
 
 export default {
+  layout: Layout,
   components: {
     Card,
   },
