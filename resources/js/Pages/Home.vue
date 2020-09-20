@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="py-20 bg-gray-800 text-white -mb-10 pb-30">
+    <div class="py-20 bg-black text-white -mb-10 pb-30">
       <div class="container mx-auto">
         <h1 class="text-6xl">Bill</h1>
         <p class="text-sm">This is just a demo, the content and the graphics will be worked on in the end.</p>
