@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
+      <!-- <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
         <div class="flex items-center">
           <svg
             fill="none"
@@ -90,7 +90,7 @@
             </div>
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
