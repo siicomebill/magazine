@@ -17,17 +17,9 @@
       <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
           <a
-            href="#responsive-header"
+            :href="$route('categories')"
             class="block mt-4 lg:inline-block lg:mt-0 mr-4"
-          >Categoria 1</a>
-          <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 mr-4"
-          >Categoria 2</a>
-          <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0"
-          >Categoria 3</a>
+          >Categorie</a>
         </div>
 
         <div v-if="$page.auth">
