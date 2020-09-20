@@ -2,7 +2,7 @@
   <div>
     <nav class="flex items-center justify-between flex-wrap p-6">
       <div class="flex items-center flex-shrink-0 mr-6">
-        <span class="font-semibold text-xl tracking-tight">BILL</span>
+        <a href="/" class="font-semibold text-xl tracking-tight">BILL</a>
       </div>
       <div class="block lg:hidden">
         <button
