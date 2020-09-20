@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PublicPagesController@index');
-Route::get('/categories', 'CategoryController@index');
+
+Route::prefix('categories')->group(function () {
+    Route::get('/', 'CategoryController@index')->name('categories');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
