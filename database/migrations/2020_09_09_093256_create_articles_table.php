@@ -25,7 +25,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('snippet');
             $table->jsonb('content');
-            $table->string('image');
+            $table->string('image')->nullable();
 
             $table->timestamps();
         });
