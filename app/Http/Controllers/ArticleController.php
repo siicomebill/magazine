@@ -59,6 +59,13 @@ class ArticleController extends Controller
         }
     }
 
+    public function read($id)
+    {
+        return Inertia::render('Article', [
+            "article" => Article::findOrFail($id)
+        ]);
+    }
+
     public function delete($id)
     {
         Article::findOrFail($id)->delete();
