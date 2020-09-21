@@ -45,8 +45,8 @@ These are not the only processes that you can start, for a full list of what you
 
 ### Have fun coding!
 
-Thank you for contributing to our project, please follow our [code of conduct](#) in order to keep everything clean and organized!
+Thank you for contributing to our project, please follow our [code of conduct](CODE_OF_CONDUCT.md) in order to keep everything clean and organized!
 
-___
-#### Visit the website 👉 [here](#)
+## Stats
 
+[![GitHub issues](https://img.shields.io/github/issues/sinisimattia/bill?color=gray&logo=github&style=for-the-badge)](https://github.com/sinisimattia/bill/issues)
