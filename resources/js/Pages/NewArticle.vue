@@ -47,7 +47,7 @@
           <Publisher
             v-model="edited.content"
             class="shadow rounded-lg p-2 bg-white"
-            :class="{ 'border border-red-500': error('snippet') }"
+            :class="{ 'border border-red-500': error('content') }"
           />
           <span class="text-red-500 text-sm italic" v-if="error('content')">{{error('content')}}</span>
         </div>
