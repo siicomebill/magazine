@@ -14,12 +14,12 @@
         <p class="font-bold text-2xl text-primary mb-2">{{ title }}</p>
         <p class="text-gray-700 text-base">{{ snippet }}</p>
         <div class="my-3">
-          <img
+          <!-- <img
             class="w-10 h-10 rounded-full mr-4"
             v-if="author.profile_photo_path"
             :alt="author.name[0]"
             :src="author.profile_photo_path"
-          />
+          /> -->
           <div class="text-sm">
             <p class="text-gray-500 leading-none">{{ author.name }}</p>
           </div>
