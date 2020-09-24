@@ -25,8 +25,9 @@ class ArticleRequest extends FormRequest
     {
         return [
             "id" => "numeric",
-            "title" => "required|max:50",
-            "snippet" => "required|max:150",
+            "title" => "required",
+            "image" => "url",
+            "snippet" => "required",
             "content" => "required|array",
         ];
     }
