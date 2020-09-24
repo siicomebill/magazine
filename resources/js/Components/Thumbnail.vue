@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative block">
     <div :class="`aspect-ratio-${aspectRatio}`"></div>
     <img :src="src" class="absolute left-0 top-0 bottom-0 right-0 w-full h-full object-cover" />
   </div>
