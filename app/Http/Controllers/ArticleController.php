@@ -13,7 +13,7 @@ class ArticleController extends Controller
 {
     public function mine(Request $request)
     {
-        $articles = Article::user($request->user()->id)->with(['author', 'category'])->get();
+        $articles = Article::user($request->user()->id)->get();
 
         $articles->each(function ($value, $key) {
             $value["links"] = [
@@ -62,7 +62,7 @@ class ArticleController extends Controller
     public function read($id)
     {
         return Inertia::render('Article', [
-            "article" => Article::with(['category', 'author'])->findOrFail($id)
+            "article" => Article::findOrFail($id)
         ]);
     }   
 

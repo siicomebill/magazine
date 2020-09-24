@@ -5,19 +5,30 @@
         <div class="mb-4">
           <input
             type="text"
-            v-model="edited.title"
-            placeholder="Title"
+            v-model="edited.name"
+            placeholder="Name"
             class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-3xl font-bold text-gray-700"
-            :class="{ 'border border-red-500': error('title') }"
+            :class="{ 'border border-red-500': error('name') }"
           />
-          <span class="text-red-500 text-sm italic" v-if="error('title')">{{error('title')}}</span>
+          <span class="text-red-500 text-sm italic" v-if="error('name')">{{error('name')}}</span>
+        </div>
+
+        <div class="my-4">
+          <input
+            type="text"
+            v-model="edited.link"
+            placeholder="Link"
+            class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-gray-700"
+            :class="{ 'border border-red-500': error('link') }"
+          />
+          <span class="text-red-500 text-sm italic" v-if="error('link')">{{error('link')}}</span>
         </div>
 
         <div class="my-4">
           <input
             type="text"
             v-model="edited.image"
-            placeholder="Link to image"
+            placeholder="Image URL"
             class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-gray-700"
             :class="{ 'border border-red-500': error('image') }"
           />
@@ -36,20 +47,13 @@
         </div>
 
         <div class="my-4">
-          <select class="bg-white rounded-lg p-4 shadow" v-model="edited.category_id">
-            <option disabled :selected="!edited.category_id">Categoria</option>
-            <option v-for="category in categories" :key="category.id" :value="category.id">{{category.name}}</option>
-          </select>
-          <span class="text-red-500 text-sm italic" v-if="error('category_id')">{{error('category_id')}}</span>
-        </div>
-
-        <div class="my-4">
-          <Publisher
-            v-model="edited.content"
+          <input
+            v-model="edited.cta"
+            placeholder="Call to action"
             class="shadow rounded-lg p-2 bg-white"
-            :class="{ 'border border-red-500': error('content') }"
+            :class="{ 'border border-red-500': error('cta') }"
           />
-          <span class="text-red-500 text-sm italic" v-if="error('content')">{{error('content')}}</span>
+          <span class="text-red-500 text-sm italic" v-if="error('cta')">{{error('cta')}}</span>
         </div>
 
         <button
@@ -64,25 +68,21 @@
 <script>
 import Layout from '@/Layouts/AppLayout'
 import Form from '~/Base/Form'
-import { Publisher } from "vue-publisher"
 
 export default {
   layout: Layout,
   extends: Form,
-  components: {
-    Publisher,
-  },
   props: {
     categories: Array,
   },
   data() {
     return {
       edited: {
-        title: "",
+        name: "",
         snippet: "",
-        content: {},
-        category_id: "",
+        cta: "",
         image: "",
+        link: "",
       },
     }
   }

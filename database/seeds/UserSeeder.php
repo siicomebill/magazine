@@ -24,6 +24,6 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        $user->assignRole('writer', 'reader');
+        $user->assignRole('writer', 'reader', 'admin');
     }
 }

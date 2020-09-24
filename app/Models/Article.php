@@ -14,11 +14,17 @@ class Article extends Model
         "snippet",
         "content",
         "category",
-        "user"
+        "user",
+        "image"
     ];
 
     protected $casts = [
         "content" => "array"
+    ];
+
+    protected $with = [
+        "author",
+        "category"
     ];
 
     public function category()
