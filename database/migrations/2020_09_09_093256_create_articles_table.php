@@ -19,8 +19,8 @@ class CreateArticlesTable extends Migration
             $table->bigInteger('category_id')->nullable();
 
 
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('set null');
 
             $table->string('title');
             $table->string('snippet');
