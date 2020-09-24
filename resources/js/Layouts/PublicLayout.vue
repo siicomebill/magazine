@@ -5,21 +5,34 @@
         <a href="/" class="font-semibold text-xl tracking-tight">BILL</a>
       </div>
       <div class="block lg:hidden">
-        <button
-          class="flex items-center px-3 py-2 border rounded border-teal-400 hover:border-white"
-        >
-          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
+        <div class="-mr-2 flex items-center">
+          <button
+            @click="showDropdown = ! showDropdown"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+          >
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path
+                :class="{'hidden': showDropdown, 'inline-flex': ! showDropdown }"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+              <path
+                :class="{'hidden': ! showDropdown, 'inline-flex': showDropdown }"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+
+      <div  :class="{'block': showDropdown, 'hidden': ! showDropdown}" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
-          <a
-            :href="$route('categories')"
-            class="block mt-4 lg:inline-block lg:mt-0 mr-4"
-          >Categorie</a>
+          <a :href="$route('categories')" class="block mt-4 lg:inline-block lg:mt-0 mr-4">Categorie</a>
         </div>
 
         <div v-if="$page.auth">
@@ -53,3 +66,13 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      showDropdown: false,
+    };
+  },
+};
+</script>
