@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <!-- <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
+      <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l" v-if="userIsAdmin">
         <div class="flex items-center">
           <svg
             fill="none"
@@ -65,7 +65,7 @@
             <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">
-            <a href="#">Sponsors</a>
+            <a :href="$route('sponsors.list')">Sponsors</a>
           </div>
         </div>
 
@@ -90,7 +90,17 @@
             </div>
           </a>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    userIsAdmin(){
+      return this.$page.user.roles.some(role => role.name == "admin")
+    }
+  }
+}
+</script>
