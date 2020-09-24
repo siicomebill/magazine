@@ -1,13 +1,13 @@
 <template>
   <div>
     <nav
-      class="sticky top-0 bg-white shadow-lg flex items-center justify-between flex-wrap p-6"
+      class="sticky top-0 lg:bg-white lg:text-black bg-black text-white shadow-lg flex items-center justify-between flex-wrap lg:p-6 px-4"
     >
       <div class="flex items-center flex-shrink-0 mr-6">
         <a href="/" class="font-semibold text-xl tracking-tight">BILL</a>
       </div>
 
-      <Dropdown>
+      <Dropdown class="text-black">
         <div class="text-sm lg:flex-grow">
           <a
             :href="$route('categories')"
