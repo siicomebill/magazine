@@ -8,7 +8,7 @@
         >This is just a demo, the content and the graphics will be worked on in the end. Here is where the slogan will be</p>
       </div>
     </div>
-    <div class="container mx-auto grid grid-cols-3 gap-4">
+    <div class="container mx-auto lg:grid grid-cols-3 gap-4">
       <Card v-bind="article" v-for="article in articles" :key="article.id" :href="$route('articles.read', article.id)"/>
     </div>
   </div>
