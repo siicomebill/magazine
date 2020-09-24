@@ -51,10 +51,12 @@
 </template>
 
 <script>
+import Layout from '@/Layouts/AppLayout'
 import Form from '~/Base/Form'
 import { Publisher } from "vue-publisher"
 
 export default {
+  layout: Layout,
   extends: Form,
   components: {
     Publisher,
