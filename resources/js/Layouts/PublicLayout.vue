@@ -7,7 +7,7 @@
         <a href="/" class="font-semibold text-xl tracking-tight">BILL</a>
       </div>
 
-      <Dropdown class="text-black">
+      <Dropdown class="text-black lg:flex-grow">
         <div class="text-sm lg:flex-grow">
           <a
             :href="$route('categories')"
