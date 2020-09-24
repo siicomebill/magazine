@@ -5,6 +5,7 @@
   >
     <Thumbnail
       :src="image"
+      :alt="title"
       aspectRatio="square"
       class="w-auto rounded-t-lg text-center overflow-hidden"
     />
