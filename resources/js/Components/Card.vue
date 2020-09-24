@@ -51,12 +51,12 @@ export default {
     },
     snippet: {
       type: String,
-      required: true,
+      required: false,
     },
     image: String,
     author: {
       type: Object,
-      required: true,
+      required: false,
     },
     href: {
       type: String,
