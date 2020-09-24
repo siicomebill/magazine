@@ -26,7 +26,7 @@ class ArticleRequest extends FormRequest
         return [
             "id" => "numeric",
             "title" => "required",
-            "image" => "url",
+            "image" => "url|nullable",
             "snippet" => "required",
             "content" => "required|array",
         ];
