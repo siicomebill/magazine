@@ -42,6 +42,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::middleware('role:admin')->group(function () {
                 Route::prefix('sponsors')->group(function () {
                     Route::get('/', 'SponsorController@index')->name('sponsors.list');
+
+                    Route::get('write/{id?}', 'SponsorController@newSponsorPage')->name('sponsors.write');
+                    Route::get('delete/{id?}', 'SponsorController@delete')->name('sponsors.delete');
+
+                    Route::post('publish', 'SponsorController@store')->name('sponsors.publish');
                 });
             });
         });

@@ -2,20 +2,27 @@
   <div>
     <div class="container mx-auto my-5">
       <a
-        :href="$route('articles.write')"
+        :href="$route('sponsors.write')"
         class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-lg transition-shadow duration-200"
-      >Nuovo</a>
+        >Nuovo</a
+      >
 
-      <Card v-bind="article" v-for="article in sponsors" :key="article.id">
+      <Card
+        v-for="sponsor in sponsors"
+        :key="sponsor.id"
+        :title="sponsor.name"
+        :snippet="sponsor.snippet"
+        :image="sponsor.image"
+      >
         <template #footer>
           <div>
             <div class="justify-end flex">
               <a
-                :href="article.links.edit"
+                :href="sponsor.links.edit"
                 class="mx-1 hover:shadow-xl bg-gray-100 px-4 py-2 rounded-lg transition-shadow duration-200"
               >Edit</a>
               <a
-                :href="article.links.delete"
+                :href="sponsor.links.delete"
                 class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200"
               >Delete</a>
             </div>
