@@ -12,7 +12,7 @@ class PublicPagesController extends Controller
     public function index(Request $request)
     {
         return Inertia::render('Home', [
-            "articles" => Article::with(['author'])->get(),
+            "articles" => Article::all(),
             "sponsors" => Sponsor::all(),
         ]);
     }
