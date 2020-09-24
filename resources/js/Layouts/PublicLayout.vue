@@ -44,7 +44,7 @@
     </main>
 
     <section class="py-6 bg-gray-200 text-gray-700">
-      <div class="container mx-auto">
+      <div class="container mx-auto px-4 md:px-0">
         <p>
           Sii Come Bill Magazine · Questa è solo una prova... infatti la grafica
           è da rivedere
