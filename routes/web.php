@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PublicPagesController@index');
 
 Route::prefix('categories')->group(function () {
-    Route::get('/', 'CategoryController@index')->name('categories');
+    Route::get('/', 'CategoryController@getMinimal')->name('categories');
     Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
 });
 
@@ -47,6 +47,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     Route::get('delete/{id?}', 'SponsorController@delete')->name('sponsors.delete');
 
                     Route::post('publish', 'SponsorController@store')->name('sponsors.publish');
+                });
+
+                Route::prefix('categories')->group(function () {
+                    Route::get('/', 'CategoryController@index')->name('categories.list');
+                    Route::get('write/{id?}', 'CategoryController@newCategoryPage')->name('categories.write');
+                    Route::get('delete/{id?}', 'CategoryController@delete')->name('categories.delete');
+
+                    Route::post('publish', 'CategoryController@store')->name('categories.publish');
                 });
             });
         });
