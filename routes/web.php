@@ -38,6 +38,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     Route::post('publish', 'ArticleController@store')->name('articles.publish');
                 });
             });
+
+            Route::middleware('role:admin')->group(function () {
+                Route::prefix('sponsors')->group(function () {
+                    Route::get('/', 'SponsorsController@index')->name('sponsors.list');
+                });
+            });
         });
     });
 });
