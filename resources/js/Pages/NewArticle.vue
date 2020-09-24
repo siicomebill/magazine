@@ -14,6 +14,17 @@
         </div>
 
         <div class="my-4">
+          <input
+            type="text"
+            v-model="edited.image"
+            placeholder="Link to image"
+            class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-gray-700"
+            :class="{ 'border border-red-500': error('image') }"
+          />
+          <span class="text-red-500 text-sm italic" v-if="error('image')">{{error('image')}}</span>
+        </div>
+
+        <div class="my-4">
           <textarea
             type="text"
             v-model="edited.snippet"
@@ -71,6 +82,7 @@ export default {
         snippet: "",
         content: {},
         category_id: "",
+        image: "",
       },
     }
   }
