@@ -14,7 +14,8 @@ class Article extends Model
         "snippet",
         "content",
         "category",
-        "user"
+        "user",
+        "image"
     ];
 
     protected $casts = [
