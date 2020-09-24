@@ -20,7 +20,7 @@
             :alt="author.name[0]"
             :src="author.profile_photo_path"
           /> -->
-          <div class="text-sm">
+          <div class="text-sm" v-if="author">
             <p class="text-gray-500 leading-none">{{ author.name }}</p>
           </div>
         </div>
