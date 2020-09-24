@@ -74,7 +74,7 @@
             class="mt-2 text-sm text-gray-500"
           >Stringi collaborazioni con degli sponsor e fai apparire il loro brand in mezzo agli articoli.</div>
 
-          <a href="#">
+          <a :href="$route('articles.list.mine')">
             <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
               <div>Sponsorizza</div>
 
