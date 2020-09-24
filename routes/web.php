@@ -28,13 +28,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
-        Route::prefix('content')->middleware('role:writer')->group(function () {
-            Route::prefix('articles')->group(function () {
-                Route::get('/', 'ArticleController@mine')->name('articles.list.mine');
-                Route::get('write/{id?}', 'ArticleController@newArticlePage')->name('articles.write');
-                Route::get('delete/{id?}', 'ArticleController@delete')->name('articles.delete');
+        Route::prefix('content')->group(function () {
+            Route::middleware('role:writer')->group(function () {
+                Route::prefix('articles')->group(function () {
+                    Route::get('/', 'ArticleController@mine')->name('articles.list.mine');
+                    Route::get('write/{id?}', 'ArticleController@newArticlePage')->name('articles.write');
+                    Route::get('delete/{id?}', 'ArticleController@delete')->name('articles.delete');
 
-                Route::post('publish', 'ArticleController@store')->name('articles.publish');
+                    Route::post('publish', 'ArticleController@store')->name('articles.publish');
+                });
             });
         });
     });
