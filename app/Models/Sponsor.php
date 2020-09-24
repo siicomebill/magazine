@@ -14,9 +14,6 @@ class Sponsor extends Model
         "snippet",
         "cta",
         "image",
-    ];
-
-    protected $hidden = [
-        "id"
+        "link",
     ];
 }

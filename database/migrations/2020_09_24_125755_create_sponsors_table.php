@@ -18,9 +18,10 @@ class CreateSponsorsTable extends Migration
             $table->timestamps();
 
             $table->string('name');
-            $table->string('snippet');
-            $table->string('cta');
-            $table->string('image');
+            $table->string('link');
+            $table->string('snippet')->nullable();
+            $table->string('cta')->nullable();
+            $table->string('image')->nullable();
         });
     }
 
