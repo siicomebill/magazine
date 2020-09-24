@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="flex items-center justify-between flex-wrap p-6">
+    <nav class="sticky top-0 bg-white shadow-lg flex items-center justify-between flex-wrap p-6">
       <div class="flex items-center flex-shrink-0 mr-6">
         <a href="/" class="font-semibold text-xl tracking-tight">BILL</a>
       </div>
