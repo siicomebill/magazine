@@ -43,6 +43,13 @@ class User extends Authenticatable
     ];
 
     /**
+     * Properties to always include
+     * 
+     * @var array
+     */
+    protected $with = ['roles:name'];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
