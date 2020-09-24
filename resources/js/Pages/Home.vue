@@ -1,15 +1,20 @@
 <template>
   <div>
-    <div class="py-20 bg-black banner text-white -mb-10 pb-30 rounded-br-full md:px-10 lg:px-0">
-      <div class="container mx-auto">
-        <h1 class="text-6xl font-bold">Sii Come Bill</h1>
-        <p
-          class="text-md"
-        >This is just a demo, the content and the graphics will be worked on in the end. Here is where the slogan will be</p>
+    <div
+      class="py-20 bg-black banner text-white -mb-10 pb-30 lg:rounded-br-full md:px-10 lg:px-0"
+    >
+      <div class="container mx-auto px-4 md:px-0">
+        <h1 class="md:text-6xl text-4xl font-bold">Sii Come Bill</h1>
+        <h2>Il Magazine Intelligente</h2>
       </div>
     </div>
     <div class="container mx-auto lg:grid lg:grid-cols-3 grid-cols-2 gap-4">
-      <Card v-bind="article" v-for="article in articles" :key="article.id" :href="$route('articles.read', article.id)"/>
+      <Card
+        v-bind="article"
+        v-for="article in articles"
+        :key="article.id"
+        :href="$route('articles.read', article.id)"
+      />
     </div>
   </div>
 </template>
