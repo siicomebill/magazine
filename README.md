@@ -1,6 +1,6 @@
 # Sii Come Bill - The online magazine 📰
 
-Made with ❤️, ☕, and **[Laravel](https://laravel.com)** by [Mattia Sinisi](https://linkedin.com/in/sinisimattia)
+Made with ❤️, ☕ and **[Laravel](https://laravel.com)** by [Mattia Sinisi](https://linkedin.com/in/sinisimattia)
 
 ## Bring up the development environment
 
