@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
+    public function __construct(ArticleRepository $article)
+    {
+        $this->article = $article;
+    }
+    
     public function managerPage(Request $request)
     {
         $articles = Article::user($request->user()->id)->get();
@@ -41,22 +47,7 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        $user = auth()->user();
-
-        if ($request->id) {
-            $article = $user->articles()->find($request->id);
-
-            if ($article) {
-                $article->update($request->all());
-                return redirect()->route('articles.list.mine');
-            } else {
-                //TODO Populate error bag
-                return redirect()->back('500');
-            }
-        } else {
-            $user->articles()->create($request->all());
-            return redirect()->route('articles.list.mine');
-        }
+        return $this->article->store($request, auth()->user()) ? redirect()->route('articles.list.mine') : redirect()->back('500');
     }
 
     public function read($id)
