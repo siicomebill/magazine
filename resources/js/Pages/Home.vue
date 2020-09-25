@@ -15,18 +15,29 @@
         class="bg-white rounded-lg shadow-lg p-6 my-5"
       >
         <p class="text-6xl font-bold">{{ category.name }}</p>
-        <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
-          <div>
-            <Card
-              v-bind="category.articles[0]"
-              :href="$route('articles.read', category.articles[0].id)"
-            />
+        <div>
+          <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
+            <div>
+              <Card
+                v-bind="category.articles[0]"
+                :href="$route('articles.read', category.articles[0].id)"
+              />
+            </div>
+
+            <div>
+              <MiniCard
+                v-bind="article"
+                v-for="article in category.articles.slice(1, 4)"
+                :key="article.id"
+                :href="$route('articles.read', article.id)"
+              />
+            </div>
           </div>
 
           <div>
             <MiniCard
               v-bind="article"
-              v-for="article in category.articles.slice(1)"
+              v-for="article in category.articles.slice(5, 7)"
               :key="article.id"
               :href="$route('articles.read', article.id)"
             />
