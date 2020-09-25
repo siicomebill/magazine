@@ -12,26 +12,10 @@ use Illuminate\Support\ServiceProvider;
 
 class RepositoryProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->bind(ResourceRepositoryInterface::class, ResourceRepository::class);
-        $this->app->bind(ArticleRepositoryInterface::class, ArticleRepository::class);
-        $this->app->bind(ResourceRepositoryInterface::class, SponsorRepository::class);
-        $this->app->bind(ResourceRepositoryInterface::class, CategoryRepository::class);
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
+    public $bindings = [
+        ResourceRepositoryInterface::class => ResourceRepository::class,
+        ArticleRepositoryInterface::class => ArticleRepository::class,
+        ResourceRepositoryInterface::class => SponsorRepository::class,
+        ResourceRepositoryInterface::class => CategoryRepository::class,
+    ];
 }
