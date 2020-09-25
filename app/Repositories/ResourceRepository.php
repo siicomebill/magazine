@@ -25,6 +25,11 @@ class ResourceRepository implements ResourceRepositoryInterface
         return $this->latest(5);
     }
 
+    public function others()
+    {
+        return $this->get();
+    }
+
     public function latest(int $limit = 0)
     {
         $query = $this->model::latest();
