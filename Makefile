@@ -16,6 +16,8 @@ destroy:
 
 build:
 	(cd bill-environment && docker-compose build nginx postgres)
+	composer install
+	npm i
 
 rebuild:
 	(cd bill-environment && docker-compose build --no-cache nginx postgres)

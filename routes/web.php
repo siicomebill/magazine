@@ -31,8 +31,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::prefix('content')->group(function () {
             Route::middleware('role:writer')->group(function () {
                 Route::prefix('articles')->group(function () {
-                    Route::get('/', 'ArticleController@mine')->name('articles.list.mine');
-                    Route::get('write/{id?}', 'ArticleController@newArticlePage')->name('articles.write');
+                    Route::get('/', 'ArticleController@managerPage')->name('articles.list.mine');
+                    Route::get('write/{id?}', 'ArticleController@newItemPage')->name('articles.write');
                     Route::get('delete/{id?}', 'ArticleController@delete')->name('articles.delete');
 
                     Route::post('publish', 'ArticleController@store')->name('articles.publish');
@@ -41,17 +41,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
             Route::middleware('role:admin')->group(function () {
                 Route::prefix('sponsors')->group(function () {
-                    Route::get('/', 'SponsorController@index')->name('sponsors.list');
+                    Route::get('/', 'SponsorController@managerPage')->name('sponsors.list');
 
-                    Route::get('write/{id?}', 'SponsorController@newSponsorPage')->name('sponsors.write');
+                    Route::get('write/{id?}', 'SponsorController@newItemPage')->name('sponsors.write');
                     Route::get('delete/{id?}', 'SponsorController@delete')->name('sponsors.delete');
 
                     Route::post('publish', 'SponsorController@store')->name('sponsors.publish');
                 });
 
                 Route::prefix('categories')->group(function () {
-                    Route::get('/', 'CategoryController@index')->name('categories.list');
-                    Route::get('write/{id?}', 'CategoryController@newCategoryPage')->name('categories.write');
+                    Route::get('/', 'CategoryController@managerPage')->name('categories.list');
+                    Route::get('write/{id?}', 'CategoryController@newItemPage')->name('categories.write');
                     Route::get('delete/{id?}', 'CategoryController@delete')->name('categories.delete');
 
                     Route::post('publish', 'CategoryController@store')->name('categories.publish');

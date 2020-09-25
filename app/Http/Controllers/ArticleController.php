@@ -5,15 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
-    public function mine(Request $request)
+    public function __construct(ArticleRepository $article)
     {
-        $articles = Article::user($request->user()->id)->get();
+        $this->article = $article;
+    }
+    
+    public function managerPage(Request $request)
+    {
+        $articles = $this->article->asModel()->user($request->user()->id)->get();
 
         $articles->each(function ($value, $key) {
             $value["links"] = [
@@ -23,13 +29,13 @@ class ArticleController extends Controller
         });
 
         return Inertia::render('ArticlesManager', [
-            'articles' => $articles
+            'items' => $articles
         ]);
     }
 
-    public function newArticlePage(Request $request)
+    public function newItemPage(Request $request)
     {
-        $article = Article::find($request->id);
+        $article = $this->article->asModel()::find($request->id);
         $categories = Category::all(["name", "id"]);
 
         return Inertia::render('NewArticle', [
@@ -41,35 +47,20 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        $user = auth()->user();
-
-        if ($request->id) {
-            $article = $user->articles()->find($request->id);
-
-            if ($article) {
-                $article->update($request->all());
-                return redirect()->route('articles.list.mine');
-            } else {
-                //TODO Populate error bag
-                return redirect()->back('500');
-            }
-        } else {
-            $user->articles()->create($request->all());
-            return redirect()->route('articles.list.mine');
-        }
+        return $this->article->store($request, auth()->user()) ? redirect()->route('articles.list.mine') : redirect()->back('500');
     }
 
     public function read($id)
     {
         return Inertia::render('Article', [
-            "article" => Article::findOrFail($id)
+            "article" => $this->article->find($id)
         ]);
     }   
 
     public function delete($id)
     {
-        Article::findOrFail($id)->delete();
+        $this->article->delete($id);
 
-        return redirect()->route('articles.list.mine');
+        return redirect()->back();
     }
 }

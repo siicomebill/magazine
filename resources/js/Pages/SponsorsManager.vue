@@ -8,7 +8,7 @@
       >
 
       <Card
-        v-for="sponsor in sponsors"
+        v-for="sponsor in items"
         :key="sponsor.id"
         :title="sponsor.name"
         :snippet="sponsor.snippet"
@@ -43,7 +43,7 @@ export default {
     Card,
   },
   props: {
-    sponsors: Array,
+    items: Array,
   },
 };
 </script>

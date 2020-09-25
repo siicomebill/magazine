@@ -8,7 +8,7 @@
       >
 
       <Card
-        v-for="category in categories"
+        v-for="category in items"
         :key="category.id"
         :title="category.name"
         :snippet="category.snippet"
@@ -43,7 +43,7 @@ export default {
     Card,
   },
   props: {
-    categories: Array,
+    items: Array,
   },
 };
 </script>
