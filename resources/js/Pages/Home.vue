@@ -54,6 +54,16 @@
         </div>
       </div>
     </div>
+
+    <div class="container mx-auto">
+      <p class="text-center text-4xl text-gray-500 my-4">Altri articoli senza categoria</p>
+      <MiniCard
+        v-bind="article"
+        v-for="article in articles"
+        :key="article.id"
+        :href="$route('articles.read', article.id)"
+      />
+    </div>
   </div>
 </template>
 
@@ -71,6 +81,7 @@ export default {
   props: {
     sponsors: Array,
     categories: Array,
+    articles: Array,
   },
 };
 </script>
