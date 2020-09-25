@@ -28,4 +28,9 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
             return true;
         }
     }
+
+    public function others()
+    {
+        return $this->latest(20)->doesnthave('category');
+    }
 }
