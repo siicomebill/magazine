@@ -11,7 +11,6 @@ use Inertia\Inertia;
 
 class SponsorController extends ResourceController
 {
-    protected $model = Sponsor::class;
     protected $routeNamePrefix = "sponsors";
     protected $pageComponents = [
         "managerPage" => "SponsorsManager",

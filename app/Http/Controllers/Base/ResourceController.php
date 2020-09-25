@@ -11,13 +11,6 @@ use Inertia\Inertia;
 abstract class ResourceController extends Controller
 {
     /**
-     * The model class to interact with.
-     * 
-     * @var mixed
-     */
-    protected $model;
-
-    /**
      * The prefix for the routes that the given resource uses.
      * 
      * @var string
@@ -67,7 +60,7 @@ abstract class ResourceController extends Controller
      */
     public function managerPage(Request $request)
     {
-        $items = $this->model::all();
+        $items = $this->resource->asModel()->all();
 
         $items->each(function ($value, $key) {
             $value["links"] = [
@@ -88,7 +81,7 @@ abstract class ResourceController extends Controller
      */
     public function newItemPage(Request $request)
     {
-        $item = $this->model::find($request->id);
+        $item = $this->resource->asModel()->find($request->id);
 
         return $this->renderer::render($this->pageComponents["newItemPage"], [
             "stored" => $item ?? null,
