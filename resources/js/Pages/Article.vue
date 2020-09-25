@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-black rounded-b-lg text-white shadow-2xl">
+    <div class="bg-black rounded-b-lg text-white shadow-2xl lg:mb-24">
       <div
         class="container mx-auto px-4 md:px-0 py-10 lg:grid grid-cols-2 gap-2"
       >
