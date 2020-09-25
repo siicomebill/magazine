@@ -29,7 +29,7 @@ class CategoryController extends ResourceController
 
     public function articlesOfCategory($id)
     {
-        $category = $this->find($id);
+        $category = $this->resource->find($id);
         $articles = $category->articles()->get();
 
         return $this->renderer::render('ArticleList', [
