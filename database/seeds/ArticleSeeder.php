@@ -15,6 +15,6 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->count(10)->has(MyArticlesFactory::new()->count(2), 'articles')->create();
+        Category::factory()->count(10)->has(MyArticlesFactory::new()->count(10), 'articles')->create();
     }
 }
