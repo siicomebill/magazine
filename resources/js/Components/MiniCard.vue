@@ -1,13 +1,13 @@
 <template>
   <a
-    class="block w-full bg-white rounded-lg my-4 shadow-xl grid grid-cols-2"
+    class="block w-full bg-white rounded-lg my-4 shadow-xl flex"
     :href="href"
   >
     <Thumbnail
       :src="image"
       :alt="title"
       aspectRatio="square"
-      class="rounded-lg text-center overflow-hidden"
+      class="block w-1/4 rounded-lg text-center overflow-hidden"
     />
     <div class="flex flex-col p-4 w-50 justify-between leading-normal">
       <div class="mb-8">
