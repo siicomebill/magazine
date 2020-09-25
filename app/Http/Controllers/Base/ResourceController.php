@@ -114,4 +114,16 @@ abstract class ResourceController extends Controller
             return redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]);
         }
     }
+
+    /**
+     * Delete an instance of the specified resource
+     * 
+     * @param $id
+     */
+    public function delete($id)
+    {
+        $this->model::findOrFail($id)->delete();
+
+        return redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]);
+    }
 }
