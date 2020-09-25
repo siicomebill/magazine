@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
-//TODO Use dependency injection for Requests (?)
-//TODO Use depencency injection for renderer (?)
-//TODO Use generic ResourceRequest(s) - otherwise look up "extending methods"
 abstract class ResourceController extends Controller
 {
     /**
