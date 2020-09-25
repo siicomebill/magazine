@@ -11,7 +11,12 @@
     <div class="lg:grid grid-cols-2 gap-16 px-16">
       <div v-for="category in categories" :key="category.id">
         <div class="bg-white rounded-lg shadow-lg p-6 my-5">
-          <p class="text-6xl font-bold">{{ category.name }}</p>
+          <a
+            :href="$route('articles.read', category.articles[0].id)"
+            class="block text-6xl capitalize font-bold"
+          >
+            {{ category.name }}
+          </a>
           <div>
             <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
               <div>
