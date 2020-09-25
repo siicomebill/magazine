@@ -50,8 +50,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 });
 
                 Route::prefix('categories')->group(function () {
-                    Route::get('/', 'CategoryController@index')->name('categories.list');
-                    Route::get('write/{id?}', 'CategoryController@newCategoryPage')->name('categories.write');
+                    Route::get('/', 'CategoryController@managerPage')->name('categories.list');
+                    Route::get('write/{id?}', 'CategoryController@newItemPage')->name('categories.write');
                     Route::get('delete/{id?}', 'CategoryController@delete')->name('categories.delete');
 
                     Route::post('publish', 'CategoryController@store')->name('categories.publish');
