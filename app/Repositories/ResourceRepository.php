@@ -11,11 +11,11 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function store($request)
     {
-        dd("store");
+        //
     }
 
     public function delete($id)
     {
-        dd("delete");
+        //
     }
 }
