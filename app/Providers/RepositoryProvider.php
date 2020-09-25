@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\ArticleController;
 use App\Interfaces\Repositories\ArticleRepositoryInterface;
 use App\Interfaces\Repositories\ResourceRepositoryInterface;
 use App\Repositories\ArticleRepository;
