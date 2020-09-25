@@ -10,6 +10,11 @@ class ResourceRepository implements ResourceRepositoryInterface
 {
     protected $model = Model::class;
 
+    public function find($id)
+    {
+        return $this->model::findOrFail($id);
+    }
+
     public function store($request)
     {
         throw new Exception("Store method is not defined on generic resource repository");
@@ -17,6 +22,6 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function delete($id)
     {
-        //TODO
+        return $this->find($id)->delete();
     }
 }
