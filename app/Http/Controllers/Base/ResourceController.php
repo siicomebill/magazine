@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Base;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\ResourceRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
@@ -54,6 +55,11 @@ abstract class ResourceController extends Controller
         "newItemPage" => "",
     ];
 
+    public function __construct(ResourceRepository $resource)
+    {
+        $this->resource = $resource;
+    }
+
     /**
      * Display the resource-manager page with all the necessary resources.
      * 
@@ -97,20 +103,7 @@ abstract class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->id) {
-            $item = $this->model::find($request->id);
-
-            if ($item) {
-                $item->update($request->all());
-                return redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]);
-            } else {
-                //TODO Populate error bag
-                return redirect()->back('500');
-            }
-        } else {
-            $this->model::create($request->all());
-            return redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]);
-        }
+        return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : redirect()->back('500');
     }
 
     /**
@@ -120,7 +113,7 @@ abstract class ResourceController extends Controller
      */
     public function delete($id)
     {
-        $this->model::findOrFail($id)->delete();
+        $this->resource->delete($id);
 
         return redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]);
     }
