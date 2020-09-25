@@ -27,6 +27,9 @@ jobs:
 
       - name: Validate Composer packages
         run: composer validate
+
+      - name: Install NPM packages
+        run: npm i
       
       - name: Create production build for frontend
         run: npm run prod
