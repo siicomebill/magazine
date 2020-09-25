@@ -22,7 +22,7 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function important()
     {
-        return $this->latest();
+        return $this->latest(5);
     }
 
     public function latest(int $limit = 0)
@@ -30,7 +30,7 @@ class ResourceRepository implements ResourceRepositoryInterface
         $query = $this->model::latest();
 
         if($limit)
-            $query->limit($limit);
+            $query = $query->limit($limit);
         
         return $query;
     }
