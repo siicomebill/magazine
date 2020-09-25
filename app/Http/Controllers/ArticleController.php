@@ -11,7 +11,7 @@ use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
-    public function mine(Request $request)
+    public function managerPage(Request $request)
     {
         $articles = Article::user($request->user()->id)->get();
 
@@ -27,7 +27,7 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function newArticlePage(Request $request)
+    public function newItemPage(Request $request)
     {
         $article = Article::find($request->id);
         $categories = Category::all(["name", "id"]);
