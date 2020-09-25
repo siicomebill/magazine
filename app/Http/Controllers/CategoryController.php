@@ -4,19 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
 use App\Models\Category;
+use App\Repositories\CategoryRepository;
 
 class CategoryController extends ResourceController
 {
-    protected $model = Category::class;
     protected $routeNamePrefix = "categories";
     protected $pageComponents =  [
         "managerPage" => "CategoriesManager",
         "newItemPage" => "NewCategory",
     ];
 
+    public function __construct(CategoryRepository $category)
+    {
+        parent::__construct($category);
+    }
+
     public function getMinimal()
     {
-        $categories = $this->model::all(["name", "id"]);
+        $categories = $this->category->asModel()->all(["name", "id"]);
 
         return $this->renderer::render('Categories', [
             "categories" => $categories
@@ -25,7 +30,7 @@ class CategoryController extends ResourceController
 
     public function articlesOfCategory($id)
     {
-        $category = $this->model::findOrFail($id);
+        $category = $this->find($id);
         $articles = $category->articles()->get();
 
         return $this->renderer::render('ArticleList', [
