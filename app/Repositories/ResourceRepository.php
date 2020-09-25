@@ -27,7 +27,7 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function others()
     {
-        return $this->get();
+        return $this->latest();
     }
 
     public function latest(int $limit = 0)
