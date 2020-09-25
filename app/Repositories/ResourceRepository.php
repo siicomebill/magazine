@@ -20,14 +20,19 @@ class ResourceRepository implements ResourceRepositoryInterface
         return $this->latest()->get();
     }
 
-    public function important(int $limit = 5)
+    public function important()
     {
-        return $this->latest()->limit($limit);
+        return $this->latest();
     }
 
-    public function latest()
+    public function latest(int $limit = 0)
     {
-        return $this->model::latest();
+        $query = $this->model::latest();
+
+        if($limit)
+            $query->limit($limit);
+        
+        return $query;
     }
 
     public function find($id)
