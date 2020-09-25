@@ -10,6 +10,11 @@ class ResourceRepository implements ResourceRepositoryInterface
 {
     protected $model = Model::class;
 
+    public final function asModel()
+    {
+        return new $this->model;
+    }
+
     public function find($id)
     {
         return $this->model::findOrFail($id);
