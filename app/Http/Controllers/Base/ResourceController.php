@@ -52,6 +52,7 @@ abstract class ResourceController extends Controller
      * @var string[]
      */
     protected $pageComponents = [
+        "listPage" => "",
         "managerPage" => "",
         "newItemPage" => "",
     ];
