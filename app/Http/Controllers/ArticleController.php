@@ -59,7 +59,7 @@ class ArticleController extends Controller
 
     public function delete($id)
     {
-        Article::findOrFail($id)->delete();
+        $this->article->delete($id);
 
         return redirect()->back();
     }
