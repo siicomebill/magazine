@@ -8,28 +8,55 @@
         <h2>Il Magazine Intelligente</h2>
       </div>
     </div>
-    <div class="container mx-auto lg:grid lg:grid-cols-3 grid-cols-2 gap-4">
-      <Card
-        v-bind="article"
-        v-for="article in articles"
-        :key="article.id"
-        :href="$route('articles.read', article.id)"
-      />
+    <div class="container mx-auto">
+      <div
+        v-for="category in categories"
+        :key="category.id"
+        class="bg-white rounded-lg shadow-lg p-6 my-5"
+      >
+        <p class="text-6xl font-bold">{{ category.name }}</p>
+        <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
+          <div>
+            <Card
+              v-bind="category.articles[0]"
+              :href="$route('articles.read', category.articles[0].id)"
+            />
+          </div>
+
+          <div>
+            <MiniCard
+              v-bind="article"
+              v-for="article in category.articles.slice(1)"
+              :key="article.id"
+              :href="$route('articles.read', article.id)"
+            />
+          </div>
+        </div>
+
+        <a
+          class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
+          :href="$route('categories.articles', category.id)"
+          >Vedi tutti</a
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Card from "~/Card";
+import MiniCard from "~/MiniCard";
 import Layout from "@/Layouts/PublicLayout";
 
 export default {
   layout: Layout,
   components: {
     Card,
+    MiniCard,
   },
   props: {
-    articles: Array,
+    sponsors: Array,
+    categories: Array,
   },
 };
 </script>
