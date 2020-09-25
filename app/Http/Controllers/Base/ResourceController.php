@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 //TODO Use dependency injection for Requests (?)
+//TODO Use depencency injection for renderer (?)
+//TODO Use generic ResourceRequest(s)
 abstract class ResourceController extends Controller
 {
     /**
@@ -33,12 +35,14 @@ abstract class ResourceController extends Controller
 
     /**
      * Route names to all the actions possible with the given resource.
+     * These names will be used as suffixes for $routeNamePrefix
      * 
      * @var string[]
      */
     protected $actionRoutes = [
         "edit" => "write",
         "delete" => "delete",
+        "publish" => "publish",
     ];
 
     /**
@@ -69,6 +73,21 @@ abstract class ResourceController extends Controller
 
         return $this->renderer::render($this->pageComponents["managerPage"], [
             "items" => $items
+        ]);
+    }
+    
+    /**
+     * Display the page used for inserting or editing an existing instance of the specified resource.
+     * 
+     * @param Request $request
+     */
+    public function newItemPage(Request $request)
+    {
+        $item = $this->model::find($request->id);
+
+        return $this->renderer::render($this->pageComponents["newItemPage"], [
+            "stored" => $item ?? null,
+            "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
         ]);
     }
 }
