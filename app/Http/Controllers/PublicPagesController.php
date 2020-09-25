@@ -15,7 +15,6 @@ class PublicPagesController extends Controller
     public function index(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category)
     {
         return Inertia::render('Home', [
-            "articles" => $article->get(),
             "sponsors" => $sponsor->get(),
             "categories" => $category->important()->get()
         ]);
