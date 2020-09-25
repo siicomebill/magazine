@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
-use App\Models\Category;
 use App\Repositories\CategoryRepository;
 
 class CategoryController extends ResourceController
