@@ -20,7 +20,7 @@ class CategoryController extends ResourceController
 
     public function getMinimal()
     {
-        $categories = $this->category->asModel()->all(["name", "id"]);
+        $categories = $this->resource->asModel()->all(["name", "id"]);
 
         return $this->renderer::render('Categories', [
             "categories" => $categories
