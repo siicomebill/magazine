@@ -62,7 +62,7 @@ abstract class ResourceController extends Controller
      * 
      * @param Request $request
      */
-    public function managerPage()
+    public function managerPage(Request $request)
     {
         $items = $this->model::all();
 
