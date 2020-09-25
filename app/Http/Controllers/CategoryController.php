@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
 use App\Models\Category;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
-use Inertia\Inertia;
 
 class CategoryController extends ResourceController
 {
@@ -19,19 +16,19 @@ class CategoryController extends ResourceController
 
     public function getMinimal()
     {
-        $categories = Category::all(["name", "id"]);
+        $categories = $this->model::all(["name", "id"]);
 
-        return Inertia::render('Categories', [
+        return $this->renderer::render('Categories', [
             "categories" => $categories
         ]);
     }
 
     public function articlesOfCategory($id)
     {
-        $category = Category::findOrFail($id);
+        $category = $this->model::findOrFail($id);
         $articles = $category->articles()->get();
 
-        return Inertia::render('ArticleList', [
+        return $this->renderer::render('ArticleList', [
             "category" => $category,
             "articles" => $articles
         ]);
