@@ -10,11 +10,11 @@ class CategoryRepository extends ResourceRepository
 
     public function important()
     {
-        return $this->model::limit(10);
+        return $this->model::limit(10)->has('articles')->with('articles');
     }
 
     public function get()
     {
-        $this->asModel()->with('articles')->get();
+        $this->asModel()->get();
     }
 }
