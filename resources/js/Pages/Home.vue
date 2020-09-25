@@ -1,54 +1,55 @@
 <template>
   <div>
     <div
-      class="py-20 bg-black banner text-white -mb-10 pb-30 lg:rounded-br-full md:px-10 lg:px-0"
+      class="py-20 bg-black banner text-white text-center -mb-20 pb-40 lg:rounded-br-full md:px-10 lg:px-0"
     >
       <div class="container mx-auto px-4 md:px-0">
         <h1 class="md:text-6xl text-4xl font-bold">Sii Come Bill</h1>
         <h2>Il Magazine Intelligente</h2>
       </div>
     </div>
-    <div class="container mx-auto">
+    <div class="lg:grid grid-cols-2 gap-16 px-16">
       <div
         v-for="category in categories"
         :key="category.id"
-        class="bg-white rounded-lg shadow-lg p-6 my-5"
       >
-        <p class="text-6xl font-bold">{{ category.name }}</p>
-        <div>
-          <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
-            <div>
-              <Card
-                v-bind="category.articles[0]"
-                :href="$route('articles.read', category.articles[0].id)"
-              />
+        <div class="bg-white rounded-lg shadow-lg p-6 my-5">
+          <p class="text-6xl font-bold">{{ category.name }}</p>
+          <div>
+            <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
+              <div>
+                <Card
+                  v-bind="category.articles[0]"
+                  :href="$route('articles.read', category.articles[0].id)"
+                />
+              </div>
+
+              <div>
+                <MiniCard
+                  v-bind="article"
+                  v-for="article in category.articles.slice(1, 4)"
+                  :key="article.id"
+                  :href="$route('articles.read', article.id)"
+                />
+              </div>
             </div>
 
             <div>
               <MiniCard
                 v-bind="article"
-                v-for="article in category.articles.slice(1, 4)"
+                v-for="article in category.articles.slice(5, 7)"
                 :key="article.id"
                 :href="$route('articles.read', article.id)"
               />
             </div>
           </div>
 
-          <div>
-            <MiniCard
-              v-bind="article"
-              v-for="article in category.articles.slice(5, 7)"
-              :key="article.id"
-              :href="$route('articles.read', article.id)"
-            />
-          </div>
+          <a
+            class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
+            :href="$route('categories.articles', category.id)"
+            >Vedi tutti</a
+          >
         </div>
-
-        <a
-          class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
-          :href="$route('categories.articles', category.id)"
-          >Vedi tutti</a
-        >
       </div>
     </div>
   </div>
