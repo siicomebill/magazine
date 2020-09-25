@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 //TODO Use dependency injection for Requests (?)
 //TODO Use depencency injection for renderer (?)
-//TODO Use generic ResourceRequest(s)
+//TODO Use generic ResourceRequest(s) - otherwise look up "extending methods"
 abstract class ResourceController extends Controller
 {
     /**
@@ -40,6 +40,7 @@ abstract class ResourceController extends Controller
      * @var string[]
      */
     protected $actionRoutes = [
+        "list" => "list",
         "edit" => "write",
         "delete" => "delete",
         "publish" => "publish",
@@ -89,5 +90,28 @@ abstract class ResourceController extends Controller
             "stored" => $item ?? null,
             "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
         ]);
+    }
+
+    /**
+     * Create or update an element of the specified resource.
+     * 
+     * @param Request $request
+     */
+    public function store(Request $request)
+    {
+        if ($request->id) {
+            $item = $this->model::find($request->id);
+
+            if ($item) {
+                $item->update($request->all());
+                return redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]);
+            } else {
+                //TODO Populate error bag
+                return redirect()->back('500');
+            }
+        } else {
+            $this->model::create($request->all());
+            return redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]);
+        }
     }
 }
