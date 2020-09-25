@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Base\ResourceController;
 use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
-class SponsorController extends Controller
+class SponsorController extends ResourceController
 {
+    protected $model = Sponsor::class;
+    protected $routeNamePrefix = "sponsors";
+    protected $pageComponents = [
+        "managerPage" => "SponsorsManager"
+    ];
+
+
     public function index()
     {
         $sponsors = Sponsor::all();
