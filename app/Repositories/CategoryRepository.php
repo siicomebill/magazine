@@ -12,4 +12,9 @@ class CategoryRepository extends ResourceRepository
     {
         return $this->model::limit(10);
     }
+
+    public function get()
+    {
+        $this->asModel()->with('articles')->get();
+    }
 }
