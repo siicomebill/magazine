@@ -23,7 +23,7 @@ class ArticleController extends Controller
         });
 
         return Inertia::render('ArticlesManager', [
-            'articles' => $articles
+            'items' => $articles
         ]);
     }
 
@@ -70,6 +70,6 @@ class ArticleController extends Controller
     {
         Article::findOrFail($id)->delete();
 
-        return redirect()->route('articles.list.mine');
+        return redirect()->back();
     }
 }
