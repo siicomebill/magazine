@@ -22,7 +22,20 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function store($request)
     {
-        throw new Exception("Store method is not defined on generic resource repository");
+        if ($request->id) {
+            $item = $this->model::find($request->id);
+
+            if ($item) {
+                $item->update($request->all());
+                return true;
+            } else {
+                //TODO Populate error bag
+                return false;
+            }
+        } else {
+            $this->model::create($request->all());
+            return true;
+        }
     }
 
     public function delete($id)
