@@ -11,7 +11,7 @@
             >{{ article.category.name }}</span
           >
 
-          <h1 class="text-6xl align-middle">{{ article.title }}</h1>
+          <h1 class="lg:text-6xl text-4xl align-middle my-2">{{ article.title }}</h1>
 
           <div class="my-4 rounded-lg">
             <!-- <img
@@ -20,12 +20,12 @@
               :alt="article.author.name[0]"
               :src="article.author.profile_photo_path"
             /> -->
-            <div class="text-xl">
+            <div class="lg:text-xl text-lg">
               <p class="leading-none">{{ article.author.name }}</p>
             </div>
           </div>
 
-          <hr class="my-6 w-11/12 mx-auto" />
+          <hr class="my-6" />
 
           <div>{{ article.snippet }}</div>
         </div>
