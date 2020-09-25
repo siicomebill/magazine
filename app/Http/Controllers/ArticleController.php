@@ -19,7 +19,7 @@ class ArticleController extends Controller
     
     public function managerPage(Request $request)
     {
-        $articles = Article::user($request->user()->id)->get();
+        $articles = $this->article->asModel()->user($request->user()->id)->get();
 
         $articles->each(function ($value, $key) {
             $value["links"] = [
@@ -35,7 +35,7 @@ class ArticleController extends Controller
 
     public function newItemPage(Request $request)
     {
-        $article = Article::find($request->id);
+        $article = $this->article->asModel()::find($request->id);
         $categories = Category::all(["name", "id"]);
 
         return Inertia::render('NewArticle', [
@@ -53,7 +53,7 @@ class ArticleController extends Controller
     public function read($id)
     {
         return Inertia::render('Article', [
-            "article" => Article::findOrFail($id)
+            "article" => $this->article->find($id)
         ]);
     }   
 
