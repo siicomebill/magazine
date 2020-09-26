@@ -10,7 +10,7 @@
     </div>
     <div class="mx-auto lg:w-8/12 lg:grid grid-cols-6 gap-2">
       <div class="col-span-5">
-        <div v-for="category in categories" :key="category.id">
+        <div v-for="(category, i) in categories" :key="category.id">
           <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
             <a
               :href="$route('categories.articles', category.id)"
@@ -48,6 +48,8 @@
               </div>
             </div>
 
+            <MiniSponsorCard v-bind="sponsors[i]" />
+
             <a
               class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
               :href="$route('categories.articles', category.id)"
@@ -58,7 +60,10 @@
       </div>
 
       <div class="col-span-1" v-if="sponsors.length">
-        <span class="block w-full bg-white rounded-lg text-center text-gray-700 p-1 uppercase">Sponsors</span>
+        <span
+          class="block w-full bg-white rounded-lg text-center text-gray-700 p-1 uppercase"
+          >Sponsors</span
+        >
         <SponsorCard
           v-for="sponsor in sponsors"
           :key="sponsor.id"
@@ -83,6 +88,7 @@
 import Card from "~/Card";
 import MiniCard from "~/MiniCard";
 import SponsorCard from "~/SponsorCard";
+import MiniSponsorCard from "~/MiniSponsorCard";
 import Layout from "@/Layouts/PublicLayout";
 
 export default {
@@ -91,6 +97,7 @@ export default {
     Card,
     MiniCard,
     SponsorCard,
+    MiniSponsorCard,
   },
   props: {
     sponsors: Array,
