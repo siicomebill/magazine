@@ -11,7 +11,7 @@
     />
     <div class="flex flex-col p-4 w-1/2 justify-between leading-normal">
       <div class="mb-8">
-        <p class="font-bold text-2xl text-primary mb-2 truncate">{{ title }}</p>
+        <p class="font-bold text-2xl text-primary mb-2 break-words">{{ title }}</p>
         <div class="my-3">
           <div class="text-sm" v-if="author">
             <p class="text-gray-500 leading-none">{{ author.name }}</p>
