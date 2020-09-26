@@ -12,7 +12,7 @@
       <div v-for="category in categories" :key="category.id">
         <div class="bg-white rounded-lg shadow-lg p-6 my-5">
           <a
-            :href="$route('articles.read', category.articles[0].id)"
+            :href="$route('categories.articles', category.id)"
             class="block text-6xl capitalize font-bold"
           >
             {{ category.name }}
@@ -55,8 +55,8 @@
       </div>
     </div>
 
-    <div class="container mx-auto">
-      <p class="text-center text-4xl text-gray-500 my-4">Altri articoli senza categoria</p>
+    <div class="container mx-auto" v-if="articles.length">
+      <p class="text-center text-4xl text-gray-500 my-4">Esplora</p>
       <MiniCard
         v-bind="article"
         v-for="article in articles"
