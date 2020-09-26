@@ -6,7 +6,7 @@
         class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-lg transition-shadow duration-200"
       >Nuovo</a>
 
-      <Card v-bind="article" v-for="article in items" :key="article.id">
+      <Card v-bind="article" v-for="article in items" :key="article.id" class="item">
         <template #footer>
           <div>
             <div class="justify-end flex">
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Card from "~/Card";
+import Card from "~/MiniCard";
 import Layout from "@/Layouts/AppLayout";
 
 export default {
@@ -40,3 +40,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.item {
+  height: 200px;
+}
+</style>
