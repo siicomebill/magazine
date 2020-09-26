@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="mx-auto lg:w-8/12 lg:grid grid-cols-6 gap-2">
-      <div class="col-span-5">
+      <div class="col-span-5" v-scroll-spy>
         <div v-for="(category, i) in categories" :key="category.id">
           <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
             <a
@@ -48,7 +48,7 @@
               </div>
             </div>
 
-            <MiniSponsorCard v-if="sponsors[i]" v-bind="sponsors[i]" class="w-1/2 mx-auto" />
+            <MiniSponsorCard v-if="sponsors[i]" v-bind="sponsors[i]" class="lg:w-1/2 mx-auto" />
 
             <a
               class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
@@ -59,16 +59,12 @@
         </div>
       </div>
 
-      <div class="col-span-1" v-if="sponsors.length">
-        <span
-          class="block w-full bg-white rounded-lg text-center text-gray-700 p-1 uppercase"
-          >Sponsors</span
-        >
-        <SponsorCard
-          v-for="sponsor in sponsors"
-          :key="sponsor.id"
-          v-bind="sponsor"
-        />
+      <div class="col-span-1 relative lg:block hidden" v-if="categories.length">
+        <ul class="bg-white rounded-lg p-4 sticky top-0" v-scroll-spy-active="{class: 'font-bold'}" v-scroll-spy-link>
+          <li v-for="category in categories" :key="category.id">
+            <a class="cursor-pointer">{{category.name}}</a>
+          </li>
+        </ul>
       </div>
     </div>
 
