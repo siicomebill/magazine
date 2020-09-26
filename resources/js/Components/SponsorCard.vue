@@ -1,8 +1,18 @@
 <template>
-  <Card :title="name" :snippet="snippet" :image="image" :href="link">
+  <Card
+    :title="name"
+    :snippet="snippet"
+    :image="image"
+    :href="link"
+    target="_blank"
+  >
     <template #footer>
       <div class="grid">
-        <span class="bg-blue-500 text-white text-center font-bold rounded-full py-2 lg:pr-4 lg:pl-10 lg:-mr-12 lg:justify-self-end">{{ cta }}</span>
+        <span
+          class="bg-blue-500 text-white text-center font-bold rounded-full py-2 lg:pr-4 lg:pl-10 lg:-mr-12 lg:justify-self-end"
+        >
+          {{ cta }}
+        </span>
       </div>
     </template>
   </Card>
