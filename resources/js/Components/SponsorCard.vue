@@ -1,11 +1,11 @@
 <template>
   <Card
     :title="name"
-    :snippet="snippet"
     :image="image"
     :href="link"
     target="_blank"
   >
+    {{snippet}}
     <template #footer>
       <div class="grid">
         <span
