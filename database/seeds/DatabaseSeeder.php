@@ -2,6 +2,7 @@
 
 use Database\Seeders\ArticleSeeder;
 use Database\Seeders\RolesTableSeeder;
+use Database\Seeders\SponsorSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             $this->call([
                 UserSeeder::class,
                 ArticleSeeder::class,
+                SponsorSeeder::class,
             ]);
         }
     }
