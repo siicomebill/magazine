@@ -55,8 +55,8 @@
       </div>
     </div>
 
-    <div class="container mx-auto">
-      <p class="text-center text-4xl text-gray-500 my-4">Altri articoli senza categoria</p>
+    <div class="container mx-auto" v-if="articles.length">
+      <p class="text-center text-4xl text-gray-500 my-4">Esplora</p>
       <MiniCard
         v-bind="article"
         v-for="article in articles"
