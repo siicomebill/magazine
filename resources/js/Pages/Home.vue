@@ -11,7 +11,7 @@
     <div class="mx-auto lg:w-8/12 lg:grid grid-cols-6 gap-2">
       <div class="col-span-5">
         <div v-for="category in categories" :key="category.id">
-          <div class="bg-white rounded-lg shadow-lg p-6 my-5">
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
             <a
               :href="$route('categories.articles', category.id)"
               class="block text-6xl capitalize font-bold"
@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <div class="col-span-1">
+      <div class="col-span-1" v-if="sponsors.length">
         <span class="block w-full bg-white rounded-lg text-center text-gray-700 p-1 uppercase">Sponsors</span>
         <SponsorCard
           v-for="sponsor in sponsors"
