@@ -1,6 +1,6 @@
 <template>
   <a
-    class="block w-full bg-white rounded-lg my-4 shadow-xl flex"
+    class="block w-full bg-white rounded-lg my-4 flex"
     :href="href"
   >
     <Thumbnail
