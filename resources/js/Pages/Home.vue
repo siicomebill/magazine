@@ -32,16 +32,18 @@
                   v-for="article in category.articles.slice(1, 4)"
                   :key="article.id"
                   :href="$route('articles.read', article.id)"
+                  class="h-auto"
                 />
               </div>
             </div>
 
-            <div>
+            <div class="grid grid-cols-2 gap-2">
               <MiniCard
                 v-bind="article"
                 v-for="article in category.articles.slice(5, 7)"
                 :key="article.id"
                 :href="$route('articles.read', article.id)"
+                class="h-32"
               />
             </div>
           </div>
