@@ -8,7 +8,7 @@
         <h2>Il Magazine Intelligente</h2>
       </div>
     </div>
-    <div class="lg:grid grid-cols-2 gap-16 px-16">
+    <div class="container mx-auto">
       <div v-for="category in categories" :key="category.id">
         <div class="bg-white rounded-lg shadow-lg p-6 my-5">
           <a
@@ -37,7 +37,7 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-2">
+            <div class="lg:grid grid-cols-2 gap-2">
               <MiniCard
                 v-bind="article"
                 v-for="article in category.articles.slice(5, 7)"
