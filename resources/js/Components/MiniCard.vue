@@ -7,7 +7,7 @@
       :src="image"
       :alt="title"
       aspectRatio="square"
-      class="block w-1/2 rounded-lg text-center overflow-hidden"
+      class="w-1/2 rounded-lg text-center overflow-hidden"
     />
     <div class="flex flex-col p-4 w-1/2 justify-between leading-normal">
       <div class="mb-8">
