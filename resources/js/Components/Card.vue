@@ -1,6 +1,6 @@
 <template>
   <a
-    class="block w-full bg-white rounded-lg my-4 shadow-xl"
+    class="block bg-white rounded-lg my-4 shadow-xl"
     :href="href"
   >
     <Thumbnail
