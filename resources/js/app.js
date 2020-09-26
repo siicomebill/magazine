@@ -10,7 +10,7 @@ import route from "ziggy-js";
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
-Vue.prototype.$route = (...args) => route(...args).url(); //TODO Test this
+Vue.prototype.$route = (...args) => route(...args).url();
 
 Vue.mixin({
     methods: {
