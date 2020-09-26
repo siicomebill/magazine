@@ -14,6 +14,8 @@
           {{ cta }}
         </span>
       </div>
+
+      <span class="text-sm text-gray-500">Sponsor</span>
     </template>
   </Card>
 </template>
