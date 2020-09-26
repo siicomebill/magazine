@@ -8,52 +8,63 @@
         <h2>Il Magazine Intelligente</h2>
       </div>
     </div>
-    <div class="container mx-auto">
-      <div v-for="category in categories" :key="category.id">
-        <div class="bg-white rounded-lg shadow-lg p-6 my-5">
-          <a
-            :href="$route('categories.articles', category.id)"
-            class="block text-6xl capitalize font-bold"
-          >
-            {{ category.name }}
-          </a>
-          <div>
-            <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
-              <div>
-                <Card
-                  v-bind="category.articles[0]"
-                  :href="$route('articles.read', category.articles[0].id)"
-                />
+    <div class="mx-auto lg:grid grid-cols-2 gap-2">
+      <div class="container">
+        <div v-for="category in categories" :key="category.id">
+          <div class="bg-white rounded-lg shadow-lg p-6 my-5">
+            <a
+              :href="$route('categories.articles', category.id)"
+              class="block text-6xl capitalize font-bold"
+            >
+              {{ category.name }}
+            </a>
+            <div>
+              <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
+                <div>
+                  <Card
+                    v-bind="category.articles[0]"
+                    :href="$route('articles.read', category.articles[0].id)"
+                  />
+                </div>
+
+                <div>
+                  <MiniCard
+                    v-bind="article"
+                    v-for="article in category.articles.slice(1, 4)"
+                    :key="article.id"
+                    :href="$route('articles.read', article.id)"
+                    class="h-auto"
+                  />
+                </div>
               </div>
 
-              <div>
+              <div class="lg:grid grid-cols-2 gap-2">
                 <MiniCard
                   v-bind="article"
-                  v-for="article in category.articles.slice(1, 4)"
+                  v-for="article in category.articles.slice(5, 7)"
                   :key="article.id"
                   :href="$route('articles.read', article.id)"
-                  class="h-auto"
+                  class="h-32"
                 />
               </div>
             </div>
 
-            <div class="lg:grid grid-cols-2 gap-2">
-              <MiniCard
-                v-bind="article"
-                v-for="article in category.articles.slice(5, 7)"
-                :key="article.id"
-                :href="$route('articles.read', article.id)"
-                class="h-32"
-              />
-            </div>
+            <a
+              class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
+              :href="$route('categories.articles', category.id)"
+              >Vedi tutti</a
+            >
           </div>
-
-          <a
-            class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
-            :href="$route('categories.articles', category.id)"
-            >Vedi tutti</a
-          >
         </div>
+      </div>
+
+      <div class="w-1/4">
+        <SponsorCard
+          v-for="sponsor in sponsors"
+          :key="sponsor.id"
+          v-bind="sponsor"
+          class="my-32"
+        />
       </div>
     </div>
 
@@ -72,6 +83,7 @@
 <script>
 import Card from "~/Card";
 import MiniCard from "~/MiniCard";
+import SponsorCard from "~/SponsorCard";
 import Layout from "@/Layouts/PublicLayout";
 
 export default {
@@ -79,6 +91,7 @@ export default {
   components: {
     Card,
     MiniCard,
+    SponsorCard,
   },
   props: {
     sponsors: Array,
