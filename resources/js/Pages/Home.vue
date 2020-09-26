@@ -8,8 +8,8 @@
         <h2>Il Magazine Intelligente</h2>
       </div>
     </div>
-    <div class="mx-auto lg:grid grid-cols-2 gap-2">
-      <div class="container">
+    <div class="mx-auto lg:w-8/12 lg:grid grid-cols-6 gap-2">
+      <div class="col-span-5">
         <div v-for="category in categories" :key="category.id">
           <div class="bg-white rounded-lg shadow-lg p-6 my-5">
             <a
@@ -58,12 +58,12 @@
         </div>
       </div>
 
-      <div class="w-1/4">
+      <div class="col-span-1">
+        <span class="block w-full bg-white rounded-lg text-center text-gray-700 p-1 uppercase">Sponsors</span>
         <SponsorCard
           v-for="sponsor in sponsors"
           :key="sponsor.id"
           v-bind="sponsor"
-          class="my-32"
         />
       </div>
     </div>
