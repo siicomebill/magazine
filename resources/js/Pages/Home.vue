@@ -12,7 +12,7 @@
       <div v-for="category in categories" :key="category.id">
         <div class="bg-white rounded-lg shadow-lg p-6 my-5">
           <a
-            :href="$route('articles.read', category.articles[0].id)"
+            :href="$route('categories.articles', category.id)"
             class="block text-6xl capitalize font-bold"
           >
             {{ category.name }}
