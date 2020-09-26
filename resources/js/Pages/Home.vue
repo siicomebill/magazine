@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="mx-auto lg:w-8/12 lg:grid grid-cols-6 gap-2">
-      <div class="col-span-5" v-scroll-spy>
+      <div class="col-span-5 z-10" v-scroll-spy>
         <div v-for="(category, i) in categories" :key="category.id">
           <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
             <a
@@ -60,7 +60,7 @@
       </div>
 
       <div class="col-span-1 relative lg:block hidden" v-if="categories.length">
-        <ul class="bg-white rounded-lg p-4 sticky top-0" v-scroll-spy-active="{class: 'font-bold'}" v-scroll-spy-link>
+        <ul class="bg-white rounded-lg -ml-32 pl-32 p-4 fixed shadow-lg z-0" v-scroll-spy-active="{class: 'font-bold'}" v-scroll-spy-link>
           <li v-for="category in categories" :key="category.id">
             <a class="cursor-pointer">{{category.name}}</a>
           </li>
