@@ -48,7 +48,7 @@
               </div>
             </div>
 
-            <MiniSponsorCard v-bind="sponsors[i]" />
+            <MiniSponsorCard v-if="sponsors[i]" v-bind="sponsors[i]" class="w-1/2 mx-auto" />
 
             <a
               class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
