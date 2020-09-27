@@ -7,7 +7,10 @@ module.exports = {
 			"./storage/framework/views/*.php",
 			"./resources/views/**/*.blade.php",
 			"./resources/js/**/*.vue"
-		]
+        ],
+        options: {
+            whitelist: [/aspect-ratio-$/]
+        }
 	},
 
 	future: {
