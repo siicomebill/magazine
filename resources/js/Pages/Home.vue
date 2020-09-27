@@ -21,7 +21,8 @@
           <h2>Il Magazine Intelligente</h2>
         </div>
       </div>
-      <div class="mx-auto lg:w-8/12 lg:grid grid-cols-6 gap-2">
+
+      <div class=" container mx-auto">
         <div class="col-span-5 z-10" v-scroll-spy>
           <div v-for="(category, i) in categories" :key="category.id">
             <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
