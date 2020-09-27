@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div class="container mx-auto py-20">
+    <div class="container mx-auto py-20" v-if="category">
       <span class="text-6xl align-middle">{{category.name}}</span>
-      <span class="border-2 border-black rounded-full bg-white px-4 py-1 align-middle mx-5">Categoria</span>
     </div>
 
     <div class="container mx-auto my-5">

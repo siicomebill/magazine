@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class="sticky top-0 z-10 lg:bg-white lg:text-black bg-black text-white shadow-lg flex items-center justify-between flex-wrap lg:px-6 lg:py-1 px-4"
+      class="sticky top-0 z-30 lg:bg-white lg:text-black bg-black text-white shadow-lg flex items-center justify-between flex-wrap lg:px-6 lg:py-1 px-4"
     >
       <div class="flex items-center flex-shrink-0 mr-6">
         <a href="/" class="font-semibold text-xl tracking-tight">BILL</a>
