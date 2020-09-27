@@ -1,7 +1,16 @@
 <template>
   <Layout>
     <template #menu>
-      hey
+      <ul
+        v-scroll-spy-active="{ class: 'font-bold' }"
+        v-scroll-spy-link
+        v-if="categories.length"
+        class="flex"
+      >
+        <li v-for="category in categories" :key="category.id" class="mx-3">
+          <a class="cursor-pointer">{{ category.name }}</a>
+        </li>
+      </ul>
     </template>
     <div class="content-background">
       <div
@@ -66,21 +75,6 @@
               class="lg:w-11/12"
             />
           </div>
-        </div>
-
-        <div
-          class="col-span-1 relative lg:block hidden"
-          v-if="categories.length"
-        >
-          <ul
-            class="bg-white rounded-lg -ml-32 pl-32 p-4 fixed shadow-lg z-0"
-            v-scroll-spy-active="{ class: 'font-bold' }"
-            v-scroll-spy-link
-          >
-            <li v-for="category in categories" :key="category.id">
-              <a class="cursor-pointer">{{ category.name }}</a>
-            </li>
-          </ul>
         </div>
       </div>
 
