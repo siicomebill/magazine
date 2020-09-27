@@ -9,11 +9,13 @@
 
       <Dropdown class="text-black lg:flex-grow">
         <div class="text-sm lg:flex-grow">
-          <a
-            :href="$route('categories')"
-            class="block lg:inline-block lg:mt-0 mx-4"
-            >Categorie</a
-          >
+          <slot name="menu">
+            <a
+              :href="$route('categories')"
+              class="block lg:inline-block lg:mt-0 mx-4"
+              >Categorie</a
+            >
+          </slot>
         </div>
 
         <div v-if="$page.auth">
