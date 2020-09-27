@@ -34,7 +34,7 @@
           <Thumbnail
             :src="article.image"
             :alt="article.title"
-            aspectRatio="square"
+            square
             class="w-auto rounded-lg text-center overflow-hidden"
           />
         </div>
