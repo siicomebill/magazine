@@ -5,9 +5,9 @@
         v-scroll-spy-active="{ class: 'font-bold' }"
         v-scroll-spy-link
         v-if="categories.length"
-        class="flex"
+        class="lg:flex"
       >
-        <li v-for="category in categories" :key="category.id" class="mx-3">
+        <li v-for="category in categories" :key="category.id" class="lg:mx-3">
           <a class="cursor-pointer">{{ category.name }}</a>
         </li>
       </ul>
