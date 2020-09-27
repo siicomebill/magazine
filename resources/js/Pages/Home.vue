@@ -14,7 +14,7 @@
           <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
             <a
               :href="$route('categories.articles', category.id)"
-              class="block text-6xl capitalize font-bold"
+              class="block text-3xl text-center lg:text-left lg:text-6xl capitalize font-bold"
             >
               {{ category.name }}
             </a>
