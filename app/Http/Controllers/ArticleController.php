@@ -56,7 +56,7 @@ class ArticleController extends Controller
     {
         return Inertia::render('Article', [
             "article" => $this->article->find($id),
-            "sponsor" => $this->sponsor->random()->get(),
+            "sponsor" => $this->sponsor->random()->first(),
         ]);
     }   
 
