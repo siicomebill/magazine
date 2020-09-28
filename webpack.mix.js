@@ -30,6 +30,8 @@ mix.alias({
 
 mix.webpackConfig({
     plugins: [
-        new CompressionPlugin(),
+        new CompressionPlugin({
+            filename: '[path][name].min[ext]',
+        }),
     ],
 })
