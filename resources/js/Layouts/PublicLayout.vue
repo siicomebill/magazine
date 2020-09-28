@@ -1,13 +1,13 @@
 <template>
   <div>
     <nav
-      class="sticky top-0 z-30 lg:bg-white lg:text-black bg-black text-white shadow-lg flex items-center justify-between flex-wrap lg:px-6 lg:py-1 px-4"
+      class="sticky top-0 z-30 lg:bg-white lg:text-black bg-black text-white shadow-lg flex items-center justify-between flex flex-wrap lg:px-6 lg:py-1 px-4"
     >
       <div class="flex items-center flex-shrink-0 mr-6">
         <a href="/" class="font-semibold text-xl tracking-tight">BILL</a>
       </div>
 
-      <Dropdown class="text-black lg:flex-grow">
+      <Dropdown class="text-black flex-grow">
         <div class="text-sm lg:flex-grow lg:mb-0 mb-4">
           <slot name="menu">
             <a
