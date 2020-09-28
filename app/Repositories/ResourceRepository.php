@@ -67,4 +67,9 @@ class ResourceRepository implements ResourceRepositoryInterface
     {
         return $this->find($id)->delete();
     }
+
+    public function random($limit = 1)
+    {
+        return $this->model::inRandomOrder()->limit($limit);
+    }
 }

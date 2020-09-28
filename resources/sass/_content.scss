@@ -1,0 +1,35 @@
+.content {
+    h1 {
+        font-size: 55px;
+        font-weight: bolder;
+    }
+
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    p {
+        margin-block-end: 20px;
+    }
+
+    blockquote {
+        font-size: 20px;
+        border: dashed 2px #ccc;
+        color: rgb(77, 77, 77);
+        border-radius: 20px;
+        display: block;
+        width: 700px;
+        margin: auto;
+        padding: 1em;
+
+        p {
+            margin: 0;
+        }
+    }
+}

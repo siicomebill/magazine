@@ -6,15 +6,17 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Repositories\ArticleRepository;
+use App\Repositories\SponsorRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
-    public function __construct(ArticleRepository $article)
+    public function __construct(ArticleRepository $article, SponsorRepository $sponsor)
     {
         $this->article = $article;
+        $this->sponsor = $sponsor;
     }
     
     public function managerPage(Request $request)
@@ -53,7 +55,8 @@ class ArticleController extends Controller
     public function read($id)
     {
         return Inertia::render('Article', [
-            "article" => $this->article->find($id)
+            "article" => $this->article->find($id),
+            "sponsor" => $this->sponsor->random()->first(),
         ]);
     }   
 
