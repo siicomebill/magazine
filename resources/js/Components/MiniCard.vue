@@ -1,15 +1,15 @@
 <template>
   <a
-    class="block bg-white rounded-lg my-4 flex"
+    class="block bg-white rounded-lg my-4 lg:flex"
     :href="href"
   >
     <Thumbnail
       :src="image"
       :alt="title"
       square
-      class="w-1/2 rounded-lg text-center overflow-hidden"
+      class="lg:w-1/2 rounded-lg text-center overflow-hidden"
     />
-    <div class="flex flex-col p-4 w-1/2 justify-between leading-normal">
+    <div class="flex flex-col p-4 lg:w-1/2 justify-between leading-normal">
       <div class="mb-8">
         <p class="font-bold text-2xl text-primary mb-2 break-words">{{ title }}</p>
         <div class="my-3">
