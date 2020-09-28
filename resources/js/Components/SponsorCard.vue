@@ -6,7 +6,7 @@
       <template #footer>
         <div class="grid">
           <span
-            class="bg-blue-500 text-white text-center font-bold rounded-full py-2 lg:pr-4 lg:pl-10 lg:-mr-12 lg:justify-self-end"
+            class="bg-blue-500 text-white text-center font-bold rounded-l-full py-2 px-4 lg:text-xl lg:-mr-4 lg:mb-4 lg:pr-12 lg:justify-self-end shadow"
           >
             {{ cta }}
           </span>
