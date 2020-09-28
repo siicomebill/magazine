@@ -1,0 +1,47 @@
+.content {
+    h1 {
+        font-size: 55px;
+        font-weight: bolder;
+    }
+
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    p {
+        margin-block-end: 20px;
+    }
+
+    blockquote {
+        font-size: 20px;
+        border: solid 1em #ccc;
+        display: block;
+        width: 700px;
+        margin: auto;
+        padding: 1em;
+        position: relative;
+        &:before {
+            background-color: white;
+            bottom: -1em;
+            content: "";
+            left: 2em;
+            position: absolute;
+            right: 2em;
+            top: -1em;
+        }
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
