@@ -14,10 +14,14 @@ button:focus, input:focus, textarea:focus {
     @apply my-4
 }
 
-.editor .commands button {
+.editor .commands button, .editor .menububble button {
     @apply shadow px-4 py-2 mx-1 bg-gray-800 text-white rounded-lg;
 }
 
 .editor .commands button.is-active {
     @apply transition duration-100 bg-orange-500;
+}
+
+.editor .menububble input {
+    @apply bg-white shadow border border-black px-4 py-2 rounded-lg;
 }
