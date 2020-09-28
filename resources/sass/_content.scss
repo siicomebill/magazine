@@ -20,25 +20,13 @@
 
     blockquote {
         font-size: 20px;
-        border: solid 1em #ccc;
+        border: dashed 2px #ccc;
+        color: rgb(77, 77, 77);
+        border-radius: 20px;
         display: block;
         width: 700px;
         margin: auto;
         padding: 1em;
-        position: relative;
-        &:before {
-            background-color: white;
-            bottom: -1em;
-            content: "";
-            left: 2em;
-            position: absolute;
-            right: 2em;
-            top: -1em;
-        }
-        > * {
-            position: relative;
-            z-index: 1;
-        }
 
         p {
             margin: 0;
