@@ -1,10 +1,10 @@
 <template>
-  <div class="relative inline-block">
-    <div class="block w-full lg:hidden">
+  <div class="relative inline lg:w-auto w-auto">
+    <div class="block lg:hidden">
       <div class="-mr-2 flex items-center">
         <button
           @click="showDropdown = !showDropdown"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto"
         >
           <svg
             class="h-6 w-6"
@@ -33,7 +33,7 @@
 
     <div
       :class="{ hidden: !showDropdown }"
-      class="lg:relative absolute right-0 bg-white z-40 flex-grow lg:flex lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1 lg:shadow-none lg:border-none"
+      class="lg:relative block absolute right-0 left-0 bg-white z-40 flex-grow lg:flex lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1 lg:shadow-none lg:border-none"
     >
       <slot></slot>
     </div>

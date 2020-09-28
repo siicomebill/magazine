@@ -11,7 +11,9 @@
             >{{ article.category.name }}</span
           >
 
-          <h1 class="lg:text-6xl text-4xl align-middle my-2">{{ article.title }}</h1>
+          <h1 class="lg:text-6xl text-4xl align-middle my-2">
+            {{ article.title }}
+          </h1>
 
           <div class="my-4 rounded-lg">
             <!-- <img
@@ -25,7 +27,7 @@
             </div>
           </div>
 
-          <hr class="my-6" />
+          <hr class="my-6 lg:-mr-5" />
 
           <div>{{ article.snippet }}</div>
         </div>
@@ -41,16 +43,17 @@
       </div>
     </div>
 
-    <Reader
-      v-model="article.content"
-      class="container mx-auto my-4 py-2 px-4 md:px-2"
-    />
+    <div class="container mx-auto my-4 py-2 px-4 md:px-2">
+      <MiniSponsorCard v-bind="sponsor" class="lg:w-1/2 mx-auto"/>
+      <Reader v-model="article.content" class="content"/>
+    </div>
   </div>
 </template>
 
 <script>
 import Layout from "@/Layouts/PublicLayout";
 import Thumbnail from "~/Thumbnail";
+import MiniSponsorCard from "~/MiniSponsorCard";
 import { Reader } from "vue-publisher";
 
 export default {
@@ -58,9 +61,11 @@ export default {
   components: {
     Reader,
     Thumbnail,
+    MiniSponsorCard,
   },
   props: {
     article: Object,
+    sponsor: Object,
   },
 };
 </script>
