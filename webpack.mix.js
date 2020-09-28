@@ -31,6 +31,7 @@ mix.alias({
 mix.webpackConfig({
     plugins: [
         new CompressionPlugin({
+            exclude: /\w+.txt/g,
             filename: '[path][name].min[ext]',
         }),
     ],
