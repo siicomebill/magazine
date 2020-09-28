@@ -28,11 +28,12 @@ mix.alias({
     '~': '/resources/js/Components',
 })
 
+mix.options({
+    terser: {
+        sourceMap: true,
+    }
+})
+
 mix.webpackConfig({
-    plugins: [
-        new CompressionPlugin({
-            exclude: /\w+.txt/g,
-            filename: '[path][name].min[ext]',
-        }),
-    ],
+    cache: true
 })
