@@ -9,7 +9,7 @@ class Configuration extends Model
 {
     use HasFactory;
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
-    protected $primary = "name";
+    public $primary = "name";
 }
