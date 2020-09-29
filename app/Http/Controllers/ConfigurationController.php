@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
 use App\Repositories\ConfigurationRepository;
+use Illuminate\Http\Request;
 
 class ConfigurationController extends ResourceController
 {
@@ -17,5 +18,11 @@ class ConfigurationController extends ResourceController
     public function __construct(ConfigurationRepository $configuration)
     {
         parent::__construct($configuration);
+    }
+
+    public function store(Request $request)
+    {
+        //TODO Custom request
+        return parent::store($request);
     }
 }
