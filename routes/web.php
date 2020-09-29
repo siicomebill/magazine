@@ -58,5 +58,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 });
             });
         });
+
+        Route::middleware('role:admin')->group(function () {
+            Route::prefix('configuration')->group(function () {
+                Route::get('/', 'ConfigurationController@managerPage')->name('config.list');
+
+                Route::get('write/{id?}', 'ConfigurationController@newItemPage')->name('config.write');
+                Route::get('delete/{id?}', 'ConfigurationController@delete')->name('config.delete');
+
+                Route::post('publish', 'ConfigurationController@store')->name('config.publish');
+            });
+        });
     });
 });

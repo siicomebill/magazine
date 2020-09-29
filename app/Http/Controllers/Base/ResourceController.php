@@ -81,7 +81,8 @@ abstract class ResourceController extends Controller
      */
     public function newItemPage(Request $request)
     {
-        $item = $this->resource->asModel()->find($request->id);
+        $model = $this->resource->asModel();
+        $item = $model->find($request[$model->getKeyName()] ?? null);
 
         return $this->renderer::render($this->pageComponents["newItemPage"], [
             "stored" => $item ?? null,
@@ -96,7 +97,8 @@ abstract class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : redirect()->back('500');
+        //TODO Fix error redirect
+        return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : redirect()->back(500);
     }
 
     /**

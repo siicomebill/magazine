@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repositories\ConfigurationRepository;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ServiceProvider;
@@ -24,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(ConfigurationRepository $config)
     {
         Inertia::share([
             'auth' => function () {
