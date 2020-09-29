@@ -11,5 +11,8 @@ class Configuration extends Model
 
     public $timestamps = false;
 
-    public $primary = "name";
+    protected $fillable = [
+        "name",
+        "content",
+    ];
 }
