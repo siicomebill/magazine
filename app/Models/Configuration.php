@@ -15,4 +15,8 @@ class Configuration extends Model
         "name",
         "content",
     ];
+
+    protected $casts = [
+        "content" => "array"
+    ];
 }
