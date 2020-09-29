@@ -23,7 +23,10 @@ module.exports = {
 			fontFamily: {
 				sans: ["Nunito", ...defaultTheme.fontFamily.sans],
 				banner: ["Archivo Black",  "Nunito", ...defaultTheme.fontFamily.sans]
-			}
+			},
+			transitionProperty: {
+				default: defaultTheme.transitionProperty.default + ', background'
+			},
 		},
 		aspectRatio: {
 			none: 0,
@@ -36,7 +39,8 @@ module.exports = {
 
 	variants: {
 		opacity: ["responsive", "hover", "focus", "disabled"],
-		aspectRatio: ["responsive"]
+		aspectRatio: ["responsive"],
+		backgroundImage: ['responsive', 'hover', 'focus'],
 	},
 
 	plugins: [require("@tailwindcss/ui"), require("tailwindcss-aspect-ratio")]

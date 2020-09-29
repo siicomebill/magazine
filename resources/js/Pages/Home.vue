@@ -28,8 +28,8 @@
         </div>
       </div>
 
-      <div class="md:hidden sticky bottom-0 px-6 py-2">
-        <p class="text-center py-2 px-3 border-solid border-white text-white bg-gradient-to-r from-yellow-500 via-orange-500 via-red-500 to-purple-500 rounded-full">
+      <div class="md:hidden sticky bottom-0 px-6 py-4">
+        <p class="cta">
           Scorri verso l'alto per le notizie
         </p>
       </div>
