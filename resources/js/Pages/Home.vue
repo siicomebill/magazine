@@ -16,13 +16,12 @@
       <div
         class="py-20 bg-black banner text-white text-center -mb-20 pb-40 lg:rounded-br-full md:px-10 lg:px-0"
       >
-        <div class="container mx-auto px-4 md:px-0">
-          <h1 class="md:text-6xl text-4xl font-bold">Sii Come Bill</h1>
-          <h2>Il Magazine Intelligente</h2>
+        <div class="container mx-auto px-4 md:px-0" v-if="$page.configuration.banner">
+          <Reader v-model="$page.configuration.banner.content" v-if="$page.configuration.banner.content" />
         </div>
       </div>
 
-      <div class=" container mx-auto">
+      <div class="container mx-auto">
         <div class="col-span-5 z-10" v-scroll-spy>
           <div v-for="(category, i) in categories" :key="category.id">
             <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
@@ -98,6 +97,7 @@ import MiniCard from "~/MiniCard";
 import SponsorCard from "~/SponsorCard";
 import MiniSponsorCard from "~/MiniSponsorCard";
 import Layout from "@/Layouts/PublicLayout";
+import { Reader } from "vue-publisher";
 
 export default {
   components: {
@@ -106,6 +106,7 @@ export default {
     MiniCard,
     SponsorCard,
     MiniSponsorCard,
+    Reader,
   },
   props: {
     sponsors: Array,
