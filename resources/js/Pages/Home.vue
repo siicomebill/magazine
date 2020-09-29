@@ -16,7 +16,7 @@
       <div
         class="py-20 bg-black banner text-white text-center -mb-20 pb-40 lg:rounded-br-full md:px-10 lg:px-0"
       >
-        <div class="container mx-auto px-4 md:px-0" v-if="$page.configuration.banner">
+        <div class="container mx-auto px-4 md:px-0 font-banner" v-if="$page.configuration.banner">
           <Reader v-model="$page.configuration.banner" />
         </div>
       </div>
@@ -27,7 +27,7 @@
             <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
               <a
                 :href="$route('categories.articles', category.id)"
-                class="block text-3xl text-center lg:text-left lg:text-6xl capitalize font-bold"
+                class="block text-3xl font-banner text-center lg:text-left lg:text-6xl capitalize"
               >
                 {{ category.name }}
               </a>
