@@ -2,7 +2,7 @@
   <div>
     <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
       <div class="my-8 text-2xl text-gray-900">
-        <p>Welcome, {{$page.user.name}}.</p>
+        <p>Welcome, {{ $page.user.name }}.</p>
       </div>
     </div>
 
@@ -28,14 +28,58 @@
         </div>
 
         <div class="ml-12">
-          <div class="mt-2 text-sm text-gray-500">Visualizza e gestisci il tuo catalogo di articoli.</div>
+          <div class="mt-2 text-sm text-gray-500">
+            Visualizza e gestisci il tuo catalogo di articoli.
+          </div>
 
           <a :href="$route('articles.list.mine')">
-            <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
+            <div
+              class="mt-3 flex items-center text-sm font-semibold text-indigo-700"
+            >
               <div>Vai</div>
 
               <div class="ml-1 text-indigo-500">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="arrow-right w-4 h-4">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="arrow-right w-4 h-4"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="p-6" v-if="userIsAdmin">
+        <div class="flex items-center">
+          <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">
+            <a :href="$route('config.list')">Configurazione</a>
+          </div>
+        </div>
+
+        <div class="ml-12">
+          <div class="mt-2 text-sm text-gray-500">
+            Personalizza vari aspetti del sito.
+          </div>
+
+          <a :href="$route('config.list')">
+            <div
+              class="mt-3 flex items-center text-sm font-semibold text-indigo-700"
+            >
+              <div>Personalizza</div>
+
+              <div class="ml-1 text-indigo-500">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="arrow-right w-4 h-4"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -70,16 +114,23 @@
         </div>
 
         <div class="ml-12">
-          <div
-            class="mt-2 text-sm text-gray-500"
-          >Stringi collaborazioni con degli sponsor e fai apparire il loro brand in mezzo agli articoli.</div>
+          <div class="mt-2 text-sm text-gray-500">
+            Stringi collaborazioni con degli sponsor e fai apparire il loro
+            brand in mezzo agli articoli.
+          </div>
 
           <a :href="$route('sponsors.list')">
-            <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
+            <div
+              class="mt-3 flex items-center text-sm font-semibold text-indigo-700"
+            >
               <div>Sponsorizza</div>
 
               <div class="ml-1 text-indigo-500">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="arrow-right w-4 h-4">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="arrow-right w-4 h-4"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -114,16 +165,22 @@
         </div>
 
         <div class="ml-12">
-          <div
-            class="mt-2 text-sm text-gray-500"
-          >Organizza i tuoi articoli in categorie distinte.</div>
+          <div class="mt-2 text-sm text-gray-500">
+            Organizza i tuoi articoli in categorie distinte.
+          </div>
 
           <a :href="$route('categories.list')">
-            <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
+            <div
+              class="mt-3 flex items-center text-sm font-semibold text-indigo-700"
+            >
               <div>Gestisci</div>
 
               <div class="ml-1 text-indigo-500">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="arrow-right w-4 h-4">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="arrow-right w-4 h-4"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -142,9 +199,9 @@
 <script>
 export default {
   computed: {
-    userIsAdmin(){
-      return this.$page.user.roles.some(role => role.name == "admin")
-    }
-  }
-}
+    userIsAdmin() {
+      return this.$page.user.roles.some((role) => role.name == "admin");
+    },
+  },
+};
 </script>
