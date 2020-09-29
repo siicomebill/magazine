@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Card from "~/Card";
+import Card from "~/MiniCard";
 import Layout from "@/Layouts/AppLayout";
 
 export default {
