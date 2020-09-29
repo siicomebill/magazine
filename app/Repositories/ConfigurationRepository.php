@@ -8,9 +8,15 @@ class ConfigurationRepository extends ResourceRepository
 {
     protected $model = Configuration::class;
 
-    public function get()
+    public function get(array $elements = [])
     {
-        $models = ($this->model::all());
+        $query = $this->model::whereNotNull('content');
+
+        foreach ($elements as $value) {
+            $query = $query->where('name', $value);
+        }
+
+        $models = ($query->get());
         $result = [];
 
         foreach ($models as $value) {
