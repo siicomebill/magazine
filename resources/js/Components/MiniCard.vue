@@ -4,12 +4,12 @@
     :href="href"
   >
     <Thumbnail
+      v-if="image"
       :src="image"
-      :alt="title"
       square
       class="lg:w-1/2 rounded-lg text-center overflow-hidden"
     />
-    <div class="flex flex-col p-4 lg:w-1/2 justify-between leading-normal">
+    <div class="flex flex-col p-4 justify-between leading-normal w-full" :class="{'lg:w-1/2': image}">
       <div class="mb-8">
         <p class="font-bold text-2xl text-primary mb-2 break-words">{{ title }}</p>
         <div class="my-3">
