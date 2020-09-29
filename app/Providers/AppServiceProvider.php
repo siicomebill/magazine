@@ -47,7 +47,6 @@ class AppServiceProvider extends ServiceProvider
 
                 return (object)[];
             },
-            'configuration' => $config->get()
         ]);
     }
 }

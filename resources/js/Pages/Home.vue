@@ -112,6 +112,7 @@ export default {
     sponsors: Array,
     categories: Array,
     articles: Array,
+    configuration: [Object, Array],
   },
 };
 </script>
