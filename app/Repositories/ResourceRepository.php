@@ -47,8 +47,11 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function store($request)
     {
-        if ($request->id) {
-            $item = $this->model::find($request->id);
+        $model = new $this->model;
+        $id = $request[$model->getKeyName()];
+
+        if ($id) {
+            $item = $model::find($id);
 
             if ($item) {
                 $item->update($request->all());
