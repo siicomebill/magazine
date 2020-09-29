@@ -1,7 +1,7 @@
 <template>
   <div class="relative block">
     <div :class="{'aspect-ratio-square': square}"></div>
-    <img v-if="src" v-lazy="src" :class="imageClass" />
+    <img v-if="src" v-lazy="src" :class="imageClass" :alt="alt || 'Thumbnail'"/>
 
     <div v-else-if="alt" :class="imageClass">
       <span class="m-auto block text-gray-500 text-4xl">{{alt}}</span>
