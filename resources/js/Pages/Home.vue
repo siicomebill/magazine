@@ -17,7 +17,7 @@
         class="py-20 bg-black banner text-white text-center -mb-20 pb-40 lg:rounded-br-full md:px-10 lg:px-0"
       >
         <div class="container mx-auto px-4 md:px-0" v-if="$page.configuration.banner">
-          <Reader v-model="$page.configuration.banner.content" v-if="$page.configuration.banner.content" />
+          <Reader v-model="$page.configuration.banner" />
         </div>
       </div>
 
