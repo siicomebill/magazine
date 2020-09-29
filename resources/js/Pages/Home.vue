@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout mode="fixed">
     <template #menu>
       <ul
         v-scroll-spy-active="{ class: 'font-bold' }"
@@ -14,11 +14,24 @@
     </template>
     <div class="content-background">
       <div
-        class="py-20 bg-black banner text-white text-center -mb-20 pb-40 lg:rounded-br-full md:px-10 lg:px-0"
+        class="flex py-20 bg-black banner min-h-screen md:min-h-0 text-white text-center md:-mb-20 md:pb-40 lg:rounded-br-full md:px-10 lg:px-0"
       >
-        <div class="container mx-auto px-4 md:px-0 font-banner" v-if="$page.configuration.banner">
-          <Reader v-model="$page.configuration.banner" />
+        <div class="container m-auto px-4 md:px-0">
+          <div class="font-banner mb-auto" v-if="$page.configuration.banner">
+            <img
+              src="/img/logo_small.png"
+              class="logo-invert block mx-auto"
+              alt
+            />
+            <Reader v-model="$page.configuration.banner" />
+          </div>
         </div>
+      </div>
+
+      <div class="md:hidden sticky bottom-0 px-6 py-2">
+        <p class="text-center py-2 px-3 border-solid border-white text-white bg-black rounded-full">
+          Scorri verso l'alto per le notizie
+        </p>
       </div>
 
       <div class="container mx-auto">

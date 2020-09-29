@@ -1,1 +1,9 @@
 @import "content";
+
+.banner {
+    .logo {
+        &-invert {
+            filter: invert(100);
+        }
+    }
+}
