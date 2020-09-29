@@ -14,10 +14,6 @@
         font-weight: bold;
     }
 
-    p {
-        margin-block-end: 20px;
-    }
-
     blockquote {
         font-size: 20px;
         border: dashed 2px #ccc;
@@ -33,7 +29,15 @@
         }
     }
 
-    a[href]{
+    a[href] {
         text-decoration: underline;
+    }
+}
+
+.article {
+    .content {
+        p {
+            margin-block-end: 20px;
+        }
     }
 }
