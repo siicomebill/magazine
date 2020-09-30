@@ -68,6 +68,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
                 Route::post('publish', 'ConfigurationController@store')->name('config.publish');
             });
+
+            Route::prefix('users')->group(function () {
+                Route::get('/', 'UserController@managerPage')->name('user.list');
+
+                Route::get('edit/{id?}', 'UserController@editItemPage')->name('user.write');
+                Route::get('delete/{id?}', 'UserController@delete')->name('user.delete');
+
+                Route::post('publish', 'UserController@store')->name('user.publish');
+            });
         });
     });
 });
