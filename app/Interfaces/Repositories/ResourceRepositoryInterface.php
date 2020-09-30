@@ -19,4 +19,6 @@ interface ResourceRepositoryInterface
     public function store($request);
 
     public function delete($id);
+
+    public function random($limit);
 }
