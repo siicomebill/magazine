@@ -13,8 +13,8 @@ class CategoryRepository extends ResourceRepository
         return $this->model::limit(10)->has('articles')->with('articles');
     }
 
-    public function get()
+    public function latest(int $limit = 0)
     {
-        $this->asModel()->get();
+        return $this->model::orderBy('id', 'desc');
     }
 }
