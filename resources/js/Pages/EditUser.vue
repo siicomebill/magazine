@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="class container mx-auto my-4 rounded-lg p-4">
-      <json-editor
+      <!-- <json-editor
         @submit.prevent="publish"
         no-validate
         :schema="schema"
@@ -14,7 +14,9 @@
         >
           Save
         </button>
-      </json-editor>
+      </json-editor> -->
+
+      <tree :data="treeData" />
     </div>
   </div>
 </template>
@@ -22,42 +24,28 @@
 <script>
 import Layout from "@/Layouts/AppLayout";
 import Form from "~/Base/Form";
-import JsonEditor from "vue-json-ui-editor";
-
-const SCHEMA = {
-  type: "object",
-  title: "User",
-  properties: {
-    roles: {
-      type: "array",
-      title: "Roles",
-      items: {
-        uniqueItems: true,
-        type: "object",
-        anyOf: [
-          { value: "daily", label: "Daily New" },
-          { value: "promotion", label: "Promotion" },
-        ],
-      },
-    },
-  },
-};
+import LiquorTree from "liquor-tree";
 
 export default {
   layout: Layout,
   extends: Form,
   components: {
-    JsonEditor,
+    [LiquorTree.name]: LiquorTree,
   },
   props: {
     roles: Array,
   },
   data() {
     return {
+      treeData: [
+        { text: "Item 1" },
+        { text: "Item 2" },
+        { text: "Item 3", state: { selected: true, editable: true } },
+        { text: "Item 4" },
+      ],
       edited: {
         roles: [],
       },
-      schema: SCHEMA,
     };
   },
 };
