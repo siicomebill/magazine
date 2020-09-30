@@ -12,7 +12,7 @@ class ConfigurationController extends ResourceController
     protected $pageComponents = [
         "listPage" => "",
         "managerPage" => "ConfigurationManager",
-        "newItemPage" => "EditConfiguration",
+        "editItemPage" => "EditConfiguration",
     ];
 
     public function __construct(ConfigurationRepository $configuration)

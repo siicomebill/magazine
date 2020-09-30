@@ -45,7 +45,7 @@ abstract class ResourceController extends Controller
     protected $pageComponents = [
         "listPage" => "",
         "managerPage" => "",
-        "newItemPage" => "",
+        "editItemPage" => "",
     ];
 
     public function __construct(ResourceRepository $resource)
@@ -79,12 +79,12 @@ abstract class ResourceController extends Controller
      * 
      * @param Request $request
      */
-    public function newItemPage(Request $request)
+    public function editItemPage(Request $request)
     {
         $model = $this->resource->asModel();
         $item = $model->find($request[$model->getKeyName()] ?? null);
 
-        return $this->renderer::render($this->pageComponents["newItemPage"], [
+        return $this->renderer::render($this->pageComponents["editItemPage"], [
             "stored" => $item ?? null,
             "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
         ]);

@@ -10,7 +10,7 @@ class SponsorController extends ResourceController
     protected $routeNamePrefix = "sponsors";
     protected $pageComponents = [
         "managerPage" => "SponsorsManager",
-        "newItemPage" => "NewSponsor"
+        "editItemPage" => "NewSponsor"
     ];
 
     public function __construct(SponsorRepository $sponsor)
