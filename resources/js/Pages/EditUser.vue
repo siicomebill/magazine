@@ -1,8 +1,19 @@
 <template>
   <div>
     <div class="class container mx-auto my-4 rounded-lg p-4">
-      <json-editor ref="JsonEditor" :schema="schema" v-model="model" input-wrapping-class="appearance-none bg-white shadow my-4 leading-tight p-4 rounded-lg text-3xl font-bold text-gray-700">
-        <button @click="publish" class="text-lg bg-blue-500 text-white font-bold rounded-lg mt-4 w-full p-4">Save</button>
+      <json-editor
+        @submit.prevent="publish"
+        no-validate
+        :schema="schema"
+        v-model="edited"
+        input-wrapping-class="appearance-none bg-white shadow my-4 leading-tight p-4 rounded-lg text-3xl font-bold text-gray-700"
+      >
+        <button
+          type="submit"
+          class="text-lg bg-blue-500 text-white font-bold rounded-lg mt-4 w-full p-4"
+        >
+          Save
+        </button>
       </json-editor>
     </div>
   </div>
@@ -15,13 +26,19 @@ import JsonEditor from "vue-json-ui-editor";
 
 const SCHEMA = {
   type: "object",
-  title: "vue-json-editor demo",
+  title: "User",
   properties: {
-    name: {
-      type: "string",
-    },
-    email: {
-      type: "string",
+    roles: {
+      type: "array",
+      title: "Roles",
+      items: {
+        uniqueItems: true,
+        type: "object",
+        anyOf: [
+          { value: "daily", label: "Daily New" },
+          { value: "promotion", label: "Promotion" },
+        ],
+      },
     },
   },
 };
@@ -37,26 +54,10 @@ export default {
   },
   data() {
     return {
-      model: {
-        name: "Yourtion",
-      },
       edited: {
         roles: [],
       },
       schema: SCHEMA,
-      //   schema: {
-      //     type: "array",
-      //     title: "User roles",
-      //     items: {
-      //       type: "object",
-      //       properties: {
-      //         name: {
-      //           title: "Name",
-      //           type: "string",
-      //         },
-      //       },
-      //     },
-      //   },
     };
   },
 };
