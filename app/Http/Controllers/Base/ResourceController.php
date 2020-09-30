@@ -79,15 +79,17 @@ abstract class ResourceController extends Controller
      * 
      * @param Request $request
      */
-    public function editItemPage(Request $request)
+    public function editItemPage(Request $request, $id = null, array $additionalData = [])
     {
         $model = $this->resource->asModel();
-        $item = $model->find($request[$model->getKeyName()] ?? null);
+        $item = $model->find($id ?? $request[$model->getKeyName()] ?? null);
 
-        return $this->renderer::render($this->pageComponents["editItemPage"], [
+        $edited = [
             "stored" => $item ?? null,
             "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
-        ]);
+        ];
+
+        return $this->renderer::render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
     }
 
     /**
