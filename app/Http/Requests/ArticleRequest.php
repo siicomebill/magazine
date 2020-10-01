@@ -29,6 +29,7 @@ class ArticleRequest extends FormRequest
             "image" => "url|nullable",
             "snippet" => "required",
             "content" => "required|array",
+            "user_id" => "numeric",
         ];
     }
 }
