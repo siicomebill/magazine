@@ -5,7 +5,8 @@
 			<h2 class="text-xl">{{edited.email}}</h2>
 
 			<div class="my-4">
-				<a :href="$route('user.roles.write', edited.id)" class="block bg-white rounded-lg shadow-lg p-4 w-full font-bold">Modifica</a>
+				<a :href="$route('user.roles.write', edited.id)" class="block bg-white rounded-lg shadow-lg p-4 w-full font-bold mb-4">Modifica ruoli</a>
+				<a :href="$route('articles.ofUser.list', edited.id)" class="block bg-white rounded-lg shadow-lg p-4 w-full font-bold mb-4">Gestisci articoli</a>
 			</div>
 		</div>
 	</div>
