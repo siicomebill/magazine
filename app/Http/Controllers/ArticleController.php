@@ -30,7 +30,7 @@ class ArticleController extends Controller
 
     public function editItemPage(Request $request, $userId = null, $id = null)
     {
-        $article = $this->article->forEditor($request, $id, $userId);
+        $article = $this->article->forEditor($id, $userId);
 
         return Inertia::render('NewArticle', [
             "stored" => $article ?? null,
