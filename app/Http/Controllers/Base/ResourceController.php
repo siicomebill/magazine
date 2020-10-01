@@ -60,7 +60,7 @@ abstract class ResourceController extends Controller
      */
     public function managerPage(Request $request)
     {
-        $items = $this->resource->asModel()->all();
+        $items = $this->resource->list();
 
         $items->each(function ($value, $key) {
             $value["links"] = [

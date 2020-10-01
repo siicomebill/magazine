@@ -15,6 +15,11 @@ class ResourceRepository implements ResourceRepositoryInterface
         return new $this->model;
     }
 
+    public function list()
+    {
+        return $this->asModel()->all();
+    }
+
     public function get()
     {
         return $this->latest()->get();
