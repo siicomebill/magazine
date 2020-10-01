@@ -70,6 +70,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             });
 
             Route::prefix('users')->group(function () {
+                Route::prefix('roles')->group(function () {    
+                    Route::get('edit/{id?}', 'UserRolesController@editItemPage')->name('user.roles.write');    
+                    Route::post('publish', 'UserRolesController@store')->name('user.roles.publish');
+                });
+
                 Route::get('/', 'UserController@managerPage')->name('user.list');
 
                 Route::get('edit/{id?}', 'UserController@editItemPage')->name('user.write');

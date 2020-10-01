@@ -19,11 +19,4 @@ class UserController extends ResourceController
     {
         parent::__construct($user);
     }
-
-    public function editItemPage(Request $request, $id = null, array $additionalData = [])
-    {
-        return parent::editItemPage($request, $id, [
-            "roles" => Role::all(['name', 'id'])
-        ]);
-    }
 }
