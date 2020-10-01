@@ -8,17 +8,19 @@ use App\Models\Category;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
-    public function __construct(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category)
+    public function __construct(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category, UserRepository $user)
     {
         $this->article = $article;
         $this->sponsor = $sponsor;
         $this->category = $category;
+        $this->user = $user;
     }
 
     public function managerPage(Request $request, $userId = null)
@@ -60,8 +62,10 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
+        $user = $request->user_id ? $this->user->find($request->user_id) : null;
+
         //FIXME Do not redirect, return response instead
-        return $this->article->store($request) ? redirect()->route('articles.mine.list') : redirect()->back(500);
+        return $this->article->store($request, $user) ? redirect()->route('articles.mine.list') : redirect()->back(500);
     }
 
     public function read($id)
