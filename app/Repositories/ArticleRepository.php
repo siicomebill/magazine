@@ -11,7 +11,7 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
 
     public function store($request, $user = null)
     {
-        if(!$user) return false;
+        $user = $user ?? auth()->user();
 
         if ($request->id) {
             $article = $user->articles()->find($request->id);

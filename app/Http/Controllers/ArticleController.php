@@ -49,7 +49,7 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        return $this->article->store($request, auth()->user()) ? redirect()->route('articles.list.mine') : redirect()->back('500');
+        return $this->article->store($request) ? redirect()->route('articles.list.mine') : redirect()->back('500');
     }
 
     public function read($id)
