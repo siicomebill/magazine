@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\Repositories\ArticleRepositoryInterface;
 use App\Models\Article;
+use Illuminate\Support\Facades\URL;
 
 class ArticleRepository extends ResourceRepository implements ArticleRepositoryInterface
 {
@@ -32,5 +33,26 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
     public function others()
     {
         return $this->latest(20)->doesnthave('category');
+    }
+
+    public function forManagerPage($request, $userId = null)
+    {
+        $articles = $this->model::user($userId ?? $request->user()->id)->get();
+
+        $articles->each(function ($value, $key) {
+            $value["links"] = [
+                "edit" => URL::route('articles.write', $value->id),
+                "delete" => URL::route('articles.delete', $value->id),
+            ];
+        });
+
+        return $articles;
+    }
+
+    public function forEditor($request, $userId = null)
+    {
+        $article = $this->model::find($request->id);
+
+        return $article;
     }
 }

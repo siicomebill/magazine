@@ -6,6 +6,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Repositories\ArticleRepository;
+use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
@@ -13,43 +14,34 @@ use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
-    public function __construct(ArticleRepository $article, SponsorRepository $sponsor)
+    public function __construct(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category)
     {
         $this->article = $article;
         $this->sponsor = $sponsor;
+        $this->category = $category;
     }
     
     public function managerPage(Request $request, $userId = null)
     {
-        $articles = $this->article->asModel()->user($userId ?? $request->user()->id)->get();
-
-        $articles->each(function ($value, $key) {
-            $value["links"] = [
-                "edit" => URL::route('articles.write', $value->id),
-                "delete" => URL::route('articles.delete', $value->id),
-            ];
-        });
-
         return Inertia::render('ArticlesManager', [
-            'items' => $articles
+            'items' => $this->article->forManagerPage($request, $userId)
         ]);
     }
 
     public function editItemPage(Request $request)
     {
-        $article = $this->article->asModel()::find($request->id);
-        $categories = Category::all(["name", "id"]);
+        $article = $this->article->forEditor($request);
 
         return Inertia::render('NewArticle', [
             "stored" => $article ?? null,
             "publishTo" => URL::route('articles.publish'),
-            "categories" => $categories
+            "categories" => $this->category->list(["name", "id"])
         ]);
     }
 
     public function store(ArticleRequest $request)
     {
-        return $this->article->store($request) ? redirect()->route('articles.mine.list') : redirect()->back('500');
+        return $this->article->store($request) ? redirect()->route('articles.mine.list') : redirect()->back(500);
     }
 
     public function read($id)
