@@ -24,7 +24,7 @@ class ArticleController extends Controller
     public function managerPage(Request $request, $userId = null)
     {
         return Inertia::render('ArticlesManager', [
-            'items' => $this->article->forManagerPage($request, $userId)
+            'items' => $this->article->forManagerPage($userId, $routes)
         ]);
     }
 

@@ -36,7 +36,7 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
     }
 
     //TODO Move in ResourceRepository
-    public function forManagerPage($request, $userId = null, $actionRoutes = null)
+    public function forManagerPage($userId = null, $actionRoutes = null)
     {
         $articles = $this->model::user($userId ?? auth()->user()->id)->get();
 
