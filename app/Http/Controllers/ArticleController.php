@@ -28,9 +28,9 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function editItemPage(Request $request)
+    public function editItemPage(Request $request, $userId = null, $id = null)
     {
-        $article = $this->article->forEditor($request);
+        $article = $this->article->forEditor($request, $id, $userId);
 
         return Inertia::render('NewArticle', [
             "stored" => $article ?? null,

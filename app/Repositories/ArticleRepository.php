@@ -49,9 +49,9 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
         return $articles;
     }
 
-    public function forEditor($request, $userId = null)
+    public function forEditor($request, $id = null, $userId = null)
     {
-        $article = $this->model::find($request->id);
+        $article = $this->model::user($userId)->find($id);
 
         return $article;
     }
