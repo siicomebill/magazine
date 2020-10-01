@@ -99,7 +99,7 @@ abstract class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO Fix error redirect
+        //FIXME Do not redirect, return response instead
         return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : redirect()->back(500);
     }
 

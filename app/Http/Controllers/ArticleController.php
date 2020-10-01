@@ -60,6 +60,7 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
+        //FIXME Do not redirect, return response instead
         return $this->article->store($request) ? redirect()->route('articles.mine.list') : redirect()->back(500);
     }
 
