@@ -34,4 +34,9 @@ class UserRepository extends ResourceRepository
     {
         $user->syncRoles(Arr::pluck($roles, 'name'));
     }
+
+    public function list()
+    {
+        return parent::list()->except(auth()->user()->id);
+    }
 }
