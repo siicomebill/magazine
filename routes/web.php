@@ -70,12 +70,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             });
 
             Route::prefix('users')->group(function () {
+                Route::prefix('roles')->group(function () {
+                    Route::get('edit/{id?}', 'UserRolesController@editItemPage')->name('user.roles.write');
+                    Route::post('publish', 'UserRolesController@store')->name('user.roles.publish');
+                });
+                
                 Route::prefix('{userId}')->group(function () {
-                    Route::prefix('roles')->group(function () {
-                        Route::get('edit/{id?}', 'UserRolesController@editItemPage')->name('user.roles.write');
-                        Route::post('publish', 'UserRolesController@store')->name('user.roles.publish');
-                    });
-
                     Route::prefix('articles')->group(function () {
                         Route::get('/', 'ArticleController@managerPage')->name('articles.ofUser.list');
                         Route::get('write/{id?}', 'ArticleController@editItemPage')->name('articles.ofUser.write');
