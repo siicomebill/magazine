@@ -1,4 +1,7 @@
 init:
+	git submodule init
+	git submodule update
+	cp .env.example .env
 	cp laradock.env bill-environment/.env
 	make start
 

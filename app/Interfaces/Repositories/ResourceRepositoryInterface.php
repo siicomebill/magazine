@@ -6,6 +6,8 @@ interface ResourceRepositoryInterface
 {
     public function asModel();
 
+    public function list();
+
     public function get();
 
     public function important();
@@ -19,4 +21,6 @@ interface ResourceRepositoryInterface
     public function store($request);
 
     public function delete($id);
+
+    public function random($limit = 1);
 }

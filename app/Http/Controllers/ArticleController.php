@@ -35,7 +35,7 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function newItemPage(Request $request)
+    public function editItemPage(Request $request)
     {
         $article = $this->article->asModel()::find($request->id);
         $categories = Category::all(["name", "id"]);

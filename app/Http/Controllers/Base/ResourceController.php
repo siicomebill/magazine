@@ -45,7 +45,7 @@ abstract class ResourceController extends Controller
     protected $pageComponents = [
         "listPage" => "",
         "managerPage" => "",
-        "newItemPage" => "",
+        "editItemPage" => "",
     ];
 
     public function __construct(ResourceRepository $resource)
@@ -60,7 +60,7 @@ abstract class ResourceController extends Controller
      */
     public function managerPage(Request $request)
     {
-        $items = $this->resource->asModel()->all();
+        $items = $this->resource->list();
 
         $items->each(function ($value, $key) {
             $value["links"] = [
@@ -79,15 +79,17 @@ abstract class ResourceController extends Controller
      * 
      * @param Request $request
      */
-    public function newItemPage(Request $request)
+    public function editItemPage(Request $request, $id = null, array $additionalData = [])
     {
         $model = $this->resource->asModel();
-        $item = $model->find($request[$model->getKeyName()] ?? null);
+        $item = $model->find($id ?? $request[$model->getKeyName()] ?? null);
 
-        return $this->renderer::render($this->pageComponents["newItemPage"], [
+        $edited = [
             "stored" => $item ?? null,
             "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
-        ]);
+        ];
+
+        return $this->renderer::render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
     }
 
     /**

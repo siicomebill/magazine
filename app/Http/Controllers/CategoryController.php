@@ -10,7 +10,7 @@ class CategoryController extends ResourceController
     protected $routeNamePrefix = "categories";
     protected $pageComponents =  [
         "managerPage" => "CategoriesManager",
-        "newItemPage" => "NewCategory",
+        "editItemPage" => "NewCategory",
     ];
 
     public function __construct(CategoryRepository $category)
