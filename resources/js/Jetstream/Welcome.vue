@@ -23,7 +23,7 @@
             />
           </svg>
           <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">
-            <a :href="$route('articles.list.mine')">I tuoi articoli</a>
+            <a :href="$route('articles.mine.list')">I tuoi articoli</a>
           </div>
         </div>
 
@@ -32,7 +32,7 @@
             Visualizza e gestisci il tuo catalogo di articoli.
           </div>
 
-          <a :href="$route('articles.list.mine')">
+          <a :href="$route('articles.mine.list')">
             <div
               class="mt-3 flex items-center text-sm font-semibold text-indigo-700"
             >

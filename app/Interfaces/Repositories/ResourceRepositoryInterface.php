@@ -6,7 +6,7 @@ interface ResourceRepositoryInterface
 {
     public function asModel();
 
-    public function list();
+    public function list(array $params = []);
 
     public function get();
 

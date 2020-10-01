@@ -6,50 +6,66 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Repositories\ArticleRepository;
+use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 class ArticleController extends Controller
 {
-    public function __construct(ArticleRepository $article, SponsorRepository $sponsor)
+    public function __construct(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category, UserRepository $user)
     {
         $this->article = $article;
         $this->sponsor = $sponsor;
+        $this->category = $category;
+        $this->user = $user;
     }
-    
-    public function managerPage(Request $request)
-    {
-        $articles = $this->article->asModel()->user($request->user()->id)->get();
 
-        $articles->each(function ($value, $key) {
-            $value["links"] = [
-                "edit" => URL::route('articles.write', $value->id),
-                "delete" => URL::route('articles.delete', $value->id),
-            ];
-        });
+    public function managerPage(Request $request, $userId = null)
+    {
+        $routes = $userId ? [
+            "edit" => "articles.ofUser.write",
+            "delete" => "articles.ofUser.delete"
+        ] : [];
 
         return Inertia::render('ArticlesManager', [
-            'items' => $articles
+            'items' => $this->article->forManagerPage($userId, $routes)
         ]);
     }
 
-    public function editItemPage(Request $request)
+    public function editItemPage(Request $request, $id = null)
     {
-        $article = $this->article->asModel()::find($request->id);
-        $categories = Category::all(["name", "id"]);
+        $article = $this->article->forEditor($id, auth()->user()->id);
 
         return Inertia::render('NewArticle', [
             "stored" => $article ?? null,
             "publishTo" => URL::route('articles.publish'),
-            "categories" => $categories
+            "categories" => $this->category->list(["name", "id"])
+        ]);
+    }
+
+    public function editOtherItemPage(Request $request, $userId = null, $id = null)
+    {
+        $article = $this->article->forEditor($id, $userId);
+
+        if (!$article)
+            return redirect()->route('articles.write');
+
+        return Inertia::render('NewArticle', [
+            "stored" => $article,
+            "publishTo" => URL::route('articles.publish'),
+            "categories" => $this->category->list(["name", "id"])
         ]);
     }
 
     public function store(ArticleRequest $request)
     {
-        return $this->article->store($request, auth()->user()) ? redirect()->route('articles.list.mine') : redirect()->back('500');
+        $user = $request->user_id ? $this->user->find($request->user_id) : null;
+
+        //FIXME Do not redirect, return response instead
+        return $this->article->store($request, $user) ? redirect()->route('articles.mine.list') : redirect()->back(500);
     }
 
     public function read($id)
@@ -58,7 +74,7 @@ class ArticleController extends Controller
             "article" => $this->article->find($id),
             "sponsor" => $this->sponsor->random()->first(),
         ]);
-    }   
+    }
 
     public function delete($id)
     {
