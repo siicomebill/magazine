@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::prefix('content')->group(function () {
             Route::middleware('role:writer')->group(function () {
                 Route::prefix('articles')->group(function () {
-                    Route::get('/', 'ArticleController@managerPage')->name('articles.list.mine');
+                    Route::get('/', 'ArticleController@managerPage')->name('articles.mine.list');
                     Route::get('write/{id?}', 'ArticleController@editItemPage')->name('articles.write');
                     Route::get('delete/{id?}', 'ArticleController@delete')->name('articles.delete');
 
@@ -73,6 +73,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::prefix('roles')->group(function () {    
                     Route::get('edit/{id?}', 'UserRolesController@editItemPage')->name('user.roles.write');    
                     Route::post('publish', 'UserRolesController@store')->name('user.roles.publish');
+                });
+
+                Route::prefix('articles')->group(function () {
+                    Route::get('{userId}', 'ArticleController@managerPage')->name('articles.ofUser.list');
+                    Route::get('write/{id?}', 'ArticleController@editItemPage')->name('articles.write');
+                    Route::get('delete/{id?}', 'ArticleController@delete')->name('articles.delete');
+
+                    Route::post('publish', 'ArticleController@store')->name('articles.publish');
                 });
 
                 Route::get('/', 'UserController@managerPage')->name('user.list');

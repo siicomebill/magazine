@@ -19,9 +19,9 @@ class ArticleController extends Controller
         $this->sponsor = $sponsor;
     }
     
-    public function managerPage(Request $request)
+    public function managerPage(Request $request, $userId = null)
     {
-        $articles = $this->article->asModel()->user($request->user()->id)->get();
+        $articles = $this->article->asModel()->user($userId ?? $request->user()->id)->get();
 
         $articles->each(function ($value, $key) {
             $value["links"] = [
@@ -49,7 +49,7 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
-        return $this->article->store($request) ? redirect()->route('articles.list.mine') : redirect()->back('500');
+        return $this->article->store($request) ? redirect()->route('articles.mine.list') : redirect()->back('500');
     }
 
     public function read($id)
