@@ -41,16 +41,18 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
         $articles = $this->model::user($userId ?? auth()->user()->id)->get();
 
         //TODO Write resource routes class for storing these values
-        $routes = $actionRoutes ?? array_merge([
+        $navigation["routes"] = $actionRoutes ?? array_merge([
             "edit" => "articles.write",
             "delete" => "articles.delete",
         ], ($actionRoutes ?? []));
 
-        $articles->each(function ($value, $key) use ($routes) {
+        $navigation["userId"] = $userId;
+
+        $articles->each(function ($value, $key) use ($navigation) {
             //TODO Write resource route generator helper in resource routes class
             $value["links"] = [
-                "edit" => URL::route($routes["edit"], $value->id),
-                "delete" => URL::route($routes["delete"], $value->id),
+                "edit" => URL::route($navigation["routes"]["edit"], ["userId" => $navigation["userId"],"id" => $value->id]),
+                "delete" => URL::route($navigation["routes"]["delete"], ["userId" => $navigation["userId"],"id" => $value->id]),
             ];
         });
 
