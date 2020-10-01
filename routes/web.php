@@ -78,7 +78,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::prefix('{userId}')->group(function () {
                     Route::prefix('articles')->group(function () {
                         Route::get('/', 'ArticleController@managerPage')->name('articles.ofUser.list');
-                        Route::get('write/{id?}', 'ArticleController@editItemPage')->name('articles.ofUser.write');
+                        Route::get('write/{id?}', 'ArticleController@editOtherItemPage')->name('articles.ofUser.write');
                         Route::get('delete/{id?}', 'ArticleController@delete')->name('articles.ofUser.delete');
                     });
                 });

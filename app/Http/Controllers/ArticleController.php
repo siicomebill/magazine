@@ -20,7 +20,7 @@ class ArticleController extends Controller
         $this->sponsor = $sponsor;
         $this->category = $category;
     }
-    
+
     public function managerPage(Request $request, $userId = null)
     {
         return Inertia::render('ArticlesManager', [
@@ -28,12 +28,26 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function editItemPage(Request $request, $userId = null, $id = null)
+    public function editItemPage(Request $request, $id = null)
     {
-        $article = $this->article->forEditor($id, $userId);
+        $article = $this->article->forEditor($id, auth()->user()->id);
 
         return Inertia::render('NewArticle', [
             "stored" => $article ?? null,
+            "publishTo" => URL::route('articles.publish'),
+            "categories" => $this->category->list(["name", "id"])
+        ]);
+    }
+
+    public function editOtherItemPage(Request $request, $userId = null, $id = null)
+    {
+        $article = $this->article->forEditor($id, $userId);
+
+        if (!$article)
+            return redirect()->route('articles.write');
+
+        return Inertia::render('NewArticle', [
+            "stored" => $article,
             "publishTo" => URL::route('articles.publish'),
             "categories" => $this->category->list(["name", "id"])
         ]);
@@ -50,7 +64,7 @@ class ArticleController extends Controller
             "article" => $this->article->find($id),
             "sponsor" => $this->sponsor->random()->first(),
         ]);
-    }   
+    }
 
     public function delete($id)
     {
