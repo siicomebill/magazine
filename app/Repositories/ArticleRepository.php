@@ -35,14 +35,22 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
         return $this->latest(20)->doesnthave('category');
     }
 
-    public function forManagerPage($request, $userId = null)
+    //TODO Move in ResourceRepository
+    public function forManagerPage($request, $userId = null, $actionRoutes = null)
     {
         $articles = $this->model::user($userId ?? $request->user()->id)->get();
 
-        $articles->each(function ($value, $key) {
+        //TODO Write resource routes class for storing these values
+        $routes = $actionRoutes ?? [
+            "edit" => "articles.write",
+            "delete" => "articles.delete",
+        ];
+
+        $articles->each(function ($value, $key) use ($routes) {
+            //TODO Write resource route generator helper in resource routes class
             $value["links"] = [
-                "edit" => URL::route('articles.write', $value->id),
-                "delete" => URL::route('articles.delete', $value->id),
+                "edit" => URL::route($routes["edit"], $value->id),
+                "delete" => URL::route($routes["delete"], $value->id),
             ];
         });
 
