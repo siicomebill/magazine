@@ -41,10 +41,11 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
         $articles = $this->model::user($userId ?? auth()->user()->id)->get();
 
         //TODO Write resource routes class for storing these values
-        $navigation["routes"] = $actionRoutes ?? array_merge([
+        $defaultRoutes = [
             "edit" => "articles.write",
             "delete" => "articles.delete",
-        ], ($actionRoutes ?? []));
+        ];
+        $navigation["routes"] = $actionRoutes ? array_merge($defaultRoutes, $actionRoutes) : $defaultRoutes;
 
         $navigation["userId"] = $userId;
 
