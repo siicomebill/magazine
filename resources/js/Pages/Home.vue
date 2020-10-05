@@ -28,7 +28,7 @@
 								alt
 							/>
 
-              <img
+							<img
 								src="/img/logo_medium.png"
 								class="logo-invert m-auto hidden lg:block"
 								alt
@@ -47,10 +47,15 @@
 				<p class="cta">Scorri verso l'alto per le notizie</p>
 			</div>
 
-			<div class="container mx-auto">
+			<div>
 				<div class="col-span-5 z-10" v-scroll-spy>
-					<div v-for="(category, i) in categories" :key="category.id">
-						<div class="bg-white rounded-lg shadow-lg p-6 mb-5">
+					<div
+						v-for="(category, i) in categories"
+						:key="category.id"
+					>
+						<div
+							class="container mx-auto bg-white rounded-lg shadow-lg p-6 mb-5"
+						>
 							<a
 								:href="$route('categories.articles', category.id)"
 								class="block text-3xl font-banner text-center lg:text-left lg:text-6xl capitalize"
@@ -98,11 +103,13 @@
 							</a>
 						</div>
 
-						<MiniSponsorCard
-							v-if="sponsors[i]"
-							v-bind="sponsors[i]"
-							class="lg:w-11/12"
-						/>
+						<div class="container mx-auto">
+							<MiniSponsorCard
+								v-if="sponsors[i]"
+								v-bind="sponsors[i]"
+								class="lg:w-11/12 mx-auto"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
