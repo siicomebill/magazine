@@ -44,6 +44,7 @@
               >
                 {{ category.name }}
               </a>
+              <p v-if="category.snippet" class="text-gray-500 my-3">{{category.snippet}}</p>
               <div>
                 <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
                   <div class="col-span-1">
