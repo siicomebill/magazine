@@ -13,6 +13,16 @@
           <span class="text-red-500 text-sm italic" v-if="error('name')">{{error('name')}}</span>
         </div>
 
+        <div class="my-4">
+          <textarea
+            v-model="edited.snippet"
+            placeholder="Snippet"
+            class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-3xl font-bold text-gray-700"
+            :class="{ 'border border-red-500': error('snippet') }"
+          ></textarea>
+          <span class="text-red-500 text-sm italic" v-if="error('snippet')">{{error('snippet')}}</span>
+        </div>
+
         <button
           type="submit"
           class="text-lg bg-blue-500 text-white font-bold rounded-lg mt-4 w-full p-4"
@@ -36,6 +46,7 @@ export default {
     return {
       edited: {
         name: "",
+        snippet: "",
       },
     }
   }
