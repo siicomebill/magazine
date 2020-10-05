@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <div class="container mx-auto py-20" v-if="category">
-      <span class="text-6xl align-middle">{{category.name}}</span>
+  <div class="bg-black text-white">
+    <div class="container mx-auto py-20 px-5 lg:px-0" v-if="category">
+      <span class="text-6xl align-middle font-banner capitalize">{{category.name}}</span>
+      <hr class="lg:w-1/2">
+      <span class="text-xl align-middle" v-if="category.snippet">{{category.snippet}}</span>
     </div>
 
     <div class="container mx-auto my-5">
@@ -11,7 +13,7 @@
 </template>
 
 <script>
-import Card from "~/Card";
+import Card from "~/MiniCard";
 import Layout from "@/Layouts/PublicLayout";
 
 export default {

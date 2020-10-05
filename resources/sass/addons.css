@@ -2,6 +2,10 @@ body{
     @apply bg-gray-200 bg-opacity-25;
 }
 
+hr {
+    @apply my-3;
+}
+
 button:focus, input:focus, textarea:focus {
     @apply outline-none;
 }
@@ -26,6 +30,10 @@ button:focus, input:focus, textarea:focus {
     @apply bg-white shadow border border-black px-4 py-2 rounded-lg;
 }
 
-.cta {
-    @apply text-center py-2 px-3 border-solid border-white text-white bg-gradient-to-r from-yellow-400 font-bold via-orange-500 via-red-500 to-purple-500 rounded-full;
+.cta, .cta-royal {
+    @apply text-center py-2 px-3 border-solid border-white text-white font-bold bg-gradient-to-br from-yellow-400 via-red-500 to-purple-500 rounded-full;
+}
+
+.cta-blue {
+    @apply text-center py-2 px-3 border-solid border-white text-white font-bold bg-gradient-to-br from-blue-700  to-blue-500 rounded-full;
 }

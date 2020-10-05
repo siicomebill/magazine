@@ -5,7 +5,7 @@
     >
       <div class="container mx-auto flex items-center justify-between flex flex-wrap">
         <div class="flex items-center flex-shrink-0 mr-6">
-          <a href="/" class="font-semibold text-xl tracking-tight font-banner">BILL</a>
+          <a href="/" class="font-semibold text-xl tracking-tight font-banner uppercase">{{$page.app.name}}</a>
         </div>
 
         <Dropdown class="text-black flex-grow">
@@ -50,9 +50,13 @@
 
     <section class="py-6 bg-gray-200 text-gray-700">
       <div class="container mx-auto px-4 md:px-0">
-        <p>
-          Sii Come Bill Magazine · Questa è solo una prova... infatti la grafica
-          è da rivedere
+        <div class="my-5 mx-auto text-center">
+          <a href="https://www.facebook.com/siicomebill/" target="_blank" rel="noopener" class="cta-royal mx-5">Instagram</a>
+          <a href="https://www.instagram.com/siicomebill/" target="_blank" rel="noopener" class="cta-blue mx-5">Facebook</a>
+        </div>
+
+        <p class="my-10 text-center">
+          {{$page.app.name}} · DEMO · Complete version coming soon!
         </p>
       </div>
     </section>

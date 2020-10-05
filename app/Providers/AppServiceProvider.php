@@ -28,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(ConfigurationRepository $config)
     {
         Inertia::share([
+            'app' => [
+                'name' => env('APP_NAME', 'BILL')
+            ],
             'auth' => function () {
                 return auth()->check();
             },
