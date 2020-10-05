@@ -5,7 +5,7 @@
     >
       <div class="container mx-auto flex items-center justify-between flex flex-wrap">
         <div class="flex items-center flex-shrink-0 mr-6">
-          <a href="/" class="font-semibold text-xl tracking-tight font-banner">BILL</a>
+          <a href="/" class="font-semibold text-xl tracking-tight font-banner uppercase">{{$page.app.name}}</a>
         </div>
 
         <Dropdown class="text-black flex-grow">
