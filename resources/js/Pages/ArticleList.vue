@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div class="container mx-auto py-20" v-if="category">
-      <span class="text-6xl align-middle">{{category.name}}</span>
+  <div class="bg-black text-white">
+    <div class="container mx-auto py-20 px-5 lg:px-0" v-if="category">
+      <span class="text-6xl align-middle font-banner capitalize">{{category.name}}</span>
     </div>
 
     <div class="container mx-auto my-5">
