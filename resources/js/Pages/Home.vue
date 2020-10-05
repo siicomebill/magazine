@@ -46,14 +46,14 @@
               </a>
               <div>
                 <div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
-                  <div>
+                  <div class="col-span-1">
                     <Card
                       v-bind="category.articles[0]"
                       :href="$route('articles.read', category.articles[0].id)"
                     />
                   </div>
 
-                  <div>
+                  <div class="col-span-1">
                     <MiniCard
                       v-bind="article"
                       v-for="article in category.articles.slice(1, 4)"
