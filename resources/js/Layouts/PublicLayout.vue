@@ -51,8 +51,8 @@
     <section class="py-6 bg-gray-200 text-gray-700">
       <div class="container mx-auto px-4 md:px-0">
         <div class="my-5 mx-auto text-center">
-          <a href="https://www.facebook.com/siicomebill/" target="_blank" rel="noopener" class="cta-royal mx-5">Instagram</a>
-          <a href="https://www.instagram.com/siicomebill/" target="_blank" rel="noopener" class="cta-blue mx-5">Facebook</a>
+          <a href="https://www.instagram.com/siicomebill/" target="_blank" rel="noopener" class="cta-royal mx-5">Instagram</a>
+          <a href="https://www.facebook.com/siicomebill/" target="_blank" rel="noopener" class="cta-blue mx-5">Facebook</a>
         </div>
 
         <p class="my-10 text-center">
