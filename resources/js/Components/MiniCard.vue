@@ -1,6 +1,6 @@
 <template>
   <a
-    class="block bg-white rounded-lg my-4 lg:flex"
+    class="block bg-white text-black rounded-lg my-4 lg:flex"
     :href="href"
   >
     <Thumbnail
@@ -9,7 +9,7 @@
       square
       class="lg:w-1/2 rounded-lg text-center overflow-hidden"
     />
-    <div class="flex flex-col p-4 justify-between leading-normal w-full" :class="{'lg:w-1/2': image}">
+    <div class="flex flex-col p-4 justify-between leading-normal w-full break-normal" :class="{'lg:w-1/2': image}">
       <div class="mb-8">
         <p class="font-bold text-2xl text-primary mb-2 break-words">{{ title }}</p>
         <div class="my-3">
