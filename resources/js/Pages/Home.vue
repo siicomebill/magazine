@@ -2,8 +2,6 @@
 	<Layout mode="fixed">
 		<template #menu>
 			<ul
-				v-scroll-spy-active="{ class: 'font-bold' }"
-				v-scroll-spy-link
 				v-if="categories.length"
 				class="lg:flex"
 			>
@@ -12,7 +10,7 @@
 					:key="category.id"
 					class="lg:mx-3 grid grid-cols-6 h-10"
 				>
-					<a class="flex cursor-pointer col-span-5">
+					<a class="flex cursor-pointer col-span-5" :href="$route('categories.articles', category.id)">
 						<span class="cursor-pointer block my-auto">{{ category.name }}</span>
 					</a>
 					<div class="flex">
