@@ -3,7 +3,7 @@
     <nav
       class="top-0 left-0 right-0 z-30 lg:bg-white lg:text-black bg-black text-white shadow-lg lg:px-6 lg:py-1 px-4" :class="mode"
     >
-      <div class="container mx-auto flex items-center justify-between flex flex-wrap">
+      <div class="container mx-auto flex items-center justify-between flex-wrap">
         <div class="flex items-center flex-shrink-0 mr-6">
           <a href="/" class="font-semibold text-xl tracking-tight font-banner uppercase">{{$page.app.name}}</a>
         </div>
