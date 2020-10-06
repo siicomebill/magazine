@@ -5,7 +5,7 @@
 		</div>
 
 		<!-- Full Screen Dropdown Overlay -->
-		<div v-show="open" class="fixed inset-0 z-40" @click="open = false"></div>
+		<div v-show="open" class="fixed inset-0 z-40" @click="hide"></div>
 
 		<transition
 			enter-active-class="transition ease-out duration-200"
@@ -20,7 +20,7 @@
 				class="absolute z-50 mt-2 rounded-md shadow-lg"
 				:class="[widthClass, alignmentClasses]"
 				style="display: none"
-				@click="open = false"
+				@click="hide"
 			>
 				<div class="rounded-md shadow-xs" :class="contentClasses">
 					<slot name="content"></slot>
