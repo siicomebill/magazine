@@ -8,6 +8,11 @@ class CategoryRepository extends ResourceRepository
 {
     protected $model = Category::class;
 
+    public function find($id)
+    {
+        return $this->model::with('children')->findOrFail($id);
+    }
+
     public function important()
     {
         return $this->model::limit(10)->has('articles')->doesntHave('parent')->with(['articles', 'children']);
@@ -16,7 +21,7 @@ class CategoryRepository extends ResourceRepository
     public function latest(int $limit = 0)
     {
         //TODO Include limit
-        return $this->model::orderBy('id', 'desc');
+        return $this->model::orderBy('id', 'desc')->with('children');
     }
 
     public function get()
