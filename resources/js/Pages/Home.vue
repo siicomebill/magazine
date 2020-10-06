@@ -7,13 +7,28 @@
 				v-if="categories.length"
 				class="lg:flex"
 			>
-				<li v-for="category in categories" :key="category.id" class="lg:mx-3 flex">
-					<a class="cursor-pointer block">{{ category.name }}</a>
-					<Dropdown class="text-black flex-grow block">
-						<div class="text-sm lg:flex-grow lg:mb-0 mb-4">
-							<a v-for="child in category.children" :key="child.id" href="#">{{child.name}}</a>
-						</div>
-					</Dropdown>
+				<li
+					v-for="category in categories"
+					:key="category.id"
+					class="lg:mx-3 grid grid-cols-6 h-10"
+				>
+					<a class="flex cursor-pointer col-span-5">
+						<span class="cursor-pointer block my-auto">{{ category.name }}</span>
+					</a>
+					<div class="flex">
+						<Dropdown
+							class="text-black flex-grow block my-auto"
+							v-if="category.children.length"
+						>
+							<a
+								class="block text-sm lg:flex-grow"
+								v-for="child in category.children"
+								:key="child.id"
+								href="#"
+								>{{ child.name }}</a
+							>
+						</Dropdown>
+					</div>
 				</li>
 			</ul>
 		</template>
