@@ -24,7 +24,7 @@
 								class="block text-sm lg:flex-grow"
 								v-for="child in category.children"
 								:key="child.id"
-								href="#"
+								:href="$route('categories.articles', child.id)"
 								>{{ child.name }}</a
 							>
 						</Dropdown>
