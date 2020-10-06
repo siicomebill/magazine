@@ -23,6 +23,14 @@
           <span class="text-red-500 text-sm italic" v-if="error('snippet')">{{error('snippet')}}</span>
         </div>
 
+        <div class="my-4">
+          <select class="bg-white rounded-lg p-4 shadow" v-model="edited.parent">
+            <option disabled :selected="!edited.parent">Categoria</option>
+            <option v-for="category in categories" :key="category.id" :value="category.id">{{category.name}}</option>
+          </select>
+          <span class="text-red-500 text-sm italic" v-if="error('parent')">{{error('parent')}}</span>
+        </div>
+
         <button
           type="submit"
           class="text-lg bg-blue-500 text-white font-bold rounded-lg mt-4 w-full p-4"
@@ -47,6 +55,8 @@ export default {
       edited: {
         name: "",
         snippet: "",
+        parent: {},
+        children: [],
       },
     }
   }
