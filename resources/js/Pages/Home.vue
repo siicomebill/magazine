@@ -7,8 +7,13 @@
 				v-if="categories.length"
 				class="lg:flex"
 			>
-				<li v-for="category in categories" :key="category.id" class="lg:mx-3">
-					<a class="cursor-pointer">{{ category.name }}</a>
+				<li v-for="category in categories" :key="category.id" class="lg:mx-3 flex">
+					<a class="cursor-pointer block">{{ category.name }}</a>
+					<Dropdown class="text-black flex-grow block">
+						<div class="text-sm lg:flex-grow lg:mb-0 mb-4">
+							<a v-for="child in category.children" :key="child.id" href="#">{{child.name}}</a>
+						</div>
+					</Dropdown>
 				</li>
 			</ul>
 		</template>
@@ -49,10 +54,7 @@
 
 			<div>
 				<div class="col-span-5 z-10" v-scroll-spy>
-					<div
-						v-for="(category, i) in categories"
-						:key="category.id"
-					>
+					<div v-for="(category, i) in categories" :key="category.id">
 						<div
 							class="container mx-auto bg-white rounded-lg shadow-lg p-6 mb-5"
 						>
@@ -132,6 +134,7 @@ import Card from "~/Card";
 import MiniCard from "~/MiniCard";
 import SponsorCard from "~/SponsorCard";
 import MiniSponsorCard from "~/MiniSponsorCard";
+import Dropdown from "~/Dropdown";
 import Layout from "@/Layouts/PublicLayout";
 import { Reader } from "vue-publisher";
 
@@ -142,6 +145,7 @@ export default {
 		MiniCard,
 		SponsorCard,
 		MiniSponsorCard,
+		Dropdown,
 		Reader,
 	},
 	props: {
