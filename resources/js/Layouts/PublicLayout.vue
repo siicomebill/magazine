@@ -3,7 +3,7 @@
     <nav
       class="top-0 left-0 right-0 z-30 lg:bg-white lg:text-black bg-black text-white shadow-lg lg:px-6 lg:py-1 px-4" :class="mode"
     >
-      <div class="container mx-auto flex items-center justify-between flex flex-wrap">
+      <div class="container mx-auto flex items-center justify-between flex-wrap">
         <div class="flex items-center flex-shrink-0 mr-6">
           <a href="/" class="font-semibold text-xl tracking-tight font-banner uppercase">{{$page.app.name}}</a>
         </div>
@@ -50,12 +50,12 @@
 
     <section class="py-6 bg-gray-200 text-gray-700">
       <div class="container mx-auto px-4 md:px-0">
-        <div class="my-5 mx-auto text-center">
+        <div class="py-5 mx-auto text-center">
           <a href="https://www.instagram.com/siicomebill/" target="_blank" rel="noopener" class="cta-royal mx-5">Instagram</a>
           <a href="https://www.facebook.com/siicomebill/" target="_blank" rel="noopener" class="cta-blue mx-5">Facebook</a>
         </div>
 
-        <p class="my-10 text-center">
+        <p class="py-10 text-center">
           {{$page.app.name}} · DEMO · Complete version coming soon!
         </p>
       </div>

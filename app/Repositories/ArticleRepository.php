@@ -35,7 +35,7 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
         return $this->latest(20)->doesnthave('category');
     }
 
-    //TODO Move in ResourceRepository
+    //TODO Move in ResourceRepository - but generalize it there
     public function forManagerPage($userId = null, $actionRoutes = null)
     {
         $articles = $this->model::user($userId ?? auth()->user()->id)->get();

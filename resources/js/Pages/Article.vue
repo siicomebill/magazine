@@ -5,11 +5,13 @@
         class="container mx-auto px-4 md:px-0 py-10 lg:grid grid-cols-2 gap-2"
       >
         <div class="my-auto">
-          <span
+          <a
             v-if="article.category"
             class="border-2 border-white rounded-full px-4 py-1 align-middle"
-            >{{ article.category.name }}</span
+            :href="$route('categories.articles', article.category.id)"
           >
+            {{ article.category.name }}
+          </a>
 
           <h1 class="lg:text-6xl text-4xl align-middle my-2">
             {{ article.title }}

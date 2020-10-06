@@ -2,13 +2,31 @@
 	<Layout mode="fixed">
 		<template #menu>
 			<ul
-				v-scroll-spy-active="{ class: 'font-bold' }"
-				v-scroll-spy-link
 				v-if="categories.length"
 				class="lg:flex"
 			>
-				<li v-for="category in categories" :key="category.id" class="lg:mx-3">
-					<a class="cursor-pointer">{{ category.name }}</a>
+				<li
+					v-for="category in categories"
+					:key="category.id"
+					class="lg:mx-3 h-10 flex"
+				>
+					<a class="flex flex-grow cursor-pointer my-auto" :href="$route('categories.articles', category.id)">
+						<span class="cursor-pointer block my-auto">{{ category.name }}</span>
+					</a>
+					<div class="flex lg:hidden">
+						<Dropdown
+							class="text-black flex-grow my-auto"
+							v-if="category.children.length"
+						>
+							<a
+								class="text-sm block lg:flex-grow"
+								v-for="child in category.children"
+								:key="child.id"
+								:href="$route('categories.articles', child.id)"
+								>{{ child.name }}</a
+							>
+						</Dropdown>
+					</div>
 				</li>
 			</ul>
 		</template>
@@ -49,10 +67,7 @@
 
 			<div>
 				<div class="col-span-5 z-10" v-scroll-spy>
-					<div
-						v-for="(category, i) in categories"
-						:key="category.id"
-					>
+					<div v-for="(category, i) in categories" :key="category.id">
 						<div
 							class="container mx-auto bg-white rounded-lg shadow-lg p-6 mb-5"
 						>
@@ -132,6 +147,7 @@ import Card from "~/Card";
 import MiniCard from "~/MiniCard";
 import SponsorCard from "~/SponsorCard";
 import MiniSponsorCard from "~/MiniSponsorCard";
+import Dropdown from "~/Dropdown";
 import Layout from "@/Layouts/PublicLayout";
 import { Reader } from "vue-publisher";
 
@@ -142,6 +158,7 @@ export default {
 		MiniCard,
 		SponsorCard,
 		MiniSponsorCard,
+		Dropdown,
 		Reader,
 	},
 	props: {
