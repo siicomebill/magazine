@@ -12,6 +12,7 @@ class Category extends Model
     protected $fillable = [
         "name",
         "snippet",
+        "parent",
     ];
 
     public $timestamps = false;
@@ -19,5 +20,15 @@ class Category extends Model
     public function articles()
     {
         return $this->hasMany('App\Models\Article');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo('App\Models\Category', 'parent');
+    }
+
+    public function children()
+    {
+        return $this->hasMany('App\Models\Category', 'parent', 'id');
     }
 }
