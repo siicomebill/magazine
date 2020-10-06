@@ -8,18 +8,18 @@
 				<li
 					v-for="category in categories"
 					:key="category.id"
-					class="lg:mx-3 grid grid-cols-6 h-10"
+					class="lg:mx-3 h-10 flex"
 				>
-					<a class="flex cursor-pointer col-span-5" :href="$route('categories.articles', category.id)">
+					<a class="flex flex-grow cursor-pointer my-auto" :href="$route('categories.articles', category.id)">
 						<span class="cursor-pointer block my-auto">{{ category.name }}</span>
 					</a>
-					<div class="flex">
+					<div class="flex lg:hidden">
 						<Dropdown
-							class="text-black flex-grow block my-auto"
+							class="text-black flex-grow my-auto"
 							v-if="category.children.length"
 						>
 							<a
-								class="block text-sm lg:flex-grow"
+								class="text-sm block lg:flex-grow"
 								v-for="child in category.children"
 								:key="child.id"
 								:href="$route('categories.articles', child.id)"
