@@ -45,10 +45,15 @@ class CategoryController extends ResourceController
         $model = $this->resource->asModel();
         $item = $model->find($id ?? $request[$model->getKeyName()] ?? null);
 
+        $categoriesQuery = $this->resource->asModel();
+
+        if($item)
+            $categoriesQuery = $categoriesQuery->where('id', '!=', $item->id);
+
         $edited = [
             "stored" => $item ?? null,
             "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
-            "categories" => $this->resource->asModel()->where('id', '!=', $item->id)->get(["name", "id"])
+            "categories" => $categoriesQuery->get(["name", "id"])
         ];
 
         return $this->renderer::render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
