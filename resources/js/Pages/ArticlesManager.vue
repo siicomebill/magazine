@@ -6,7 +6,7 @@
         class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-lg transition-shadow duration-200"
       >Nuovo</a>
 
-      <Card v-bind="article" v-for="article in items" :key="article.id" class="item">
+      <Card v-bind="article" v-for="article in items" :key="article.id">
         <template #footer>
           <div>
             <div class="justify-end flex">
@@ -40,9 +40,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.item {
-  height: 200px;
-}
-</style>
