@@ -6,7 +6,7 @@
 				class="lg:flex"
 			>
 				<li
-					v-for="category in categories"
+					v-for="category in navbarCategories"
 					:key="category.id"
 					class="lg:mx-3 h-10 flex"
 				>
@@ -164,6 +164,7 @@ export default {
 	props: {
 		sponsors: Array,
 		categories: Array,
+		navbarCategories: Array,
 		articles: Array,
 		configuration: [Object, Array],
 	},

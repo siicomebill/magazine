@@ -15,13 +15,13 @@ class CategoryRepository extends ResourceRepository
 
     public function important()
     {
-        return $this->model::limit(10)->has('articles')->doesntHave('parent')->with(['articles', 'children']);
+        return $this->latest(5)->doesntHave('parent')->with(['children']);
     }
 
-    public function latest(int $limit = 0)
+    public function latest(int $limit = 10)
     {
-        //TODO Include limit
-        return $this->model::orderBy('id', 'desc')->with('children');
+        //TODO Check for latest articles
+        return $this->model::limit($limit)->orderBy('id', 'desc')->has('articles')->with('articles');
     }
 
     public function get()
