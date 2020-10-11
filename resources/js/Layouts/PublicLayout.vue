@@ -8,8 +8,8 @@
           <a href="/" class="font-semibold text-xl tracking-tight font-banner uppercase">{{$page.app.name}}</a>
         </div>
 
-        <Dropdown class="text-black flex-grow">
-          <div class="text-sm lg:flex-grow lg:mb-0 mb-4">
+        <Dropdown class="text-black">
+          <div class="text-sm lg:mb-0 mb-4">
             <slot name="menu">
               <a
                 :href="$route('categories')"

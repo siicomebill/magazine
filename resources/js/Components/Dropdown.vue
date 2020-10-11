@@ -1,6 +1,6 @@
 <template>
-	<div class="inline w-auto">
-		<div class="block lg:hidden">
+	<div class="flex w-auto">
+		<div class="block">
 			<div class="-mr-2 flex items-center">
 				<button
 					@click="showDropdown = !showDropdown"
@@ -33,7 +33,7 @@
 
 		<div
 			:class="{ hidden: !showDropdown }"
-			class="lg:relative block absolute right-0 left-0 bg-white z-40 flex-grow lg:flex lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1 lg:shadow-none lg:border-none"
+			class="order-first lg:relative absolute right-0 left-0 bg-white z-40 lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1 lg:shadow-none lg:border-none"
 		>
 			<slot></slot>
 		</div>
