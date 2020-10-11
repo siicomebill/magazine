@@ -15,7 +15,7 @@ class CategoryRepository extends ResourceRepository
 
     public function important()
     {
-        return $this->latest(5)->doesntHave('parent')->with(['children']);
+        return $this->model::orderBy('id', 'desc')->doesntHave('parent')->with('children');
     }
 
     public function latest(int $limit = 10)
