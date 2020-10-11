@@ -24,11 +24,11 @@
         </div>
 
         <div class="my-4">
-          <select class="bg-white rounded-lg p-4 shadow" v-model="edited.parent">
-            <option disabled :selected="!edited.parent">Categoria</option>
+          <select class="bg-white rounded-lg p-4 shadow" v-model="edited.parent_id">
+            <option disabled :selected="!edited.parent_id">Categoria</option>
             <option v-for="category in categories" :key="category.id" :value="category.id">{{category.name}}</option>
           </select>
-          <span class="text-red-500 text-sm italic" v-if="error('parent')">{{error('parent')}}</span>
+          <span class="text-red-500 text-sm italic" v-if="error('parent_id')">{{error('parent_id')}}</span>
         </div>
 
         <button
@@ -55,8 +55,7 @@ export default {
       edited: {
         name: "",
         snippet: "",
-        parent: {},
-        children: [],
+        parent_id: {},
       },
     }
   }
