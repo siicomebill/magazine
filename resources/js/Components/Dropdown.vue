@@ -1,5 +1,5 @@
 <template>
-	<div class="inline lg:w-auto w-auto">
+	<div class="inline w-auto">
 		<div class="block lg:hidden">
 			<div class="-mr-2 flex items-center">
 				<button
