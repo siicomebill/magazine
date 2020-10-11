@@ -1,5 +1,5 @@
 <template>
-	<div class="flex w-auto">
+	<div class="flex w-auto relative">
 		<div class="block">
 			<div class="-mr-2 flex items-center">
 				<button
