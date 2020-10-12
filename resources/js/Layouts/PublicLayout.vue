@@ -20,6 +20,8 @@
             </slot>
           </div>
 
+          <hr class="my-3">
+
           <div v-if="$page.auth">
             <a
               :href="$route('dashboard')"
@@ -28,7 +30,7 @@
             >
           </div>
 
-          <div v-else>
+          <div v-else class="grid grid-cols-2 text-center">
             <a
               :href="$route('login')"
               class="inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
