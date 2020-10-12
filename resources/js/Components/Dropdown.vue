@@ -33,7 +33,7 @@
 		</div>
 
 		<div
-			:class="{ hidden: !showDropdown, 'lg:relative lg:block': mobileOnly }"
+			:class="{ hidden: !showDropdown, 'lg:relative lg:block lg:border-none lg:shadow-none': mobileOnly }"
 			class="menu order-first block absolute right-0 top-full bg-white z-40 lg:items-center p-3 rounded-lg shadow-lg border border-1"
 		>
 			<slot></slot>
