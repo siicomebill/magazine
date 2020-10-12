@@ -33,7 +33,7 @@
 
 		<div
 			:class="{ hidden: !showDropdown }"
-			class="order-first block absolute right-0 bg-white z-40 lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1"
+			class="order-first block absolute right-0 top-full bg-white z-40 lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1"
 		>
 			<slot></slot>
 		</div>
