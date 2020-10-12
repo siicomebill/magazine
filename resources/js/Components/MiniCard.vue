@@ -1,11 +1,12 @@
 <template>
 	<div class="my-4">
-		<a class="block bg-white text-black rounded-lg" :class="{'flex': fixed, 'lg:flex': !fixed}" :href="href">
+		<a class="bg-white text-black rounded-lg" :class="{'flex': fixed, 'block lg:flex': !fixed}" :href="href">
 			<Thumbnail
 				v-if="image"
 				:src="image"
 				square
-				class="lg:w-1/2 rounded-lg text-center overflow-hidden"
+				class="rounded-lg text-center overflow-hidden"
+				:class="{'lg:w-1/2': !fixed, 'w-1/2': fixed}"
 			/>
 			<div
 				class="flex flex-col p-4 justify-between leading-normal w-full break-normal"
