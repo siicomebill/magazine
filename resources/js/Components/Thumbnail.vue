@@ -1,13 +1,13 @@
 <template>
   <div class="relative block">
     <div :class="{'aspect-ratio-square': square}"></div>
-    <img v-if="src" v-lazy="src" :class="imageClass" :alt="alt || 'Thumbnail'"/>
+    <img v-if="src" v-lazy="src" :class="[baseImageClass, imageClass]" :alt="alt || 'Thumbnail'"/>
 
-    <div v-else-if="alt" :class="imageClass">
+    <div v-else-if="alt" :class="[baseImageClass, imageClass]">
       <span class="m-auto block text-gray-500 text-4xl">{{alt}}</span>
     </div>
 
-    <div v-else :class="imageClass">
+    <div v-else :class="[baseImageClass, imageClass]">
       <div class="m-auto block">
         <slot></slot>
       </div>
@@ -17,10 +17,15 @@
 
 <script>
 export default {
+  data(){
+    return {
+      baseImageClass: "flex absolute inset-0 object-cover",
+    }
+  },
   props: {
     imageClass: {
       type: String,
-      default: "flex absolute inset-0 w-full h-full object-cover",
+      default: "w-full h-full",
     },
     square: {
       type: Boolean,
