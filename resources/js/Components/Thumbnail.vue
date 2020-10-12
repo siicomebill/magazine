@@ -17,12 +17,11 @@
 
 <script>
 export default {
-  data(){
-    return {
-      imageClass: "flex absolute left-0 top-0 bottom-0 right-0 w-full h-full object-cover",
-    }
-  },
   props: {
+    imageClass: {
+      type: String,
+      default: "flex absolute left-0 top-0 bottom-0 right-0 w-full h-full object-cover",
+    },
     square: {
       type: Boolean,
       default: false
