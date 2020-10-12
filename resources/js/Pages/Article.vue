@@ -36,7 +36,7 @@
 		</div>
 
 		<div class="container mx-auto my-4 py-2 px-4 md:px-2">
-			<MiniSponsorCard v-bind="sponsor" fixed class="w-1/2 mx-auto" />
+			<MiniSponsorCard v-bind="sponsor" fixed class="w-ful lg:11/12 mx-auto" />
 			<Reader v-model="article.content" class="article content" />
 		</div>
 	</div>
