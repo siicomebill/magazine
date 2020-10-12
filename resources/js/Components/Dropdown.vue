@@ -1,6 +1,6 @@
 <template>
 	<div class="flex relative">
-		<div class="block">
+		<div :class="{'lg:hidden': mobileOnly}">
 			<div class="-mr-2 flex items-center">
 				<button
 					@click="showDropdown = !showDropdown"
@@ -33,7 +33,7 @@
 		</div>
 
 		<div
-			:class="{ hidden: !showDropdown }"
+			:class="{ hidden: !showDropdown, 'lg:relative lg:block': mobileOnly }"
 			class="menu order-first block absolute right-0 top-full bg-white z-40 lg:items-center p-3 rounded-lg shadow-lg border border-1"
 		>
 			<slot></slot>
@@ -47,6 +47,10 @@ import ClickOutside from "vue-click-outside";
 export default {
 	props: {
 		title: String,
+		mobileOnly: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	data() {
 		return {
