@@ -26,12 +26,15 @@
 					<div>{{ article.snippet }}</div>
 				</div>
 
-				<Thumbnail
-					:src="article.image"
-					:alt="article.title"
-					square
-					class="text-center overflow-hidden"
-				/>
+				<div class="h-full w-auto">
+					<Thumbnail
+						:src="article.image"
+						:alt="article.title"
+						square
+            imageClass="flex absolute inset-0 w-full lg:h-full object-cover"
+						class="h-full text-center overflow-hidden"
+					/>
+				</div>
 			</div>
 		</div>
 
