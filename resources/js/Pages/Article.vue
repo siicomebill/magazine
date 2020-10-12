@@ -1,7 +1,14 @@
 <template>
 	<div>
-		<div class="bg-black h-screen text-white shadow-2xl">
-			<div class="mx-auto lg:grid grid-cols-2 gap-2 h-full">
+		<div class="bg-black text-white shadow-2xl">
+			<div class="mx-auto lg:grid grid-cols-2 gap-2 min-h-screen">
+				<Thumbnail
+					:src="article.image"
+					:alt="article.title"
+					square
+					class="h-full text-center overflow-hidden"
+				/>
+
 				<div class="my-auto px-10 py-7">
 					<a
 						v-if="article.category"
@@ -25,21 +32,11 @@
 
 					<div>{{ article.snippet }}</div>
 				</div>
-
-				<div class="h-full w-auto">
-					<Thumbnail
-						:src="article.image"
-						:alt="article.title"
-						square
-            imageClass="flex absolute inset-0 w-full lg:h-full object-cover"
-						class="h-full text-center overflow-hidden"
-					/>
-				</div>
 			</div>
 		</div>
 
 		<div class="container mx-auto my-4 py-2 px-4 md:px-2">
-			<MiniSponsorCard v-bind="sponsor" class="lg:w-1/2 mx-auto" />
+			<MiniSponsorCard v-bind="sponsor" fixed class="w-1/2 mx-auto" />
 			<Reader v-model="article.content" class="article content" />
 		</div>
 	</div>
