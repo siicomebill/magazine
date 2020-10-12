@@ -1,6 +1,6 @@
 <template>
 	<div class="my-4">
-		<a class="block bg-white text-black rounded-lg lg:flex" :href="href">
+		<a class="block bg-white text-black rounded-lg" :class="{'flex': fixed, 'lg:flex': !fixed}" :href="href">
 			<Thumbnail
 				v-if="image"
 				:src="image"
@@ -39,5 +39,11 @@ import Card from "~/Card";
 
 export default {
 	extends: Card,
+	props: {
+		fixed: {
+			type: Boolean,
+			default: false,
+		},
+	}
 };
 </script>
