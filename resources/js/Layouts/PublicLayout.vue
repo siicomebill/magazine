@@ -8,7 +8,7 @@
           <a href="/" class="font-semibold text-xl tracking-tight font-banner uppercase">{{$page.app.name}}</a>
         </div>
 
-        <Dropdown class="text-black">
+        <Dropdown class="text-black" title="Esplora">
           <div class="text-sm lg:mb-0 mb-4">
             <slot name="menu">
               <a
