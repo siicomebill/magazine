@@ -13,7 +13,7 @@
 					<a class="flex flex-grow cursor-pointer my-auto" :href="$route('categories.articles', category.id)">
 						<span class="cursor-pointer block my-auto">{{ category.name }}</span>
 					</a>
-					<div class="flex lg:hidden">
+					<div class="flex">
 						<Dropdown
 							class="text-black flex-grow my-auto"
 							v-if="category.children.length"

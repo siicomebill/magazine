@@ -1,11 +1,12 @@
 <template>
-	<div class="inline lg:w-auto w-auto">
-		<div class="block lg:hidden">
+	<div class="flex relative">
+		<div :class="{'lg:hidden': mobileOnly}">
 			<div class="-mr-2 flex items-center">
 				<button
 					@click="showDropdown = !showDropdown"
 					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto"
 				>
+					<span v-if="title" class="mr-2">{{title}}</span>
 					<svg
 						class="h-6 w-6"
 						stroke="currentColor"
@@ -32,8 +33,8 @@
 		</div>
 
 		<div
-			:class="{ hidden: !showDropdown }"
-			class="lg:relative block absolute right-0 left-0 bg-white z-40 flex-grow lg:flex lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1 lg:shadow-none lg:border-none"
+			:class="{ hidden: !showDropdown, 'lg:relative lg:block lg:border-none lg:shadow-none': mobileOnly }"
+			class="menu order-first block absolute right-0 top-full bg-white z-40 lg:items-center p-3 rounded-lg shadow-lg border border-1"
 		>
 			<slot></slot>
 		</div>
@@ -45,7 +46,11 @@ import ClickOutside from "vue-click-outside";
 
 export default {
 	props: {
-		containerClass: String,
+		title: String,
+		mobileOnly: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	data() {
 		return {
@@ -57,3 +62,9 @@ export default {
 	},
 };
 </script>
+
+<style scoped>
+.menu {
+	min-width: 200px;
+}
+</style>

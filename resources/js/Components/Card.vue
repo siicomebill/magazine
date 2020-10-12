@@ -1,5 +1,5 @@
 <template>
-	<div class="py-4">
+	<div class="my-4">
 		<a class="block bg-white text-black rounded-lg shadow-xl" :href="href">
 			<Thumbnail
 				:src="image"
@@ -16,12 +16,6 @@
 					</p>
 					<p class="text-gray-700 text-base">{{ snippet }}</p>
 					<div class="my-3">
-						<!-- <img
-            class="w-10 h-10 rounded-full mr-4"
-            v-if="author.profile_photo_path"
-            :alt="author.name[0]"
-            :src="author.profile_photo_path"
-          /> -->
 						<div class="text-sm" v-if="author">
 							<p class="text-gray-500 leading-none">{{ author.name }}</p>
 						</div>

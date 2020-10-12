@@ -1,5 +1,5 @@
 <template>
-	<div class="py-4">
+	<div class="my-4">
 		<a class="block bg-white text-black rounded-lg lg:flex" :href="href">
 			<Thumbnail
 				v-if="image"
