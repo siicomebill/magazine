@@ -6,6 +6,7 @@
 					@click="showDropdown = !showDropdown"
 					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto"
 				>
+					<span v-if="title" class="mr-2">{{title}}</span>
 					<svg
 						class="h-6 w-6"
 						stroke="currentColor"
@@ -45,7 +46,7 @@ import ClickOutside from "vue-click-outside";
 
 export default {
 	props: {
-		containerClass: String,
+		title: String,
 	},
 	data() {
 		return {
