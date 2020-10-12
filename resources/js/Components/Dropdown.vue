@@ -1,5 +1,5 @@
 <template>
-	<div class="flex w-auto relative">
+	<div class="flex relative">
 		<div class="block">
 			<div class="-mr-2 flex items-center">
 				<button
@@ -33,7 +33,7 @@
 
 		<div
 			:class="{ hidden: !showDropdown }"
-			class="order-first lg:relative absolute right-0 left-0 bg-white z-40 lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1 lg:shadow-none lg:border-none"
+			class="order-first block absolute right-0 bg-white z-40 lg:items-center lg:w-auto p-3 rounded-lg shadow-lg border border-1"
 		>
 			<slot></slot>
 		</div>
