@@ -33,12 +33,12 @@
           <div v-else class="grid grid-cols-2 text-center">
             <a
               :href="$route('login')"
-              class="inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
+              class="block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
               >Login</a
             >
             <a
               :href="$route('register')"
-              class="inline-block text-sm px-4 py-2 leading-none lg:mt-0"
+              class="block text-sm px-4 py-2 leading-none lg:mt-0"
               >Registrati</a
             >
           </div>
