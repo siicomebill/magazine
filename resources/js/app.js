@@ -8,6 +8,7 @@ import PortalVue from "portal-vue";
 import route from "ziggy-js";
 import LazyLoad from 'vue-lazyload';
 import ScrollSpy from 'vue2-scrollspy';
+import FormGenerator from 'vue-form-generator'
 
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
@@ -15,6 +16,7 @@ Vue.use(PortalVue);
 Vue.prototype.$route = (...args) => route(...args).url();
 Vue.use(LazyLoad);
 Vue.use(ScrollSpy);
+Vue.use(FormGenerator)
 
 Vue.mixin({
     methods: {
