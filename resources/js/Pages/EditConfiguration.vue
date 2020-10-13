@@ -22,6 +22,8 @@
           <span class="text-red-500 text-sm italic" v-if="error('content')">{{error('content')}}</span>
         </div>
 
+        <vue-form-generator :schema="schema" :model="edited.content"></vue-form-generator>
+
         <button
           type="submit"
           class="text-lg bg-blue-500 text-white font-bold rounded-lg mt-4 w-full p-4"
@@ -35,6 +37,7 @@
 import Layout from '@/Layouts/AppLayout'
 import Form from '~/Base/Form'
 import { Publisher } from "vue-publisher"
+import toSchema from "to-json-schema"
 
 export default {
   layout: Layout,
@@ -51,7 +54,11 @@ export default {
         name: "",
         content: {},
       },
+      schema: {},
     }
+  },
+  mounted() {
+    this.schema = toSchema(this.edited.content)
   }
 }
 </script>
