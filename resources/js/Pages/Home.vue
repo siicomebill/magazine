@@ -34,7 +34,8 @@
 		</template>
 		<div class="content-background">
 			<div
-				class="flex py-20 bg-black banner select-none min-h-screen md:min-h-0 text-white md:-mb-20 md:pb-40 lg:rounded-br-full md:px-10 lg:px-0"
+				class="flex py-20 bg-black banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
+				:class="{'min-h-screen md:-mb-20 md:pb-40': $page.configuration.banner}"
 			>
 				<div class="container m-auto px-4 md:px-0">
 					<div
