@@ -102,7 +102,7 @@
 										</div>
 									</div>
 
-									<div class="lg:grid grid-cols-5 gap-2">
+									<div class="md:grid md:grid-cols-3 lg:grid-cols-5 gap-2">
 										<Card
 											v-bind="article"
 											v-for="article in category.articles.slice(3)"
