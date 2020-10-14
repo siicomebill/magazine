@@ -85,7 +85,7 @@
 							</p>
 							<div>
 								<div class="block grid-flow-cols gap-4">
-									<div class="lg:grid md:grid-cols-none lg:grid-cols-3 gap-2">
+									<div class="xl:grid grid-cols-3 gap-2">
 										<MiniCard
 											class="col-span-2"
 											v-bind="category.articles[0]"
