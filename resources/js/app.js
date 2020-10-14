@@ -8,7 +8,6 @@ import PortalVue from "portal-vue";
 import route from "ziggy-js";
 import LazyLoad from 'vue-lazyload';
 import ScrollSpy from 'vue2-scrollspy';
-import JsonEditor from "vue-json-edit"
 
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
@@ -16,7 +15,6 @@ Vue.use(PortalVue);
 Vue.prototype.$route = (...args) => route(...args).url();
 Vue.use(LazyLoad);
 Vue.use(ScrollSpy);
-Vue.use(JsonEditor)
 
 Vue.mixin({
     methods: {

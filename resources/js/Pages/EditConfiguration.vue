@@ -24,12 +24,7 @@
 						/>
 
 						<JsonEditor
-              class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-xl"
-							:options="{
-								confirmText: 'confirm',
-								cancelText: 'cancel',
-							}"
-							:objData="edited.content"
+							class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-xl mx-0"
 							v-model="edited.content"
 						>
 						</JsonEditor>
@@ -55,6 +50,7 @@
 import Layout from "@/Layouts/AppLayout";
 import Form from "~/Base/Form";
 import { Publisher } from "vue-publisher";
+import JsonEditor from "vue-jsoneditor";
 
 export default {
 	layout: Layout,
@@ -64,6 +60,7 @@ export default {
 	},
 	components: {
 		Publisher,
+		JsonEditor
 	},
 	data() {
 		return {
