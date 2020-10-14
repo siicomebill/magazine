@@ -1,17 +1,19 @@
 <template>
 	<Layout mode="fixed">
 		<template #menu>
-			<ul
-				v-if="categories.length"
-				class="lg:flex"
-			>
+			<ul v-if="categories.length" class="lg:flex">
 				<li
 					v-for="category in navbarCategories"
 					:key="category.id"
 					class="lg:mx-3 h-10 flex"
 				>
-					<a class="flex flex-grow cursor-pointer my-auto" :href="$route('categories.articles', category.id)">
-						<span class="cursor-pointer block my-auto">{{ category.name }}</span>
+					<a
+						class="flex flex-grow cursor-pointer my-auto"
+						:href="$route('categories.articles', category.id)"
+					>
+						<span class="cursor-pointer block my-auto">{{
+							category.name
+						}}</span>
 					</a>
 					<div class="flex">
 						<Dropdown
@@ -32,12 +34,13 @@
 		</template>
 		<div class="content-background">
 			<div
-				class="flex py-20 bg-black banner select-none min-h-screen md:min-h-0 text-white md:-mb-20 md:pb-40 lg:rounded-br-full md:px-10 lg:px-0"
+				class="flex py-20 bg-black banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
+				:class="{'min-h-screen md:-mb-20 md:pb-40': configuration.banner}"
 			>
 				<div class="container m-auto px-4 md:px-0">
 					<div
 						class="font-banner mb-auto lg:mb-0 lg:grid grid-cols-4"
-						v-if="$page.configuration.banner"
+						v-if="configuration.banner"
 					>
 						<div>
 							<img
@@ -55,7 +58,7 @@
 
 						<Reader
 							class="col-span-3 text-center lg:text-left m-auto"
-							v-model="$page.configuration.banner"
+							v-model="configuration.banner"
 						/>
 					</div>
 				</div>
@@ -81,32 +84,34 @@
 								{{ category.snippet }}
 							</p>
 							<div>
-								<div class="block lg:grid grid-cols-2 grid-flow-cols gap-4">
-									<div class="col-span-1">
-										<Card
+								<div class="block grid-flow-cols gap-4">
+									<div class="xl:grid grid-cols-3 gap-2">
+										<MiniCard
+											class="col-span-2"
 											v-bind="category.articles[0]"
 											:href="$route('articles.read', category.articles[0].id)"
 										/>
+
+										<div>
+											<MiniCard
+												v-bind="article"
+												v-for="article in category.articles.slice(1, 3)"
+												:key="article.id"
+												:href="$route('articles.read', article.id)"
+												class="h-auto bg-transparent"
+											/>
+										</div>
 									</div>
 
-									<div class="col-span-1">
-										<MiniCard
+									<div class="md:grid md:grid-cols-3 lg:grid-cols-5 gap-2">
+										<Card
 											v-bind="article"
-											v-for="article in category.articles.slice(1, 4)"
+											v-for="article in category.articles.slice(3)"
 											:key="article.id"
 											:href="$route('articles.read', article.id)"
 											class="h-auto bg-transparent"
 										/>
 									</div>
-								</div>
-
-								<div class="lg:grid grid-cols-2 gap-2">
-									<MiniCard
-										v-bind="article"
-										v-for="article in category.articles.slice(5, 7)"
-										:key="article.id"
-										:href="$route('articles.read', article.id)"
-									/>
 								</div>
 							</div>
 

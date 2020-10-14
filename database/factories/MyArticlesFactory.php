@@ -28,7 +28,7 @@ class MyArticlesFactory extends Factory
             "category_id" => Category::all()->random()->id,
             "title" => $this->faker->sentence,
             "snippet" => $this->faker->paragraph,
-            "image" => $this->faker->imageUrl(500, 500),
+            "image" => "https://dummyimage.com/200/000/fff&text=" . $this->faker->word,
             "content" => [
                 'type' => 'doc',
                 'content' =>
