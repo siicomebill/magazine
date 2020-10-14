@@ -50,7 +50,7 @@
 import Layout from "@/Layouts/AppLayout";
 import Form from "~/Base/Form";
 import { Publisher } from "vue-publisher";
-import JsonEditor from "vue-jsoneditor";
+import JsonEditor from "v-jsoneditor";
 
 export default {
 	layout: Layout,
@@ -60,7 +60,7 @@ export default {
 	},
 	components: {
 		Publisher,
-		JsonEditor
+		JsonEditor,
 	},
 	data() {
 		return {
