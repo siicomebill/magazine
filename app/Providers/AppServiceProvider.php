@@ -27,29 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(ConfigurationRepository $config)
     {
-        Inertia::share([
-            'app' => [
-                'name' => env('APP_NAME', 'BILL')
-            ],
-            'auth' => function () {
-                return auth()->check();
-            },
-            'csrf_token' => function () {
-                return session()->get('_token');
-            },
-            'errors' => function () {
-                if (Session::get('errors')) {
-                    $bags = [];
-
-                    foreach (Session::get('errors')->getBags() as $bag => $error) {
-                        $bags[$bag] = $error->getMessages();
-                    }
-
-                    return $bags;
-                }
-
-                return (object)[];
-            },
-        ]);
+        //
     }
 }
