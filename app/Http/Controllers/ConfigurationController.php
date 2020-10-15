@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
+use App\Http\Requests\ConfigurationRequest;
 use App\Repositories\ConfigurationRepository;
 use Illuminate\Http\Request;
 
@@ -20,9 +21,13 @@ class ConfigurationController extends ResourceController
         parent::__construct($configuration);
     }
 
-    public function store(Request $request)
+    /**
+     * Create or update an element of the specified resource.
+     * 
+     * @param ConfigurationRequest $request
+     */
+    public function store(ConfigurationRequest $request)
     {
-        //TODO Custom request
-        return parent::store($request);
+        return $this->save($request);
     }
 }

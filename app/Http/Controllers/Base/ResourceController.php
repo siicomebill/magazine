@@ -93,13 +93,10 @@ abstract class ResourceController extends Controller
     }
 
     /**
-     * Create or update an element of the specified resource.
-     * 
-     * @param Request $request
+     * Internal method used to actually save the data given by the request.
+     * The request given should be validated in the `store` method.
      */
-    public function store(Request $request)
-    {
-        //FIXME Do not redirect, return response instead
+    protected function save($request){
         return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : redirect()->back(500);
     }
 

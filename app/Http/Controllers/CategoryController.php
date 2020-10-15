@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
+use App\Http\Requests\CategoryRequest;
 use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
@@ -18,6 +19,16 @@ class CategoryController extends ResourceController
     public function __construct(CategoryRepository $category)
     {
         parent::__construct($category);
+    }
+
+    /**
+     * Create or update an element of the specified resource.
+     * 
+     * @param CategoryRequest $request
+     */
+    public function store(CategoryRequest $request)
+    {
+        return $this->save($request);
     }
 
     public function getMinimal()

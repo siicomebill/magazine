@@ -27,7 +27,17 @@ class UserRolesController extends ResourceController
         ]);
     }
 
+    /**
+     * Create or update an element of the specified resource.
+     * 
+     * @param Request $request
+     */
     public function store(Request $request)
+    {
+        return $this->save($request);
+    }
+
+    public function save($request)
     {
         return $this->resource->store($request) ? redirect()->route('user.' . $this->actionRoutes["list"]) : redirect()->back(500);
     }

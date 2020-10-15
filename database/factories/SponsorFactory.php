@@ -26,7 +26,7 @@ class SponsorFactory extends Factory
             "name" => $this->faker->company,
             "snippet" => $this->faker->sentence,
             "cta" => $this->faker->word,
-            "image" => $this->faker->imageUrl(200, 200),
+            "image" => "https://dummyimage.com/200/fff/000&text=" . $this->faker->randomNumber(1),
             "link" => $this->faker->url
         ];
     }

@@ -35,9 +35,14 @@
 			</div>
 		</div>
 
-		<div class="container mx-auto my-4 py-2 px-4 md:px-2">
-			<MiniSponsorCard v-bind="sponsor" fixed class="w-ful lg:11/12 mx-auto" />
-			<Reader v-model="article.content" class="article content" />
+		<div class="container mx-auto md:my-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2">
+			<div class="col-span-3">
+				<Reader v-model="article.content" class="article content bg-white p-3 rounded-none lg:rounded-lg lg:shadow-lg" />
+			</div>
+
+			<div>
+				<SponsorCard v-bind="sponsor" fixed class="w-full lg:11/12 mx-auto mt-0" />
+			</div>
 		</div>
 	</div>
 </template>
@@ -45,7 +50,7 @@
 <script>
 import Layout from "@/Layouts/PublicLayout";
 import Thumbnail from "~/Thumbnail";
-import MiniSponsorCard from "~/MiniSponsorCard";
+import SponsorCard from "~/SponsorCard";
 import { Reader } from "vue-publisher";
 
 export default {
@@ -53,7 +58,7 @@ export default {
 	components: {
 		Reader,
 		Thumbnail,
-		MiniSponsorCard,
+		SponsorCard,
 	},
 	props: {
 		article: Object,

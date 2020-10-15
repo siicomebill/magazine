@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConfigurationRequest extends FormRequest
+class SponsorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,10 @@ class ConfigurationRequest extends FormRequest
     {
         return [
             "name" => "string|required",
-            "content" => "array|required",
+            "link" => "string|url|required",
+            "snippet" => "string|nullable",
+            "cta" => "string|nullable",
+            "image" => "string|url|nullable",
         ];
     }
 }

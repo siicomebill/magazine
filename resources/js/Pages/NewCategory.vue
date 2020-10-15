@@ -55,7 +55,7 @@ export default {
       edited: {
         name: "",
         snippet: "",
-        parent_id: {},
+        parent_id: "",
       },
     }
   }
