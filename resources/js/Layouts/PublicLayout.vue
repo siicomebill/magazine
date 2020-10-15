@@ -102,9 +102,15 @@
 					>
 				</div>
 
-				<p class="py-10 text-center">
-					{{ $page.app.name }} · DEMO · Complete version coming soon!
-				</p>
+				<div class="w-1/2 mx-auto text-center pt-20">
+					<p class="py-5" v-if="$page.configuration.footer">
+						<Reader v-model="$page.configuration.footer"/>
+					</p>
+
+					<p class="py-10">
+						&copy; <strong>{{ $page.app.name }}</strong> {{ new Date().getFullYear() }}
+					</p>
+				</div>
 			</div>
 		</section>
 	</div>
@@ -112,10 +118,12 @@
 
 <script>
 import Dropdown from "~/Dropdown";
+import { Reader } from "vue-publisher";
 
 export default {
 	components: {
 		Dropdown,
+		Reader,
 	},
 	props: {
 		mode: {
