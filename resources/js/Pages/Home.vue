@@ -9,15 +9,15 @@
 					class="font-banner mb-auto lg:mb-0 lg:grid grid-cols-4"
 					v-if="config.banner"
 				>
-					<div>
+					<div v-if="config.logo">
 						<img
-							src="/img/logo_small.png"
+							:src="config.logo.small"
 							class="logo-invert block m-auto lg:hidden"
 							alt
 						/>
 
 						<img
-							src="/img/logo_medium.png"
+							:src="config.logo.medium"
 							class="logo-invert m-auto hidden lg:block"
 							alt
 						/>
