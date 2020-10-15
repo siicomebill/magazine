@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
+use App\Http\Requests\SponsorRequest;
 use App\Repositories\SponsorRepository;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,9 @@ class SponsorController extends ResourceController
     /**
      * Create or update an element of the specified resource.
      * 
-     * @param Request $request
+     * @param SponsorRequest $request
      */
-    public function store(Request $request)
+    public function store(SponsorRequest $request)
     {
         return $this->save($request);
     }
