@@ -107,6 +107,8 @@
 						<Reader v-model="$page.configuration.footer"/>
 					</p>
 
+					<Thumbnail v-if="$page.configuration.logo" :src="$page.configuration.logo.small" imageClass="w-auto h-auto block mx-auto"/>
+
 					<p class="py-10">
 						&copy; <strong>{{ $page.app.name }}</strong> {{ new Date().getFullYear() }}
 					</p>
@@ -119,11 +121,13 @@
 <script>
 import Dropdown from "~/Dropdown";
 import { Reader } from "vue-publisher";
+import Thumbnail from "~/Thumbnail";
 
 export default {
 	components: {
 		Dropdown,
 		Reader,
+		Thumbnail,
 	},
 	props: {
 		mode: {
