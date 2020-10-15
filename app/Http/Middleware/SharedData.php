@@ -48,7 +48,7 @@ class SharedData
 
                 return (object)[];
             },
-            'configuration' => $this->config->get(['footer']),
+            'configuration' => $this->config->get(['footer', 'logo']),
             'navbar' => [
                 'categories' => $this->category->important()->get(),
             ],
