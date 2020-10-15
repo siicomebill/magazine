@@ -25,7 +25,7 @@ class ConfigurationRequest extends FormRequest
     {
         return [
             "name" => "string|required",
-            "content" => "json|required",
+            "content" => "array|required",
         ];
     }
 }
