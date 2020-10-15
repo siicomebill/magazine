@@ -18,12 +18,36 @@
 				<Dropdown class="text-black" title="Esplora" mobileOnly>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
 						<slot name="menu">
-							<a
-								:href="$route('categories')"
-								class="block lg:inline-block lg:mt-0 mx-4"
-							>
-								Categorie
-							</a>
+							<ul v-if="$page.navbar.categories" class="lg:flex">
+								<li
+									v-for="category in $page.navbar.categories"
+									:key="category.id"
+									class="lg:mx-3 h-10 flex"
+								>
+									<a
+										class="flex flex-grow cursor-pointer my-auto"
+										:href="$route('categories.articles', category.id)"
+									>
+										<span class="cursor-pointer block my-auto">{{
+											category.name
+										}}</span>
+									</a>
+									<div class="flex">
+										<Dropdown
+											class="text-black flex-grow my-auto"
+											v-if="category.children.length"
+										>
+											<a
+												class="text-sm block lg:flex-grow"
+												v-for="child in category.children"
+												:key="child.id"
+												:href="$route('categories.articles', child.id)"
+												>{{ child.name }}</a
+											>
+										</Dropdown>
+									</div>
+								</li>
+							</ul>
 						</slot>
 					</div>
 
