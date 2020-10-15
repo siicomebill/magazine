@@ -1,6 +1,6 @@
 <template>
 	<div class="my-4">
-		<a class="bg-white text-black rounded-lg" :class="{'flex': fixed, 'block lg:flex': !fixed}" :href="href">
+		<a class="bg-white text-black rounded-lg" :class="{'flex': fixed, 'block lg:flex': !fixed}" :href="href" :target="target" :rel="rel">
 			<Thumbnail
 				v-if="image"
 				:src="image"
