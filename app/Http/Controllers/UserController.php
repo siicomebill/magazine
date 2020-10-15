@@ -19,4 +19,14 @@ class UserController extends ResourceController
     {
         parent::__construct($user);
     }
+
+    /**
+     * Create or update an element of the specified resource.
+     * 
+     * @param Request $request
+     */
+    public function store(Request $request)
+    {
+        return $this->save($request);
+    }
 }

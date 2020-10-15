@@ -20,9 +20,13 @@ class ConfigurationController extends ResourceController
         parent::__construct($configuration);
     }
 
+    /**
+     * Create or update an element of the specified resource.
+     * 
+     * @param Request $request
+     */
     public function store(Request $request)
     {
-        //TODO Custom request
-        return parent::store($request);
+        return $this->save($request);
     }
 }

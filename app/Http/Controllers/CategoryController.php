@@ -20,6 +20,16 @@ class CategoryController extends ResourceController
         parent::__construct($category);
     }
 
+    /**
+     * Create or update an element of the specified resource.
+     * 
+     * @param Request $request
+     */
+    public function store(Request $request)
+    {
+        return $this->save($request);
+    }
+
     public function getMinimal()
     {
         $categories = $this->resource->asModel()->all(["name", "id"]);
