@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
@@ -13,7 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
-class ArticleController extends Controller
+class ArticleController extends ResourceController
 {
     public function __construct(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category, UserRepository $user)
     {
@@ -35,7 +36,7 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function editItemPage(Request $request, $id = null)
+    public function editItemPage(Request $request, $id = null, $additionalData = [])
     {
         $article = $this->article->forEditor($id, auth()->user()->id);
 
