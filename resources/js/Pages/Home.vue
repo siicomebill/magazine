@@ -4,34 +4,36 @@
 			class="flex py-20 bg-black banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
 			:class="{ 'min-h-screen md:-mb-20 md:pb-40': config.banner }"
 		>
-			<div class="container m-auto px-4 md:px-0 flex justify-items-center">
-				<div
-					class="font-banner mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4"
-					v-if="config.banner"
-				>
-					<div v-if="config.logo" class="block mx-auto">
-						<img
-							:src="config.logo.small"
-							class="logo-invert block m-auto lg:hidden"
-							alt
-						/>
+			<div class="container m-auto px-4 md:px-0">
+				<div class="flex justify-items-center">
+					<div
+						class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4"
+						v-if="config.banner"
+					>
+						<div v-if="config.logo" class="block mx-auto">
+							<img
+								:src="config.logo.small"
+								class="logo-invert block m-auto lg:hidden"
+								alt
+							/>
 
-						<img
-							:src="config.logo.medium"
-							class="logo-invert m-auto hidden lg:block"
-							alt
-						/>
-					</div>
+							<img
+								:src="config.logo.medium"
+								class="logo-invert m-auto hidden lg:block"
+								alt
+							/>
+						</div>
 
-					<div class="col-span-3">
-						<img :src="config.logo.big" class="logo-invert m-auto" alt />
-
-						<Reader
-							class="text-center m-auto"
-							v-model="config.banner"
-						/>
+						<div class="col-span-3">
+							<img :src="config.logo.big" class="logo-invert m-auto" alt />
+						</div>
 					</div>
 				</div>
+
+				<Reader
+					class="font-banner block text-center m-auto"
+					v-model="config.banner"
+				/>
 			</div>
 		</div>
 
