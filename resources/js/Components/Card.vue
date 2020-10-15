@@ -1,6 +1,6 @@
 <template>
 	<div class="my-4">
-		<a class="block bg-white text-black rounded-lg shadow-xl" :href="href">
+		<a class="block bg-white text-black rounded-lg shadow-xl" :href="href" :target="target" :rel="rel">
 			<Thumbnail
 				:src="image"
 				:alt="title"
@@ -59,6 +59,18 @@ export default {
 			type: String,
 			required: false,
 		},
+		outsider: {
+			type: Boolean,
+			default: false,
+		},
 	},
+	computed: {
+		rel(){
+			return this.outsider ? 'noopener noreferrer nofollow' : ''
+		},
+		target(){
+			return this.outsider ? '_blank' : ''
+		}
+	}
 };
 </script>

@@ -2,9 +2,9 @@
 	<div class="flex relative">
 		<div :class="{'lg:hidden': mobileOnly}">
 			<div class="-mr-2 flex items-center">
-				<button
+				<span
 					@click="showDropdown = !showDropdown"
-					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto"
+					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto cursor-pointer"
 				>
 					<span v-if="title" class="mr-2">{{title}}</span>
 					<svg
@@ -28,7 +28,7 @@
 							d="M6 18L18 6M6 6l12 12"
 						/>
 					</svg>
-				</button>
+				</span>
 			</div>
 		</div>
 

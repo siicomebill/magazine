@@ -2,32 +2,38 @@
 	<div class="content-background">
 		<div
 			class="flex py-20 bg-black banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
-			:class="{ 'min-h-screen md:-mb-20 md:pb-40': configuration.banner }"
+			:class="{ 'min-h-screen md:-mb-20 md:pb-40': config.banner }"
 		>
 			<div class="container m-auto px-4 md:px-0">
-				<div
-					class="font-banner mb-auto lg:mb-0 lg:grid grid-cols-4"
-					v-if="configuration.banner"
-				>
-					<div>
-						<img
-							src="/img/logo_small.png"
-							class="logo-invert block m-auto lg:hidden"
-							alt
-						/>
+				<div class="flex justify-items-center">
+					<div
+						class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4"
+						v-if="config.banner"
+					>
+						<div v-if="config.logo" class="block mx-auto">
+							<img
+								:src="config.logo.small"
+								class="logo-invert block m-auto lg:hidden"
+								alt
+							/>
 
-						<img
-							src="/img/logo_medium.png"
-							class="logo-invert m-auto hidden lg:block"
-							alt
-						/>
+							<img
+								:src="config.logo.medium"
+								class="logo-invert m-auto hidden lg:block"
+								alt
+							/>
+						</div>
+
+						<div class="col-span-3">
+							<img :src="config.logo.big" class="logo-invert m-auto" alt />
+						</div>
 					</div>
-
-					<Reader
-						class="col-span-3 text-center lg:text-left m-auto"
-						v-model="configuration.banner"
-					/>
 				</div>
+
+				<Reader
+					class="font-banner block text-center m-auto"
+					v-model="config.banner"
+				/>
 			</div>
 		</div>
 
@@ -135,7 +141,7 @@ export default {
 		categories: Array,
 		navbarCategories: Array,
 		articles: Array,
-		configuration: [Object, Array],
+		config: [Object, Array],
 	},
 };
 </script>

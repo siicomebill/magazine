@@ -16,7 +16,7 @@ class PublicPagesController extends Controller
             "sponsors" => $sponsor->important()->get(),
             "categories" => $category->latest()->get(),
             "articles" => $article->others()->get(),
-            "configuration" => $config->get(["banner"]),
+            "config" => $config->get(["banner" , "logo"]),
         ]);
     }
 }

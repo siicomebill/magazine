@@ -1,7 +1,7 @@
 <template>
   <div class="relative block">
     <div :class="{'aspect-ratio-square': square}"></div>
-    <img v-if="src" v-lazy="src" :class="[baseImageClass, imageClass]" :alt="alt || 'Thumbnail'"/>
+    <img v-if="src" v-lazy="src" :class="[baseImageClass, imageClass, {'absolute inset-0': square}]" :alt="alt || 'Thumbnail'"/>
 
     <div v-else-if="alt" :class="[baseImageClass, imageClass]">
       <span class="m-auto block text-gray-500 text-4xl">{{alt}}</span>
@@ -19,7 +19,7 @@
 export default {
   data(){
     return {
-      baseImageClass: "flex absolute inset-0 object-cover",
+      baseImageClass: "flex object-cover",
     }
   },
   props: {
