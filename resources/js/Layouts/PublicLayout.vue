@@ -85,7 +85,7 @@
 
 		<section class="py-10 px-4 bg-gray-800 text-gray-100">
 			<div class="container mx-auto px-4 md:px-0">
-				<div v-if="$page.pages" class="my-6">
+				<div v-if="$page.pages.length" class="my-6">
 					<div class="mb-4">
 						<p class="text-3xl">Esplora</p>
 						<hr class="mt-5 border-gray-700"/>
