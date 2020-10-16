@@ -13,16 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PublicPagesController@index');
-Route::get('~/{slug}', 'PublicPagesController@page')->name('page');
+Route::middleware(["shared"])->group(function () {
+    Route::get('/', 'PublicPagesController@index');
+    Route::get('~/{slug}', 'PublicPagesController@page')->name('page');
 
-Route::prefix('categories')->group(function () {
-    Route::get('/', 'CategoryController@getMinimal')->name('categories');
-    Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
-});
+    Route::prefix('categories')->group(function () {
+        Route::get('/', 'CategoryController@getMinimal')->name('categories');
+        Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
+    });
 
-Route::prefix('articles')->group(function () {
-    Route::get('{id}', 'ArticleController@read')->name('articles.read');
+    Route::prefix('articles')->group(function () {
+        Route::get('{id}', 'ArticleController@read')->name('articles.read');
+    });
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -84,7 +86,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     Route::get('edit/{id?}', 'UserRolesController@editItemPage')->name('user.roles.write');
                     Route::post('publish', 'UserRolesController@store')->name('user.roles.publish');
                 });
-                
+
                 Route::prefix('{userId}')->group(function () {
                     Route::prefix('articles')->group(function () {
                         Route::get('/', 'ArticleController@managerPage')->name('articles.ofUser.list');
