@@ -14,9 +14,11 @@ class Page extends Model
     protected $fillable = [
         "name",
         "content",
+        "details",
     ];
 
     protected $casts = [
-        "content" => "array"
+        "content" => "array",
+        "details" => "array",
     ];
 }

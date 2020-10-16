@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->jsonb('content');
+            $table->jsonb('details');
         });
     }
 
