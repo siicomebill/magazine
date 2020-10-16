@@ -10,17 +10,13 @@ class PageRepository extends ResourceRepository {
 
     public function get(string $slug = "")
     {
-        $query = $this->model::whereNotNull('content')->orWhereNotNull('details');
-
         $model = [];
 
         if($slug){
-            $query = $query->where('slug', $slug);
-
-            $model = $query->first();
+            $model = $this->model::where('slug', $slug)->first();
         }
         else {
-            $model = $query->get();
+            $model = $this->model::all();
         }
 
         $data = $model->toArray();
