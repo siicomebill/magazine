@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ConfigurationRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class ConfigurationRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "string|required",
+            "name" => ["string", "required", Rule::unique('configurations')->ignore($this->id)],
             "content" => "array|required",
         ];
     }
