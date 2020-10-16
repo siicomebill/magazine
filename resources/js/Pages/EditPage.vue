@@ -16,6 +16,19 @@
 				</div>
 
 				<div class="my-4">
+					<input
+						type="text"
+						v-model="edited.slug"
+						placeholder="/the-slug-for-the-page"
+						class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-xl font-bold text-gray-700"
+						:class="{ 'border border-red-500': error('slug') }"
+					/>
+					<span class="text-red-500 text-sm italic" v-if="error('slug')">{{
+						error("slug")
+					}}</span>
+				</div>
+
+				<div class="my-4">
 					<div>
 						<Publisher
 							v-model="edited.content"
@@ -23,19 +36,25 @@
 							:class="{ 'border border-red-500': error('content') }"
 						/>
 
+						<span class="text-red-500 text-sm italic" v-if="error('content')">{{
+							error("content")
+						}}</span>
+
 						<div class="mx-0 mt-10">
-							<p class="text-xl text-gray-600">Detailed view</p>
+							<p class="text-xl text-gray-600">Additional details</p>
 							<JsonEditor
 								class="appearance-none shadow-md w-full leading-tight text-xl"
-								v-model="edited.content"
+								v-model="edited.details"
 							>
 							</JsonEditor>
+
+							<span
+								class="text-red-500 text-sm italic"
+								v-if="error('details')"
+								>{{ error("details") }}</span
+							>
 						</div>
 					</div>
-
-					<span class="text-red-500 text-sm italic" v-if="error('content')">{{
-						error("content")
-					}}</span>
 				</div>
 
 				<button
@@ -69,7 +88,9 @@ export default {
 		return {
 			edited: {
 				name: "",
+				slug: "",
 				content: {},
+				details: {},
 			},
 		};
 	},

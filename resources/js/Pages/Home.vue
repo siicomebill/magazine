@@ -2,13 +2,13 @@
 	<div class="content-background">
 		<div
 			class="flex py-20 bg-black banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
-			:class="{ 'min-h-screen md:-mb-20 md:pb-40': config.banner }"
+			:class="{ 'min-h-screen md:-mb-20 md:pb-40': config.banner || config.logo }"
 		>
 			<div class="container m-auto px-4 md:px-0">
 				<div class="flex justify-items-center">
 					<div
 						class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4"
-						v-if="config.banner"
+						v-if="config.banner || config.logo"
 					>
 						<div v-if="config.logo" class="block mx-auto">
 							<img
@@ -31,6 +31,7 @@
 				</div>
 
 				<Reader
+					v-if="config.banner"
 					class="font-banner block text-center m-auto"
 					v-model="config.banner"
 				/>

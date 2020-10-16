@@ -83,9 +83,27 @@
 			<slot></slot>
 		</main>
 
-		<section class="py-6 bg-gray-200 text-gray-700">
+		<section class="py-10 px-4 bg-gray-800 text-gray-100">
 			<div class="container mx-auto px-4 md:px-0">
-				<div class="py-5 mx-auto text-center">
+				<div v-if="$page.pages.length" class="my-6">
+					<div class="mb-4">
+						<p class="text-3xl">Esplora</p>
+						<hr class="mt-5 border-gray-700"/>
+					</div>
+
+					<div class="col-span-3 md:grid md:grid-cols-2 lg:grid-cols-4">
+						<a
+							v-for="page in $page.pages"
+							:key="page.slug"
+							:href="$route('page', page.slug)"
+							class="capitalize"
+						>
+							{{ page.name }}
+						</a>
+					</div>
+				</div>
+
+				<div class="my-5 py-5 mx-auto text-center">
 					<a
 						href="https://www.instagram.com/siicomebill/"
 						target="_blank"
@@ -104,13 +122,18 @@
 
 				<div class="w-1/2 mx-auto text-center pt-20">
 					<p class="py-5" v-if="$page.configuration.footer">
-						<Reader v-model="$page.configuration.footer"/>
+						<Reader v-model="$page.configuration.footer" />
 					</p>
 
-					<Thumbnail v-if="$page.configuration.logo" :src="$page.configuration.logo.small" imageClass="w-auto h-auto block mx-auto"/>
+					<Thumbnail
+						v-if="$page.configuration.logo"
+						:src="$page.configuration.logo.small"
+						imageClass="w-auto h-auto block mx-auto"
+					/>
 
 					<p class="py-10">
-						&copy; <strong>{{ $page.app.name }}</strong> {{ new Date().getFullYear() }}
+						&copy; <strong>{{ $page.app.name }}</strong>
+						{{ new Date().getFullYear() }}
 					</p>
 				</div>
 			</div>

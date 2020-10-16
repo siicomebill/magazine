@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ConfigurationRepository;
+use App\Repositories\PageRepository;
 use App\Repositories\SponsorRepository;
 use Inertia\Inertia;
 
@@ -18,5 +19,16 @@ class PublicPagesController extends Controller
             "articles" => $article->others()->get(),
             "config" => $config->get(["banner" , "logo"]),
         ]);
+    }
+
+    public function page(string $slug, PageRepository $page){
+        $content = $page->get($slug);
+
+        if($content)
+            return Inertia::render('PageContainer', [
+                "content" => $content
+            ]);
+        else
+            return abort(404);
     }
 }

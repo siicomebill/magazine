@@ -4,8 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
-class ConfigurationRequest extends FormRequest
+class PageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +26,16 @@ class ConfigurationRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ["string", "required", Rule::unique('configurations')->ignore($this->id)],
-            "content" => "array|required",
+            "name" => "string|required",
+            "slug" => ["string", Rule::unique('pages')->ignore($this->id)],
+            "content" => "array",
+            "details" => "array",
         ];
+    }
+
+    protected function prepareForValidation(){
+        $this->merge([
+            "slug" => Str::slug($this->name)
+        ]);
     }
 }
