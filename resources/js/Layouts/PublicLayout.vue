@@ -83,8 +83,8 @@
 			<slot></slot>
 		</main>
 
-		<section class="py-10 px-4 bg-gray-800 text-gray-100">
-			<div class="container mx-auto px-4 md:px-0">
+		<section class="py-10 px-4 banner bg-fixed bg-black text-white">
+			<div class="container mx-auto px-4 md:px-0 bg-black rounded-lg border-2 border-white">
 				<div v-if="$page.pages.length" class="my-6">
 					<div class="mb-4">
 						<p class="text-3xl">Esplora</p>
