@@ -10,4 +10,13 @@ class Page extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $fillable = [
+        "name",
+        "content",
+    ];
+
+    protected $casts = [
+        "content" => "array"
+    ];
 }
