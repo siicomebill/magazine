@@ -25,9 +25,14 @@ class PageRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ["string", "required", Rule::unique('pages')->ignore($this->id)],
+            "name" => "string|required",
+            "slug" => ["string", "required", Rule::unique('pages')->ignore($this->id)],
             "content" => "array",
             "details" => "array",
         ];
+    }
+
+    protected function prepareForValidation(){
+        $this->merge([]);
     }
 }
