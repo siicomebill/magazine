@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PublicPagesController@index');
+Route::get('about', 'PublicPagesController@about');
 
 Route::prefix('categories')->group(function () {
     Route::get('/', 'CategoryController@getMinimal')->name('categories');
@@ -67,6 +68,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('delete/{id?}', 'ConfigurationController@delete')->name('config.delete');
 
                 Route::post('publish', 'ConfigurationController@store')->name('config.publish');
+            });
+
+            Route::prefix('pages')->group(function () {
+                Route::get('/', 'PageController@managerPage')->name('pages.list');
+
+                Route::get('write/{id?}', 'PageController@editItemPage')->name('pages.write');
+                Route::get('delete/{id?}', 'PageController@delete')->name('pages.delete');
+
+                Route::post('publish', 'PageController@store')->name('pages.publish');
             });
 
             Route::prefix('users')->group(function () {

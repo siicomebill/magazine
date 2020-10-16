@@ -17,5 +17,6 @@ class RepositoryProvider extends ServiceProvider
         ArticleRepositoryInterface::class => ArticleRepository::class,
         ResourceRepositoryInterface::class => SponsorRepository::class,
         ResourceRepositoryInterface::class => CategoryRepository::class,
+        ResourceRepositoryInterface::class => PageRepository::class,
     ];
 }

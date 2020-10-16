@@ -19,4 +19,8 @@ class PublicPagesController extends Controller
             "config" => $config->get(["banner" , "logo"]),
         ]);
     }
+
+    public function about(){
+        //
+    }
 }
