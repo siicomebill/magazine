@@ -23,11 +23,14 @@
 							:class="{ 'border border-red-500': error('content') }"
 						/>
 
-						<JsonEditor
-							class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-xl mx-0"
-							v-model="edited.content"
-						>
-						</JsonEditor>
+						<div class="mx-0 mt-10">
+							<p class="text-xl text-gray-600">Detailed view</p>
+							<JsonEditor
+								class="appearance-none shadow-md w-full leading-tight text-xl"
+								v-model="edited.content"
+							>
+							</JsonEditor>
+						</div>
 					</div>
 
 					<span class="text-red-500 text-sm italic" v-if="error('content')">{{
