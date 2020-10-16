@@ -16,7 +16,7 @@
 			</div>
 
 			<div
-				class="container mx-auto my-6 md:grid md:grid-cols-3 lg:grid-cols-4"
+				class="container mx-auto my-6 md:grid md:grid-cols-3 lg:grid-cols-4 gap-3"
 				v-if="page.details"
 			>
 				<div v-for="(person, i) in page.details.people" :key="i">
