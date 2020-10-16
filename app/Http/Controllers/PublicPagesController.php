@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ConfigurationRepository;
+use App\Repositories\PageRepository;
 use App\Repositories\SponsorRepository;
 use Inertia\Inertia;
 
@@ -20,7 +21,9 @@ class PublicPagesController extends Controller
         ]);
     }
 
-    public function about(){
-        //
+    public function about(PageRepository $page){
+        return Inertia::render('About', [
+            "content" => $page->get(['about'])
+        ]);
     }
 }
