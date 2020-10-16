@@ -16,6 +16,19 @@
 				</div>
 
 				<div class="my-4">
+					<input
+						type="text"
+						v-model="edited.slug"
+						placeholder="/the-slug-for-the-page"
+						class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-3xl font-bold text-gray-700"
+						:class="{ 'border border-red-500': error('slug') }"
+					/>
+					<span class="text-red-500 text-sm italic" v-if="error('slug')">{{
+						error("slug")
+					}}</span>
+				</div>
+
+				<div class="my-4">
 					<div>
 						<Publisher
 							v-model="edited.content"
@@ -75,6 +88,7 @@ export default {
 		return {
 			edited: {
 				name: "",
+				slug: "",
 				content: {},
 				details: {},
 			},
