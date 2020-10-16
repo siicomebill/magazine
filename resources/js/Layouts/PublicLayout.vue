@@ -102,6 +102,10 @@
 					>
 				</div>
 
+				<div>
+					<a v-for="page in $page.pages" :key="page.slug" :href="$route('page', page.slug)">{{page.name}}</a>
+				</div>
+
 				<div class="w-1/2 mx-auto text-center pt-20">
 					<p class="py-5" v-if="$page.configuration.footer">
 						<Reader v-model="$page.configuration.footer"/>
