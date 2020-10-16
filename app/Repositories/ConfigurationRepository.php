@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Configuration;
+use Illuminate\Support\Arr;
 
 class ConfigurationRepository extends ResourceRepository
 {
@@ -10,12 +11,17 @@ class ConfigurationRepository extends ResourceRepository
 
     public function get(array $elements = [])
     {
-        $models = $this->model::whereNotNull('content')->whereIn('name', $elements)->get();
+        $query = $this->model::whereNotNull('content');
+
+        if($elements)
+            $query = $query->whereIn('name', $elements);
+
+        $models = $query->get();
 
         $result = [];
 
         foreach ($models as $value) {
-            $result[$value->name] = $value->content;
+            $result[$value->name] = Arr::except($value->content, 'name');
         }
 
         return $result;
