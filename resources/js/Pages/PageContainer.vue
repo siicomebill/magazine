@@ -49,9 +49,9 @@ export default {
 	computed: {
 		page() {
 			return {
-				name: "about",
-				content: this.content.about.content,
-				details: this.content.about.details,
+				name: this.content.name,
+				content: this.content.content,
+				details: this.content.details,
 			};
 		},
 	},
