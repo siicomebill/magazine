@@ -3,7 +3,7 @@
     <div :class="{'aspect-ratio-square': square}"></div>
     <img v-if="src" v-lazy="src" :class="[baseImageClass, imageClass, {'absolute inset-0': square}]" :alt="alt || 'Thumbnail'"/>
 
-    <div v-else-if="alt" :class="[baseImageClass, imageClass]">
+    <div v-else-if="alt" :class="[baseImageClass, imageClass, {'absolute inset-0': square}]">
       <span class="m-auto block text-gray-500 text-4xl">{{alt}}</span>
     </div>
 
