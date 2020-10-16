@@ -5,24 +5,27 @@ namespace App\Repositories;
 use App\Models\Page;
 use Illuminate\Support\Arr;
 
-class PageRepository extends ConfigurationRepository {
+class PageRepository extends ResourceRepository {
     protected $model = Page::class;
 
-    public function get(array $elements = [])
+    public function get(string $slug = "")
     {
         $query = $this->model::whereNotNull('content')->orWhereNotNull('details');
 
-        if($elements)
-            $query = $query->whereIn('name', $elements);
+        $model = [];
 
-        $models = $query->get();
+        if($slug){
+            $query = $query->where('slug', $slug);
 
-        $result = [];
-
-        foreach ($models as $value) {
-            $data = $value->toArray();
-            $result[$data['name']] = Arr::except($data, 'name');
+            $model = $query->first();
         }
+        else {
+            $model = $query->get();
+        }
+
+        $data = $model->toArray();
+
+        $result = Arr::except($data, 'slug');
 
         return $result;
     }

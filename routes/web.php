@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PublicPagesController@index');
-Route::get('about', 'PublicPagesController@about');
+Route::get('~/{slug}', 'PublicPagesController@page');
 
 Route::prefix('categories')->group(function () {
     Route::get('/', 'CategoryController@getMinimal')->name('categories');

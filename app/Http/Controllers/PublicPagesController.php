@@ -21,11 +21,11 @@ class PublicPagesController extends Controller
         ]);
     }
 
-    public function about(PageRepository $page){
-        $content = $page->get(['about']);
+    public function page(string $slug, PageRepository $page){
+        $content = $page->get($slug);
 
         if($content)
-            return Inertia::render('About', [
+            return Inertia::render('PageContainer', [
                 "content" => $content
             ]);
         else
