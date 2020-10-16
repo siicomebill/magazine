@@ -1,6 +1,7 @@
 <?php
 
 use Database\Seeders\ArticleSeeder;
+use Database\Seeders\PageSeeder;
 use Database\Seeders\RolesTableSeeder;
 use Database\Seeders\SponsorSeeder;
 use Database\Seeders\UserSeeder;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
                 UserSeeder::class,
                 ArticleSeeder::class,
                 SponsorSeeder::class,
+                PageSeeder::class,
             ]);
         }
     }
