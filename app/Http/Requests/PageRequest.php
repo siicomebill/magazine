@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class PageRequest extends FormRequest
 {
@@ -26,13 +27,15 @@ class PageRequest extends FormRequest
     {
         return [
             "name" => "string|required",
-            "slug" => ["string", "required", Rule::unique('pages')->ignore($this->id)],
+            "slug" => ["string", Rule::unique('pages')->ignore($this->id)],
             "content" => "array",
             "details" => "array",
         ];
     }
 
     protected function prepareForValidation(){
-        $this->merge([]);
+        $this->merge([
+            "slug" => Str::slug($this->name)
+        ]);
     }
 }
