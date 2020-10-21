@@ -39,9 +39,9 @@ class ResourceRepository implements ResourceRepositoryInterface
     {
         $query = $this->model::latest();
 
-        if($limit)
+        if ($limit)
             $query = $query->limit($limit);
-        
+
         return $query;
     }
 
@@ -79,5 +79,10 @@ class ResourceRepository implements ResourceRepositoryInterface
     public function random($limit = 1)
     {
         return $this->model::inRandomOrder()->limit($limit);
+    }
+
+    public function paginated($perPage = 5)
+    {
+        return $this->model::paginate($perPage);
     }
 }

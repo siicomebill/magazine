@@ -61,7 +61,7 @@ abstract class ResourceController extends Controller
      */
     public function managerPage(Request $request)
     {
-        $items = $this->resource->asModel()->paginate(3);
+        $items = $this->resource->paginated();
 
         $items->each(function ($value, $key) {
             $value["links"] = [
