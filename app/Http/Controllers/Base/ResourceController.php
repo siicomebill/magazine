@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Base;
 
+use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Controller;
 use App\Repositories\ResourceRepository;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ abstract class ResourceController extends Controller
      */
     public function managerPage(Request $request)
     {
-        $items = $this->resource->list();
+        $items = $this->resource->asModel()->paginate(3);
 
         $items->each(function ($value, $key) {
             $value["links"] = [
@@ -69,8 +70,10 @@ abstract class ResourceController extends Controller
             ];
         });
 
+        $paginatedResource = new PaginatedCollection($items);
+
         return $this->renderer::render($this->pageComponents["managerPage"], [
-            "items" => $items
+            "items" => $paginatedResource
         ]);
     }
     
