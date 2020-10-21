@@ -83,7 +83,7 @@
 			<slot></slot>
 		</main>
 
-		<section class="py-10 px-4 banner bg-fixed bg-black text-white">
+		<section class="footer py-10 px-4 banner bg-fixed bg-black text-white">
 			<div class="container mx-auto px-4 md:px-0 bg-black rounded-lg border-2 border-white">
 				<div v-if="$page.pages.length" class="my-6">
 					<div class="mb-4">
@@ -128,7 +128,7 @@
 					<Thumbnail
 						v-if="$page.configuration.logo"
 						:src="$page.configuration.logo.small"
-						imageClass="w-auto h-auto block mx-auto"
+						imageClass="w-auto h-auto block mx-auto logo-invert"
 					/>
 
 					<p class="py-10">
