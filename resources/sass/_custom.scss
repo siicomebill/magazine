@@ -1,6 +1,6 @@
 @import "content";
 
-.banner {
+.banner, .footer {
     .logo {
         &-invert {
             filter: invert(100);
