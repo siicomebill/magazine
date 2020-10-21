@@ -1,14 +1,8 @@
 <template>
-  <div>
-    <div class="container mx-auto my-5">
-      <a
-        :href="$route('categories.write')"
-        class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-lg transition-shadow duration-200"
-        >Nuovo</a
-      >
+  <ManagerPage :items="items">
 
       <Card
-        v-for="category in items"
+        v-for="category in list"
         :key="category.id"
         :title="category.name"
         :snippet="category.snippet"
@@ -29,21 +23,21 @@
           </div>
         </template>
       </Card>
-    </div>
-  </div>
+  </ManagerPage>
 </template>
 
 <script>
-import Card from "~/Card";
+import ManagerPage from "~/Base/ManagerPage";
 import Layout from "@/Layouts/AppLayout";
 
 export default {
   layout: Layout,
+  extends: ManagerPage,
   components: {
-    Card,
+    ManagerPage,
   },
   props: {
-    items: Array,
+    items: Object,
   },
 };
 </script>

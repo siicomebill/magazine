@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <div class="container mx-auto my-5">
+  <ManagerPage :items="items">
       <Card
-        v-for="user in items"
+        v-for="user in list"
         :key="user.id"
         :title="user.name"
       >
@@ -23,21 +22,21 @@
           </div>
         </template>
       </Card>
-    </div>
-  </div>
+  </ManagerPage>
 </template>
 
 <script>
-import Card from "~/MiniCard";
+import ManagerPage from "~/Base/ManagerPage";
 import Layout from "@/Layouts/AppLayout";
 
 export default {
   layout: Layout,
+  extends: ManagerPage,
   components: {
-    Card,
+    ManagerPage,
   },
   props: {
-    items: Array,
+    items: Object,
   },
 };
 </script>
