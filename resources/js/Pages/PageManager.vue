@@ -3,12 +3,12 @@
     <div class="container mx-auto my-5">
       <a
         :href="$route('pages.write')"
-        class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-lg transition-shadow duration-200"
+        class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-full transition-shadow duration-200"
         >Nuovo</a
       >
 
       <Card
-        v-for="page in items"
+        v-for="page in list"
         :key="page.id"
         :title="page.name"
       >
@@ -27,6 +27,11 @@
           </div>
         </template>
       </Card>
+
+      <div class="w-full text-center grid grid-cols-2 gap-4">
+        <a :href="previousPage" class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200">Prev</a>
+        <a :href="nextPage" class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200">Next</a>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +46,18 @@ export default {
     Card,
   },
   props: {
-    items: Array,
+    items: Object,
   },
+  computed: {
+    list(){
+      return this.items.data
+    },
+    nextPage(){
+      return this.items.links.next
+    },
+    previousPage(){
+      return this.items.links.prev
+    }
+  }
 };
 </script>
