@@ -28,8 +28,8 @@ class PageRequest extends FormRequest
         return [
             "name" => "string|required",
             "slug" => ["string", Rule::unique('pages')->ignore($this->id)],
-            "content" => "array",
-            "details" => "array",
+            "content" => "array|nullable",
+            "details" => "array|nullable",
         ];
     }
 
