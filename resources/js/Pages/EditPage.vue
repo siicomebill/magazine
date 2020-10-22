@@ -77,9 +77,6 @@ import JsonEditor from "v-jsoneditor";
 export default {
 	layout: Layout,
 	extends: Form,
-	props: {
-		categories: Array,
-	},
 	components: {
 		Publisher,
 		JsonEditor,
