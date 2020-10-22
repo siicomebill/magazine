@@ -1,5 +1,5 @@
 <template>
-  <ManagerPage :items="items">
+  <ManagerPage :items="items" :newPage="$route('categories.write')">
 
       <Card
         v-for="category in list"

@@ -1,5 +1,5 @@
 <template>
-  <ManagerPage :items="items">
+  <ManagerPage :items="items" :newPage="$route('articles.write')">
       <Card v-bind="article" v-for="article in list" :key="article.id">
         <template #footer>
           <div>

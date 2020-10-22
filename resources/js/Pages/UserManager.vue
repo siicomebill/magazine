@@ -1,5 +1,5 @@
 <template>
-  <ManagerPage :items="items">
+  <ManagerPage :items="items" :newPage="$route('user.write')">
       <Card
         v-for="user in list"
         :key="user.id"
