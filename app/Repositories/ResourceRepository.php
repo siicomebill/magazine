@@ -65,16 +65,20 @@ class ResourceRepository implements ResourceRepositoryInterface
 
             if ($item) {
                 $item->update($request->all());
+                $this->afterStore($item);
                 return true;
             } else {
                 //TODO Populate error bag
                 return false;
             }
         } else {
-            $this->model::create($request->all());
+            $item = $this->model::create($request->all());
+            $this->afterStore($item);
             return true;
         }
     }
+
+    public function afterStore($model){}
 
     public function delete($id)
     {

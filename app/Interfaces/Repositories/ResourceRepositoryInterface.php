@@ -22,6 +22,8 @@ interface ResourceRepositoryInterface
 
     public function store($request);
 
+    public function afterStore($model);
+
     public function delete($id);
 
     public function random($limit = 1);
