@@ -16,7 +16,6 @@ class Page extends Model
         "content",
         "details",
         "slug",
-        "components",
     ];
 
     protected $casts = [
