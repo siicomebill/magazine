@@ -65,8 +65,7 @@ class ArticleController extends ResourceController
     {
         $user = $request->user_id ? $this->user->find($request->user_id) : null;
 
-        //FIXME Do not redirect, return response instead
-        return $this->article->store($request, $user) ? redirect()->route('articles.mine.list') : redirect()->back(500);
+        return $this->article->store($request, $user) ? redirect()->route('articles.mine.list') : abort(500);
     }
 
     public function read($id)
