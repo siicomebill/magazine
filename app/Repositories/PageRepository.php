@@ -16,7 +16,7 @@ class PageRepository extends ResourceRepository {
             $model = $this->model::where('slug', $slug)->with('components')->firstOrFail();
         }
         else {
-            $model = $this->model::with('components')->all();
+            $model = $this->model::all();
         }
 
         $data = $model->toArray();
