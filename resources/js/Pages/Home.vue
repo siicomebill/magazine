@@ -45,55 +45,7 @@
 		<div>
 			<div class="col-span-5 z-10" v-scroll-spy>
 				<div v-for="(category, i) in categories" :key="category.id">
-					<div class="container mx-auto bg-white rounded-lg shadow-lg p-6 mb-5">
-						<a
-							:href="$route('categories.articles', category.id)"
-							class="block text-3xl font-banner text-center lg:text-left lg:text-6xl capitalize"
-						>
-							{{ category.name }}
-						</a>
-						<p v-if="category.snippet" class="text-gray-500 my-3">
-							{{ category.snippet }}
-						</p>
-						<div>
-							<div class="block grid-flow-cols gap-4">
-								<div class="xl:grid grid-cols-3 gap-2">
-									<MiniCard
-										class="col-span-2"
-										v-bind="category.articles[0]"
-										:href="$route('articles.read', category.articles[0].id)"
-									/>
-
-									<div>
-										<MiniCard
-											v-bind="article"
-											v-for="article in category.articles.slice(1, 3)"
-											:key="article.id"
-											:href="$route('articles.read', article.id)"
-											class="h-auto bg-transparent"
-										/>
-									</div>
-								</div>
-
-								<div class="md:grid md:grid-cols-3 lg:grid-cols-5 gap-2">
-									<Card
-										v-bind="article"
-										v-for="article in category.articles.slice(3)"
-										:key="article.id"
-										:href="$route('articles.read', article.id)"
-										class="h-auto bg-transparent"
-									/>
-								</div>
-							</div>
-						</div>
-
-						<a
-							class="block w-full border border-1 border-black rounded-full p-3 text-center bg-white"
-							:href="$route('categories.articles', category.id)"
-						>
-							Vedi tutti
-						</a>
-					</div>
+					<CategoryCard :content="category" />
 
 					<div class="container mx-auto">
 						<MiniSponsorCard
@@ -119,23 +71,21 @@
 </template>
 
 <script>
-import Card from "~/Card";
-import MiniCard from "~/MiniCard";
 import SponsorCard from "~/SponsorCard";
 import MiniSponsorCard from "~/MiniSponsorCard";
 import Dropdown from "~/Dropdown";
 import Layout from "@/Layouts/PublicLayout";
 import { Reader } from "vue-publisher";
+import CategoryCard from "~/CategoryCard"
 
 export default {
 	layout: Layout,
 	components: {
-		Card,
-		MiniCard,
 		SponsorCard,
 		MiniSponsorCard,
 		Dropdown,
 		Reader,
+		CategoryCard,
 	},
 	props: {
 		sponsors: Array,
