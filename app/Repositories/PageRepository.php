@@ -13,10 +13,10 @@ class PageRepository extends ResourceRepository {
         $model = [];
 
         if($slug){
-            $model = $this->model::where('slug', $slug)->first();
+            $model = $this->model::where('slug', $slug)->with('components')->firstOrFail();
         }
         else {
-            $model = $this->model::all();
+            $model = $this->model::with('components')->all();
         }
 
         $data = $model->toArray();

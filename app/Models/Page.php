@@ -22,4 +22,8 @@ class Page extends Model
         "content" => "array",
         "details" => "array",
     ];
+
+    public function components(){
+        return $this->hasManyThrough('App\Models\Component', 'App\Models\PageComponent', 'page_id', 'id');
+    }
 }

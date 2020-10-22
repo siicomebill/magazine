@@ -14,10 +14,11 @@ class CreatePageComponentsTable extends Migration
     public function up()
     {
         Schema::create('page_components', function (Blueprint $table) {
-            $table->foreignIdFor('App\Models\Page');
-            $table->foreignIdFor('App\Models\Component');
+            $table->foreignIdFor('App\Models\Page', 'page_id');
+            $table->foreignIdFor('App\Models\Component', 'component_id');
 
-            $table->primary(['page_id', 'component_id']);
+            $table->id();
+            $table->string('propertyName');
         });
     }
 
