@@ -18,7 +18,6 @@ class CreatePageComponentsTable extends Migration
             $table->foreignIdFor('App\Models\Component', 'component_id');
 
             $table->id();
-            $table->string('propertyName');
         });
     }
 
