@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
+use App\Http\Requests\ComponentRequest;
 use App\Repositories\ComponentRepository;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ComponentController extends ResourceController
         parent::__construct($component);
     }
 
-    public function store(Request $request)
+    public function store(ComponentRequest $request)
     {
         return $this->save($request);
     }

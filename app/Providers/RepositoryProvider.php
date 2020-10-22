@@ -6,6 +6,7 @@ use App\Interfaces\Repositories\ArticleRepositoryInterface;
 use App\Interfaces\Repositories\ResourceRepositoryInterface;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\ComponentRepository;
 use App\Repositories\ResourceRepository;
 use App\Repositories\SponsorRepository;
 use Illuminate\Support\ServiceProvider;
@@ -18,5 +19,6 @@ class RepositoryProvider extends ServiceProvider
         ResourceRepositoryInterface::class => SponsorRepository::class,
         ResourceRepositoryInterface::class => CategoryRepository::class,
         ResourceRepositoryInterface::class => PageRepository::class,
+        ResourceRepositoryInterface::class => ComponentRepository::class,
     ];
 }
