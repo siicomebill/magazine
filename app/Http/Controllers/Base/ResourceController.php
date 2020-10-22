@@ -85,7 +85,7 @@ abstract class ResourceController extends Controller
     public function editItemPage(Request $request, $id = null, array $additionalData = [])
     {
         $model = $this->resource->asModel();
-        $item = $model->find($id ?? $request[$model->getKeyName()] ?? null);
+        $item = $this->resource->softFind($id ?? $request[$model->getKeyName()] ?? null);
 
         $edited = [
             "stored" => $item ?? null,

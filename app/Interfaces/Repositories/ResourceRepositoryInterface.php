@@ -18,6 +18,8 @@ interface ResourceRepositoryInterface
 
     public function find($id);
 
+    public function softFind($id);
+
     public function store($request);
 
     public function delete($id);

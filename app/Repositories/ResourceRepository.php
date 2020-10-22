@@ -50,6 +50,11 @@ class ResourceRepository implements ResourceRepositoryInterface
         return $this->model::findOrFail($id);
     }
 
+    public function softFind($id)
+    {
+        return $this->model::find($id) ?? null;
+    }
+
     public function store($request)
     {
         $model = new $this->model;
