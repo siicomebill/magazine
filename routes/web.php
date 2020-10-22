@@ -102,6 +102,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
                 Route::post('publish', 'UserController@store')->name('user.publish');
             });
+
+            Route::prefix('components')->group(function () {
+                Route::get('/', 'ComponentController@managerPage')->name('component.list');
+
+                Route::get('write/{id?}', 'ComponentController@editItemPage')->name('component.write');
+                Route::get('delete/{id?}', 'ComponentController@delete')->name('component.delete');
+
+                Route::post('publish', 'ComponentController@store')->name('component.publish');
+            });
         });
     });
 });
