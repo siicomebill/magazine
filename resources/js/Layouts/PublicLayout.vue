@@ -83,11 +83,11 @@
 			<slot></slot>
 		</main>
 
-		<section class="py-10 px-4 banner bg-fixed bg-black text-white">
-			<div class="container mx-auto px-4 md:px-0 bg-black rounded-lg border-2 border-white">
+		<section class="footer py-10 px-4 banner bg-fixed bg-black text-white">
+			<div class="container mx-auto px-4 bg-black rounded-lg border-2 border-white">
 				<div v-if="$page.pages.length" class="my-6">
 					<div class="mb-4">
-						<p class="text-3xl">Esplora</p>
+						<p class="text-3xl text-center md:text-left">Esplora</p>
 						<hr class="mt-5 border-gray-700"/>
 					</div>
 
@@ -96,7 +96,7 @@
 							v-for="page in $page.pages"
 							:key="page.slug"
 							:href="$route('page', page.slug)"
-							class="capitalize"
+							class="capitalize md:inline md:text-left block text-center my-3"
 						>
 							{{ page.name }}
 						</a>
@@ -128,7 +128,7 @@
 					<Thumbnail
 						v-if="$page.configuration.logo"
 						:src="$page.configuration.logo.small"
-						imageClass="w-auto h-auto block mx-auto"
+						imageClass="w-auto h-auto block mx-auto logo-invert"
 					/>
 
 					<p class="py-10">

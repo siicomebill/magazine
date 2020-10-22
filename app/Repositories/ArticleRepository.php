@@ -38,7 +38,7 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
     //TODO Move in ResourceRepository - but generalize it there
     public function forManagerPage($userId = null, $actionRoutes = null)
     {
-        $articles = $this->model::user($userId ?? auth()->user()->id)->get();
+        $articles = $this->model::user($userId ?? auth()->user()->id)->paginate(5);
 
         //TODO Write resource routes class for storing these values
         $defaultRoutes = [

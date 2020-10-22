@@ -1,12 +1,6 @@
 <template>
-  <div>
-    <div class="container mx-auto my-5">
-      <a
-        :href="$route('articles.write')"
-        class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-lg transition-shadow duration-200"
-      >Nuovo</a>
-
-      <Card v-bind="article" v-for="article in items" :key="article.id">
+  <ManagerPage :items="items">
+      <Card v-bind="article" v-for="article in list" :key="article.id">
         <template #footer>
           <div>
             <div class="justify-end flex">
@@ -22,21 +16,21 @@
           </div>
         </template>
       </Card>
-    </div>
-  </div>
+  </ManagerPage>
 </template>
 
 <script>
-import Card from "~/MiniCard";
+import ManagerPage from "~/Base/ManagerPage";
 import Layout from "@/Layouts/AppLayout";
 
 export default {
   layout: Layout,
+  extends: ManagerPage,
   components: {
-    Card,
+    ManagerPage,
   },
   props: {
-    items: Array,
+    items: Object,
   },
 };
 </script>

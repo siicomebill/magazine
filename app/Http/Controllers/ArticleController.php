@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
@@ -31,8 +32,10 @@ class ArticleController extends ResourceController
             "delete" => "articles.ofUser.delete"
         ] : [];
 
+        $paginatedResource = new PaginatedCollection($this->article->forManagerPage($userId, $routes));
+
         return Inertia::render('ArticlesManager', [
-            'items' => $this->article->forManagerPage($userId, $routes)
+            'items' => $paginatedResource
         ]);
     }
 
