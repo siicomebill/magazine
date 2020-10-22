@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\PageRequest;
+use App\Repositories\ComponentRepository;
 use App\Repositories\PageRepository;
+use Illuminate\Http\Request;
+
 class PageController extends ResourceController
 {
     protected $routeNamePrefix = "pages";
@@ -13,9 +16,12 @@ class PageController extends ResourceController
         "editItemPage" => "EditPage"
     ];
 
-    public function __construct(PageRepository $page)
+    protected $component;
+
+    public function __construct(PageRepository $page, ComponentRepository $component)
     {
         parent::__construct($page);
+        $this->component = $component;
     }
 
     /**
@@ -26,5 +32,12 @@ class PageController extends ResourceController
     public function store(PageRequest $request)
     {
         return $this->save($request);
+    }
+
+    public function editItemPage(Request $request, $id = null, array $additionalData = [])
+    {
+        return parent::editItemPage($request, $id, [
+            "components" => $this->component->list(['name', 'id'])
+        ]);
     }
 }
