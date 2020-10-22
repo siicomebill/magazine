@@ -65,7 +65,7 @@ class ResourceRepository implements ResourceRepositoryInterface
 
             if ($item) {
                 $item->update($request->all());
-                $this->afterStore($item);
+                $this->afterStore($item, $request);
                 return true;
             } else {
                 //TODO Populate error bag
@@ -73,12 +73,12 @@ class ResourceRepository implements ResourceRepositoryInterface
             }
         } else {
             $item = $this->model::create($request->all());
-            $this->afterStore($item);
+            $this->afterStore($item, $request);
             return true;
         }
     }
 
-    public function afterStore($model){}
+    public function afterStore($model, $request){}
 
     public function delete($id)
     {

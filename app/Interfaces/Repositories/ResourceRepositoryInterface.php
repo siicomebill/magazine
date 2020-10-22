@@ -22,7 +22,7 @@ interface ResourceRepositoryInterface
 
     public function store($request);
 
-    public function afterStore($model);
+    public function afterStore($model, $request);
 
     public function delete($id);
 
