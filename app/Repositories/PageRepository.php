@@ -30,4 +30,9 @@ class PageRepository extends ResourceRepository {
     {
         return $this->model::with(['components'])->find($id);
     }
+
+    public function afterStore($model, $request)
+    {
+        $model->components()->saveMany($request->components);
+    }
 }
