@@ -100,7 +100,7 @@ abstract class ResourceController extends Controller
      * The request given should be validated in the `store` method.
      */
     protected function save($request){
-        return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : redirect()->back(500);
+        return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : abort(500);
     }
 
     /**
