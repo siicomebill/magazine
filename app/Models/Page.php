@@ -16,6 +16,7 @@ class Page extends Model
         "content",
         "details",
         "slug",
+        "components",
     ];
 
     protected $casts = [
@@ -24,6 +25,8 @@ class Page extends Model
     ];
 
     public function components(){
-        return $this->hasManyThrough('App\Models\Component', 'App\Models\PageComponent', 'page_id', 'id');
+        $collection = $this->hasManyThrough('App\Models\Component', 'App\Models\PageComponent', 'page_id', 'id');
+        
+        return $collection ?? [];
     }
 }

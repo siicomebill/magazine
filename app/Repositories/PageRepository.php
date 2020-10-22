@@ -13,7 +13,7 @@ class PageRepository extends ResourceRepository {
         $model = [];
 
         if($slug){
-            $model = $this->model::where('slug', $slug)->with('components')->firstOrFail();
+            $model = $this->model::where('slug', $slug)->with(['components'])->firstOrFail();
         }
         else {
             $model = $this->model::all();
@@ -24,5 +24,10 @@ class PageRepository extends ResourceRepository {
         $result = Arr::except($data, 'slug');
 
         return $result;
+    }
+
+    public function softFind($id)
+    {
+        return $this->model::with(['components'])->find($id);
     }
 }
