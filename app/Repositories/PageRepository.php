@@ -33,6 +33,7 @@ class PageRepository extends ResourceRepository {
 
     public function afterStore($model, $request)
     {
+        //FIXME Doesn't work
         $model->components()->saveMany($request->components);
     }
 }
