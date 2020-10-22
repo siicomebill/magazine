@@ -31,16 +31,16 @@
 				<div class="my-4">
 					<ListEditor
 						v-model="edited.components"
-						:default="{name: ''}"
+						:default="{ component: '' }"
 						select
 						:choices="{
-							name: components
+							component: componentChoiceList
 						}"
 						class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-xl font-bold text-gray-700"
 						:class="{ 'border border-red-500': error('slug') }"
 					>
-						<template #item="{item}">
-							{{item.name}}
+						<template #item="{ item }">
+							{{ item.component }}
 						</template>
 					</ListEditor>
 					<span class="text-red-500 text-sm italic" v-if="error('slug')">{{
@@ -115,6 +115,16 @@ export default {
 				components: [],
 			},
 		};
+	},
+	computed: {
+		componentChoiceList() {
+			return this.components.map((c) => {
+				return {
+					name: c.name,
+					value: c.id,
+				};
+			});
+		},
 	},
 };
 </script>
