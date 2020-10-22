@@ -1,0 +1,1 @@
+<!-- Generic page component to extend from -->
