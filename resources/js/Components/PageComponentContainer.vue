@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<code>{{this.name}} · {{this.propertyName}}</code>
-        <component :is="component" />
+        <component :is="component" :content="content"/>
 	</div>
 </template>
 
@@ -15,6 +15,9 @@ export default {
     computed: {
         component(){
             return () => import('#/' + this.name + '.vue')
+        },
+        content(){
+            return this.data ? (this.data[this.propertyName] || null) : null
         }
     }
 };
