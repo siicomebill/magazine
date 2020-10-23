@@ -1,8 +1,5 @@
 <template>
-	<div>
-		<code>{{this.name}} · {{this.propertyName}}</code>
-        <component :is="component" :content="content"/>
-	</div>
+    <component :is="component" :content="content"/>
 </template>
 
 <script>
