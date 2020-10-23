@@ -15,12 +15,11 @@
 </template>
 
 <script>
+import PageComponent from "~/Base/PageComponent"
 import Card from "~/Card";
 
 export default {
-    props: {
-        content: Array,
-    },
+	extends: PageComponent,
     components: {
         Card,
     }
