@@ -29,6 +29,26 @@
 				</div>
 
 				<div class="my-4">
+					<ListEditor
+						v-model="edited.components"
+						:default="{ id: '' }"
+						select
+						:choices="{
+							id: componentChoiceList
+						}"
+						class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-xl font-bold text-gray-700"
+						:class="{ 'border border-red-500': error('slug') }"
+					>
+						<template #item="{ item }">
+							{{item.name || "Component"}}<span class="text-gray-500">#{{ item.id }}</span>
+						</template>
+					</ListEditor>
+					<span class="text-red-500 text-sm italic" v-if="error('slug')">{{
+						error("slug")
+					}}</span>
+				</div>
+
+				<div class="my-4">
 					<div>
 						<Publisher
 							v-model="edited.content"
@@ -71,18 +91,19 @@
 <script>
 import Layout from "@/Layouts/AppLayout";
 import Form from "~/Base/Form";
-import { Publisher } from "vue-publisher";
+import { Publisher, ListEditor } from "vue-publisher";
 import JsonEditor from "v-jsoneditor";
 
 export default {
 	layout: Layout,
 	extends: Form,
-	props: {
-		categories: Array,
-	},
 	components: {
 		Publisher,
 		JsonEditor,
+		ListEditor,
+	},
+	props: {
+		components: Array,
 	},
 	data() {
 		return {
@@ -91,8 +112,19 @@ export default {
 				slug: "",
 				content: {},
 				details: {},
+				components: [],
 			},
 		};
+	},
+	computed: {
+		componentChoiceList() {
+			return this.components.map((c) => {
+				return {
+					name: c.name,
+					value: c.id,
+				};
+			});
+		},
 	},
 };
 </script>

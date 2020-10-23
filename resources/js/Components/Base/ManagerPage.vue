@@ -2,7 +2,7 @@
   <div>
     <div class="container mx-auto my-5">
       <a
-        :href="$route('pages.write')"
+        :href="newPage"
         class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-full transition-shadow duration-200"
         >Nuovo</a
       >
@@ -53,6 +53,7 @@ export default {
   },
   props: {
     items: Object,
+    newPage: String,
   },
   computed: {
     list() {

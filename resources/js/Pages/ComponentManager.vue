@@ -1,22 +1,19 @@
 <template>
-  <ManagerPage :items="items" :newPage="$route('categories.write')">
-
+  <ManagerPage :items="items" :newPage="$route('component.write')">
       <Card
-        v-for="category in list"
-        :key="category.id"
-        :title="category.name"
-        :snippet="category.snippet"
-        :image="category.image"
+        v-for="component in list"
+        :key="component.id"
+        :title="component.name"
       >
         <template #footer>
           <div>
             <div class="justify-end flex">
               <a
-                :href="category.links.edit"
+                :href="component.links.edit"
                 class="mx-1 hover:shadow-xl bg-gray-100 px-4 py-2 rounded-lg transition-shadow duration-200"
               >Edit</a>
               <a
-                :href="category.links.delete"
+                :href="component.links.delete"
                 class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200"
               >Delete</a>
             </div>

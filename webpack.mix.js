@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
 require('laravel-mix-alias');
-const CompressionPlugin = require('compression-webpack-plugin')
 
 /*
  |--------------------------------------------------------------------------
@@ -26,6 +25,7 @@ mix
 mix.alias({
     '@': '/resources/js',
     '~': '/resources/js/Components',
+    '#': '/resources/js/Components/PageComponents'
 })
 
 mix.options({
@@ -35,5 +35,8 @@ mix.options({
 })
 
 mix.webpackConfig({
-    cache: true
+    cache: true,
+    output: {
+        chunkFilename: 'js/chunks/component.[name].js',
+    }
 })

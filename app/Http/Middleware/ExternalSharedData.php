@@ -9,7 +9,7 @@ use Closure;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
-class SharedData
+class ExternalSharedData
 {
     public function __construct(ConfigurationRepository $config, CategoryRepository $category, PageRepository $page)
     {
@@ -28,28 +28,11 @@ class SharedData
     public function handle($request, Closure $next)
     {
         Inertia::share([
-            'app' => [
-                'name' => env('APP_NAME', 'BILL')
+            'configuration' => $this->config->get(['footer', 'logo']),
+            'navbar' => [
+                'categories' => $this->category->important()->get(),
             ],
-            'auth' => function () {
-                return auth()->check();
-            },
-            'csrf_token' => function () {
-                return session()->get('_token');
-            },
-            'errors' => function () {
-                if (Session::get('errors')) {
-                    $bags = [];
-
-                    foreach (Session::get('errors')->getBags() as $bag => $error) {
-                        $bags[$bag] = $error->getMessages();
-                    }
-
-                    return $bags;
-                }
-
-                return (object)[];
-            },
+            'pages' => $this->page->list(['name', 'slug'])
         ]);
 
         return $next($request);

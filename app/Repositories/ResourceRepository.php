@@ -50,6 +50,11 @@ class ResourceRepository implements ResourceRepositoryInterface
         return $this->model::findOrFail($id);
     }
 
+    public function softFind($id)
+    {
+        return $this->model::find($id) ?? null;
+    }
+
     public function store($request)
     {
         $model = new $this->model;
@@ -60,16 +65,20 @@ class ResourceRepository implements ResourceRepositoryInterface
 
             if ($item) {
                 $item->update($request->all());
+                $this->afterStore($item, $request);
                 return true;
             } else {
                 //TODO Populate error bag
                 return false;
             }
         } else {
-            $this->model::create($request->all());
+            $item = $this->model::create($request->all());
+            $this->afterStore($item, $request);
             return true;
         }
     }
+
+    public function afterStore($model, $request){}
 
     public function delete($id)
     {

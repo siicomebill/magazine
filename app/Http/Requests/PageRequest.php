@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
@@ -28,14 +29,17 @@ class PageRequest extends FormRequest
         return [
             "name" => "string|required",
             "slug" => ["string", Rule::unique('pages')->ignore($this->id)],
-            "content" => "array",
-            "details" => "array",
+            "content" => "array|nullable",
+            "details" => "array|nullable",
+            "components" => "array|nullable",
+            "components.*.id" => "numeric"
         ];
     }
 
     protected function prepareForValidation(){
         $this->merge([
-            "slug" => Str::slug($this->name)
+            "slug" => Str::slug($this->name),
+            "components" => Arr::pluck($this->components, 'id')
         ]);
     }
 }

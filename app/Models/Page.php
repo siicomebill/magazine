@@ -22,4 +22,10 @@ class Page extends Model
         "content" => "array",
         "details" => "array",
     ];
+
+    public function components(){
+        $collection = $this->belongsToMany('App\Models\Component')->using('App\Models\PageComponent');
+        
+        return $collection ?? [];
+    }
 }

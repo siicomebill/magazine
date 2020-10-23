@@ -59,6 +59,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
                     Route::post('publish', 'CategoryController@store')->name('categories.publish');
                 });
+
+                Route::prefix('pages')->group(function () {
+                    Route::get('/', 'PageController@managerPage')->name('pages.list');
+    
+                    Route::get('write/{id?}', 'PageController@editItemPage')->name('pages.write');
+                    Route::get('delete/{id?}', 'PageController@delete')->name('pages.delete');
+    
+                    Route::post('publish', 'PageController@store')->name('pages.publish');
+                });
             });
         });
 
@@ -70,15 +79,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('delete/{id?}', 'ConfigurationController@delete')->name('config.delete');
 
                 Route::post('publish', 'ConfigurationController@store')->name('config.publish');
-            });
-
-            Route::prefix('pages')->group(function () {
-                Route::get('/', 'PageController@managerPage')->name('pages.list');
-
-                Route::get('write/{id?}', 'PageController@editItemPage')->name('pages.write');
-                Route::get('delete/{id?}', 'PageController@delete')->name('pages.delete');
-
-                Route::post('publish', 'PageController@store')->name('pages.publish');
             });
 
             Route::prefix('users')->group(function () {
@@ -101,6 +101,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 Route::get('delete/{id?}', 'UserController@delete')->name('user.delete');
 
                 Route::post('publish', 'UserController@store')->name('user.publish');
+            });
+
+            Route::prefix('components')->group(function () {
+                Route::get('/', 'ComponentController@managerPage')->name('component.list');
+
+                Route::get('write/{id?}', 'ComponentController@editItemPage')->name('component.write');
+                Route::get('delete/{id?}', 'ComponentController@delete')->name('component.delete');
+
+                Route::post('publish', 'ComponentController@store')->name('component.publish');
             });
         });
     });

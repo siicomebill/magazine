@@ -15,19 +15,14 @@
 				<Reader v-model="page.content" class="article content" />
 			</div>
 
-			<div
-				class="container mx-auto my-6 md:grid md:grid-cols-3 lg:grid-cols-4 gap-3"
-				v-if="page.details"
-			>
-				<div v-for="(person, i) in page.details.people" :key="i">
-					<Card
-						:title="person.name"
-						:snippet="person.desc"
-						:author="{ name: person.role }"
-						:image="person.pic"
-					/>
-				</div>
-			</div>
+			<PageComponentContainer
+				v-for="component in page.components"
+				:key="component.id"
+
+				:name="component.name"
+				:propertyName="component.propertyName"
+				:data="page.details"
+			/>
 		</div>
 	</div>
 </template>
@@ -36,6 +31,7 @@
 import Layout from "@/Layouts/PublicLayout";
 import { Reader } from "vue-publisher";
 import Card from "~/Card";
+import PageComponentContainer from "~/PageComponentContainer";
 
 export default {
 	layout: Layout,
@@ -45,6 +41,7 @@ export default {
 	components: {
 		Reader,
 		Card,
+		PageComponentContainer,
 	},
 	computed: {
 		page() {
@@ -52,6 +49,7 @@ export default {
 				name: this.content.name,
 				content: this.content.content,
 				details: this.content.details,
+				components: this.content.components,
 			};
 		},
 	},

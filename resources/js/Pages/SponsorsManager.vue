@@ -1,5 +1,5 @@
 <template>
-  <ManagerPage :items="items">
+  <ManagerPage :items="items" :newPage="$route('sponsors.write')">
 
       <Card
         v-for="sponsor in list"

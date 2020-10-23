@@ -85,7 +85,7 @@ abstract class ResourceController extends Controller
     public function editItemPage(Request $request, $id = null, array $additionalData = [])
     {
         $model = $this->resource->asModel();
-        $item = $model->find($id ?? $request[$model->getKeyName()] ?? null);
+        $item = $this->resource->softFind($id ?? $request[$model->getKeyName()] ?? null);
 
         $edited = [
             "stored" => $item ?? null,
@@ -100,7 +100,7 @@ abstract class ResourceController extends Controller
      * The request given should be validated in the `store` method.
      */
     protected function save($request){
-        return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : redirect()->back(500);
+        return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : abort(500);
     }
 
     /**

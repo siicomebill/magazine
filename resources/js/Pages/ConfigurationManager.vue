@@ -1,5 +1,5 @@
 <template>
-  <ManagerPage :items="items">
+  <ManagerPage :items="items" :newPage="$route('config.write')">
       <Card
         v-for="config in list"
         :key="config.id"
