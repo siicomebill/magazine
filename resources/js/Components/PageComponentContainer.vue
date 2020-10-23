@@ -14,7 +14,7 @@ export default {
     },
     computed: {
         component(){
-            return () => import('~/PageComponents/' + this.name + '.vue')
+            return () => import('#/' + this.name + '.vue')
         }
     }
 };

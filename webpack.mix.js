@@ -25,6 +25,7 @@ mix
 mix.alias({
     '@': '/resources/js',
     '~': '/resources/js/Components',
+    '#': '/resources/js/Components/PageComponents'
 })
 
 mix.options({
