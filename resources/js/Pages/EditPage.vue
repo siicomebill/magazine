@@ -40,7 +40,7 @@
 						:class="{ 'border border-red-500': error('slug') }"
 					>
 						<template #item="{ item }">
-							{{ item.id }}
+							{{item.name || "Component"}}<span class="text-gray-500">#{{ item.id }}</span>
 						</template>
 					</ListEditor>
 					<span class="text-red-500 text-sm italic" v-if="error('slug')">{{
