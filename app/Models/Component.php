@@ -15,4 +15,8 @@ class Component extends Model
         "name",
         "propertyName",
     ];
+
+    public function pages(){
+        return $this->belongsToMany('App\Models\Page')->using('App\Models\PageComponent');
+    }
 }

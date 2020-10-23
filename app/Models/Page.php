@@ -24,7 +24,7 @@ class Page extends Model
     ];
 
     public function components(){
-        $collection = $this->hasManyThrough('App\Models\Component', 'App\Models\PageComponent', 'page_id', 'id');
+        $collection = $this->belongsToMany('App\Models\Component')->using('App\Models\PageComponent');
         
         return $collection ?? [];
     }

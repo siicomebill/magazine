@@ -3,13 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class PageComponent extends Model
+class PageComponent extends Pivot
 {
     use HasFactory;
 
     public $timestamps = false;
-
-    protected $table = "page_components";
 }
