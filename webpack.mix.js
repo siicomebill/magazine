@@ -34,5 +34,8 @@ mix.options({
 })
 
 mix.webpackConfig({
-    cache: true
+    cache: true,
+    output: {
+        chunkFilename: 'js/chunks/component.[name].js',
+    }
 })
