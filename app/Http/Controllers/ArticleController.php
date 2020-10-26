@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\ArticleRequest;
-use App\Models\Article;
-use App\Models\Category;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
