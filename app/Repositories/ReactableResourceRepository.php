@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Classes\ReactionInfo;
 use App\Interfaces\Repositories\ReactableResourceRepositoryInterface;
 use Cog\Contracts\Love\Reactable\Models\Reactable;
 use Cog\Contracts\Love\Reacterable\Models\Reacterable;
@@ -19,6 +20,16 @@ class ReactableResourceRepository extends ResourceRepository implements Reactabl
 
         $reactant = $item->getLoveReactant();
 
-        return $reactant->getReactionCounters();
+        $reactions = $reactant->getReactionCounters();
+
+        $result = [];
+
+        foreach($reactions as $r){
+            $type = $r->getReactionType();
+
+            $result[] = (new ReactionInfo($type->id, $type->name, $r->count))->toArray();
+        }
+
+        return $result;
     }
 }
