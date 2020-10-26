@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
+use App\Interfaces\Controllers\ResourceControllerChildInterface;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
-class UserController extends ResourceController
+class UserController extends ResourceController implements ResourceControllerChildInterface
 {
     protected $routeNamePrefix = "user";
     protected $pageComponents = [

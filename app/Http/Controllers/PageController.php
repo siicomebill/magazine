@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\PageRequest;
+use App\Interfaces\Controllers\ResourceControllerChildInterface;
 use App\Repositories\ComponentRepository;
 use App\Repositories\PageRepository;
 use Illuminate\Http\Request;
 
-class PageController extends ResourceController
+class PageController extends ResourceController implements ResourceControllerChildInterface
 {
     protected $routeNamePrefix = "pages";
     protected $pageComponents = [

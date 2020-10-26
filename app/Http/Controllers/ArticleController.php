@@ -6,6 +6,7 @@ use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\ArticleRequest;
 use App\Http\Requests\ReactionRequest;
+use App\Interfaces\Controllers\ReactableResourceControllerInterface;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
@@ -14,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
-class ArticleController extends ResourceController
+class ArticleController extends ResourceController implements ReactableResourceControllerInterface
 {
     public function __construct(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category, UserRepository $user)
     {
