@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableInterface;
+use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +12,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements ReacterableInterface
 {
     use HasApiTokens;
     use HasFactory;
@@ -18,6 +20,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    use Reacterable;
 
     /**
      * The attributes that are mass assignable.
