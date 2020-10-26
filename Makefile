@@ -1,8 +1,7 @@
 init:
 	git submodule init
 	git submodule update
-	cp .env.example .env
-	cp laradock.env bill-environment/.env
+	make env
 	make start
 
 start:
@@ -24,3 +23,7 @@ build:
 
 rebuild:
 	(cd bill-environment && docker-compose build --no-cache nginx postgres)
+
+env:
+	cp .env.example .env
+	cp laradock.env bill-environment/.env
