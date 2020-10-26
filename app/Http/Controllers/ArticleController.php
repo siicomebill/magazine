@@ -11,6 +11,7 @@ use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
@@ -86,7 +87,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
         return redirect()->back();
     }
 
-    public function react(ReactionRequest $request)
+    public function react(ReactionRequest $request): JsonResponse
     {
         $article = $this->article->find($request->item["id"]);
         return response()->json($this->article->react(auth()->user(), $article));
