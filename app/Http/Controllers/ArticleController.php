@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\ReactionRequest;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
@@ -82,5 +83,11 @@ class ArticleController extends ResourceController
         $this->article->delete($id);
 
         return redirect()->back();
+    }
+
+    public function react(ReactionRequest $request)
+    {
+        $article = $this->article->find($request->item["id"]);
+        dd($this->article->react(auth()->user(), $article));
     }
 }

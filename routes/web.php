@@ -28,6 +28,12 @@ Route::middleware(["shared"])->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::middleware('role:reader')->group(function () {
+        Route::prefix('react')->group(function () {
+            Route::post('article', 'ArticleController@react');
+        });
+    });
+
     Route::prefix('dashboard')->group(function () {
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
