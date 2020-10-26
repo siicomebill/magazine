@@ -32,8 +32,8 @@
 
 					<div>{{ article.snippet }}</div>
 
-					<div>
-						<Reaction name="Like" reactTo="article" :itemId="article.id"/>
+					<div class="mt-12">
+						<Reaction name="👍" type="Like" reactTo="article" :itemId="article.id"/>
 					</div>
 				</div>
 			</div>

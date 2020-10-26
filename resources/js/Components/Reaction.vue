@@ -2,7 +2,7 @@
 	<button
 		@click="react()"
 		type="button"
-		class="bg-blue-600 py-2 px-4 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
+		class="bg-gradient-to-br from-blue-600 to-blue-700 py-2 px-4 rounded-lg hover:bg-gradient-to-r hover:from-white hover:to-gray-300 hover:text-blue-600 appearance-none transition-all duration-300"
 	>
 		{{ name }}
 	</button>
