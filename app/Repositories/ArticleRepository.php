@@ -8,7 +8,7 @@ use Cog\Contracts\Love\Reactable\Models\Reactable;
 use Cog\Contracts\Love\Reacterable\Models\Reacterable;
 use Illuminate\Support\Facades\URL;
 
-class ArticleRepository extends ResourceRepository implements ArticleRepositoryInterface
+class ArticleRepository extends ReactableResourceRepository implements ArticleRepositoryInterface
 {
     protected $model = Article::class;
 
@@ -67,19 +67,5 @@ class ArticleRepository extends ResourceRepository implements ArticleRepositoryI
         $article = $this->model::user($userId)->find($id);
 
         return $article;
-    }
-
-    public function react(Reacterable $user, Reactable $item)
-    {
-        $reacter = $user->viaLoveReacter();
-
-        if($reacter->hasNotReactedTo($item))
-            $reacter->reactTo($item, 'Like');
-        else
-            $reacter->unreactTo($item, 'Like');
-
-        $reactant = $item->getLoveReactant();
-
-        return $reactant->getReactionCounters();
     }
 }
