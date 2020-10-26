@@ -31,6 +31,10 @@
 					<hr class="my-6 lg:-mr-5" />
 
 					<div>{{ article.snippet }}</div>
+
+					<div>
+						<Reaction name="Like" reactTo="article" :itemId="article.id"/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -52,6 +56,7 @@ import Layout from "@/Layouts/PublicLayout";
 import Thumbnail from "~/Thumbnail";
 import SponsorCard from "~/SponsorCard";
 import { Reader } from "vue-publisher";
+import Reaction from "~/Reaction";
 
 export default {
 	layout: Layout,
@@ -59,6 +64,7 @@ export default {
 		Reader,
 		Thumbnail,
 		SponsorCard,
+		Reaction,
 	},
 	props: {
 		article: Object,
