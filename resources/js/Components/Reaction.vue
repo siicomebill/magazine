@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
 	props: {
 		name: {
@@ -29,8 +31,8 @@ export default {
 		},
 	},
 	methods: {
-		react() {
-			this.$inertia.post(`/react/${this.reactTo}`, {
+		async react() {
+			let response = await axios.post(`/react/${this.reactTo}`, {
 				item: {
 					id: this.itemId,
 				},
@@ -38,6 +40,10 @@ export default {
 					type: this.type,
 				},
 			});
+
+			//TODO Convert this into a container for all available reactions
+			//TODO Get available reactions on component mount
+			//TODO Update reactions data after response from `react` method
 		},
 	},
 };
