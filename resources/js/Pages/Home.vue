@@ -71,16 +71,18 @@
 </template>
 
 <script>
+import MiniCard from "~/MiniCard";
 import SponsorCard from "~/SponsorCard";
 import MiniSponsorCard from "~/MiniSponsorCard";
 import Dropdown from "~/Dropdown";
 import Layout from "@/Layouts/PublicLayout";
 import { Reader } from "vue-publisher";
-import CategoryCard from "~/CategoryCard"
+import CategoryCard from "~/CategoryCard";
 
 export default {
 	layout: Layout,
 	components: {
+		MiniCard,
 		SponsorCard,
 		MiniSponsorCard,
 		Dropdown,
