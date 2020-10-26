@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Base;
 
 use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Controller;
+use App\Interfaces\Controllers\ResourceControllerInterface;
 use App\Repositories\ResourceRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
-abstract class ResourceController extends Controller
+abstract class ResourceController extends Controller implements ResourceControllerInterface
 {
     /**
      * The prefix for the routes that the given resource uses.
@@ -54,11 +55,6 @@ abstract class ResourceController extends Controller
         $this->resource = $resource;
     }
 
-    /**
-     * Display the resource-manager page with all the necessary resources.
-     * 
-     * @param Request $request
-     */
     public function managerPage(Request $request)
     {
         $items = $this->resource->paginated();
@@ -76,12 +72,7 @@ abstract class ResourceController extends Controller
             "items" => $paginatedResource
         ]);
     }
-    
-    /**
-     * Display the page used for inserting or editing an existing instance of the specified resource.
-     * 
-     * @param Request $request
-     */
+
     public function editItemPage(Request $request, $id = null, array $additionalData = [])
     {
         $model = $this->resource->asModel();
@@ -104,11 +95,6 @@ abstract class ResourceController extends Controller
         return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : abort(500);
     }
 
-    /**
-     * Delete an instance of the specified resource
-     * 
-     * @param $id
-     */
     public function delete($id)
     {
         $this->resource->delete($id);
