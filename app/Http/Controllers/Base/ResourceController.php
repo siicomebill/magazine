@@ -99,7 +99,8 @@ abstract class ResourceController extends Controller
      * Internal method used to actually save the data given by the request.
      * The request given should be validated in the `store` method.
      */
-    protected function save($request){
+    protected function save($request)
+    {
         return $this->resource->store($request) ? redirect()->route($this->routeNamePrefix . '.' . $this->actionRoutes["list"]) : abort(500);
     }
 
