@@ -18,6 +18,11 @@ class ReactableResourceRepository extends ResourceRepository implements Reactabl
         else
             $reacter->unreactTo($item, 'Like');
 
+        return $this->getReactions($item);
+    }
+
+    public function getReactions(Reactable $item)
+    {
         $reactant = $item->getLoveReactant();
 
         $reactions = $reactant->getReactionCounters();

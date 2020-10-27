@@ -17,4 +17,13 @@ interface ReactableResourceRepositoryInterface extends ResourceRepositoryInterfa
      * @return ReactionInfo[]|array
      */
     public function react(Reacterable $user, Reactable $item);
+
+    /**
+     * Get all the reactions for a given piece of content.
+     * 
+     * @param Reactable $item The content being reacted to
+     * 
+     * @return ReactionInfo[]|array
+     */
+    public function getReactions(Reactable $item);
 }
