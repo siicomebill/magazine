@@ -33,7 +33,7 @@
 					<div>{{ article.snippet }}</div>
 
 					<div class="mt-12">
-						<Reaction name="👍" type="Like" reactTo="article" :itemId="article.id"/>
+						<Reactions :givenReactions="reactions" reactTo="article" :itemId="article.id"/>
 					</div>
 				</div>
 			</div>
@@ -56,7 +56,7 @@ import Layout from "@/Layouts/PublicLayout";
 import Thumbnail from "~/Thumbnail";
 import SponsorCard from "~/SponsorCard";
 import { Reader } from "vue-publisher";
-import Reaction from "~/Reaction";
+import Reactions from "~/Reactions";
 
 export default {
 	layout: Layout,
@@ -64,11 +64,12 @@ export default {
 		Reader,
 		Thumbnail,
 		SponsorCard,
-		Reaction,
+		Reactions,
 	},
 	props: {
 		article: Object,
 		sponsor: Object,
+		reactions: Array,
 	},
 };
 </script>
