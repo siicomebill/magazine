@@ -54,7 +54,7 @@ export default {
 				})
 				.catch((error) => {
 					if (error.response.status == 401)
-						window.location.href = this.$route("login");
+						this.$redirect(this.$route("login"));
 				});
 		},
 	},

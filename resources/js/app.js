@@ -13,6 +13,7 @@ Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
 Vue.prototype.$route = (...args) => route(...args).url();
+Vue.prototype.$redirect = (url) => { window.location.href = url }
 Vue.use(LazyLoad);
 Vue.use(ScrollSpy);
 
