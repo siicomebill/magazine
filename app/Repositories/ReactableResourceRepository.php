@@ -47,6 +47,7 @@ abstract class ReactableResourceRepository extends ResourceRepository implements
             $result[] = (new ReactionInfo($type->id, $type->name, $r->count))->toArray();
         }
 
-        return (array_merge_recursive_distinct($totalReactionsInfo, $result));
+        //FIXME Wrong merge method
+        dd (array_merge_recursive_distinct($totalReactionsInfo, $result));
     }
 }
