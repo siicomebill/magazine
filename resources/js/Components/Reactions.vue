@@ -40,6 +40,7 @@ export default {
 	},
 	methods: {
 		react(reactionType) {
+			//FIXME Generalize this method and export it to a mixin
 			axios
 				.post(`/react/${this.reactTo}`, {
 					item: {
