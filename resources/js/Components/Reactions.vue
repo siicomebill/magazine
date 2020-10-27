@@ -8,7 +8,7 @@
 			class="block"
 		>
 			<span
-				class="block rounded-t-lg appearance-none bg-gradient-to-br from-blue-600 to-blue-700 py-2 px-4 hover:bg-gradient-to-r hover:from-white hover:to-gray-300 hover:text-blue-600 transition-all duration-300"
+				class="block rounded-t-lg appearance-none bg-gradient-to-br from-blue-600 to-blue-700 py-2 px-4 hover:bg-gradient-to-b hover:to-white hover:from-gray-300 hover:text-blue-600 transition-all duration-300"
 			>
 				{{ reaction.name }}
 			</span>
