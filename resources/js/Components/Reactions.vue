@@ -64,5 +64,10 @@ export default {
 			reactions: this.givenReactions,
 		};
 	},
+	computed: {
+		sortedReactions() {
+			return this.reactions.sort((a, b) => (a.id > b.id ? 1 : -1));
+		},
+	},
 };
 </script>
