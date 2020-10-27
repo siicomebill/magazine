@@ -7,7 +7,7 @@ use App\Interfaces\Repositories\ReactableResourceRepositoryInterface;
 use Cog\Contracts\Love\Reactable\Models\Reactable;
 use Cog\Contracts\Love\Reacterable\Models\Reacterable;
 
-class ReactableResourceRepository extends ResourceRepository implements ReactableResourceRepositoryInterface
+abstract class ReactableResourceRepository extends ResourceRepository implements ReactableResourceRepositoryInterface
 {
     public function react(Reacterable $user, Reactable $item)
     {
