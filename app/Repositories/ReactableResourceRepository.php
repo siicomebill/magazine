@@ -17,8 +17,8 @@ abstract class ReactableResourceRepository extends ResourceRepository implements
     {
         $reacter = $user->viaLoveReacter();
 
-        //FIXME Only works if the user hasn't given another reaction
-        if($reacter->hasNotReactedTo($item))
+        //NOTE Allows multiple reactions
+        if($reacter->hasNotReactedTo($item, $type))
             $reacter->reactTo($item, $type);
         else
             $reacter->unreactTo($item, $type);
