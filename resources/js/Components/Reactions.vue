@@ -41,17 +41,21 @@ export default {
 		},
 	},
 	methods: {
-		async react(reactionType) {
-			let response = await axios.post(`/react/${this.reactTo}`, {
+		react(reactionType) {
+			axios.post(`/react/${this.reactTo}`, {
 				item: {
 					id: this.itemId,
 				},
 				reaction: {
 					type: reactionType,
 				},
-			});
-
-			this.reactions = response.data;
+			}).then(response => {
+				this.reactions = response.data;
+			})
+			.catch(error => {
+				if(error.response.status == 401)
+					window.location.href = (this.$route('login'))
+			})			
 		},
 	},
 	data() {
