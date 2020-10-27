@@ -13,16 +13,14 @@ abstract class ReactableResourceRepository extends ResourceRepository implements
 {
     protected $reactionModel = Reaction::class;
 
-    //FIXME Decide from request side which reaction to use
-    //NOTE Get from request
-    public function react(Reacterable $user, Reactable $item)
+    public function react(Reacterable $user, Reactable $item, string $type = 'Like')
     {
         $reacter = $user->viaLoveReacter();
 
         if($reacter->hasNotReactedTo($item))
-            $reacter->reactTo($item, 'Like');
+            $reacter->reactTo($item, $type);
         else
-            $reacter->unreactTo($item, 'Like');
+            $reacter->unreactTo($item, $type);
 
         return $this->getReactions($item);
     }

@@ -13,10 +13,11 @@ interface ReactableResourceRepositoryInterface extends ResourceRepositoryInterfa
      * 
      * @param Reacterable $user The entity giving the reaction
      * @param Reactable $item The content being reacted to
+     * @param string $type The name of the reaction type
      * 
      * @return ReactionInfo[]|array
      */
-    public function react(Reacterable $user, Reactable $item);
+    public function react(Reacterable $user, Reactable $item, string $type = '');
 
     /**
      * Get all the reactions for a given piece of content.

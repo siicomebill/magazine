@@ -93,6 +93,6 @@ class ArticleController extends ResourceController implements ReactableResourceC
     public function react(ReactionRequest $request): JsonResponse
     {
         $article = $this->article->find($request->item["id"]);
-        return response()->json($this->article->react(auth()->user(), $article));
+        return response()->json($this->article->react(auth()->user(), $article, $request->reaction["type"]));
     }
 }
