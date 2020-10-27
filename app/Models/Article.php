@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model implements ReactableInterface
 {
     use HasFactory;
-    use Reactable;
+    use Reactable; //FIXME Disable eager loading of reactions
 
     protected $fillable = [
         "title",

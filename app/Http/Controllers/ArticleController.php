@@ -74,9 +74,12 @@ class ArticleController extends ResourceController implements ReactableResourceC
 
     public function read($id)
     {
+        $article = $this->article->find($id);
+
         return Inertia::render('Article', [
-            "article" => $this->article->find($id),
+            "article" => $article,
             "sponsor" => $this->sponsor->random()->first(),
+            "reactions" => $this->article->getReactions($article),
         ]);
     }
 
