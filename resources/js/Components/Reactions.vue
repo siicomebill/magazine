@@ -13,9 +13,7 @@
 				{{ reaction.name }}
 			</span>
 
-			<span
-				class="block rounded-b-lg appearance-none bg-white text-blue-600"
-			>
+			<span class="block rounded-b-lg appearance-none bg-white text-blue-600">
 				{{ reaction.count }}
 			</span>
 		</button>
@@ -42,20 +40,22 @@ export default {
 	},
 	methods: {
 		react(reactionType) {
-			axios.post(`/react/${this.reactTo}`, {
-				item: {
-					id: this.itemId,
-				},
-				reaction: {
-					type: reactionType,
-				},
-			}).then(response => {
-				this.reactions = response.data;
-			})
-			.catch(error => {
-				if(error.response.status == 401)
-					window.location.href = (this.$route('login'))
-			})			
+			axios
+				.post(`/react/${this.reactTo}`, {
+					item: {
+						id: this.itemId,
+					},
+					reaction: {
+						type: reactionType,
+					},
+				})
+				.then((response) => {
+					this.reactions = response.data;
+				})
+				.catch((error) => {
+					if (error.response.status == 401)
+						window.location.href = this.$route("login");
+				});
 		},
 	},
 	data() {
