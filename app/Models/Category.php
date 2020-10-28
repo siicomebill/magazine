@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Classes\SEOInfo;
+use App\Interfaces\Models\SEOCompatibleInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Category extends Model implements SEOCompatibleInterface
 {
     use HasFactory;
 
@@ -30,5 +32,10 @@ class Category extends Model
     public function children()
     {
         return $this->hasMany('App\Models\Category', 'parent_id', 'id');
+    }
+
+    public function toSEOInfo(): SEOInfo
+    {
+        return new SEOInfo($this->name, $this->snippet);
     }
 }
