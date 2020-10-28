@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\SEO;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ConfigurationRepository;
 use App\Repositories\PageRepository;
 use App\Repositories\SponsorRepository;
+use Illuminate\Support\Arr;
 use Inertia\Inertia;
 
 class PublicPagesController extends Controller
@@ -22,7 +24,13 @@ class PublicPagesController extends Controller
     }
 
     public function page(string $slug, PageRepository $page){
-        $content = $page->get($slug);
+        $model = $page->get($slug);
+
+        $data = $model->toArray();
+
+        $content = Arr::except($data, 'slug');
+
+        SEO::set($model);
 
         if($content)
             return Inertia::render('PageContainer', [
