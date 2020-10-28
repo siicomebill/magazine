@@ -10,7 +10,7 @@ class SEO {
     {
         $c = $item->toSEOInfo();
 
-        Meta::title("$c->title . " . config('app.name'));
+        Meta::title("$c->title · " . config('app.name'));
         Meta::set('description', $c->description);
         Meta::set('author', $c->author);
         Meta::set('image', $c->image);
