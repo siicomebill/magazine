@@ -51,7 +51,7 @@
 						<MiniSponsorCard
 							v-if="sponsors[i]"
 							v-bind="sponsors[i]"
-							class="lg:w-11/12 mx-auto"
+							class="lg:w-1/2 mx-auto"
 						/>
 					</div>
 				</div>
