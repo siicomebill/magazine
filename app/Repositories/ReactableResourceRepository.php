@@ -30,12 +30,12 @@ abstract class ReactableResourceRepository extends ResourceRepository implements
     {
         $reactant = $item->getLoveReactant();
 
-        $reactions = $reactant->getReactionCounters();
+        $reactions = collect($reactant->getReactionCounters());
 
-        $result = [];
-        $totalReactionsInfo = [];
+        $result = collect([]);
+        $totalReactionsInfo = collect([]);
 
-        $reactionTypes = ReactionType::all();
+        $reactionTypes = ReactionType::whereNotIn('id', $reactions->pluck('reaction_type_id'))->get();
 
         foreach($reactionTypes as $type){
             $totalReactionsInfo[] = (new ReactionInfo($type->id, $type->name, 0))->toArray();
@@ -47,7 +47,6 @@ abstract class ReactableResourceRepository extends ResourceRepository implements
             $result[] = (new ReactionInfo($type->id, $type->name, $r->count))->toArray();
         }
 
-        //FIXME Wrong merge method
-        dd (array_merge_recursive_distinct($totalReactionsInfo, $result));
+        return ($totalReactionsInfo->merge($result));
     }
 }
