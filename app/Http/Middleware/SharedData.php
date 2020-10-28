@@ -18,8 +18,6 @@ class SharedData
      */
     public function handle($request, Closure $next)
     {
-        Meta::title(config('app.name', 'BILL'));
-
         Inertia::share([
             'app' => [
                 'name' => config('app.name', 'BILL')
