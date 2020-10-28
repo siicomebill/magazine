@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\PaginatedCollection;
+use App\Helpers\SEO;
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\ArticleRequest;
 use App\Http\Requests\ReactionRequest;
@@ -75,6 +76,8 @@ class ArticleController extends ResourceController implements ReactableResourceC
     public function read($id)
     {
         $article = $this->article->find($id);
+
+        SEO::set($article);
 
         return Inertia::render('Article', [
             "article" => $article,
