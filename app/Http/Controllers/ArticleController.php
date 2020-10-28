@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\ArticleRequest;
-use App\Models\Article;
-use App\Models\Category;
+use App\Http\Requests\ReactionRequest;
+use App\Interfaces\Controllers\ReactableResourceControllerInterface;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\SponsorRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
-class ArticleController extends ResourceController
+class ArticleController extends ResourceController implements ReactableResourceControllerInterface
 {
     public function __construct(ArticleRepository $article, SponsorRepository $sponsor, CategoryRepository $category, UserRepository $user)
     {
@@ -73,9 +74,12 @@ class ArticleController extends ResourceController
 
     public function read($id)
     {
+        $article = $this->article->find($id);
+
         return Inertia::render('Article', [
-            "article" => $this->article->find($id),
+            "article" => $article,
             "sponsor" => $this->sponsor->random()->first(),
+            "reactions" => $this->article->getReactions($article),
         ]);
     }
 
@@ -84,5 +88,11 @@ class ArticleController extends ResourceController
         $this->article->delete($id);
 
         return redirect()->back();
+    }
+
+    public function react(ReactionRequest $request): JsonResponse
+    {
+        $article = $this->article->find($request->item["id"]);
+        return response()->json($this->article->react(auth()->user(), $article, $request->reaction["type"]));
     }
 }

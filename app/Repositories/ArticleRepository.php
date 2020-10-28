@@ -4,9 +4,11 @@ namespace App\Repositories;
 
 use App\Interfaces\Repositories\ArticleRepositoryInterface;
 use App\Models\Article;
+use Cog\Contracts\Love\Reactable\Models\Reactable;
+use Cog\Contracts\Love\Reacterable\Models\Reacterable;
 use Illuminate\Support\Facades\URL;
 
-class ArticleRepository extends ResourceRepository implements ArticleRepositoryInterface
+class ArticleRepository extends ReactableResourceRepository implements ArticleRepositoryInterface
 {
     protected $model = Article::class;
 

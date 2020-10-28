@@ -2,22 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Repositories\CategoryRepository;
-use App\Repositories\ConfigurationRepository;
-use App\Repositories\PageRepository;
 use Closure;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class SharedData
 {
-    public function __construct(ConfigurationRepository $config, CategoryRepository $category, PageRepository $page)
-    {
-        $this->config = $config;
-        $this->category = $category;
-        $this->page = $page;
-    }
-
     /**
      * Handle an incoming request.
      *

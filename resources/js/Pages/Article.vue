@@ -31,6 +31,10 @@
 					<hr class="my-6 lg:-mr-5" />
 
 					<div>{{ article.snippet }}</div>
+
+					<div class="mt-12">
+						<Reactions :givenReactions="reactions" reactTo="article" :itemId="article.id"/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -52,6 +56,7 @@ import Layout from "@/Layouts/PublicLayout";
 import Thumbnail from "~/Thumbnail";
 import SponsorCard from "~/SponsorCard";
 import { Reader } from "vue-publisher";
+import Reactions from "~/Reactions";
 
 export default {
 	layout: Layout,
@@ -59,10 +64,12 @@ export default {
 		Reader,
 		Thumbnail,
 		SponsorCard,
+		Reactions,
 	},
 	props: {
 		article: Object,
 		sponsor: Object,
+		reactions: Array,
 	},
 };
 </script>
