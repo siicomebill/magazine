@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Classes\SEOInfo;
+use App\Interfaces\Models\SEOCompatibleInterface;
 use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableInterface;
 use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model implements ReactableInterface
+class Article extends Model implements ReactableInterface, SEOCompatibleInterface
 {
     use HasFactory;
     use Reactable; //FIXME Disable eager loading of reactions
@@ -43,5 +45,10 @@ class Article extends Model implements ReactableInterface
     public function scopeUser($query, $user_id)
     {
         return $query->where('user_id', $user_id);
+    }
+
+    public function toSEOInfo(): SEOInfo
+    {
+        return new SEOInfo($this->title, $this->snippet, $this->author->name, $this->image);
     }
 }
