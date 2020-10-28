@@ -1,5 +1,10 @@
 <template>
 	<div class="container mx-auto bg-white rounded-lg shadow-lg p-6 mb-5">
+		<div v-if="content.parent" class="mb-0">
+			<a :href="$route('categories.articles', content.parent.id)" class="text-gray-500 font-banner capitalize text-lg">
+				{{content.parent.name}}
+			</a>
+		</div>
 		<a
 			:href="$route('categories.articles', content.id)"
 			class="block text-3xl font-banner text-center lg:text-left lg:text-6xl capitalize"
