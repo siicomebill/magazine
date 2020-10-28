@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\SEO;
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\CategoryRequest;
 use App\Interfaces\Controllers\ResourceControllerChildInterface;
@@ -45,6 +46,8 @@ class CategoryController extends ResourceController implements ResourceControlle
     {
         $category = $this->resource->find($id);
         $articles = $category->articles()->get();
+
+        SEO::set($category);
 
         return $this->renderer::render('ArticleList', [
             "category" => $category,
