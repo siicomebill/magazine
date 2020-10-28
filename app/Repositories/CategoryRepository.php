@@ -21,7 +21,7 @@ class CategoryRepository extends ResourceRepository
     public function latest(int $limit = 10)
     {
         //TODO Check for latest articles
-        return $this->model::limit($limit)->orderBy('id', 'desc')->has('articles')->with('articles');
+        return $this->model::limit($limit)->orderBy('id', 'desc')->has('articles')->with('articles')->with('parent');
     }
 
     public function get()

@@ -1,12 +1,12 @@
 <template>
-	<div class="flex relative">
-		<div :class="{'lg:hidden': mobileOnly}">
+	<div class="flex relative" v-click-outside="onClickOutside" @mouseover="hovering = true" @mouseleave="hovering = false">
+		<div :class="{ 'lg:hidden': mobileOnly }">
 			<div class="-mr-2 flex items-center">
 				<span
 					@click="showDropdown = !showDropdown"
 					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto cursor-pointer"
 				>
-					<span v-if="title" class="mr-2">{{title}}</span>
+					<span v-if="title" class="mr-2">{{ title }}</span>
 					<svg
 						class="h-6 w-6"
 						stroke="currentColor"
@@ -14,14 +14,14 @@
 						viewBox="0 0 24 24"
 					>
 						<path
-							:class="{ hidden: showDropdown, 'inline-flex': !showDropdown }"
+							:class="{ hidden: open, 'inline-flex': !open }"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							stroke-width="2"
 							d="M4 6h16M4 12h16M4 18h16"
 						/>
 						<path
-							:class="{ hidden: !showDropdown, 'inline-flex': showDropdown }"
+							:class="{ hidden: !open, 'inline-flex': open }"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							stroke-width="2"
@@ -33,7 +33,10 @@
 		</div>
 
 		<div
-			:class="{ hidden: !showDropdown, 'lg:relative lg:block lg:border-none lg:shadow-none': mobileOnly }"
+			:class="{
+				hidden: !open,
+				'lg:relative lg:block lg:border-none lg:shadow-none': mobileOnly,
+			}"
 			class="menu order-first block absolute right-0 top-full bg-white z-40 lg:items-center p-3 rounded-lg shadow-lg border border-1"
 		>
 			<slot></slot>
@@ -42,7 +45,7 @@
 </template>
 
 <script>
-import ClickOutside from "vue-click-outside";
+import vClickOutside from "v-click-outside";
 
 export default {
 	props: {
@@ -55,10 +58,21 @@ export default {
 	data() {
 		return {
 			showDropdown: false,
+			hovering: false,
 		};
 	},
 	directives: {
-		ClickOutside
+		clickOutside: vClickOutside.directive,
+	},
+	methods: {
+		onClickOutside(event) {
+			this.showDropdown = false;
+		},
+	},
+	computed: {
+		open() {
+			return this.showDropdown ? true : (this.hovering);
+		},
 	},
 };
 </script>

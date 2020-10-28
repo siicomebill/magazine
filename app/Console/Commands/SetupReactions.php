@@ -46,5 +46,15 @@ class SetupReactions extends Command
                 '--mass' => $reaction["value"],
             ]);
         }
+
+        Artisan::queue('love:setup-reacterable', [
+            "--model" => "App\Models\User"
+        ]);
+
+        Artisan::queue('migrate');
+
+        Artisan::queue('love:register-reacters', [
+            "--model" => "App\Models\User"
+        ]);
     }
 }
