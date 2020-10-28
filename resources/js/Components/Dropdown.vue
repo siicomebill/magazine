@@ -1,5 +1,5 @@
 <template>
-	<div class="flex relative">
+	<div class="flex relative" v-click-outside="onClickOutside">
 		<div :class="{'lg:hidden': mobileOnly}">
 			<div class="-mr-2 flex items-center">
 				<span
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import ClickOutside from "vue-click-outside";
+import vClickOutside from 'v-click-outside'
 
 export default {
 	props: {
@@ -58,8 +58,13 @@ export default {
 		};
 	},
 	directives: {
-		ClickOutside
+      clickOutside: vClickOutside.directive
 	},
+	methods: {
+      onClickOutside (event) {
+        this.showDropdown = false
+      }
+    }
 };
 </script>
 
