@@ -51,7 +51,7 @@ class SetupReactions extends Command
             "--model" => "App\Models\User"
         ]);
 
-        Artisan::queue('migrate');
+        Artisan::queue('migrate', ["--force" => true]);
 
         Artisan::queue('love:register-reacters', [
             "--model" => "App\Models\User"
