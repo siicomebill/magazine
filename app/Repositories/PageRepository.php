@@ -12,11 +12,7 @@ class PageRepository extends ResourceRepository {
     {
         $model = $this->find($slug);
 
-        $data = $model->toArray();
-
-        $result = Arr::except($data, 'slug');
-
-        return $result;
+        return $model;
     }
 
     public function find($slug)
