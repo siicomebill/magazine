@@ -56,5 +56,9 @@ class SetupReactions extends Command
         Artisan::queue('love:register-reacters', [
             "--model" => "App\Models\User"
         ]);
+
+        Artisan::queue('love:register-reactants', [
+            "--model" => "App\Models\Article"
+        ]);
     }
 }
