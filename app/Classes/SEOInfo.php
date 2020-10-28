@@ -9,7 +9,7 @@ class SEOInfo
     public ?string $author;
     public ?string $image;
 
-    public function __construct(string $title, ?string $description, ?string $author = null, ?string $image = null)
+    public function __construct(string $title, ?string $description = null, ?string $author = null, ?string $image = null)
     {
         $this->title = $title;
         $this->description = $description;
