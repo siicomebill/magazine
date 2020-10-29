@@ -10,8 +10,13 @@ class PageRepository extends ResourceRepository {
 
     public function get(string $slug = "")
     {
-        $model = [];
+        $model = $this->find($slug);
 
+        return $model;
+    }
+
+    public function find($slug)
+    {
         if($slug){
             $model = $this->model::where('slug', $slug)->with(['components'])->firstOrFail();
         }
@@ -19,11 +24,7 @@ class PageRepository extends ResourceRepository {
             $model = $this->model::all();
         }
 
-        $data = $model->toArray();
-
-        $result = Arr::except($data, 'slug');
-
-        return $result;
+        return $model;
     }
 
     public function softFind($id)

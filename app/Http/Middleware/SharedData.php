@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
+use Meta;
 
 class SharedData
 {
@@ -19,7 +20,7 @@ class SharedData
     {
         Inertia::share([
             'app' => [
-                'name' => env('APP_NAME', 'BILL')
+                'name' => config('app.name', 'BILL')
             ],
             'auth' => function () {
                 return auth()->check();

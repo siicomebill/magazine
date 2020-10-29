@@ -1,2 +1,9 @@
+# Hai trovato un file segreto utilizzato per la SEO.
+
+# Probabilmente lo fai di lavoro, so quanto può essere stressante stare dietro ai cambiamenti dei motori di ricerca.
+# Quindi, anche se non arrivi in cima ai risultati, volevo darti questa:
+# Hai ottenuto "Medaglia d'onore"
+#                     🏅
+
 User-agent: *
-Disallow:
+Disallow: /dashboard/
