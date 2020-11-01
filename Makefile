@@ -34,3 +34,4 @@ install:
 
 setup:
 	(cd bill-environment && docker-compose exec php-fpm php artisan setup:all)
+	(cd bill-environment && docker-compose exec workspace npm run dev)
