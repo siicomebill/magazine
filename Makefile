@@ -31,3 +31,6 @@ env:
 install:
 	(cd bill-environment && docker-compose exec workspace composer install)
 	(cd bill-environment && docker-compose exec workspace npm i)
+
+setup:
+	(cd bill-environment && docker-compose exec php-fpm php artisan setup:all)
