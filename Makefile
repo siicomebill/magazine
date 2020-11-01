@@ -18,8 +18,8 @@ destroy:
 
 build:
 	(cd bill-environment && docker-compose build nginx postgres)
-	composer install
-	npm i
+	make install
+
 
 rebuild:
 	(cd bill-environment && docker-compose build --no-cache nginx postgres)
@@ -27,3 +27,9 @@ rebuild:
 env:
 	cp .env.example .env
 	cp laradock.env bill-environment/.env
+
+install:
+	make start
+	(cd bill-environment && docker-compose exec workspace composer install)
+	(cd bill-environment && docker-compose exec workspace npm i)
+	make stop
