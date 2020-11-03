@@ -41,5 +41,6 @@ class MainSetup extends Command
         Artisan::queue('key:generate');
         Artisan::queue('migrate');
         Artisan::queue('setup:reactions');
+        Artisan::queue('db:seed');
     }
 }
