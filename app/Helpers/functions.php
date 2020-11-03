@@ -1,0 +1,3 @@
+<?php
+
+// Globally loaded functions
