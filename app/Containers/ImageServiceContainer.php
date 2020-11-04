@@ -14,8 +14,8 @@ class ImageServiceContainer
         $this->imageService = $service;
     }
 
-    public function upload(UploadedFile $request)
+    public function upload(UploadedFile $file)
     {
-        return $this->imageService->upload($request);
+        return $this->imageService->upload($file);
     }
 }

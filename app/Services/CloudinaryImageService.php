@@ -7,7 +7,7 @@ use Illuminate\Http\UploadedFile;
 
 class CloudinaryImageService implements ImageServiceInterface
 {
-    public function upload(UploadedFile $request)
+    public function upload(UploadedFile $file)
     {
         dd("Cloudinary service -> Upload method");
     }
