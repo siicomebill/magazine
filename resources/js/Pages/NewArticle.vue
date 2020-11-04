@@ -15,9 +15,9 @@
 
         <div class="my-4">
           <input
-            type="text"
-            v-model="edited.image"
-            placeholder="Link to image"
+            type="file"
+            @change="processFile($event.target.files)"
+            placeholder="Thumbnail"
             class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-gray-700"
             :class="{ 'border border-red-500': error('image') }"
           />
@@ -82,8 +82,24 @@ export default {
         snippet: "",
         content: {},
         category_id: "",
-        image: "",
+        image: '',
       },
+    }
+  },
+  methods: {
+    processFile(files){
+      this.image = files[0]
+    },
+    prepareData(edited){
+      let data = new FormData()
+
+      data.append('title', edited.title)
+      data.append('snippet', edited.snippet)
+      data.append('content', edited.content)
+      data.append('category_id', edited.category_id)
+      data.append('image', edited.image)
+
+      return data
     }
   }
 }
