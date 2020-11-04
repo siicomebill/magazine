@@ -89,6 +89,8 @@ export default {
   methods: {
     processFile(files){
       this.image = files[0]
+      //FIXME Image is not being set
+      //NOTE What does `this` indicate?
     },
     prepareData(edited){
       let data = new FormData()
