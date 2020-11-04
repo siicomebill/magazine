@@ -16,18 +16,18 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
     {
         $user = $user ?? auth()->user();
 
-        if ($request->id) {
-            $article = $user->articles()->find($request->id);
+        if (array_key_exists('id', $request)) {
+            $article = $user->articles()->find($request['id']);
 
             if ($article) {
-                $article->update($request->all());
+                $article->update($request);
                 return true;
             } else {
                 //TODO Populate error bag
                 return false;
             }
         } else {
-            $user->articles()->create($request->all());
+            $user->articles()->create($request);
             return true;
         }
     }
