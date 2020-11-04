@@ -16,6 +16,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.2.9",
+        "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^8.0",
         "laravel/jetstream": "^1.0",
         "laravel/sanctum": "^2.6",
@@ -47,6 +48,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/functions.php"
         ]
     },
     "autoload-dev": {
