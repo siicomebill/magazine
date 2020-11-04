@@ -6,7 +6,8 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public $bindings = [
-        App\Interfaces\Services\ImageServiceInterface::class => App\Services\CloudinaryImageService::class,
-    ];
+    public function register()
+    {
+        $this->app->bind('App\Interfaces\Services\ImageServiceInterface', 'App\Services\CloudinaryImageService');
+    }
 }
