@@ -91,6 +91,11 @@ export default {
       this.image = files[0]
       //FIXME Image is not being set
       //NOTE What does `this` indicate?
+      /**
+       * Try this:
+       * (taken directly from here: https://vuejs.org/v2/guide/reactivity.html)
+       *    this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
+       */
     },
     prepareData(edited){
       let data = new FormData()
