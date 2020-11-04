@@ -69,11 +69,11 @@ class ArticleController extends ResourceController implements ReactableResourceC
     public function store(ArticleRequest $request)
     {
         $data = $request->all();
-
         if ($request->hasFile('image')){
             $result = image()->upload($request->file('image'));
-            if($result->success)
+            if($result->success){
                 $data["image"] = $result->url;
+            }
         }
         $user = $request->user_id ? $this->user->find($request->user_id) : null;
 

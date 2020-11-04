@@ -26,7 +26,7 @@ class ArticleRequest extends FormRequest
         return [
             "id" => "numeric",
             "title" => "required",
-            "image" => "file|nullable",
+            "image" => "nullable",
             "snippet" => "required",
             "content" => "required|array",
             "user_id" => "numeric",
@@ -36,7 +36,9 @@ class ArticleRequest extends FormRequest
     public function prepareForValidation()
     {
         $this->merge([
-            "content" => json_decode($this->get('content'), true)
+            "content" => json_decode($this->get('content'), true),
+            "author" => json_decode($this->get('author'), true),
+            "category" => json_decode($this->get('category'), true)
         ]);
     }
 }
