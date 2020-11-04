@@ -117,11 +117,12 @@ export default {
 		prepareData(edited) {
 			let data = new FormData();
 
-			data.append("title", edited.title);
-			data.append("snippet", edited.snippet);
-			data.append("content", JSON.stringify(edited.content));
-			data.append("category_id", edited.category_id);
-			data.append("image", edited.image);
+			Object.keys(this.edited).forEach(key => {
+				if(typeof edited[key] === "object" && !(edited[key] instanceof File))
+					data.append(key, JSON.stringify(edited[key]));
+				else
+					data.append(key, edited[key]);
+			});
 
 			return data;
 		},
