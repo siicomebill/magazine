@@ -60,9 +60,9 @@
 					}}</span>
 				</div>
 
-        <div class="my-4">
+				<div class="my-4">
 					<label
-            :class="{ 'border border-red-500': error('image') }"
+						:class="{ 'border border-red-500': error('image') }"
 						class="w-64 flex flex-col items-center px-4 py-6 bg-white text-gray-900 rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-gray-900 hover:text-white"
 					>
 						<svg
@@ -76,7 +76,11 @@
 							/>
 						</svg>
 						<span class="mt-2 text-base leading-normal">Thumbnail</span>
-            <span v-if="edited.image" class="mt-2 text-gray-500 text-sm uppercase italic leading-normal">{{edited.image.name}}</span>
+						<span
+							v-if="edited.image"
+							class="mt-2 text-gray-500 text-sm uppercase italic leading-normal"
+							>{{ edited.image.name }}</span
+						>
 						<input
 							type="file"
 							@change="processFile"
