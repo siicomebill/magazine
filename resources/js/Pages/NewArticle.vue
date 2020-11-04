@@ -16,7 +16,7 @@
         <div class="my-4">
           <input
             type="file"
-            @change="processFile($event.target.files)"
+            @change="processFile"
             placeholder="Thumbnail"
             class="appearance-none bg-white shadow w-full leading-tight p-4 rounded-lg text-gray-700"
             :class="{ 'border border-red-500': error('image') }"
@@ -87,15 +87,8 @@ export default {
     }
   },
   methods: {
-    processFile(files){
-      this.image = files[0]
-      //FIXME Image is not being set
-      //NOTE What does `this` indicate?
-      /**
-       * Try this:
-       * (taken directly from here: https://vuejs.org/v2/guide/reactivity.html)
-       *    this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
-       */
+    processFile(e){
+      this.edited.image = (e.target.files[0])
     },
     prepareData(edited){
       let data = new FormData()
