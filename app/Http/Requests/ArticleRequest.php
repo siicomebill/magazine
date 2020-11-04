@@ -26,10 +26,17 @@ class ArticleRequest extends FormRequest
         return [
             "id" => "numeric",
             "title" => "required",
-            "image" => "url|nullable",
+            "image" => "file|nullable",
             "snippet" => "required",
             "content" => "required|array",
             "user_id" => "numeric",
         ];
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            "content" => json_decode($this->get('content'), true)
+        ]);
     }
 }

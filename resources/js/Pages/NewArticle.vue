@@ -95,7 +95,7 @@ export default {
 
       data.append('title', edited.title)
       data.append('snippet', edited.snippet)
-      data.append('content', edited.content)
+      data.append('content', JSON.stringify(edited.content))
       data.append('category_id', edited.category_id)
       data.append('image', edited.image)
 
