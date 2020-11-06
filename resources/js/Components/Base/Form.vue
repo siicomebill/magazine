@@ -1,8 +1,12 @@
 <script>
 export default {
   methods: {
+    prepareData(edited){
+      return edited
+    },
     async publish() {
-      await this.$inertia.post(this.publishTo, this.edited)
+      let data = this.prepareData(this.edited)
+      await this.$inertia.post(this.publishTo, data)
     },
   },
   props: {

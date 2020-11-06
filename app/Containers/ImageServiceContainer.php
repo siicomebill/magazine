@@ -3,6 +3,7 @@
 namespace App\Containers;
 
 use App\Interfaces\Services\ImageServiceInterface;
+use Illuminate\Http\UploadedFile;
 
 class ImageServiceContainer
 {
@@ -13,8 +14,8 @@ class ImageServiceContainer
         $this->imageService = $service;
     }
 
-    public function upload($request)
+    public function upload(UploadedFile $file)
     {
-        return $this->imageService->upload($request);
+        return $this->imageService->upload($file);
     }
 }

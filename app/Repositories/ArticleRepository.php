@@ -12,22 +12,22 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
 {
     protected $model = Article::class;
 
-    public function store($request, $user = null)
+    public function store($data, $user = null)
     {
         $user = $user ?? auth()->user();
 
-        if ($request->id) {
-            $article = $user->articles()->find($request->id);
+        if (array_key_exists('id', $data)) {
+            $article = $user->articles()->find($data['id']);
 
             if ($article) {
-                $article->update($request->all());
+                $article->update($data);
                 return true;
             } else {
                 //TODO Populate error bag
                 return false;
             }
         } else {
-            $user->articles()->create($request->all());
+            $user->articles()->create($data);
             return true;
         }
     }
