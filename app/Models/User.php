@@ -74,4 +74,14 @@ class User extends Authenticatable implements ReacterableInterface
     {
         return $this->hasMany('App\Models\Article');
     }
+
+    public function updateProfilePhoto($photo){
+        $result = image()->upload($photo);
+        $this->profile_photo_path = $result->url;
+    }
+
+    public function getProfilePhotoUrlAttribute()
+    {
+        return $this->profile_photo_path;
+    }
 }
