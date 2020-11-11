@@ -51,15 +51,9 @@
 						</slot>
 					</div>
 
-					<hr class="my-3 lg:hidden" />
-
 					<div class="lg:inline-block">
 						<div v-if="$page.auth">
-							<a
-								:href="$route('dashboard')"
-								class="inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
-								>Dashboard</a
-							>
+							<UserDropdown />
 						</div>
 
 						<div v-else class="grid grid-cols-2 text-center">
@@ -145,12 +139,14 @@
 import Dropdown from "~/Dropdown";
 import { Reader } from "vue-publisher";
 import Thumbnail from "~/Thumbnail";
+import UserDropdown from "~/UserDropdown";
 
 export default {
 	components: {
 		Dropdown,
 		Reader,
 		Thumbnail,
+		UserDropdown,
 	},
 	props: {
 		mode: {
