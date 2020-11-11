@@ -35,9 +35,9 @@
 		<div
 			:class="{
 				hidden: !open,
-				'lg:relative lg:block lg:border-none lg:shadow-none': mobileOnly,
+				'lg:relative lg:flex lg:border-none lg:shadow-none': mobileOnly,
 			}"
-			class="menu order-first block absolute right-0 top-full bg-white z-40 lg:items-center p-3 rounded-lg shadow-lg border border-1"
+			class="menu order-first block absolute right-0 top-full bg-white z-40 lg:items-center align-items-center p-3 rounded-lg shadow-lg border border-1"
 		>
 			<slot></slot>
 		</div>
