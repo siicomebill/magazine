@@ -1,6 +1,5 @@
 <template>
-    <!-- Settings Dropdown -->
-    <div class="hidden sm:flex sm:items-center sm:ml-6">
+    <div class="flex items-center sm:ml-6">
         <div class="ml-3 relative">
             <jet-dropdown align="right" width="48">
                 <template #trigger>
@@ -23,6 +22,10 @@
 
                     <jet-dropdown-link href="/user/profile">
                         Profile
+                    </jet-dropdown-link>
+
+                    <jet-dropdown-link href="/dashboard">
+                        Dashboard
                     </jet-dropdown-link>
 
                     <jet-dropdown-link
