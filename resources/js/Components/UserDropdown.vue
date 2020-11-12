@@ -85,7 +85,7 @@
 
 					<!-- Authentication -->
 					<form @submit.prevent="logout">
-						<jet-dropdown-link as="button"> Logout </jet-dropdown-link>
+						<jet-dropdown-link as="button"> <span class="text-red-500">Logout</span> </jet-dropdown-link>
 					</form>
 				</template>
 			</jet-dropdown>
