@@ -3,7 +3,7 @@
     <div class="container mx-auto my-5">
       <a
         :href="newPage"
-        class="w-full block hover:shadow-xl bg-white border-gray-200 text-center px-6 py-3 rounded-full transition-shadow duration-200"
+        class="w-full block hover:shadow-xl bg-white border-2 border-gray-200 text-center px-6 py-3 rounded-full transition-shadow duration-200"
         >Nuovo</a
       >
 
@@ -35,7 +35,7 @@
           <a
             :href="previousPage"
             v-if="previousPage"
-            class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200"
+            class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200 bg-white border-2 border-gray-200"
             >Prev</a
           >
         </div>
@@ -44,7 +44,7 @@
           <a
             :href="nextPage"
             v-if="nextPage"
-            class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200"
+            class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200 bg-white border-2 border-gray-200"
             >Next</a
           >
         </div>

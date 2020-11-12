@@ -51,7 +51,7 @@
 						</slot>
 					</div>
 
-					<div class="lg:inline-block">
+					<div class="lg:inline-block order-first lg:order-last">
 						<div v-if="$page.auth">
 							<UserDropdown />
 						</div>

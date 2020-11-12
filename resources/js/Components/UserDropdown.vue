@@ -1,15 +1,15 @@
 <template>
-    <div class="flex items-center sm:ml-6">
-        <div class="ml-3 relative">
+    <div class="flex items-center">
+        <div class="relative">
             <jet-dropdown align="right" width="48">
                 <template #trigger>
                     <button
-                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                        class="flex text-sm border-2 border-black border-2 p-1 rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
                     >
                         <img
                             class="h-8 w-8 rounded-full"
                             :src="$page.user.profile_photo_url"
-                            alt=""
+                            :alt="$page.user.name"
                         />
                     </button>
                 </template>
