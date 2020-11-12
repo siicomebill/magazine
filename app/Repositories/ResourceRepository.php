@@ -37,7 +37,7 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function latest(int $limit = 0)
     {
-        $query = $this->model::latest();
+        $query = $this->model::latest('updated_at');
 
         if ($limit)
             $query = $query->limit($limit);
@@ -92,6 +92,6 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function paginated($perPage = 5)
     {
-        return $this->model::paginate($perPage);
+        return $this->latest()->paginate($perPage);
     }
 }
