@@ -15,7 +15,7 @@
 					>
 				</div>
 
-				<Dropdown class="text-black" title="Esplora" mobileOnly>
+				<Dropdown class="text-black lg:-mb-6 lg:shadow-xl rounded-lg" title="Esplora" mobileOnly>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
 						<slot name="menu">
 							<ul v-if="$page.navbar.categories" class="lg:flex">
@@ -50,26 +50,26 @@
 							</ul>
 						</slot>
 					</div>
-
-					<div class="lg:inline-block order-first lg:order-last">
-						<div v-if="$page.auth">
-							<UserDropdown />
-						</div>
-
-						<div v-else class="grid grid-cols-2 text-center">
-							<a
-								:href="$route('login')"
-								class="block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
-								>Login</a
-							>
-							<a
-								:href="$route('register')"
-								class="block text-sm px-4 py-2 leading-none lg:mt-0"
-								>Registrati</a
-							>
-						</div>
-					</div>
 				</Dropdown>
+
+				<div class="lg:inline-block lg:order-last">
+					<div v-if="$page.auth">
+						<UserDropdown />
+					</div>
+
+					<div v-else class="grid grid-cols-2 text-center">
+						<a
+							:href="$route('login')"
+							class="block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
+							>Login</a
+						>
+						<a
+							:href="$route('register')"
+							class="block text-sm px-4 py-2 leading-none lg:mt-0"
+							>Registrati</a
+						>
+					</div>
+				</div>
 			</div>
 		</nav>
 
@@ -78,11 +78,13 @@
 		</main>
 
 		<section class="footer py-10 px-4 banner bg-black text-white">
-			<div class="container mx-auto px-4 bg-black rounded-lg border-2 border-white">
+			<div
+				class="container mx-auto px-4 bg-black rounded-lg border-2 border-white"
+			>
 				<div v-if="$page.pages.length" class="my-6">
 					<div class="mb-4">
 						<p class="text-3xl text-center md:text-left">Esplora</p>
-						<hr class="mt-5 border-gray-700"/>
+						<hr class="mt-5 border-gray-700" />
 					</div>
 
 					<div class="col-span-3 md:grid md:grid-cols-2 lg:grid-cols-4">
