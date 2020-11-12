@@ -22,6 +22,10 @@
 						{{ article.title }}
 					</h1>
 
+					<hr class="my-6 lg:-mr-5" />
+
+					<div>{{ article.snippet }}</div>
+
 					<div class="my-4 rounded-lg flex flex-col md:flex-row items-center">
 						<div v-if="article.author.profile_photo_url" class="inline-block border-4 border-white p-0 rounded-full m-3">
 							<img :src="article.author.profile_photo_url" alt="(Avatar)" class="h-16 w-16 rounded-full"/>
@@ -31,10 +35,6 @@
 							<p class="leading-none font-bold">{{ article.author.name }}</p>
 						</div>
 					</div>
-
-					<hr class="my-6 lg:-mr-5" />
-
-					<div>{{ article.snippet }}</div>
 
 					<div class="mt-12">
 						<Reactions :givenReactions="reactions" reactTo="article" :itemId="article.id"/>
