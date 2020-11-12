@@ -29,16 +29,23 @@
       </slot>
 
       <div class="w-full text-center grid grid-cols-2 gap-4">
-        <a
-          :href="previousPage"
-          class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200"
-          >Prev</a
-        >
-        <a
-          :href="nextPage"
-          class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200"
-          >Next</a
-        >
+        <div>
+          <a
+            :href="previousPage"
+            v-if="previousPage"
+            class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200"
+            >Prev</a
+          >
+        </div>
+
+        <div>
+          <a
+            :href="nextPage"
+            v-if="nextPage"
+            class="block bg-white px-6 py-3 rounded-full hover:shadow-xl transition-shadow duration-200"
+            >Next</a
+          >
+        </div>
       </div>
     </div>
   </div>
