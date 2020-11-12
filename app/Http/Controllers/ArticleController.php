@@ -83,13 +83,24 @@ class ArticleController extends ResourceController implements ReactableResourceC
     public function read($id)
     {
         $article = $this->article->find($id);
+        $suggested = [
+            "ofCategory" => [],
+            "ofAuthor" => [],
+        ];
 
         SEO::set($article);
 
+        if($article->has('category')){
+            $suggested["ofCategory"] = $article->category->articles()->with('author')->take(10)->get(["title", "image", "id"]);
+        }
+
+        $suggested["ofAuthor"] = $article->author->articles()->take(4)->get(["title", "image", "id"]);
+
         return Inertia::render('Article', [
             "article" => $article,
-            "sponsor" => $this->sponsor->random()->first(),
+            "sponsors" => $this->sponsor->random(3)->get(),
             "reactions" => $this->article->getReactions($article),
+            "suggested" => $suggested,
         ]);
     }
 
