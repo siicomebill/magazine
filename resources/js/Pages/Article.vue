@@ -22,9 +22,13 @@
 						{{ article.title }}
 					</h1>
 
-					<div class="my-4 rounded-lg">
-						<div class="lg:text-xl text-lg">
-							<p class="leading-none">{{ article.author.name }}</p>
+					<div class="my-4 rounded-lg flex flex-col md:flex-row items-center">
+						<div v-if="article.author.profile_photo_url" class="inline-block border-4 border-white p-0 rounded-full m-3">
+							<img :src="article.author.profile_photo_url" alt="(Avatar)" class="h-16 w-16 rounded-full"/>
+						</div>
+
+						<div class="lg:text-xl text-lg text-center">
+							<p class="leading-none font-bold">{{ article.author.name }}</p>
 						</div>
 					</div>
 
