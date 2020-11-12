@@ -4,8 +4,6 @@ namespace App\Repositories;
 
 use App\Interfaces\Repositories\ArticleRepositoryInterface;
 use App\Models\Article;
-use Cog\Contracts\Love\Reactable\Models\Reactable;
-use Cog\Contracts\Love\Reacterable\Models\Reacterable;
 use Illuminate\Support\Facades\URL;
 
 class ArticleRepository extends ReactableResourceRepository implements ArticleRepositoryInterface
@@ -40,7 +38,7 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
     //TODO Move in ResourceRepository - but generalize it there
     public function forManagerPage($userId = null, $actionRoutes = null)
     {
-        $articles = $this->model::user($userId ?? auth()->user()->id)->paginate(5);
+        $articles = $this->latest()->user($userId ?? auth()->user()->id)->paginate(5);
 
         //TODO Write resource routes class for storing these values
         $defaultRoutes = [
