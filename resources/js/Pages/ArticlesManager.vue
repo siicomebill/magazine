@@ -1,7 +1,7 @@
 <template>
   <ManagerPage :items="items" :newPage="$route('articles.write')">
-    <div class="md:grid grid-cols-3 lg:grid-cols-5 gap-4">
-      <Card v-bind="article" v-for="article in list" :key="article.id">
+    <div class="sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <Card v-bind="article" v-for="article in list" :key="article.id" class="mt-auto">
         <template #footer>
           <div>
             <div class="justify-end flex">

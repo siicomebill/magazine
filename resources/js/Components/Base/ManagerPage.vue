@@ -7,26 +7,28 @@
         >Nuovo</a
       >
 
-      <slot>
-        <Card v-for="item in list" :key="item.id" v-bind="item">
-          <template #footer>
-            <div>
-              <div class="justify-end flex">
-                <a
-                  :href="item.links.edit"
-                  class="mx-1 hover:shadow-xl bg-gray-100 px-4 py-2 rounded-lg transition-shadow duration-200"
-                  >Edit</a
-                >
-                <a
-                  :href="item.links.delete"
-                  class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200"
-                  >Delete</a
-                >
+      <div class="pt-5">
+        <slot>
+          <Card v-for="item in list" :key="item.id" v-bind="item">
+            <template #footer>
+              <div>
+                <div class="justify-end flex">
+                  <a
+                    :href="item.links.edit"
+                    class="mx-1 hover:shadow-xl bg-gray-100 px-4 py-2 rounded-lg transition-shadow duration-200"
+                    >Edit</a
+                  >
+                  <a
+                    :href="item.links.delete"
+                    class="mx-1 hover:shadow-xl bg-red-600 text-white px-4 py-2 rounded-lg transition-shadow duration-200"
+                    >Delete</a
+                  >
+                </div>
               </div>
-            </div>
-          </template>
-        </Card>
-      </slot>
+            </template>
+          </Card>
+        </slot>
+      </div>
 
       <div class="w-full text-center grid grid-cols-2 gap-4">
         <div>
