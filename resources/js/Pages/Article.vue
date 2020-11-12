@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="bg-black text-white shadow-2xl">
+		<div class="bg-black text-white">
 			<div class="mx-auto lg:grid grid-cols-2 gap-2 min-h-screen">
 				<Thumbnail
 					:src="article.image"
@@ -22,30 +22,70 @@
 						{{ article.title }}
 					</h1>
 
-					<div class="my-4 rounded-lg">
-						<div class="lg:text-xl text-lg">
-							<p class="leading-none">{{ article.author.name }}</p>
-						</div>
-					</div>
-
 					<hr class="my-6 lg:-mr-5" />
 
 					<div>{{ article.snippet }}</div>
 
+					<AuthorBadge v-bind="article.author" />
+
 					<div class="mt-12">
-						<Reactions :givenReactions="reactions" reactTo="article" :itemId="article.id"/>
+						<Reactions
+							:givenReactions="reactions"
+							reactTo="article"
+							:itemId="article.id"
+						/>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="container mx-auto md:my-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2">
+		<div
+			class="container mx-auto md:my-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2"
+		>
 			<div class="col-span-3">
-				<Reader v-model="article.content" class="article content bg-white p-3 rounded-none lg:rounded-lg lg:shadow-lg" />
+				<Reader
+					v-model="article.content"
+					class="article content bg-white p-3 rounded-none lg:rounded-lg lg:shadow-lg"
+				/>
+
+				<div v-if="suggested.ofCategory" class="xl:grid grid-cols-2 gap-4">
+					<Card
+						v-for="item in suggested.ofCategory"
+						:key="item.id"
+						v-bind="item"
+						:href="$route('articles.read', item.id)"
+						class="shadow-xl rounded-lg"
+					/>
+				</div>
 			</div>
 
-			<div>
-				<SponsorCard v-bind="sponsor" fixed class="w-full lg:11/12 mx-auto mt-0" />
+			<div v-if="sponsors">
+				<SponsorCard
+					v-for="sponsor in sponsors"
+					:key="sponsor.id"
+					v-bind="sponsor"
+					fixed
+					class="w-full lg:11/12 mx-auto mt-0"
+				/>
+			</div>
+		</div>
+
+		<div v-if="suggested.ofAuthor" class="bg-black text-white banner">
+			<div class="flex items-center pt-5">
+				<div class="mx-auto md:flex items-center">
+					<p class="text-center">More by</p>
+					<AuthorBadge v-bind="article.author" class="inline-block"/>
+				</div>
+			</div>
+
+			<div class="xl:grid grid-cols-2 gap-4 container mx-auto">
+				<Card
+					v-for="item in suggested.ofAuthor"
+					:key="item.id"
+					v-bind="item"
+					:href="$route('articles.read', item.id)"
+					class="shadow-xl rounded-lg"
+				/>
 			</div>
 		</div>
 	</div>
@@ -57,6 +97,8 @@ import Thumbnail from "~/Thumbnail";
 import SponsorCard from "~/SponsorCard";
 import { Reader } from "vue-publisher";
 import Reactions from "~/Reactions";
+import AuthorBadge from "~/AuthorBadge";
+import Card from "~/MiniCard";
 
 export default {
 	layout: Layout,
@@ -65,11 +107,14 @@ export default {
 		Thumbnail,
 		SponsorCard,
 		Reactions,
+		AuthorBadge,
+		Card,
 	},
 	props: {
 		article: Object,
-		sponsor: Object,
+		sponsors: Array,
 		reactions: Array,
+		suggested: Object,
 	},
 };
 </script>

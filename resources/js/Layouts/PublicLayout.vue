@@ -51,7 +51,7 @@
 						</slot>
 					</div>
 
-					<div class="lg:inline-block">
+					<div class="lg:inline-block order-first lg:order-last">
 						<div v-if="$page.auth">
 							<UserDropdown />
 						</div>
@@ -77,7 +77,7 @@
 			<slot></slot>
 		</main>
 
-		<section class="footer py-10 px-4 banner bg-fixed bg-black text-white">
+		<section class="footer py-10 px-4 banner bg-black text-white">
 			<div class="container mx-auto px-4 bg-black rounded-lg border-2 border-white">
 				<div v-if="$page.pages.length" class="my-6">
 					<div class="mb-4">
