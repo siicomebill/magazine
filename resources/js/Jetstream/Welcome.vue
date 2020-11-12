@@ -1,22 +1,28 @@
 <template>
 	<div>
 		<div
-			class="bg-white border-b border-gray-200 grid grid-cols-5 gap-4 items-center"
+			class="bg-white border-b border-gray-200 grid grid-cols-5 gap-4 items-center bg-bottom"
 		>
-			<div>
-				<Thumbnail :src="$page.user.profile_photo_url" alt="@" />
+			<div class="col-span-1 h-full hidden md:block">
+				<Thumbnail :src="$page.user.profile_photo_url" alt="@" class="h-full" />
 			</div>
-			<div class="col-span-4 py-4">
+
+			<div class="col-span-4 py-4 ml-4 md:ml-0">
 				<div>
 					<p class="text-2xl text-gray-900">
-						Welcome, <span class="text-blue-500">{{ $page.user.name }}</span>.
+						Welcome, <span class="text-blue-500 font-bold">{{ $page.user.name }}</span
+						>.
 					</p>
 					<p class="text-gray-500">{{ $page.user.email }}</p>
 				</div>
 
-        <div class="my-5">
-          <a href="/user/profile" class="button py-1 px-3 bg-blue-500 text-white rounded-lg shadow">Edit profile</a>
-        </div>
+				<div class="my-5">
+					<a
+						href="/user/profile"
+						class="inline-block button py-1 px-3 bg-blue-500 text-white rounded-lg shadow"
+						>Edit profile</a
+					>
+				</div>
 			</div>
 		</div>
 
