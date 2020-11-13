@@ -140,15 +140,13 @@
 <script>
 import Dropdown from "~/Dropdown";
 import { Reader } from "vue-publisher";
-import Thumbnail from "~/Thumbnail";
-import UserDropdown from "~/UserDropdown";
 
 export default {
 	components: {
 		Dropdown,
 		Reader,
-		Thumbnail,
-		UserDropdown,
+		Thumbnail: () => import('~/Thumbnail'),
+		UserDropdown: () => import('~/UserDropdown'),
 	},
 	props: {
 		mode: {

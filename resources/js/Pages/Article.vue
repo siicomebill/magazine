@@ -4,7 +4,6 @@
 			<div class="mx-auto lg:grid grid-cols-2 gap-2 min-h-screen">
 				<Thumbnail
 					:src="article.image"
-					:alt="article.title"
 					square
 					class="h-full text-center overflow-hidden"
 				/>
@@ -92,23 +91,19 @@
 </template>
 
 <script>
-import Layout from "@/Layouts/PublicLayout";
 import Thumbnail from "~/Thumbnail";
-import SponsorCard from "~/SponsorCard";
 import { Reader } from "vue-publisher";
 import Reactions from "~/Reactions";
 import AuthorBadge from "~/AuthorBadge";
-import Card from "~/MiniCard";
 
 export default {
-	layout: Layout,
 	components: {
 		Reader,
 		Thumbnail,
-		SponsorCard,
+		SponsorCard: () => import('~/SponsorCard'),
 		Reactions,
 		AuthorBadge,
-		Card,
+		Card: () => import('~/MiniCard'),
 	},
 	props: {
 		article: Object,

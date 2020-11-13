@@ -28,13 +28,11 @@
 </template>
 
 <script>
-import Layout from "@/Layouts/PublicLayout";
 import { Reader } from "vue-publisher";
 import Card from "~/Card";
 import PageComponentContainer from "~/PageComponentContainer";
 
 export default {
-	layout: Layout,
 	props: {
 		content: {},
 	},

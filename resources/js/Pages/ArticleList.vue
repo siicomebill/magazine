@@ -43,10 +43,8 @@
 
 <script>
 import Card from "~/MiniCard";
-import Layout from "@/Layouts/PublicLayout";
 
 export default {
-	layout: Layout,
 	components: {
 		Card,
 	},
