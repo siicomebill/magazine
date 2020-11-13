@@ -115,7 +115,14 @@
         <!-- Page Heading -->
         <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <slot name="header">Dashboard</slot>
+                <slot name="header">
+                    <div v-if="path.length">
+                        <span v-for="(element, i) in path" :key="element" class="uppercase text-sm text-gray-500">
+                            <span>{{element}}</span>
+                            <span v-if="i < path.length - 1" class="font-bold text-blue-500 mx-2">/</span>
+                        </span>
+                    </div>
+                </slot>
             </div>
         </header>
 
@@ -158,8 +165,8 @@
 
         computed: {
             path() {
-                return window.location.pathname
-            }
+                return window.location.pathname.split('/').slice(1)
+            },
         }
     }
 </script>
