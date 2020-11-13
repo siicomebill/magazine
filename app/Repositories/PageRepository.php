@@ -36,4 +36,9 @@ class PageRepository extends ResourceRepository {
     {
         $model->components()->sync($request->components);
     }
+
+    public function latest(int $limit = 0)
+    {
+        return $this->asModel();
+    }
 }
