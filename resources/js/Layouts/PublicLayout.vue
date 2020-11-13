@@ -15,7 +15,11 @@
 					>
 				</div>
 
-				<Dropdown class="text-black lg:-mb-6 lg:shadow-xl rounded-lg" title="Esplora" mobileOnly>
+				<Dropdown
+					class="text-black lg:-mb-6 lg:shadow-xl rounded-lg"
+					title="Esplora"
+					mobileOnly
+				>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
 						<slot name="menu">
 							<ul v-if="$page.navbar.categories" class="lg:flex">
@@ -52,23 +56,25 @@
 					</div>
 				</Dropdown>
 
-				<div class="lg:inline-block lg:order-last">
+				<div class="lg:inline-block lg:order-last flex items-end">
 					<div v-if="$page.auth">
 						<UserDropdown />
 					</div>
 
-					<div v-else class="grid grid-cols-2 text-center">
-						<a
-							:href="$route('login')"
-							class="block text-sm px-4 py-2 leading-none border rounded border-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
-							>Login</a
-						>
-						<a
-							:href="$route('register')"
-							class="block text-sm px-4 py-2 leading-none lg:mt-0"
-							>Registrati</a
-						>
-					</div>
+					<Dropdown v-else mobileOnly title="Account">
+						<div class="lg:grid grid-cols-2 gap-2">
+							<a
+								:href="$route('login')"
+								class="block text-sm text-center px-4 py-2 leading-none border rounded border-black text-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
+								>Login</a
+							>
+							<a
+								:href="$route('register')"
+								class="block text-sm text-center text-black px-4 py-2 leading-none lg:mt-0"
+								>Registrati</a
+							>
+						</div>
+					</Dropdown>
 				</div>
 			</div>
 		</nav>
@@ -145,8 +151,8 @@ export default {
 	components: {
 		Dropdown,
 		Reader,
-		Thumbnail: () => import('~/Thumbnail'),
-		UserDropdown: () => import('~/UserDropdown'),
+		Thumbnail: () => import("~/Thumbnail"),
+		UserDropdown: () => import("~/UserDropdown"),
 	},
 	props: {
 		mode: {
