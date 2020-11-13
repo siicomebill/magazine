@@ -17,7 +17,7 @@
 
 				<Dropdown
 					class="text-black lg:-mb-6 lg:shadow-xl rounded-lg"
-					title="Esplora"
+					title="Rubriche"
 					mobileOnly
 				>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
@@ -32,7 +32,7 @@
 										class="flex flex-grow cursor-pointer my-auto"
 										:href="$route('categories.articles', category.id)"
 									>
-										<span class="cursor-pointer block my-auto">{{
+										<span class="cursor-pointer block my-auto font-bold capitalize">{{
 											category.name
 										}}</span>
 									</a>
