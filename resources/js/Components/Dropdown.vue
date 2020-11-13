@@ -7,7 +7,7 @@
 					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto cursor-pointer"
 				>
 					<span v-if="title" class="mr-2">{{ title }}</span>
-					<img src="/img/arrow-down.svg" alt class="h-4 w-4" :class="{ flipped: open }" />
+					<img src="/img/arrow-down.svg" alt class="h-4 w-4 arrow" :class="{ flipped: open }" />
 				</span>
 			</div>
 		</div>
@@ -60,6 +60,10 @@ export default {
 <style scoped>
 .menu {
 	min-width: 200px;
+}
+
+.arrow {
+	filter: invert(50%);
 }
 
 .flipped {
