@@ -7,27 +7,7 @@
 					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto cursor-pointer"
 				>
 					<span v-if="title" class="mr-2">{{ title }}</span>
-					<svg
-						class="h-6 w-6"
-						stroke="currentColor"
-						fill="none"
-						viewBox="0 0 24 24"
-					>
-						<path
-							:class="{ hidden: open, 'inline-flex': !open }"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 6h16M4 12h16M4 18h16"
-						/>
-						<path
-							:class="{ hidden: !open, 'inline-flex': open }"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M6 18L18 6M6 6l12 12"
-						/>
-					</svg>
+					<img src="/img/arrow-down.svg" alt class="h-4 w-4 arrow" :class="{ flipped: open }" />
 				</span>
 			</div>
 		</div>
@@ -80,5 +60,13 @@ export default {
 <style scoped>
 .menu {
 	min-width: 200px;
+}
+
+.arrow {
+	filter: invert(50%);
+}
+
+.flipped {
+	transform: rotateX(180deg);
 }
 </style>

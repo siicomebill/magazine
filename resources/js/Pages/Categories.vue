@@ -12,10 +12,8 @@
 </template>
 
 <script>
-import Layout from "@/Layouts/PublicLayout";
 
 export default {
-  layout: Layout,
   props: {
     categories: Array,
   },

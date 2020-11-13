@@ -21,7 +21,7 @@
 					Sottocategorie
 				</legend>
 				<a
-					class="border-2 border-white rounded-full px-4 py-1 flex-shrink text-center align-middle"
+					class="border-2 border-white rounded-full px-4 py-1 flex-shrink text-center align-middle inline-block"
 					v-for="child in category.children"
 					:key="child.id"
 					:href="$route('categories.articles', child.id)"
@@ -43,10 +43,8 @@
 
 <script>
 import Card from "~/MiniCard";
-import Layout from "@/Layouts/PublicLayout";
 
 export default {
-	layout: Layout,
 	components: {
 		Card,
 	},

@@ -8,6 +8,7 @@ import PortalVue from "portal-vue";
 import route from "ziggy-js";
 import LazyLoad from 'vue-lazyload';
 import ScrollSpy from 'vue2-scrollspy';
+import Layout from "@/Layouts/PublicLayout";
 
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
@@ -40,7 +41,13 @@ new Vue({
         h(InertiaApp, {
             props: {
                 initialPage: JSON.parse(app.dataset.page),
-                resolveComponent: name => require(`./Pages/${name}`).default
+                resolveComponent: name => import(`@/Pages/${name}`)
+                    .then(({ default: page }) => {
+                        if (page.layout === undefined) {
+                            page.layout = Layout
+                        }
+                        return page
+                    }),
             }
         })
 }).$mount(app);

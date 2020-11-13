@@ -10,7 +10,7 @@
 			<div class="col-span-4 py-4 ml-4 md:ml-0">
 				<div>
 					<p class="text-2xl text-gray-900">
-						Welcome, <span class="text-blue-500 font-bold">{{ $page.user.name }}</span
+						Ciao, <span class="text-blue-500 font-bold">{{ $page.user.name }}</span
 						>.
 					</p>
 					<p class="text-gray-500">{{ $page.user.email }}</p>
@@ -20,7 +20,7 @@
 					<a
 						href="/user/profile"
 						class="inline-block button py-1 px-3 bg-blue-500 text-white rounded-lg shadow"
-						>Edit profile</a
+						>Modifica profilo</a
 					>
 				</div>
 			</div>
