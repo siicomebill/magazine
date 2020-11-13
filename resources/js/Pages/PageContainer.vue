@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<div class="bg-black text-white xl:py-64 py-20">
+		<div class="bg-black text-white xl:py-32 py-20 banner">
 			<div class="container mx-auto px-4">
 				<div class="text-center">
-					<h1 class="my-auto font-banner capitalize text-6xl">
+					<h1 class="my-auto font-banner capitalize text-3xl">
 						{{ page.name }}
 					</h1>
 				</div>
