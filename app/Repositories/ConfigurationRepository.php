@@ -26,4 +26,9 @@ class ConfigurationRepository extends ResourceRepository
 
         return $result;
     }
+
+    public function latest(int $limit = 0)
+    {
+        return $this->asModel();
+    }
 }
