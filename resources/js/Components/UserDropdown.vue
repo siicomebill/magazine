@@ -6,10 +6,11 @@
 					<button
 						class="flex text-sm border-2 border-black border-2 p-1 rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
 					>
-						<img
-							class="h-8 w-8 rounded-full"
+						<Thumbnail
+							square
+							class="h-8 w-8"
+							imageClass="rounded-full"
 							:src="$page.user.profile_photo_url"
-							:alt="$page.user.name"
 						/>
 					</button>
 				</template>
@@ -96,11 +97,13 @@
 <script>
 import JetDropdown from "Jet/Dropdown";
 import JetDropdownLink from "Jet/DropdownLink";
+import Thumbnail from "~/Thumbnail";
 
 export default {
 	components: {
 		JetDropdown,
 		JetDropdownLink,
+		Thumbnail,
 	},
 	methods: {
 		switchToTeam(team) {
