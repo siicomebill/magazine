@@ -90,7 +90,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
 
         SEO::set($article);
 
-        if($article->has('category')){
+        if($article->category){
             $suggested["ofCategory"] = $article->category->articles()->with('author')->take(10)->get(["title", "image", "id"]);
         }
 
