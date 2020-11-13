@@ -82,6 +82,11 @@ class User extends Authenticatable implements ReacterableInterface
 
     public function getProfilePhotoUrlAttribute()
     {
-        return $this->profile_photo_path;
+        return $this->profile_photo_path ?? $this->defaultProfilePhotoUrl();
+    }
+
+    public function defaultProfilePhotoUrl()
+    {
+        return "https://dummyimage.com/400/000000/fff&text=$this->name";
     }
 }
