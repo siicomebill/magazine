@@ -4,7 +4,7 @@
 			class="bg-white border-b border-gray-200 grid grid-cols-5 gap-4 items-center bg-bottom"
 		>
 			<div class="col-span-1 h-full hidden md:block">
-				<Thumbnail :src="$page.user.profile_photo_url" alt="@" class="h-full" />
+				<Thumbnail square :src="$page.user.profile_photo_url" alt="@" class="h-full" />
 			</div>
 
 			<div class="col-span-4 py-4 ml-4 md:ml-0">

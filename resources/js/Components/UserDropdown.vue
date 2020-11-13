@@ -8,8 +8,8 @@
 					>
 						<Thumbnail
 							square
-							class="h-8 w-8"
-							imageClass="rounded-full"
+							class="w-8"
+							imageClass="w-8 h-full rounded-full"
 							:src="$page.user.profile_photo_url"
 						/>
 					</button>

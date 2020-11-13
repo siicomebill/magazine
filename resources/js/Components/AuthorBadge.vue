@@ -5,10 +5,10 @@
 			class="inline-block border-4 border-white p-0 rounded-full m-3"
 		>
 			<Thumbnail
-        square
+        		square
 				:src="profile_photo_url"
-				class="h-16 w-16"
-        imageClass="rounded-full"
+				class="w-16"
+        		imageClass="w-16 h-full rounded-full"
 			/>
 		</div>
 
