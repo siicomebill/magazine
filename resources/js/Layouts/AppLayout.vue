@@ -71,7 +71,6 @@
 </template>
 
 <script>
-    import JetApplicationLogo from 'Jet/ApplicationLogo'
     import JetApplicationMark from 'Jet/ApplicationMark'
     import JetDropdown from 'Jet/Dropdown'
     import JetDropdownLink from 'Jet/DropdownLink'
@@ -81,7 +80,6 @@
 
     export default {
         components: {
-            JetApplicationLogo,
             JetApplicationMark,
             JetDropdown,
             JetDropdownLink,
