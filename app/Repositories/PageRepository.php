@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Page;
-use Illuminate\Support\Arr;
 
 class PageRepository extends ResourceRepository {
     protected $model = Page::class;
@@ -15,10 +14,13 @@ class PageRepository extends ResourceRepository {
         return $model;
     }
 
-    public function find($slug)
+    public function find($slug, int $id = null)
     {
         if($slug){
             $model = $this->model::where('slug', $slug)->with(['components'])->firstOrFail();
+        }
+        elseif($id){
+            $model = $this->model::where('id', $id)->with(['components'])->firstOrFail();
         }
         else {
             $model = $this->model::all();
@@ -40,5 +42,10 @@ class PageRepository extends ResourceRepository {
     public function latest(int $limit = 0)
     {
         return $this->asModel();
+    }
+
+    public function delete($id)
+    {
+        return $this->find('', $id)->delete();
     }
 }
