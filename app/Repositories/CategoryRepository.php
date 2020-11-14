@@ -28,4 +28,9 @@ class CategoryRepository extends ResourceRepository
     {
         return $this->latest()->with(['parent', 'children'])->get();
     }
+
+    public function paginated($perPage = 5)
+    {
+        return $this->asModel()->paginate($perPage);
+    }
 }
