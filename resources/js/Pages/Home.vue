@@ -22,7 +22,7 @@
 
 				<Reader
 					v-if="config.banner"
-					class="font-banner block text-center m-auto mt-4"
+					class="font-handwritten block text-center m-auto mt-4"
 					v-model="config.banner"
 				/>
 			</div>
