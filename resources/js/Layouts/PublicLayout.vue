@@ -38,11 +38,11 @@
 				</div>
 			</nav>
 
-			<nav class="bg-black text-white shadow-lg">
+			<nav class="bg-black text-white shadow-lg md:px-6 font-banner">
 				<Dropdown
 					title="Rubriche"
 					mobileOnly
-					containerClass="bg-black text-white"
+					containerClass="text-white ml-auto"
 				>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
 						<slot name="menu">
@@ -57,7 +57,7 @@
 										:href="$route('categories.articles', category.id)"
 									>
 										<span
-											class="cursor-pointer block my-auto font-bold capitalize"
+											class="cursor-pointer block my-auto font-bold uppercase"
 											>{{ category.name }}</span
 										>
 									</a>
