@@ -7,24 +7,18 @@
 			}"
 		>
 			<div class="container m-auto px-4 md:px-0">
-				<div class="flex justify-items-center" v-if="config.logo">
-					<div class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4">
-						<div v-if="config.logo" class="block mx-auto">
-							<img
-								:src="config.logo.small"
-								class="logo-invert block m-auto lg:hidden"
-								alt
-							/>
-
+				<div class="flex items-center" v-if="config.logo">
+					<div class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-2 items-center">
+						<div class="block mx-auto">
 							<img
 								:src="config.logo.medium"
-								class="logo-invert m-auto hidden lg:block"
+								class="m-auto hidden lg:block max-h-64"
 								alt
 							/>
 						</div>
 
-						<div class="col-span-3">
-							<img :src="config.logo.big" class="logo-invert m-auto" alt />
+						<div class="col-span-1">
+							<img :src="config.logo.big" class="m-auto max-h-64" alt />
 						</div>
 					</div>
 				</div>
