@@ -128,7 +128,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
 
     public function delete($id)
     {
-        $this->article->delete($id);
+        $this->article->asModel()->user(auth()->user()->id)->find($id)->delete();
 
         return redirect()->back();
     }
