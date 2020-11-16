@@ -1,6 +1,6 @@
 <template>
 	<div class="my-4">
-		<a class="block bg-white text-black rounded-lg shadow-xl" :href="href" :target="target" :rel="rel">
+		<a class="block rounded-lg shadow-xl" :href="href" :target="target" :rel="rel">
 			<Thumbnail
 				:src="image"
 				:alt="title"
@@ -11,7 +11,7 @@
 				class="flex flex-col p-4 w-50 justify-between leading-normal break-normal"
 			>
 				<div class="mb-8">
-					<p class="font-bold text-2xl text-primary mb-2 break-words">
+					<p class="font-bold text-2xl mb-2 break-words">
 						{{ title }}
 					</p>
 					<p class="text-gray-700 text-base">{{ snippet }}</p>

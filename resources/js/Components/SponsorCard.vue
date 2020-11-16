@@ -1,6 +1,6 @@
 <template>
   <div class="mb-4">
-    <Card :title="name" :image="image" :href="link" class="mb-1 shadow-lg" fixed outsider>
+    <Card :title="name" :image="image" :href="link" class="mb-1 shadow-lg bg-white text-black" fixed outsider>
       <span class="block">{{ snippet }}</span>
 
       <template #footer>
