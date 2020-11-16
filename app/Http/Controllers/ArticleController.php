@@ -133,6 +133,13 @@ class ArticleController extends ResourceController implements ReactableResourceC
         return redirect()->back();
     }
 
+    public function deleteFromOther($userId, $id)
+    {
+        $this->article->delete($id);
+
+        return redirect()->back();
+    }
+
     public function react(ReactionRequest $request): JsonResponse
     {
         $article = $this->article->find($request->item["id"]);
