@@ -1,10 +1,7 @@
 <template>
 	<div class="content-background">
 		<div
-			class="flex py-20 bg-black bg-fixed banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
-			:class="{
-				'min-h-screen md:-mb-20 md:pb-40': config.banner || config.logo,
-			}"
+			class="flex py-20 bg-black bg-fixed banner select-none md:min-h-0 text-white md:px-10 lg:px-0"
 		>
 			<div class="container m-auto px-4 md:px-0">
 				<div class="flex items-center" v-if="config.logo">
