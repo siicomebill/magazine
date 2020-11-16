@@ -37,7 +37,10 @@ class ArticleController extends ResourceController implements ReactableResourceC
         $paginatedResource = new PaginatedCollection($this->article->forManagerPage($userId, $routes));
 
         return Inertia::render('ArticlesManager', [
-            'items' => $paginatedResource
+            'items' => $paginatedResource,
+            'newItem' => $userId ? route('articles.ofUser.write', [
+                'userId' => $userId
+            ]) : null
         ]);
     }
 
@@ -56,12 +59,11 @@ class ArticleController extends ResourceController implements ReactableResourceC
     {
         $article = $this->article->forEditor($id, $userId);
 
-        if (!$article)
-            return redirect()->route('articles.write');
-
         return Inertia::render('NewArticle', [
             "stored" => $article,
-            "publishTo" => URL::route('articles.publish'),
+            "publishTo" => URL::route('articles.ofUser.publish', [
+                'userId' => $userId,
+            ]),
             "categories" => $this->category->list(["name", "id"])
         ]);
     }
@@ -69,15 +71,32 @@ class ArticleController extends ResourceController implements ReactableResourceC
     public function store(ArticleRequest $request)
     {
         $data = $request->all();
-        if ($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $result = image()->upload($request->file('image'));
-            if($result->success){
+            if ($result->success) {
                 $data["image"] = $result->url;
             }
         }
-        $user = $request->user_id ? $this->user->find($request->user_id) : null;
 
-        return $this->article->store($data, $user) ? redirect()->route('articles.mine.list') : abort(500);
+        return $this->article->store($data) ? redirect()->route('articles.mine.list') : abort(500);
+    }
+
+    public function storeAsOther(ArticleRequest $request, $userId, $id = null)
+    {
+        $data = $request->all();
+
+        if ($user = $userId ? $this->user->find($userId) : null) {
+            if ($request->hasFile('image')) {
+                $result = image()->upload($request->file('image'));
+                if ($result->success) {
+                    $data["image"] = $result->url;
+                }
+            }
+            return $this->article->store($data, $user) ? redirect()->route('articles.ofUser.list', ['userId' => $user->id]) : abort(500);
+        }
+        else {
+            return abort(404, 'You tried posting an article as a non-existent user.');
+        }
     }
 
     public function read($id)
@@ -90,7 +109,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
 
         SEO::set($article);
 
-        if($article->category){
+        if ($article->category) {
             $suggested["ofCategory"] = $article->category->articles()->with('author')->take(10)->get(["title", "image", "id"]);
         }
 
