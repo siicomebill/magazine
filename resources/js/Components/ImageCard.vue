@@ -14,7 +14,7 @@
 					<p class="font-bold text-2xl mb-2 break-words">
 						{{ title }}
 					</p>
-					<p class="text-gray-700 text-base">{{ snippet }}</p>
+					<p class="text-base">{{ snippet }}</p>
 					<div class="my-1">
 						<div class="text-4xl" v-if="author">
 							<p class="font-handwritten leading-none">{{ author.name }}</p>
