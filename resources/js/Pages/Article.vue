@@ -40,7 +40,7 @@
 
 		<div class="bg-gray-200">
 			<div
-				class="container mx-auto md:my-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2"
+				class="container mx-auto md:py-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2"
 			>
 				<div class="col-span-3">
 					<Reader
