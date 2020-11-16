@@ -6,8 +6,8 @@
 					@click="showDropdown = !showDropdown"
 					class="inline-flex items-center justify-center focus:outline-none cursor-pointer"
 				>
-					<span v-if="title" class="mr-2">{{ title }}</span>
-					<img src="/img/arrow-down.svg" alt class="h-4 w-4 arrow" :class="{ flipped: open }" />
+					<span v-if="title" class="block mr-2">{{ title }}</span>
+					<img src="/img/arrow-down.svg" alt class="block h-4 w-4 arrow" :class="{ flipped: open }" />
 				</span>
 			</div>
 		</div>
