@@ -30,7 +30,7 @@
 			</fieldset>
 		</div>
 
-		<div class="container mx-auto my-5 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-rows gap-4">
+		<div class="container mx-auto py-5 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-rows gap-4">
 			<Card
 				v-bind="article"
 				v-for="article in articles"
