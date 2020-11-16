@@ -2,14 +2,13 @@
 	<div class="content-background">
 		<div
 			class="flex py-20 bg-black bg-fixed banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
-			:class="{ 'min-h-screen md:-mb-20 md:pb-40': config.banner || config.logo }"
+			:class="{
+				'min-h-screen md:-mb-20 md:pb-40': config.banner || config.logo,
+			}"
 		>
 			<div class="container m-auto px-4 md:px-0">
-				<div class="flex justify-items-center">
-					<div
-						class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4"
-						v-if="config.banner || config.logo"
-					>
+				<div class="flex justify-items-center" v-if="config.logo">
+					<div class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4">
 						<div v-if="config.logo" class="block mx-auto">
 							<img
 								:src="config.logo.small"
