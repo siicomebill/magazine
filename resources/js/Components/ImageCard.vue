@@ -11,10 +11,10 @@
 				class="bg-black bg-opacity-75 rounded-b-lg absolute left-0 right-0 bottom-0 flex flex-col p-4 w-50 justify-between leading-normal break-normal"
 			>
 				<div class="px-4">
-					<p class="font-bold text-2xl mb-2 break-words">
+					<p class="font-bold text-xl xl:text-2xl mb-2 break-words">
 						{{ title }}
 					</p>
-					<p class="text-base">{{ snippet }}</p>
+					<p class="text-base truncate">{{ snippet }}</p>
 					<div class="my-1">
 						<div class="text-4xl" v-if="author">
 							<p class="font-handwritten leading-none">{{ author.name }}</p>
