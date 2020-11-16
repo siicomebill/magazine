@@ -15,47 +15,6 @@
 					>
 				</div>
 
-				<Dropdown
-					class="text-black lg:-mb-6 lg:shadow-xl rounded-lg"
-					title="Rubriche"
-					mobileOnly
-				>
-					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
-						<slot name="menu">
-							<ul v-if="$page.navbar.categories" class="lg:flex">
-								<li
-									v-for="category in $page.navbar.categories"
-									:key="category.id"
-									class="lg:mx-3 h-10 flex"
-								>
-									<a
-										class="flex flex-grow cursor-pointer my-auto"
-										:href="$route('categories.articles', category.id)"
-									>
-										<span class="cursor-pointer block my-auto font-bold capitalize">{{
-											category.name
-										}}</span>
-									</a>
-									<div class="flex">
-										<Dropdown
-											class="text-black flex-grow my-auto"
-											v-if="category.children.length"
-										>
-											<a
-												class="text-sm block lg:flex-grow"
-												v-for="child in category.children"
-												:key="child.id"
-												:href="$route('categories.articles', child.id)"
-												>{{ child.name }}</a
-											>
-										</Dropdown>
-									</div>
-								</li>
-							</ul>
-						</slot>
-					</div>
-				</Dropdown>
-
 				<div class="lg:inline-block lg:order-last flex items-end">
 					<div v-if="$page.auth">
 						<UserDropdown />
@@ -77,6 +36,46 @@
 					</Dropdown>
 				</div>
 			</div>
+		</nav>
+
+		<nav class="top-0 left-0 right-0 z-30 bg-black text-white shadow-lg">
+			<Dropdown title="Rubriche" mobileOnly containerClass="bg-black text-white">
+				<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
+					<slot name="menu">
+						<ul v-if="$page.navbar.categories" class="lg:flex">
+							<li
+								v-for="category in $page.navbar.categories"
+								:key="category.id"
+								class="lg:mx-3 h-10 flex"
+							>
+								<a
+									class="flex flex-grow cursor-pointer my-auto"
+									:href="$route('categories.articles', category.id)"
+								>
+									<span
+										class="cursor-pointer block my-auto font-bold capitalize"
+										>{{ category.name }}</span
+									>
+								</a>
+								<div class="flex">
+									<Dropdown
+										class="text-black flex-grow my-auto"
+										v-if="category.children.length"
+									>
+										<a
+											class="text-sm block lg:flex-grow"
+											v-for="child in category.children"
+											:key="child.id"
+											:href="$route('categories.articles', child.id)"
+											>{{ child.name }}</a
+										>
+									</Dropdown>
+								</div>
+							</li>
+						</ul>
+					</slot>
+				</div>
+			</Dropdown>
 		</nav>
 
 		<main>
