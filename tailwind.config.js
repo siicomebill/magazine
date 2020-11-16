@@ -26,7 +26,8 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-				banner: ["Archivo Black",  "Nunito", ...defaultTheme.fontFamily.sans]
+				banner: ["Archivo Black",  "Nunito", ...defaultTheme.fontFamily.sans],
+				handwritten: ["Generally Speaking"],
 			},
 			transitionProperty: {
 				default: defaultTheme.transitionProperty.default + ', background'
