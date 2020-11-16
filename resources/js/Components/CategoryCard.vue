@@ -29,16 +29,6 @@
 						class="h-auto bg-transparent"
 					/>
 				</div>
-
-				<!-- <div class="md:grid md:grid-cols-3 lg:grid-cols-5 gap-2">
-					<Card
-						v-bind="article"
-						v-for="article in content.articles.slice(3)"
-						:key="article.id"
-						:href="$route('articles.read', article.id)"
-						class="h-auto bg-transparent"
-					/>
-				</div> -->
 			</div>
 		</div>
 
