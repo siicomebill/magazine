@@ -1,7 +1,7 @@
 <template>
-	<div class="content-background">
+	<div>
 		<div
-			class="flex py-20 bg-black bg-fixed banner select-none md:min-h-0 text-white md:px-10 lg:px-0"
+			class="flex py-20 select-none md:min-h-0 text-white md:px-10 lg:px-0"
 		>
 			<div class="container m-auto px-4 md:px-0">
 				<div class="flex items-center" v-if="config.logo">

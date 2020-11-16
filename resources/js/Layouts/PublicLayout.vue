@@ -20,11 +20,11 @@
 							<UserDropdown />
 						</div>
 
-						<Dropdown v-else mobileOnly title="Account">
+						<Dropdown v-else mobileOnly title="Account" class="font-banner uppercase">
 							<div class="lg:grid grid-cols-2 gap-2">
 								<a
 									:href="$route('login')"
-									class="block text-sm text-center px-4 py-2 leading-none border rounded border-black text-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
+									class="block text-sm text-center px-4 py-2 leading-none border rounded-full bg-primary border-none text-black lg:mt-0"
 									>Login</a
 								>
 								<a
@@ -83,7 +83,7 @@
 			</nav>
 		</div>
 
-		<main>
+		<main class="banner bg-black lg:bg-fixed">
 			<slot></slot>
 		</main>
 
