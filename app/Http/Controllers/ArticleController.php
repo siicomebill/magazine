@@ -86,15 +86,18 @@ class ArticleController extends ResourceController implements ReactableResourceC
         $data = $request->all();
 
         if ($user = $userId ? $this->user->find($userId) : null) {
-            if ($request->hasFile('image')) {
-                $result = image()->upload($request->file('image'));
-                if ($result->success) {
-                    $data["image"] = $result->url;
+            if ($user->hasRole('writer')) {
+                if ($request->hasFile('image')) {
+                    $result = image()->upload($request->file('image'));
+                    if ($result->success) {
+                        $data["image"] = $result->url;
+                    }
                 }
+                return $this->article->store($data, $user) ? redirect()->route('articles.ofUser.list', ['userId' => $user->id]) : abort(500);
+            } else {
+                return abort(403, 'The user selected is not a writer.');
             }
-            return $this->article->store($data, $user) ? redirect()->route('articles.ofUser.list', ['userId' => $user->id]) : abort(500);
-        }
-        else {
+        } else {
             return abort(404, 'You tried posting an article as a non-existent user.');
         }
     }
