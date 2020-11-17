@@ -47,8 +47,9 @@
 				class="bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end"
 			>
 				<Dropdown
-					title="Rubriche"
+					title="Sezioni"
 					mobileOnly
+					class="uppercase"
 					containerClass="rounded-lg py-2 px-4 bg-dark text-white"
 				>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
@@ -71,6 +72,7 @@
 									<div class="flex">
 										<Dropdown
 											class="text-black flex-grow my-auto"
+											containerClass="text-right bg-white rounded-lg py-3 px-4 text-dark"
 											v-if="category.children.length"
 										>
 											<a
@@ -131,22 +133,25 @@
 
 			<div class="text-center">
 				<div
-					class="my-5 py-5 mx-auto text-center text-black uppercase font-banner"
+					class="my-5 py-5 mx-auto text-center text-black uppercase font-banner flex justify-center items-center gap-4"
 				>
 					<a
 						href="https://www.instagram.com/siicomebill/"
 						target="_blank"
 						rel="noopener"
-						class="bg-primary py-2 px-4 mx-5 rounded-full"
-						>Instagram</a
+						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"
 					>
+						<Icon :icon="['fab', 'instagram']" size="2x"/>
+					</a>
+
 					<a
 						href="https://www.facebook.com/siicomebill/"
 						target="_blank"
 						rel="noopener"
-						class="bg-primary py-2 px-4 mx-5 rounded-full"
-						>Facebook</a
+						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"
 					>
+						<Icon :icon="['fab', 'facebook']" size="2x"/>
+					</a>
 				</div>
 
 				<p class="py-10">

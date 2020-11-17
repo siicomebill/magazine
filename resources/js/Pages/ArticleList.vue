@@ -1,13 +1,23 @@
 <template>
-	<div class="px-4 bg-dark text-white">
-		<div class="container mx-auto py-20 px-5 lg:px-0" v-if="category">
-			<span class="text-6xl align-middle font-banner capitalize">{{
-				category.name
-			}}</span>
-			<hr class="lg:w-1/2" v-if="category.snippet" />
-			<span class="text-xl align-middle" v-if="category.snippet">{{
-				category.snippet
-			}}</span>
+	<div class="text-white">
+		<div class="xl:grid grid-cols-4 gap-4 items-center container mx-auto py-10">
+			<div class="col-span-3 mx-auto py-20 px-10" v-if="category">
+				<span class="text-6xl align-middle font-banner capitalize">{{
+					category.name
+				}}</span>
+				<hr class="lg:w-1/2" v-if="category.snippet" />
+				<span class="text-xl align-middle" v-if="category.snippet">{{
+					category.snippet
+				}}</span>
+			</div>
+
+			<div v-if="category.image">
+				<Thumbnail
+					square
+					:src="category.image"
+					class="w-auto xl:rounded-full rounded-lg text-center overflow-hidden border-4 border-white"
+				/>
+			</div>
 		</div>
 
 		<div class="px-5 lg:px-0">
@@ -30,7 +40,9 @@
 			</fieldset>
 		</div>
 
-		<div class="container mx-auto py-5 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-rows gap-4">
+		<div
+			class="container mx-auto py-5 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-rows gap-4"
+		>
 			<Card
 				v-bind="article"
 				v-for="article in articles"
@@ -43,10 +55,12 @@
 
 <script>
 import Card from "~/ImageCard";
+import Thumbnail from "~/Thumbnail";
 
 export default {
 	components: {
 		Card,
+		Thumbnail,
 	},
 	props: {
 		category: Object,

@@ -20,7 +20,7 @@
 				mobileOnly ? 'lg:relative lg:flex lg:border-none lg:shadow-none' : '',
 				containerClass,
 			]"
-			class="menu order-first flex flex-col absolute right-0 top-full z-40 lg:items-center align-items-center"
+			class="menu order-first flex flex-col absolute right-0 top-full z-40 align-items-center"
 		>
 			<slot></slot>
 		</div>

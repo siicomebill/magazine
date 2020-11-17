@@ -28,6 +28,7 @@ class CategoryRequest extends FormRequest
             "name" => ["string", "required" , Rule::unique('categories')->ignore($this->id)],
             "snippet" => "string|nullable",
             "parent_id" => "numeric|nullable",
+            "image" => "string|nullable",
         ];
     }
 }
