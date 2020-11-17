@@ -48,14 +48,20 @@
 						class="article content bg-white py-3 px-6 rounded-none lg:rounded-lg lg:shadow-lg"
 					/>
 
-					<div v-if="suggested.ofCategory" class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-						<Card
-							v-for="item in suggested.ofCategory"
-							:key="item.id"
-							v-bind="item"
-							:href="$route('articles.read', item.id)"
-							class="shadow-xl rounded-lg bg-white"
-						/>
+					<div v-if="suggested.ofCategory" class="pt-5">
+						<p class="text-2xl text-center font-banner uppercase">
+							<span class="font-banner text-primary">#</span>
+							{{article.category.name}}
+						</p>
+						<div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+							<Card
+								v-for="item in suggested.ofCategory"
+								:key="item.id"
+								v-bind="item"
+								:href="$route('articles.read', item.id)"
+								class="shadow-xl rounded-lg bg-white"
+							/>
+						</div>
 					</div>
 				</div>
 
@@ -79,7 +85,9 @@
 				</div>
 			</div>
 
-			<div class="md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto px-6">
+			<div
+				class="md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto px-6"
+			>
 				<Card
 					v-for="item in suggested.ofAuthor"
 					:key="item.id"
