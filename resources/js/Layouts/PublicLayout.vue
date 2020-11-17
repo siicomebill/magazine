@@ -72,7 +72,7 @@
 											v-if="category.children.length"
 										>
 											<a
-												class="text-sm block lg:flex-grow"
+												class="text-sm block lg:flex-grow pb-3"
 												v-for="child in category.children"
 												:key="child.id"
 												:href="$route('categories.articles', child.id)"
