@@ -8,7 +8,7 @@
 				class="w-auto rounded-lg text-center overflow-hidden absolute inset-0"
 			/>
 			<div
-				class="bg-black bg-opacity-75 rounded-b-lg absolute left-0 right-0 bottom-0 flex flex-col p-4 w-50 justify-between leading-normal break-normal"
+				class="bg-black bg-opacity-75 text-white rounded-b-lg absolute left-0 right-0 bottom-0 flex flex-col p-4 w-50 justify-between leading-normal break-normal"
 			>
 				<div class="px-4">
 					<p class="font-bold text-xl xl:text-2xl mb-2 break-words">
