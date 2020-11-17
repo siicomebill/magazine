@@ -1,38 +1,28 @@
 <template>
-	<div class="content-background">
+	<div>
 		<div
-			class="flex py-20 bg-black bg-fixed banner select-none md:min-h-0 text-white lg:rounded-br-full md:px-10 lg:px-0"
-			:class="{ 'min-h-screen md:-mb-20 md:pb-40': config.banner || config.logo }"
+			class="flex py-20 select-none md:min-h-0 text-white md:px-10 lg:px-0"
 		>
 			<div class="container m-auto px-4 md:px-0">
-				<div class="flex justify-items-center">
-					<div
-						class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-4"
-						v-if="config.banner || config.logo"
-					>
-						<div v-if="config.logo" class="block mx-auto">
-							<img
-								:src="config.logo.small"
-								class="logo-invert block m-auto lg:hidden"
-								alt
-							/>
-
+				<div class="flex items-center" v-if="config.logo">
+					<div class="mx-auto mb-auto lg:mb-0 lg:grid grid-cols-2 items-center">
+						<div class="block mx-auto">
 							<img
 								:src="config.logo.medium"
-								class="logo-invert m-auto hidden lg:block"
+								class="m-auto hidden lg:block max-h-64"
 								alt
 							/>
 						</div>
 
-						<div class="col-span-3">
-							<img :src="config.logo.big" class="logo-invert m-auto" alt />
+						<div class="col-span-1">
+							<img :src="config.logo.big" class="m-auto max-h-64" alt />
 						</div>
 					</div>
 				</div>
 
 				<Reader
 					v-if="config.banner"
-					class="font-banner block text-center m-auto mt-4"
+					class="font-handwritten block text-center m-auto mt-4"
 					v-model="config.banner"
 				/>
 			</div>

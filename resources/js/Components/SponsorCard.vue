@@ -1,12 +1,12 @@
 <template>
-  <div class="mb-4">
-    <Card :title="name" :image="image" :href="link" class="mb-1 shadow-lg" fixed outsider>
+  <div class="pb-4">
+    <Card :title="name" :image="image" :href="link" class="mb-1 shadow-lg bg-white text-black" fixed outsider>
       <span class="block">{{ snippet }}</span>
 
       <template #footer>
         <div class="grid">
           <span
-            class="bg-blue-500 text-white text-center font-bold rounded-full lg:rounded-r-none py-2 px-4 lg:text-xl lg:-mr-4 lg:mb-4 lg:pr-12 lg:justify-self-end shadow"
+            class="bg-primary text-white text-center font-bold rounded-full lg:rounded-r-none py-2 px-4 lg:text-xl lg:-mr-4 lg:mb-4 lg:pr-12 lg:justify-self-end shadow"
           >
             {{ cta }}
           </span>

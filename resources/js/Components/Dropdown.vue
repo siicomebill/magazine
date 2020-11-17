@@ -1,23 +1,26 @@
 <template>
 	<div class="flex relative" v-click-outside="onClickOutside" @mouseover="hovering = true" @mouseleave="hovering = false">
 		<div :class="{ 'lg:hidden': mobileOnly }">
-			<div class="-mr-2 flex items-center">
+			<div>
 				<span
 					@click="showDropdown = !showDropdown"
-					class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 focus:outline-none ml-auto cursor-pointer"
+					class="flex items-center focus:outline-none cursor-pointer"
 				>
-					<span v-if="title" class="mr-2">{{ title }}</span>
-					<img src="/img/arrow-down.svg" alt class="h-4 w-4 arrow" :class="{ flipped: open }" />
+					<span v-if="title" class="block col-span-3">{{ title }}</span>
+					<span class="block pl-2">
+						<img src="/img/arrow-down.svg" alt class="h-4 w-4 arrow" :class="{ flipped: open }" />
+					</span>
 				</span>
 			</div>
 		</div>
 
 		<div
-			:class="{
-				hidden: !open,
-				'lg:relative lg:flex lg:border-none lg:shadow-none': mobileOnly,
-			}"
-			class="menu order-first flex flex-col absolute right-0 top-full bg-white z-40 lg:items-center align-items-center p-3 rounded-lg shadow-lg border border-1"
+			:class="[
+				!open ? 'hidden' : '',
+				mobileOnly ? 'lg:relative lg:flex lg:border-none lg:shadow-none' : '',
+				containerClass,
+			]"
+			class="menu order-first flex flex-col absolute right-0 top-full z-40 lg:items-center align-items-center"
 		>
 			<slot></slot>
 		</div>
@@ -34,6 +37,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		containerClass: {
+			type: String,
+			default: "bg-white p-3 text-black rounded-lg shadow-lg border border-1"
+		}
 	},
 	data() {
 		return {
@@ -51,7 +58,7 @@ export default {
 	},
 	computed: {
 		open() {
-			return this.showDropdown ? true : (this.hovering);
+			return this.showDropdown;
 		},
 	},
 };

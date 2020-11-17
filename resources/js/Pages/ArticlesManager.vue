@@ -1,5 +1,5 @@
 <template>
-  <ManagerPage :items="items" :newPage="$route('articles.write')">
+  <ManagerPage :items="items" :newPage="this.newItem  || $route('articles.write')">
     <div class="sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       <Card v-bind="article" v-for="article in list" :key="article.id" class="mt-auto">
         <template #footer>
@@ -37,6 +37,7 @@ export default {
   },
   props: {
     items: Object,
+    newItem: String,
   },
 };
 </script>

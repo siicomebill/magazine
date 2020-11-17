@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-black text-white">
+	<div class="px-4 bg-black text-white">
 		<div class="container mx-auto py-20 px-5 lg:px-0" v-if="category">
 			<span class="text-6xl align-middle font-banner capitalize">{{
 				category.name
@@ -30,7 +30,7 @@
 			</fieldset>
 		</div>
 
-		<div class="container mx-auto my-5">
+		<div class="container mx-auto py-5 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-rows gap-4">
 			<Card
 				v-bind="article"
 				v-for="article in articles"
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Card from "~/MiniCard";
+import Card from "~/ImageCard";
 
 export default {
 	components: {

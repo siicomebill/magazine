@@ -19,10 +19,16 @@ module.exports = {
 	},
 
 	theme: {
+		colors: {
+			...defaultTheme.colors,
+			primary: "#64C0C0",
+			dark: "#231F20",
+		},
 		extend: {
 			fontFamily: {
 				sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-				banner: ["Archivo Black",  "Nunito", ...defaultTheme.fontFamily.sans]
+				banner: ["Archivo Black",  "Nunito", ...defaultTheme.fontFamily.sans],
+				handwritten: ["Generally Speaking"],
 			},
 			transitionProperty: {
 				default: defaultTheme.transitionProperty.default + ', background'

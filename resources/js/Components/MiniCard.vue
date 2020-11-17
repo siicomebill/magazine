@@ -1,6 +1,6 @@
 <template>
 	<a
-		class="block my-4 bg-white text-black rounded-lg"
+		class="block my-4 rounded-lg"
 		:class="{ flex: fixed, 'block lg:flex': !fixed }"
 		:href="href"
 		:target="target"
@@ -18,7 +18,7 @@
 			:class="{ 'lg:w-1/2': image }"
 		>
 			<div class="mb-8">
-				<p class="font-bold text-2xl text-primary mb-2 break-words">
+				<p class="font-bold text-2xl mb-2 break-words">
 					{{ title }}
 				</p>
 				<div class="my-3">

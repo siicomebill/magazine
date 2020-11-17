@@ -1,24 +1,55 @@
 <template>
 	<div>
-		<nav
-			class="top-0 left-0 right-0 z-30 lg:bg-white lg:text-black bg-black text-white shadow-lg lg:px-6 lg:py-1 px-4"
-			:class="mode"
-		>
-			<div
-				class="container mx-auto flex items-center justify-between flex-wrap"
+		<div :class="mode" class="top-0 left-0 right-0 z-30">
+			<nav
+				class="lg:bg-white lg:text-dark bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4"
 			>
-				<div class="flex items-center flex-shrink-0 mr-6">
-					<a
-						href="/"
-						class="font-semibold text-xl tracking-tight font-banner uppercase"
-						>{{ $page.app.name }}</a
-					>
-				</div>
+				<div
+					class="container mx-auto flex items-center justify-between flex-wrap"
+				>
+					<div class="flex items-center flex-shrink-0 mr-6">
+						<a
+							href="/"
+							class="font-semibold text-xl tracking-tight font-banner uppercase"
+							>{{ $page.app.name }}</a
+						>
+					</div>
 
+					<div class="lg:inline-block lg:order-last flex items-end">
+						<div v-if="$page.auth">
+							<UserDropdown />
+						</div>
+
+						<Dropdown
+							v-else
+							mobileOnly
+							title="Account"
+							class="font-banner uppercase"
+						>
+							<div class="lg:grid grid-cols-2 gap-2">
+								<a
+									:href="$route('login')"
+									class="block text-sm text-center px-4 py-2 leading-none border rounded-full bg-primary border-none text-black lg:mt-0"
+									>Login</a
+								>
+								<a
+									:href="$route('register')"
+									class="block text-sm text-center text-black px-4 py-2 leading-none lg:mt-0"
+									>Registrati</a
+								>
+							</div>
+						</Dropdown>
+					</div>
+				</div>
+			</nav>
+
+			<nav
+				class="bg-dark text-white shadow-lg md:px-6 font-banner flex justify-end items-end"
+			>
 				<Dropdown
-					class="text-black lg:-mb-6 lg:shadow-xl rounded-lg"
 					title="Rubriche"
 					mobileOnly
+					containerClass="rounded-lg py-2 px-4 bg-dark text-white"
 				>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
 						<slot name="menu">
@@ -32,9 +63,10 @@
 										class="flex flex-grow cursor-pointer my-auto"
 										:href="$route('categories.articles', category.id)"
 									>
-										<span class="cursor-pointer block my-auto font-bold capitalize">{{
-											category.name
-										}}</span>
+										<span
+											class="cursor-pointer block my-auto font-bold uppercase"
+											>{{ category.name }}</span
+										>
 									</a>
 									<div class="flex">
 										<Dropdown
@@ -42,7 +74,7 @@
 											v-if="category.children.length"
 										>
 											<a
-												class="text-sm block lg:flex-grow"
+												class="text-sm block lg:flex-grow pb-3"
 												v-for="child in category.children"
 												:key="child.id"
 												:href="$route('categories.articles', child.id)"
@@ -55,45 +87,36 @@
 						</slot>
 					</div>
 				</Dropdown>
+			</nav>
+		</div>
 
-				<div class="lg:inline-block lg:order-last flex items-end">
-					<div v-if="$page.auth">
-						<UserDropdown />
-					</div>
-
-					<Dropdown v-else mobileOnly title="Account">
-						<div class="lg:grid grid-cols-2 gap-2">
-							<a
-								:href="$route('login')"
-								class="block text-sm text-center px-4 py-2 leading-none border rounded border-black text-black hover:bg-black hover:text-white hover:border-transparent lg:mt-0"
-								>Login</a
-							>
-							<a
-								:href="$route('register')"
-								class="block text-sm text-center text-black px-4 py-2 leading-none lg:mt-0"
-								>Registrati</a
-							>
-						</div>
-					</Dropdown>
-				</div>
-			</div>
-		</nav>
-
-		<main>
+		<main class="banner bg-dark lg:bg-fixed">
 			<slot></slot>
 		</main>
 
-		<section class="footer py-10 px-4 banner bg-black text-white">
+		<section class="footer py-10 px-4 bg-dark text-white">
+			<div class="mx-auto text-center">
+				<div v-if="$page.configuration.footer">
+					<Reader v-model="$page.configuration.footer" />
+				</div>
+			</div>
+
 			<div
-				class="container mx-auto px-4 bg-black rounded-lg border-2 border-white"
+				class="container mx-auto px-4 lg:grid grid-cols-6 gap-4 items-center"
 			>
-				<div v-if="$page.pages.length" class="my-6">
+				<Thumbnail
+					v-if="$page.configuration.logo"
+					:src="$page.configuration.logo.medium"
+					imageClass="w-auto h-32 block mx-auto"
+				/>
+
+				<div v-if="$page.pages.length" class="col-span-5 my-6">
 					<div class="mb-4">
 						<p class="text-3xl text-center md:text-left">Esplora</p>
 						<hr class="mt-5 border-gray-700" />
 					</div>
 
-					<div class="col-span-3 md:grid md:grid-cols-2 lg:grid-cols-4">
+					<div class="md:grid md:grid-cols-2 lg:grid-cols-4">
 						<a
 							v-for="page in $page.pages"
 							:key="page.slug"
@@ -104,40 +127,40 @@
 						</a>
 					</div>
 				</div>
+			</div>
 
-				<div class="my-5 py-5 mx-auto text-center">
+			<div class="text-center">
+				<div
+					class="my-5 py-5 mx-auto text-center text-black uppercase font-banner"
+				>
 					<a
 						href="https://www.instagram.com/siicomebill/"
 						target="_blank"
 						rel="noopener"
-						class="cta-royal mx-5"
+						class="bg-primary py-2 px-4 mx-5 rounded-full"
 						>Instagram</a
 					>
 					<a
 						href="https://www.facebook.com/siicomebill/"
 						target="_blank"
 						rel="noopener"
-						class="cta-blue mx-5"
+						class="bg-primary py-2 px-4 mx-5 rounded-full"
 						>Facebook</a
 					>
 				</div>
 
-				<div class="w-1/2 mx-auto text-center pt-20">
-					<p class="py-5" v-if="$page.configuration.footer">
-						<Reader v-model="$page.configuration.footer" />
-					</p>
+				<p class="py-10">
+					&copy; <strong>{{ $page.app.name }}</strong>
+					{{ new Date().getFullYear() }}
+				</p>
 
-					<Thumbnail
-						v-if="$page.configuration.logo"
-						:src="$page.configuration.logo.small"
-						imageClass="w-auto h-auto block mx-auto logo-invert"
-					/>
-
-					<p class="py-10">
-						&copy; <strong>{{ $page.app.name }}</strong>
-						{{ new Date().getFullYear() }}
-					</p>
-				</div>
+				<p>
+					Made with
+					<span class="font-handwritten text-primary text-4xl">LOVE</span> by
+					<a href="https://mattia.codes/" rel="noopener" target="_blank"
+						>Mattia Sinisi</a
+					>
+				</p>
 			</div>
 		</section>
 	</div>

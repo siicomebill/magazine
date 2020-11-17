@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="bg-black text-white xl:py-32 py-20 banner">
+		<div class="text-white xl:py-32 py-20">
 			<div class="container mx-auto px-4">
 				<div class="text-center">
 					<h1 class="my-auto font-banner capitalize text-3xl">
@@ -10,8 +10,8 @@
 			</div>
 		</div>
 
-		<div class="px-4">
-			<div class="container mx-auto my-6 lg:w-1/2" v-if="page.content">
+		<div class="px-4 bg-white">
+			<div class="container mx-auto py-6 lg:w-1/2" v-if="page.content">
 				<Reader v-model="page.content" class="article content" />
 			</div>
 

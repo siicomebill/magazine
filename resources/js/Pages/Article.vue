@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="bg-black text-white">
+		<div class="text-white">
 			<div class="mx-auto lg:grid grid-cols-2 gap-2 min-h-screen">
 				<Thumbnail
 					:src="article.image"
@@ -38,46 +38,56 @@
 			</div>
 		</div>
 
-		<div
-			class="container mx-auto md:my-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2"
-		>
-			<div class="col-span-3">
-				<Reader
-					v-model="article.content"
-					class="article content bg-white p-3 rounded-none lg:rounded-lg lg:shadow-lg"
-				/>
+		<div class="bg-gray-200">
+			<div
+				class="container mx-auto md:py-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2"
+			>
+				<div class="col-span-3">
+					<Reader
+						v-model="article.content"
+						class="article content bg-white py-3 px-6 rounded-none lg:rounded-lg lg:shadow-lg"
+					/>
 
-				<div v-if="suggested.ofCategory" class="xl:grid grid-cols-2 gap-4">
-					<Card
-						v-for="item in suggested.ofCategory"
-						:key="item.id"
-						v-bind="item"
-						:href="$route('articles.read', item.id)"
-						class="shadow-xl rounded-lg"
+					<div v-if="suggested.ofCategory" class="pt-5">
+						<p class="text-2xl text-center font-banner uppercase">
+							<span class="font-banner text-primary">#</span>
+							{{article.category.name}}
+						</p>
+						<div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+							<Card
+								v-for="item in suggested.ofCategory"
+								:key="item.id"
+								v-bind="item"
+								:href="$route('articles.read', item.id)"
+								class="shadow-xl rounded-lg bg-white"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div v-if="sponsors">
+					<SponsorCard
+						v-for="sponsor in sponsors"
+						:key="sponsor.id"
+						v-bind="sponsor"
+						fixed
+						class="w-full lg:11/12 mx-auto mt-0"
 					/>
 				</div>
 			</div>
-
-			<div v-if="sponsors">
-				<SponsorCard
-					v-for="sponsor in sponsors"
-					:key="sponsor.id"
-					v-bind="sponsor"
-					fixed
-					class="w-full lg:11/12 mx-auto mt-0"
-				/>
-			</div>
 		</div>
 
-		<div v-if="suggested.ofAuthor" class="bg-black text-white banner">
+		<div v-if="suggested.ofAuthor" class="bg-dark text-white banner">
 			<div class="flex items-center pt-5">
 				<div class="mx-auto md:flex items-center">
 					<p class="text-center">More by</p>
-					<AuthorBadge v-bind="article.author" class="inline-block"/>
+					<AuthorBadge v-bind="article.author" class="inline-block" />
 				</div>
 			</div>
 
-			<div class="xl:grid grid-cols-2 gap-4 container mx-auto">
+			<div
+				class="md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto px-6"
+			>
 				<Card
 					v-for="item in suggested.ofAuthor"
 					:key="item.id"
@@ -100,10 +110,10 @@ export default {
 	components: {
 		Reader,
 		Thumbnail,
-		SponsorCard: () => import('~/SponsorCard'),
+		SponsorCard: () => import("~/SponsorCard"),
 		Reactions,
 		AuthorBadge,
-		Card: () => import('~/MiniCard'),
+		Card: () => import("~/ImageCard"),
 	},
 	props: {
 		article: Object,
