@@ -9,6 +9,12 @@ import route from "ziggy-js";
 import LazyLoad from 'vue-lazyload';
 import ScrollSpy from 'vue2-scrollspy';
 import Layout from "@/Layouts/PublicLayout";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(fas, fab)
 
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
@@ -17,6 +23,7 @@ Vue.prototype.$route = (...args) => route(...args).url();
 Vue.prototype.$redirect = (url) => { window.location.href = url }
 Vue.use(LazyLoad);
 Vue.use(ScrollSpy);
+Vue.component('Icon', FontAwesomeIcon)
 
 Vue.mixin({
     methods: {
