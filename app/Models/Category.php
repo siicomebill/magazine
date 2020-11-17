@@ -15,6 +15,7 @@ class Category extends Model implements SEOCompatibleInterface
         "name",
         "snippet",
         "parent_id",
+        "image",
     ];
 
     public $timestamps = false;
@@ -36,6 +37,6 @@ class Category extends Model implements SEOCompatibleInterface
 
     public function toSEOInfo(): SEOInfo
     {
-        return new SEOInfo($this->name, $this->snippet);
+        return new SEOInfo($this->name, $this->snippet, null, $this->image);
     }
 }
