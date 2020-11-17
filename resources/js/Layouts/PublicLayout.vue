@@ -43,7 +43,9 @@
 				</div>
 			</nav>
 
-			<nav class="bg-dark text-white shadow-lg md:px-6 font-banner flex justify-end items-end">
+			<nav
+				class="bg-dark text-white shadow-lg md:px-6 font-banner flex justify-end items-end"
+			>
 				<Dropdown
 					title="Rubriche"
 					mobileOnly
@@ -93,14 +95,28 @@
 		</main>
 
 		<section class="footer py-10 px-4 bg-dark text-white">
-			<div class="container mx-auto px-4 lg:grid grid-cols-2 gap-4">
-				<div v-if="$page.pages.length" class="my-6">
+			<div class="mx-auto text-center">
+				<div v-if="$page.configuration.footer">
+					<Reader v-model="$page.configuration.footer" />
+				</div>
+			</div>
+
+			<div
+				class="container mx-auto px-4 lg:grid grid-cols-6 gap-4 items-center"
+			>
+				<Thumbnail
+					v-if="$page.configuration.logo"
+					:src="$page.configuration.logo.medium"
+					imageClass="w-auto h-32 block mx-auto"
+				/>
+
+				<div v-if="$page.pages.length" class="col-span-5 my-6">
 					<div class="mb-4">
 						<p class="text-3xl text-center md:text-left">Esplora</p>
 						<hr class="mt-5 border-gray-700" />
 					</div>
 
-					<div class="col-span-3 md:grid md:grid-cols-2 lg:grid-cols-4">
+					<div class="md:grid md:grid-cols-2 lg:grid-cols-4">
 						<a
 							v-for="page in $page.pages"
 							:key="page.slug"
@@ -111,22 +127,12 @@
 						</a>
 					</div>
 				</div>
-
-				<div class="w-1/2 mx-auto text-center pt-20">
-					<p class="py-5" v-if="$page.configuration.footer">
-						<Reader v-model="$page.configuration.footer" />
-					</p>
-
-					<Thumbnail
-						v-if="$page.configuration.logo"
-						:src="$page.configuration.logo.small"
-						imageClass="w-auto h-auto block mx-auto logo-invert"
-					/>
-				</div>
 			</div>
 
 			<div class="text-center">
-				<div class="my-5 py-5 mx-auto text-center text-black uppercase font-banner">
+				<div
+					class="my-5 py-5 mx-auto text-center text-black uppercase font-banner"
+				>
 					<a
 						href="https://www.instagram.com/siicomebill/"
 						target="_blank"
