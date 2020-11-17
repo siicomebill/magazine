@@ -43,6 +43,10 @@
 				class="container mx-auto md:py-4 lg:py-2 lg:px-4 px-0 lg:grid grid-cols-4 gap-2"
 			>
 				<div class="col-span-3">
+					<div class="py-3">
+						<ShareButtons :link="$route('articles.read', article.id)" class="justify-center"/>
+					</div>
+
 					<Reader
 						v-model="article.content"
 						class="article content bg-white py-3 px-6 rounded-none lg:rounded-lg lg:shadow-lg"
@@ -51,7 +55,7 @@
 					<div v-if="suggested.ofCategory" class="pt-5">
 						<p class="text-2xl text-center font-banner uppercase">
 							<span class="font-banner text-primary">#</span>
-							{{article.category.name}}
+							{{ article.category.name }}
 						</p>
 						<div class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
 							<Card
@@ -105,6 +109,7 @@ import Thumbnail from "~/Thumbnail";
 import { Reader } from "vue-publisher";
 import Reactions from "~/Reactions";
 import AuthorBadge from "~/AuthorBadge";
+import ShareButtons from "~/ShareButtons";
 
 export default {
 	components: {
@@ -114,6 +119,7 @@ export default {
 		Reactions,
 		AuthorBadge,
 		Card: () => import("~/ImageCard"),
+		ShareButtons,
 	},
 	props: {
 		article: Object,

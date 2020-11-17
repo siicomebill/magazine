@@ -2,6 +2,7 @@
 	<div>
 		<div
 			class="flex py-20 select-none md:min-h-0 text-white md:px-10 lg:px-0"
+			v-if="config.banner || config.logo"
 		>
 			<div class="container m-auto px-4 md:px-0">
 				<div class="flex items-center" v-if="config.logo">
@@ -26,10 +27,6 @@
 					v-model="config.banner"
 				/>
 			</div>
-		</div>
-
-		<div class="md:hidden sticky bottom-0 px-6 py-4">
-			<p class="cta">Scorri verso l'alto per le notizie</p>
 		</div>
 
 		<div>

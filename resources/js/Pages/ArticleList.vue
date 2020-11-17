@@ -1,5 +1,5 @@
 <template>
-	<div class="px-4 bg-black text-white">
+	<div class="px-4 bg-dark text-white">
 		<div class="container mx-auto py-20 px-5 lg:px-0" v-if="category">
 			<span class="text-6xl align-middle font-banner capitalize">{{
 				category.name

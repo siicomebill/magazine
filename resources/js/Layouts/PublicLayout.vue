@@ -2,7 +2,7 @@
 	<div>
 		<div :class="mode" class="top-0 left-0 right-0 z-30">
 			<nav
-				class="lg:bg-white lg:text-dark bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4"
+				class="bg-white text-dark shadow-lg lg:px-6 lg:py-1 px-4 py-2"
 			>
 				<div
 					class="container mx-auto flex items-center justify-between flex-wrap"
@@ -44,7 +44,7 @@
 			</nav>
 
 			<nav
-				class="bg-dark text-white shadow-lg md:px-6 font-banner flex justify-end items-end"
+				class="bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end"
 			>
 				<Dropdown
 					title="Rubriche"
