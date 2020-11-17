@@ -29,6 +29,14 @@
         }
     }
 
+    p > {
+
+        & a, strong, em {
+            //
+        }
+        
+    }
+
     a[href] {
         text-decoration: underline;
     }
