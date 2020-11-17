@@ -44,7 +44,7 @@
 			</nav>
 
 			<nav
-				class="bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4 font-banner flex justify-end items-end"
+				class="bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end"
 			>
 				<Dropdown
 					title="Rubriche"
