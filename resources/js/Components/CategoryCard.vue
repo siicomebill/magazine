@@ -1,26 +1,31 @@
 <template>
 	<div class="container mx-auto rounded-lg text-white shadow-lg p-6 mb-5">
-		<div v-if="content.parent" class="mb-0">
+		<div class="items-center text-center lg:text-left">
+			<div v-if="content.parent" class="mb-0">
+				<a
+					:href="$route('categories.articles', content.parent.id)"
+					class="bg-primary py-1 px-4 text-black rounded-full font-banner uppercase text-xl"
+				>
+					{{ content.parent.name }}
+				</a>
+			</div>
 			<a
-				:href="$route('categories.articles', content.parent.id)"
-				class="text-primary font-banner uppercase text-lg"
+				:href="$route('categories.articles', content.id)"
+				class="block text-3xl font-banner lg:text-6xl capitalize"
 			>
-				{{ content.parent.name }}
+				<span class="text-primary">#</span>
+				<span>{{ content.name }}</span>
 			</a>
 		</div>
-		<a
-			:href="$route('categories.articles', content.id)"
-			class="block text-3xl font-banner text-center lg:text-left lg:text-6xl capitalize"
-		>
-			<span class="text-primary -pr-20">#</span>
-			<span>{{ content.name }}</span>
-		</a>
+
 		<p v-if="content.snippet" class="text-gray-500 my-3">
 			{{ content.snippet }}
 		</p>
 		<div>
 			<div class="block grid-flow-cols gap-4">
-				<div class="sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-rows gap-4">
+				<div
+					class="sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-flow-rows gap-4"
+				>
 					<Card
 						v-bind="article"
 						v-for="article in content.articles"
