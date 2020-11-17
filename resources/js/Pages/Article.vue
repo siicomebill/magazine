@@ -45,10 +45,10 @@
 				<div class="col-span-3">
 					<Reader
 						v-model="article.content"
-						class="article content bg-white p-3 rounded-none lg:rounded-lg lg:shadow-lg"
+						class="article content bg-white py-3 px-6 rounded-none lg:rounded-lg lg:shadow-lg"
 					/>
 
-					<div v-if="suggested.ofCategory" class="xl:grid grid-cols-2 gap-4">
+					<div v-if="suggested.ofCategory" class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
 						<Card
 							v-for="item in suggested.ofCategory"
 							:key="item.id"
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 
-		<div v-if="suggested.ofAuthor" class="bg-black text-white banner">
+		<div v-if="suggested.ofAuthor" class="bg-dark text-white banner">
 			<div class="flex items-center pt-5">
 				<div class="mx-auto md:flex items-center">
 					<p class="text-center">More by</p>
@@ -79,7 +79,7 @@
 				</div>
 			</div>
 
-			<div class="xl:grid grid-cols-2 gap-4 container mx-auto">
+			<div class="md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 container mx-auto px-6">
 				<Card
 					v-for="item in suggested.ofAuthor"
 					:key="item.id"
@@ -105,7 +105,7 @@ export default {
 		SponsorCard: () => import("~/SponsorCard"),
 		Reactions,
 		AuthorBadge,
-		Card: () => import("~/MiniCard"),
+		Card: () => import("~/ImageCard"),
 	},
 	props: {
 		article: Object,
