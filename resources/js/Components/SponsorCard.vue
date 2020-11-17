@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
+  <div class="pb-4">
     <Card :title="name" :image="image" :href="link" class="mb-1 shadow-lg bg-white text-black" fixed outsider>
       <span class="block">{{ snippet }}</span>
 
