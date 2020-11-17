@@ -1,12 +1,12 @@
 <template>
 	<div class="flex relative" v-click-outside="onClickOutside" @mouseover="hovering = true" @mouseleave="hovering = false">
 		<div :class="{ 'lg:hidden': mobileOnly }">
-			<div class="-mr-2 flex items-center">
+			<div class="flex items-center">
 				<span
 					@click="showDropdown = !showDropdown"
-					class="inline-flex items-center justify-center focus:outline-none cursor-pointer"
+					class="grid grid-cols-4 gap-2 items-center focus:outline-none cursor-pointer"
 				>
-					<span v-if="title" class="block mr-2">{{ title }}</span>
+					<span v-if="title" class="block col-span-3">{{ title }}</span>
 					<img src="/img/arrow-down.svg" alt class="block h-4 w-4 arrow" :class="{ flipped: open }" />
 				</span>
 			</div>

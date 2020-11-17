@@ -2,7 +2,7 @@
 	<div>
 		<div :class="mode" class="top-0 left-0 right-0 z-30">
 			<nav
-				class="lg:bg-white lg:text-black bg-black text-white shadow-lg lg:px-6 lg:py-1 px-4"
+				class="lg:bg-white lg:text-dark bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4"
 			>
 				<div
 					class="container mx-auto flex items-center justify-between flex-wrap"
@@ -20,7 +20,12 @@
 							<UserDropdown />
 						</div>
 
-						<Dropdown v-else mobileOnly title="Account" class="font-banner uppercase">
+						<Dropdown
+							v-else
+							mobileOnly
+							title="Account"
+							class="font-banner uppercase"
+						>
 							<div class="lg:grid grid-cols-2 gap-2">
 								<a
 									:href="$route('login')"
@@ -38,11 +43,11 @@
 				</div>
 			</nav>
 
-			<nav class="bg-black text-white shadow-lg md:px-6 font-banner">
+			<nav class="bg-dark text-white shadow-lg md:px-6 font-banner flex justify-end items-end">
 				<Dropdown
 					title="Rubriche"
 					mobileOnly
-					containerClass="text-white ml-auto"
+					containerClass="rounded-lg py-2 px-4 bg-dark text-white"
 				>
 					<div class="text-sm lg:mb-0 mb-4 lg:inline-block">
 						<slot name="menu">
@@ -83,14 +88,12 @@
 			</nav>
 		</div>
 
-		<main class="banner bg-black lg:bg-fixed">
+		<main class="banner bg-dark lg:bg-fixed">
 			<slot></slot>
 		</main>
 
-		<section class="footer py-10 px-4 banner bg-black text-white">
-			<div
-				class="container mx-auto px-4 bg-black rounded-lg border-2 border-white"
-			>
+		<section class="footer py-10 px-4 bg-dark text-white">
+			<div class="container mx-auto px-4 lg:grid grid-cols-2 gap-4">
 				<div v-if="$page.pages.length" class="my-6">
 					<div class="mb-4">
 						<p class="text-3xl text-center md:text-left">Esplora</p>
@@ -109,23 +112,6 @@
 					</div>
 				</div>
 
-				<div class="my-5 py-5 mx-auto text-center">
-					<a
-						href="https://www.instagram.com/siicomebill/"
-						target="_blank"
-						rel="noopener"
-						class="cta-royal mx-5"
-						>Instagram</a
-					>
-					<a
-						href="https://www.facebook.com/siicomebill/"
-						target="_blank"
-						rel="noopener"
-						class="cta-blue mx-5"
-						>Facebook</a
-					>
-				</div>
-
 				<div class="w-1/2 mx-auto text-center pt-20">
 					<p class="py-5" v-if="$page.configuration.footer">
 						<Reader v-model="$page.configuration.footer" />
@@ -136,12 +122,39 @@
 						:src="$page.configuration.logo.small"
 						imageClass="w-auto h-auto block mx-auto logo-invert"
 					/>
-
-					<p class="py-10">
-						&copy; <strong>{{ $page.app.name }}</strong>
-						{{ new Date().getFullYear() }}
-					</p>
 				</div>
+			</div>
+
+			<div class="text-center">
+				<div class="my-5 py-5 mx-auto text-center text-black uppercase font-banner">
+					<a
+						href="https://www.instagram.com/siicomebill/"
+						target="_blank"
+						rel="noopener"
+						class="bg-primary py-2 px-4 mx-5 rounded-full"
+						>Instagram</a
+					>
+					<a
+						href="https://www.facebook.com/siicomebill/"
+						target="_blank"
+						rel="noopener"
+						class="bg-primary py-2 px-4 mx-5 rounded-full"
+						>Facebook</a
+					>
+				</div>
+
+				<p class="py-10">
+					&copy; <strong>{{ $page.app.name }}</strong>
+					{{ new Date().getFullYear() }}
+				</p>
+
+				<p>
+					Made with
+					<span class="font-handwritten text-primary text-4xl">LOVE</span> by
+					<a href="https://mattia.codes/" rel="noopener" target="_blank"
+						>Mattia Sinisi</a
+					>
+				</p>
 			</div>
 		</section>
 	</div>
