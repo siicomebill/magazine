@@ -56,7 +56,7 @@ export default {
 	},
 	computed: {
 		open() {
-			return this.showDropdown ? true : (this.hovering);
+			return this.showDropdown;
 		},
 	},
 };
