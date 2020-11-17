@@ -1,5 +1,5 @@
 <template>
-	<div class="container mx-auto rounded-lg text-white shadow-lg p-6 mb-5">
+	<div class="container mx-auto rounded-lg text-white p-6 mb-5">
 		<div class="items-center text-center lg:text-left">
 			<div v-if="content.parent" class="mb-0">
 				<a
