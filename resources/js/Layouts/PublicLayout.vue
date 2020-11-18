@@ -71,7 +71,7 @@
 									</a>
 									<div class="flex">
 										<Dropdown
-											class="text-black flex-grow my-auto"
+											class="text-black flex-grow my-auto capitalize"
 											containerClass="text-right bg-white rounded-lg py-3 px-4 text-dark"
 											v-if="category.children.length"
 										>
