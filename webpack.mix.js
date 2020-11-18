@@ -40,5 +40,8 @@ mix.webpackConfig({
     cache: true,
     output: {
         chunkFilename: 'js/chunks/component.[name].js',
-    }
+    },
+    node: {
+        fs: 'empty',
+    },
 })
