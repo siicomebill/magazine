@@ -1,22 +1,23 @@
 <template>
 	<div class="text-white">
-		<div :class="{ 'xl:grid': category.image }" class="grid-cols-4 gap-4 items-center container mx-auto py-10">
-			<div class="col-span-3 mx-auto py-20 px-10 text-center" v-if="category">
-				<p class="text-4xl font-banner capitalize">{{
-					category.name
-				}}</p>
+		<div class="bg-primary banner mb-3">
+			<div
+				:class="{ 'xl:grid': category.image }"
+				class="grid-cols-4 gap-4 items-center container mx-auto"
+			>
+				<div class="col-span-3 mx-auto py-20 px-10 text-center" v-if="category">
+					<p class="text-4xl font-banner capitalize">{{ category.name }}</p>
 
-				<p class="text-xl" v-if="category.snippet">{{
-					category.snippet
-				}}</p>
-			</div>
+					<p class="text-xl" v-if="category.snippet">{{ category.snippet }}</p>
+				</div>
 
-			<div v-if="category.image">
-				<Thumbnail
-					square
-					:src="category.image"
-					class="w-auto xl:rounded-full rounded-lg text-center overflow-hidden border-4 border-white"
-				/>
+				<div v-if="category.image">
+					<Thumbnail
+						square
+						:src="category.image"
+						class="w-auto xl:rounded-full rounded-lg text-center overflow-hidden border-4 border-white"
+					/>
+				</div>
 			</div>
 		</div>
 
