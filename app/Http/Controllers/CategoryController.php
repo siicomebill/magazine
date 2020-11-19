@@ -51,7 +51,8 @@ class CategoryController extends ResourceController implements ResourceControlle
 
         return $this->renderer::render('ArticleList', [
             "category" => $category,
-            "articles" => $articles
+            "articles" => $articles,
+            "childern" => $category->children()->with('articles')->get(),
         ]);
     }
 
