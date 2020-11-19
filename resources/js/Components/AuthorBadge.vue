@@ -1,8 +1,8 @@
 <template>
-	<div class="my-4 rounded-lg flex flex-col md:flex-row items-center">
+	<div class="my-4 rounded-lg flex flex-col md:flex-row items-center gap-4">
 		<div
 			v-if="profile_photo_url"
-			class="inline-block border-4 border-white p-0 rounded-full m-3"
+			class="inline-block border-4 border-white p-0 rounded-full"
 		>
 			<Thumbnail
         		square
@@ -12,8 +12,8 @@
 			/>
 		</div>
 
-		<div class="lg:text-xl text-lg text-center">
-			<p class="leading-none font-bold">{{ name }}</p>
+		<div class="text-4xl text-center">
+			<p class="leading-none font-handwritten">{{ name }}</p>
 		</div>
 	</div>
 </template>
