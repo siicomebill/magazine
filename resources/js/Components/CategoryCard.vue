@@ -28,7 +28,7 @@
 				>
 					<Card
 						v-bind="article"
-						v-for="article in (content.articles || content.latest_articles)"
+						v-for="article in content.articles"
 						:key="article.id"
 						:href="$route('articles.read', article.id)"
 						class="h-auto bg-transparent"

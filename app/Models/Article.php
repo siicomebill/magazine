@@ -8,11 +8,13 @@ use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableInterface;
 use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Article extends Model implements ReactableInterface, SEOCompatibleInterface
 {
     use HasFactory;
     use Reactable; //FIXME Disable eager loading of reactions
+    use HasEagerLimit;
 
     protected $fillable = [
         "title",

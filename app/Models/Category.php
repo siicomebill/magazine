@@ -6,10 +6,12 @@ use App\Classes\SEOInfo;
 use App\Interfaces\Models\SEOCompatibleInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Category extends Model implements SEOCompatibleInterface
 {
     use HasFactory;
+    use HasEagerLimit;
 
     protected $fillable = [
         "name",
@@ -23,11 +25,6 @@ class Category extends Model implements SEOCompatibleInterface
     public function articles()
     {
         return $this->hasMany('App\Models\Article')->latest();
-    }
-
-    public function latestArticles()
-    {
-        return $this->articles()->take(8);
     }
 
     public function parent()
