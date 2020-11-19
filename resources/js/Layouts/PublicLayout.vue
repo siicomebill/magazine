@@ -208,6 +208,7 @@ export default {
 	methods: {
 		closePopup() {
 			this.closed = true
+			this.$ga.enable()
 			this.$local.setItem('acceptedCookies', true)
 		},
 		disableAnalytics() {
