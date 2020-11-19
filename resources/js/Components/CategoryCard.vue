@@ -1,5 +1,5 @@
 <template>
-	<div class="container mx-auto rounded-lg text-white p-6 mb-5">
+	<div class="container mx-auto rounded-lg text-white p-6">
 		<div class="items-center text-center lg:text-left">
 			<div v-if="content.parent" class="mb-0">
 				<a
@@ -28,7 +28,7 @@
 				>
 					<Card
 						v-bind="article"
-						v-for="article in content.articles"
+						v-for="article in (content.articles || content.latest_articles)"
 						:key="article.id"
 						:href="$route('articles.read', article.id)"
 						class="h-auto bg-transparent"

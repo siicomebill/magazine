@@ -22,7 +22,12 @@ class Category extends Model implements SEOCompatibleInterface
 
     public function articles()
     {
-        return $this->hasMany('App\Models\Article');
+        return $this->hasMany('App\Models\Article')->latest();
+    }
+
+    public function latestArticles()
+    {
+        return $this->articles()->take(8);
     }
 
     public function parent()
