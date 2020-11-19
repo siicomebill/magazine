@@ -13,7 +13,7 @@ use Inertia\Inertia;
 
 class PublicPagesController extends Controller
 {
-    public function index(SponsorRepository $sponsor, CategoryRepository $category, ArticleRepository $article, ConfigurationRepository $config)
+    public function index(SponsorRepository $sponsor, ArticleRepository $article, ConfigurationRepository $config)
     {
         return Inertia::render('Home', [
             "sponsors" => $sponsor->important()->get(),
