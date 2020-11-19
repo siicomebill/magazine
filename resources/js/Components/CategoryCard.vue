@@ -11,7 +11,7 @@
 			</div>
 			<a
 				:href="$route('categories.articles', content.id)"
-				class="block text-3xl font-banner lg:text-6xl capitalize"
+				class="block text-4xl font-banner lg:text-6xl capitalize"
 			>
 				<span class="text-primary">#</span>
 				<span>{{ content.name }}</span>
@@ -24,7 +24,7 @@
 		<div>
 			<div class="block grid-flow-cols gap-4">
 				<div
-					class="sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-flow-rows gap-4"
+					class="sm:grid sm:grid-cols-2 xl:grid-cols-4 grid-flow-rows gap-4"
 				>
 					<Card
 						v-bind="article"
