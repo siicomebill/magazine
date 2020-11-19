@@ -84,7 +84,6 @@
 		<div v-if="suggested.ofAuthor" class="bg-dark text-white banner">
 			<div class="flex items-center pt-5">
 				<div class="mx-auto md:flex items-center">
-					<p class="text-center">More by</p>
 					<AuthorBadge v-bind="article.author" class="inline-block" />
 				</div>
 			</div>
