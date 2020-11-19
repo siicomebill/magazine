@@ -31,20 +31,16 @@
 
 		<div class="container mx-auto" v-if="articles.length">
 			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
-				<div
-					v-for="(article, i) in articles"
-					:key="article.id"
-					class="xl:grid grid-cols-4 gap-4 items-center"
-				>
-					<div class="col-span-3">
+				<div v-for="(article, i) in articles" :key="article.id">
+					<div>
 						<ArticleCard
 							v-bind="article"
 							:href="$route('articles.read', article.id)"
 						/>
-					</div>
 
-					<div v-if="sponsors[i]">
-						<SponsorCard v-bind="sponsors[i]" />
+						<div v-if="sponsors[i]" class="lg:w-1/2 mx-auto">
+							<SponsorCard v-bind="sponsors[i]" />
+						</div>
 					</div>
 				</div>
 			</div>
