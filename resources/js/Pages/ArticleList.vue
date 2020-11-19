@@ -1,14 +1,14 @@
 <template>
 	<div class="text-white">
-		<div class="xl:grid grid-cols-4 gap-4 items-center container mx-auto py-10">
-			<div class="col-span-3 mx-auto py-20 px-10" v-if="category">
-				<span class="text-6xl align-middle font-banner capitalize">{{
+		<div :class="{ 'xl:grid': category.image }" class="grid-cols-4 gap-4 items-center container mx-auto py-10">
+			<div class="col-span-3 mx-auto py-20 px-10 text-center" v-if="category">
+				<p class="text-4xl font-banner capitalize">{{
 					category.name
-				}}</span>
-				<hr class="lg:w-1/2" v-if="category.snippet" />
-				<span class="text-xl align-middle" v-if="category.snippet">{{
+				}}</p>
+
+				<p class="text-xl" v-if="category.snippet">{{
 					category.snippet
-				}}</span>
+				}}</p>
 			</div>
 
 			<div v-if="category.image">
