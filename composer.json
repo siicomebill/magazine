@@ -22,6 +22,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
         "spatie/laravel-permission": "^3.16",
+        "staudenmeir/eloquent-eager-limit": "^1.6",
         "tightenco/ziggy": "^0.9.4"
     },
     "require-dev": {

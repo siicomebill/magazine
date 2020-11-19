@@ -152,6 +152,15 @@
 					>
 						<Icon :icon="['fab', 'facebook']" size="2x"/>
 					</a>
+
+					<a
+						href="https://www.github.com/siicomebill/"
+						target="_blank"
+						rel="noopener"
+						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"
+					>
+						<Icon :icon="['fab', 'github']" size="2x"/>
+					</a>
 				</div>
 
 				<p class="py-10">
@@ -208,6 +217,7 @@ export default {
 	methods: {
 		closePopup() {
 			this.closed = true
+			this.$ga.enable()
 			this.$local.setItem('acceptedCookies', true)
 		},
 		disableAnalytics() {

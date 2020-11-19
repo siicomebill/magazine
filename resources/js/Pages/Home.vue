@@ -29,47 +29,40 @@
 			</div>
 		</div>
 
-		<div>
-			<div class="col-span-5 z-10" v-scroll-spy>
-				<div v-for="(category, i) in categories" :key="category.id">
-					<CategoryCard :content="category" />
-
-					<div class="container mx-auto">
-						<MiniSponsorCard
-							v-if="sponsors[i]"
-							v-bind="sponsors[i]"
-							class="lg:w-1/2 mx-auto"
+		<div class="container mx-auto" v-if="articles.length">
+			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
+				<div
+					v-for="(article, i) in articles"
+					:key="article.id"
+					class="xl:grid grid-cols-4 gap-4 items-center"
+				>
+					<div class="col-span-3">
+						<ArticleCard
+							v-bind="article"
+							:href="$route('articles.read', article.id)"
 						/>
+					</div>
+
+					<div v-if="sponsors[i]">
+						<SponsorCard v-bind="sponsors[i]" />
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="container mx-auto" v-if="articles.length">
-			<p class="text-center text-4xl text-gray-500 my-4">Esplora</p>
-			<MiniCard
-				v-bind="article"
-				v-for="article in articles"
-				:key="article.id"
-				:href="$route('articles.read', article.id)"
-			/>
 		</div>
 	</div>
 </template>
 
 <script>
-import MiniCard from "~/MiniCard";
-import SponsorCard from "~/SponsorCard";
-import MiniSponsorCard from "~/MiniSponsorCard";
+import ArticleCard from "~/ArticleCard";
+import SponsorCard from "~/MiniSponsorCard";
 import Dropdown from "~/Dropdown";
 import { Reader } from "vue-publisher";
 import CategoryCard from "~/CategoryCard";
 
 export default {
 	components: {
-		MiniCard,
+		ArticleCard,
 		SponsorCard,
-		MiniSponsorCard,
 		Dropdown,
 		Reader,
 		CategoryCard,

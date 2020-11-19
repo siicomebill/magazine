@@ -13,12 +13,11 @@ use Inertia\Inertia;
 
 class PublicPagesController extends Controller
 {
-    public function index(SponsorRepository $sponsor, CategoryRepository $category, ArticleRepository $article, ConfigurationRepository $config)
+    public function index(SponsorRepository $sponsor, ArticleRepository $article, ConfigurationRepository $config)
     {
         return Inertia::render('Home', [
             "sponsors" => $sponsor->important()->get(),
-            "categories" => $category->latest()->get()->sortBy('articles.updated_at'),
-            "articles" => $article->others()->get(),
+            "articles" => $article->latest(20)->get(),
             "config" => $config->get(["banner" , "logo"]),
         ]);
     }

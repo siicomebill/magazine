@@ -1,43 +1,24 @@
 <template>
 	<div class="text-white">
-		<div class="xl:grid grid-cols-4 gap-4 items-center container mx-auto py-10">
-			<div class="col-span-3 mx-auto py-20 px-10" v-if="category">
-				<span class="text-6xl align-middle font-banner capitalize">{{
-					category.name
-				}}</span>
-				<hr class="lg:w-1/2" v-if="category.snippet" />
-				<span class="text-xl align-middle" v-if="category.snippet">{{
-					category.snippet
-				}}</span>
-			</div>
-
-			<div v-if="category.image">
-				<Thumbnail
-					square
-					:src="category.image"
-					class="w-auto xl:rounded-full rounded-lg text-center overflow-hidden border-4 border-white"
-				/>
-			</div>
-		</div>
-
-		<div class="px-5 lg:px-0">
-			<fieldset
-				class="container mx-auto border-2 border-gray-700 rounded-full py-4 px-6"
-				v-if="category.children.length"
+		<div class="bg-primary banner mb-3">
+			<div
+				:class="{ 'xl:grid': category.image }"
+				class="grid-cols-4 gap-4 items-center container mx-auto p-4"
 			>
-				<legend
-					class="lg:text-center px-3 py-1 bg-white text-black rounded-full"
-				>
-					Sottocategorie
-				</legend>
-				<a
-					class="border-2 border-white rounded-full px-4 py-1 flex-shrink text-center align-middle inline-block"
-					v-for="child in category.children"
-					:key="child.id"
-					:href="$route('categories.articles', child.id)"
-					>{{ child.name }}</a
-				>
-			</fieldset>
+				<div class="col-span-3 mx-auto py-20 px-10 text-center" v-if="category">
+					<p class="text-4xl font-banner capitalize">{{ category.name }}</p>
+
+					<p class="text-xl" v-if="category.snippet">{{ category.snippet }}</p>
+				</div>
+
+				<div v-if="category.image">
+					<Thumbnail
+						square
+						:src="category.image"
+						class="w-auto rounded-lg text-center overflow-hidden border-4 border-white shadow-lg"
+					/>
+				</div>
+			</div>
 		</div>
 
 		<div
@@ -48,6 +29,14 @@
 				v-for="article in articles"
 				:key="article.id"
 				:href="$route('articles.read', article.id)"
+			/>
+		</div>
+
+		<div v-if="children.length">
+			<CategoryCard
+				v-for="child in children"
+				:key="child.id"
+				:content="child"
 			/>
 		</div>
 	</div>
@@ -61,10 +50,12 @@ export default {
 	components: {
 		Card,
 		Thumbnail,
+		CategoryCard: () => import("~/CategoryCard"),
 	},
 	props: {
 		category: Object,
 		articles: Array,
+		children: Array,
 	},
 };
 </script>
