@@ -10,7 +10,7 @@ class CategoryRepository extends ResourceRepository
 
     public function find($id)
     {
-        return $this->model::with('children')->findOrFail($id);
+        return $this->model::findOrFail($id);
     }
 
     public function important()
