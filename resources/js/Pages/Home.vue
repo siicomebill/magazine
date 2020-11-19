@@ -29,36 +29,23 @@
 			</div>
 		</div>
 
-		<div>
-			<div class="col-span-5 z-10" v-scroll-spy>
-				<div v-for="(category, i) in categories" :key="category.id">
-					<CategoryCard :content="category" />
-
-					<div class="container mx-auto">
-						<MiniSponsorCard
-							v-if="sponsors[i]"
-							v-bind="sponsors[i]"
-							class="lg:w-1/2 mx-auto"
-						/>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<div class="container mx-auto" v-if="articles.length">
-			<p class="text-center text-4xl text-gray-500 my-4">Esplora</p>
-			<MiniCard
-				v-bind="article"
-				v-for="article in articles"
-				:key="article.id"
-				:href="$route('articles.read', article.id)"
-			/>
+			<div
+				class="sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 grid-flow-rows gap-4"
+			>
+				<ArticleCard
+					v-bind="article"
+					v-for="article in articles"
+					:key="article.id"
+					:href="$route('articles.read', article.id)"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import MiniCard from "~/MiniCard";
+import ArticleCard from "~/ImageCard";
 import SponsorCard from "~/SponsorCard";
 import MiniSponsorCard from "~/MiniSponsorCard";
 import Dropdown from "~/Dropdown";
@@ -67,7 +54,7 @@ import CategoryCard from "~/CategoryCard";
 
 export default {
 	components: {
-		MiniCard,
+		ArticleCard,
 		SponsorCard,
 		MiniSponsorCard,
 		Dropdown,
