@@ -35,6 +35,12 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
         return $this->latest(20)->doesnthave('category');
     }
 
+    public function latest(int $limit = 0){
+        return parent::latest($limit)->with(['category' => function ($query) {
+            $query->with('parent');
+        }]);
+    }
+
     //TODO Move in ResourceRepository - but generalize it there
     public function forManagerPage($userId = null, $actionRoutes = null)
     {
