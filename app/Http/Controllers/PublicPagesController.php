@@ -17,7 +17,7 @@ class PublicPagesController extends Controller
     {
         return Inertia::render('Home', [
             "sponsors" => $sponsor->important()->get(),
-            "articles" => $article->latest()->get(),
+            "articles" => $article->latest(20)->get(),
             "config" => $config->get(["banner" , "logo"]),
         ]);
     }
