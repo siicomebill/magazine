@@ -50,7 +50,7 @@
     },
     "dependencies": {
         "laravel-mix-alias": "^1.0.2",
-        "vue-publisher": "^1.4.0",
+        "vue-publisher": "^1.4.1",
         "ziggy-js": "^0.9.4"
     }
 }
