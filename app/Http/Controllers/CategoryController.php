@@ -53,7 +53,7 @@ class CategoryController extends ResourceController implements ResourceControlle
             "category" => $category,
             "articles" => $articles,
             "children" => $category->children()->with(['articles' => function ($query) {
-                $query->latest()->limit(1);
+                $query->latest()->limit(4);
             }])->get(),
         ]);
     }
