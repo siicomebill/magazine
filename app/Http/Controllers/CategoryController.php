@@ -45,7 +45,7 @@ class CategoryController extends ResourceController implements ResourceControlle
     public function articlesOfCategory($id)
     {
         $category = $this->resource->find($id);
-        $articles = $category->articles()->get();
+        $articles = $category->articles()->public()->get();
 
         SEO::set($category);
 
@@ -53,7 +53,7 @@ class CategoryController extends ResourceController implements ResourceControlle
             "category" => $category,
             "articles" => $articles,
             "children" => $category->children()->with(['articles' => function ($query) {
-                $query->latest()->limit(4);
+                $query->latest()->public()->limit(4);
             }])->get(),
         ]);
     }
