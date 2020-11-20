@@ -33,6 +33,8 @@ Vue.use(VueGtag, {
     config: {
         id: process.env.MIX_ANALYTICS_APP_KEY,
     },
+    bootstrap: false,
+    globalObjectName: "analytics",
 })
 
 

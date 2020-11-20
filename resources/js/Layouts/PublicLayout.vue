@@ -1,9 +1,7 @@
 <template>
 	<div>
 		<div :class="mode" class="top-0 left-0 right-0 z-30">
-			<nav
-				class="bg-white text-dark shadow-lg lg:px-6 lg:py-1 px-4 py-2"
-			>
+			<nav class="bg-white text-dark shadow-lg lg:px-6 lg:py-1 px-4 py-2">
 				<div
 					class="container mx-auto flex items-center justify-between flex-wrap"
 				>
@@ -141,7 +139,7 @@
 						rel="noopener"
 						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"
 					>
-						<Icon :icon="['fab', 'instagram']" size="2x"/>
+						<Icon :icon="['fab', 'instagram']" size="2x" />
 					</a>
 
 					<a
@@ -150,7 +148,7 @@
 						rel="noopener"
 						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"
 					>
-						<Icon :icon="['fab', 'facebook']" size="2x"/>
+						<Icon :icon="['fab', 'facebook']" size="2x" />
 					</a>
 
 					<a
@@ -159,7 +157,7 @@
 						rel="noopener"
 						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"
 					>
-						<Icon :icon="['fab', 'github']" size="2x"/>
+						<Icon :icon="['fab', 'github']" size="2x" />
 					</a>
 				</div>
 
@@ -179,15 +177,32 @@
 		</section>
 
 		<!-- Privacy pop-up message -->
-		<div class="bg-white text-black fixed bottom-0 right-0 m-5 rounded-lg flex items-center shadow-xl" v-if="!$page.auth && !closed">
+		<div
+			class="bg-white text-black fixed bottom-0 right-0 m-5 rounded-lg flex items-center shadow-xl"
+			v-if="!$page.auth && !closed"
+		>
 			<div class="py-2 px-4">
-				<span class="text-lg font-banner block pb-1">Possiamo sapere quali articoli leggi?</span>
-				<span class="block">Ci piace sapere quali contenuti apprezzi nel nostro sito, per questo utilizziamo servizi di <strong>analytics</strong> per sapere quali pagine del magazine visiti.</span>
+				<span class="text-lg font-banner block pb-1"
+					>Possiamo sapere quali articoli leggi?</span
+				>
+				<span class="block"
+					>Ci piace sapere quali contenuti apprezzi nel nostro sito, per questo
+					utilizziamo servizi di <strong>analytics</strong> per sapere quali
+					pagine del magazine visiti.</span
+				>
 			</div>
 
 			<div class="flex items-center px-2 gap-2 font-banner">
-				<span class="px-4 py-2 rounded-lg bg-green-500 text-white cursor-pointer" @click.prevent="closePopup">SI</span>
-				<span class="px-4 py-2 rounded-lg bg-red-700 text-white cursor-pointer" @click.prevent="disableAnalytics">NO</span>
+				<span
+					class="px-4 py-2 rounded-lg bg-green-500 text-white cursor-pointer"
+					@click.prevent="closePopup"
+					>SI</span
+				>
+				<span
+					class="px-4 py-2 rounded-lg bg-red-700 text-white cursor-pointer"
+					@click.prevent="disableAnalytics"
+					>NO</span
+				>
 			</div>
 		</div>
 	</div>
@@ -196,6 +211,8 @@
 <script>
 import Dropdown from "~/Dropdown";
 import { Reader } from "vue-publisher";
+
+import { bootstrap } from "vue-gtag";
 
 export default {
 	components: {
@@ -211,25 +228,25 @@ export default {
 		},
 	},
 	mounted() {
-		this.$ga.page(this.$page.url)
-		this.closed = this.$local.getItem('acceptedCookies') != undefined
+		this.closed = this.$local.getItem("acceptedCookies") != undefined;
 	},
 	methods: {
 		closePopup() {
-			this.closed = true
-			this.$ga.enable()
-			this.$local.setItem('acceptedCookies', true)
+			bootstrap().then(() => {
+				this.closed = true;
+				this.$ga.enable();
+				this.$local.setItem("acceptedCookies", true);
+			});
 		},
 		disableAnalytics() {
-			this.$ga.disable()
-			this.$local.setItem('acceptedCookies', false)
-			this.closePopup()
-		}
+			this.$local.setItem("acceptedCookies", false);
+			this.closed = true;
+		},
 	},
-	data(){
+	data() {
 		return {
 			closed: false,
-		}
-	}
+		};
+	},
 };
 </script>
