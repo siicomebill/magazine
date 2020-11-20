@@ -234,7 +234,6 @@ export default {
 		closePopup() {
 			bootstrap().then(() => {
 				this.closed = true;
-				this.$ga.enable();
 				this.$local.setItem("acceptedCookies", true);
 			});
 		},
