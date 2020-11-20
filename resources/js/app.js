@@ -14,7 +14,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import VueAnalytics from 'vue-analytics';
+import VueGtag from 'vue-gtag';
 import localStorage from 'localStorage';
 
 library.add(fas, fab)
@@ -29,8 +29,12 @@ Vue.use(LazyLoad);
 Vue.use(ScrollSpy);
 Vue.component('Icon', FontAwesomeIcon)
 
-Vue.use(VueAnalytics, {
-    id: process.env.MIX_ANALYTICS_APP_KEY
+Vue.use(VueGtag, {
+    config: {
+        id: process.env.MIX_ANALYTICS_APP_KEY,
+    },
+    bootstrap: false,
+    globalObjectName: "analytics",
 })
 
 
