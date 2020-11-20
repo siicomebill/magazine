@@ -63,8 +63,6 @@ new Vue({
                 initialPage: JSON.parse(app.dataset.page),
                 resolveComponent: name => import(`@/Pages/${name}`)
                     .then(({ default: page }) => {
-                        //TODO Put analytics logic here
-                        //FIXME Use vue-gtag
                         if (page.layout === undefined) {
                             page.layout = Layout
                         }
