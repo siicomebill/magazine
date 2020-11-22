@@ -58,7 +58,6 @@
 
 							<div class="my-4">
 								<date-time-picker
-									placeholder="Data pubblicazione"
 									class="bg-white rounded-lg p-4 shadow"
 									seconds-picker
 									value-type="String"
