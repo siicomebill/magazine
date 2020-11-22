@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Classes\SEOInfo;
 use App\Interfaces\Models\SEOCompatibleInterface;
+use App\Traits\HasPublishingDate;
 use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableInterface;
 use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,6 +16,7 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
     use HasFactory;
     use Reactable; //FIXME Disable eager loading of reactions
     use HasEagerLimit;
+    use HasPublishingDate;
 
     protected $fillable = [
         "title",
@@ -22,11 +24,17 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
         "content",
         "category_id",
         "user",
-        "image"
+        "image",
+        "published_at",
+    ];
+
+    protected $dates = [
+        'published_at'
     ];
 
     protected $casts = [
-        "content" => "array"
+        "content" => "array",
+        "published_at" => "datetime",
     ];
 
     protected $with = [

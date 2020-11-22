@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Helpers\SEO;
 use App\Repositories\ArticleRepository;
-use App\Repositories\CategoryRepository;
 use App\Repositories\ConfigurationRepository;
 use App\Repositories\PageRepository;
 use App\Repositories\SponsorRepository;
@@ -17,7 +16,7 @@ class PublicPagesController extends Controller
     {
         return Inertia::render('Home', [
             "sponsors" => $sponsor->important()->get(),
-            "articles" => $article->latest(20)->get(),
+            "articles" => $article->latest(20)->public()->get(),
             "config" => $config->get(["banner" , "logo"]),
         ]);
     }

@@ -17,12 +17,12 @@
 		>
 			<div
 				v-if="category"
-				class="items-center text-center lg:text-left flex gap-4"
+				class="items-center text-center lg:text-left lg:flex gap-4"
 			>
 				<a
 					v-if="category.parent"
 					:href="$route('categories.articles', category.parent.id)"
-					class="block text-xl font-banner capitalize"
+					class="block text-xl font-banner capitalize mb-3 lg:mb-0"
 				>
 					<span class="text-primary">#</span>
 					<span>{{ category.parent.name }}</span>
