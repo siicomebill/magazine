@@ -24,11 +24,17 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
         "content",
         "category_id",
         "user",
-        "image"
+        "image",
+        "published_at",
+    ];
+
+    protected $dates = [
+        'published_at'
     ];
 
     protected $casts = [
-        "content" => "array"
+        "content" => "array",
+        "published_at" => "datetime",
     ];
 
     protected $with = [
