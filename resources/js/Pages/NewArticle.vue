@@ -57,10 +57,13 @@
 							</div>
 
 							<div class="my-4">
-								<input
+								<date-time-picker
 									placeholder="Data pubblicazione"
-									type="datetime-local"
 									class="bg-white rounded-lg p-4 shadow"
+									seconds-picker
+									value-type="String"
+									value-format="y-LL-d'T'HH:mm:ss'.000000Z'"
+									locale="it"
 									:class="{ 'border border-red-500': error('published_at') }"
 									v-model="edited.published_at"
 								/>

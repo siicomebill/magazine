@@ -16,6 +16,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueGtag from 'vue-gtag';
 import localStorage from 'localStorage';
+import DateTimePicker from 'vue-vanilla-datetime-picker';
 
 library.add(fas, fab)
 
@@ -28,6 +29,8 @@ Vue.prototype.$local = localStorage
 Vue.use(LazyLoad);
 Vue.use(ScrollSpy);
 Vue.component('Icon', FontAwesomeIcon)
+Vue.component('date-time-picker', DateTimePicker);
+
 
 Vue.use(VueGtag, {
     config: {
