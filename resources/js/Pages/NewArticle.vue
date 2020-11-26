@@ -17,7 +17,7 @@
 							}}</span>
 						</div>
 
-						<div class="text-sm italic text-gray-500 text-right">
+						<div class="text-sm italic text-gray-500 text-right" v-if="stored">
 							<p>{{stored.created_at}}</p>
 						</div>
 
