@@ -2,6 +2,18 @@ body{
     @apply bg-gray-200 bg-opacity-25;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-white;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-black rounded-full;
+}
+
 hr {
     @apply my-3;
 }

@@ -17,6 +17,10 @@
 							}}</span>
 						</div>
 
+						<div class="text-sm italic text-gray-500 text-right">
+							<p>{{stored.created_at}}</p>
+						</div>
+
 						<div class="my-4">
 							<textarea
 								type="text"
