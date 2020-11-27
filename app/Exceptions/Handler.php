@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Spatie\Csp\Directive;
+use Spatie\Csp\Keyword;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -50,6 +52,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        $this->container->singleton(AppPolicy::class, function ($app) {
+            return new AppPolicy();
+        });
+        app(AppPolicy::class)->addDirective(Directive::SCRIPT, Keyword::UNSAFE_INLINE);
+        app(AppPolicy::class)->addDirective(Directive::STYLE, Keyword::UNSAFE_INLINE);
+
         return parent::render($request, $exception);
     }
 }
