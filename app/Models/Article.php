@@ -7,6 +7,7 @@ use App\Interfaces\Models\SEOCompatibleInterface;
 use App\Traits\HasPublishingDate;
 use Cog\Contracts\Love\Reactable\Models\Reactable as ReactableInterface;
 use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
@@ -29,18 +30,24 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
     ];
 
     protected $dates = [
-        'published_at'
+        'created_at',
+        'updated_at',
+        'published_at',
     ];
 
     protected $casts = [
         "content" => "array",
-        "published_at" => "datetime",
     ];
 
     protected $with = [
         "author",
         "category"
     ];
+
+    public function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format("d-m-Y H:i");
+    }
 
     public function category()
     {

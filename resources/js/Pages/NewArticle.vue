@@ -63,12 +63,15 @@
 							<div class="my-4">
 								<date-time-picker
 									class="bg-white rounded-lg p-4 shadow"
-									seconds-picker
-									value-type="String"
-									value-format="y-LL-d'T'HH:mm:ss'.000000Z'"
-									locale="it"
 									:class="{ 'border border-red-500': error('published_at') }"
 									v-model="edited.published_at"
+									todayButton
+									clearButton
+									closeButton
+									value-format="d-LL-y HH:mm"
+									format="d-LL-y HH:mm"
+									constraints-format="d-LL-y HH:mm"
+									locale="it"
 								/>
 								<span
 									class="text-red-500 text-sm italic"
