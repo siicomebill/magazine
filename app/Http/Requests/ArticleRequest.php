@@ -30,7 +30,7 @@ class ArticleRequest extends FormRequest
             "snippet" => "required",
             "content" => "required|array",
             "user_id" => "numeric",
-            "published_at" => "date|nullable",
+            "published_at" => "date",
         ];
     }
 
