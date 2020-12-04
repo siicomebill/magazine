@@ -43,8 +43,8 @@
 									:class="{ 'border border-red-500': error('category_id') }"
 									v-model="edited.category_id"
 								>
-									<option value="">
-										Nessuna Categoria
+									<option disabled :selected="!edited.category_id">
+										Categoria
 									</option>
 
 									<hr class="my-3"/>
