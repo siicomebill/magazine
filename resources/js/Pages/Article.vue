@@ -25,6 +25,10 @@
 
 					<div>{{ article.snippet }}</div>
 
+					<div v-if="article.published_at" class="py-4">
+						<p class="capitalize">{{new Date(article.published_at).toLocaleDateString("it-IT", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</p>
+					</div>
+
 					<AuthorBadge v-bind="article.author" />
 
 					<div class="mt-12">
