@@ -39,12 +39,16 @@
 						<div class="my-4 lg:flex gap-4">
 							<div class="my-4">
 								<select
-									class="bg-white rounded-lg p-4 shadow"
+									class="appearance-none bg-white shadow block leading-tight p-4 rounded-lg text-xl text-gray-700"
+									:class="{ 'border border-red-500': error('category_id') }"
 									v-model="edited.category_id"
 								>
 									<option disabled :selected="!edited.category_id">
 										Categoria
 									</option>
+
+									<hr class="my-3"/>
+
 									<option
 										v-for="category in categories"
 										:key="category.id"
@@ -141,7 +145,7 @@ export default {
 				content: {},
 				category_id: "",
 				image: "",
-				published_at: null,
+				published_at: "",
 			},
 		};
 	},

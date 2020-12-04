@@ -40,6 +40,13 @@ export default {
 						return `http://www.reddit.com/submit?url=${link}`
 					},
 				},
+				{
+					icon: "whatsapp",
+					class: "bg-green-600",
+					url: (link) => {
+						return `whatsapp://send?text=Leggi questo articolo su Sii Come Bill Magazine: ${link}`
+					},
+				},
 			],
 		};
     },
