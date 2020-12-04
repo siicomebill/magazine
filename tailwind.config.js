@@ -22,7 +22,7 @@ module.exports = {
 		colors: {
 			...defaultTheme.colors,
 			primary: "#64C0C0",
-			dark: "#231F20",
+			dark: "#111",
 		},
 		extend: {
 			fontFamily: {
