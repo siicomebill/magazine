@@ -141,7 +141,7 @@ export default {
 				content: {},
 				category_id: "",
 				image: "",
-				published_at: null,
+				published_at: "",
 			},
 		};
 	},
