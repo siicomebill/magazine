@@ -30,7 +30,7 @@ class ArticleRequest extends FormRequest
             "snippet" => "required",
             "content" => "required|array",
             "user_id" => "numeric",
-            "published_at" => "date",
+            "published_at" => "date|nullable",
         ];
     }
 
@@ -39,7 +39,8 @@ class ArticleRequest extends FormRequest
         $this->merge([
             "content" => json_decode($this->get('content'), true),
             "author" => json_decode($this->get('author'), true),
-            "category" => json_decode($this->get('category'), true)
+            "category" => json_decode($this->get('category'), true),
+            "published_at" => $this->get('published_at') ?? now(),
         ]);
     }
 }
