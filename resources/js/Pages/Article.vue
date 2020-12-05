@@ -132,8 +132,12 @@ export default {
 	},
 	computed: {
 		published_at() {
-			let converted = this.article.published_at.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")
-			return new Date(converted).toLocaleDateString("it-IT", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+			let original = this.article.published_at
+
+			if(original){
+				let converted = original.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")
+				return new Date(converted).toLocaleDateString("it-IT", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+			}
 		},
 	},
 };
