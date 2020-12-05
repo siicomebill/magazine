@@ -228,17 +228,22 @@ export default {
 		},
 	},
 	mounted() {
-		this.closed = this.$local.getItem("acceptedCookies") != undefined;
+		let acceptedCookies = this.$local.getItem("acceptedCookies")
+		this.closed = acceptedCookies != undefined;
+
+		if (acceptedCookies == "true"){
+			bootstrap()
+		}
 	},
 	methods: {
 		closePopup() {
 			bootstrap().then(() => {
 				this.closed = true;
-				this.$local.setItem("acceptedCookies", true);
+				this.$local.setItem("acceptedCookies", "true");
 			});
 		},
 		disableAnalytics() {
-			this.$local.setItem("acceptedCookies", false);
+			this.$local.setItem("acceptedCookies", "false");
 			this.closed = true;
 		},
 	},
