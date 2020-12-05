@@ -25,8 +25,8 @@
 
 					<div>{{ article.snippet }}</div>
 
-					<div v-if="article.published_at" class="py-4">
-						<p class="capitalize">{{new Date(article.published_at).toLocaleDateString("it-IT", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</p>
+					<div v-if="published_at" class="py-4">
+						<p class="capitalize">{{published_at}}</p>
 					</div>
 
 					<AuthorBadge v-bind="article.author" />
@@ -129,6 +129,12 @@ export default {
 		sponsors: Array,
 		reactions: Array,
 		suggested: Object,
+	},
+	computed: {
+		published_at() {
+			let converted = this.article.published_at.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")
+			return new Date(converted).toLocaleDateString("it-IT", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+		},
 	},
 };
 </script>
