@@ -36,7 +36,7 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
     }
 
     public function latest(int $limit = 0){
-        return parent::latest($limit)->with(['category' => function ($query) {
+        return $this->asModel()->public()->latest('published_at')->limit($limit)->with(['category' => function ($query) {
             $query->with('parent');
         }]);
     }
@@ -44,7 +44,7 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
     //TODO Move in ResourceRepository - but generalize it there
     public function forManagerPage($userId = null, $actionRoutes = null)
     {
-        $articles = $this->latest()->user($userId ?? auth()->user()->id)->paginate(5);
+        $articles = $this->asModel()->latest('updated_at')->user($userId ?? auth()->user()->id)->paginate(5);
 
         //TODO Write resource routes class for storing these values
         $defaultRoutes = [
