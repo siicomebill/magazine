@@ -17,13 +17,13 @@
 
 				<template #content>
 					<!-- Account Management -->
-					<div class="block px-4 py-2 text-xs text-gray-400">
-						Manage Account
+					<div class="block px-4 py-2 font-banner uppercase">
+						{{$page.user.name}}
 					</div>
 
-					<jet-dropdown-link href="/user/profile"> Profile </jet-dropdown-link>
+					<jet-dropdown-link href="/user/profile"> Gestisci profilo </jet-dropdown-link>
 
-					<jet-dropdown-link href="/dashboard"> Dashboard </jet-dropdown-link>
+					<jet-dropdown-link href="/dashboard"> Vai alla tua bacheca </jet-dropdown-link>
 
 					<jet-dropdown-link
 						href="/user/api-tokens"
@@ -40,21 +40,21 @@
 
 						<!-- Team Settings -->
 						<jet-dropdown-link :href="'/teams/' + $page.user.current_team.id">
-							Team Settings
+							Impostiazioni dei Team
 						</jet-dropdown-link>
 
 						<jet-dropdown-link
 							href="/teams/create"
 							v-if="$page.jetstream.canCreateTeams"
 						>
-							Create New Team
+							Nuovo Team
 						</jet-dropdown-link>
 
 						<div class="border-t border-gray-100"></div>
 
 						<!-- Team Switcher -->
 						<div class="block px-4 py-2 text-xs text-gray-400">
-							Switch Teams
+							Cambia Team
 						</div>
 
 						<template v-for="team in $page.user.all_teams">
@@ -86,7 +86,7 @@
 
 					<!-- Authentication -->
 					<form @submit.prevent="logout">
-						<jet-dropdown-link as="button"> <span class="text-red-500">Logout</span> </jet-dropdown-link>
+						<jet-dropdown-link as="button"> <span class="text-red-500">Esci</span> </jet-dropdown-link>
 					</form>
 				</template>
 			</jet-dropdown>
