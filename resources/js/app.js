@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueGtag from 'vue-gtag';
 import localStorage from 'localStorage';
 import DateTimePicker from 'vue-vanilla-datetime-picker';
+import VueDisqus from 'vue-disqus';
 
 library.add(fas, fab)
 
@@ -40,6 +41,9 @@ Vue.use(VueGtag, {
     globalObjectName: "analytics",
 })
 
+Vue.use(VueDisqus, {
+    shortname: process.env.MIX_DISQUS_SHORTNAME,
+})
 
 Vue.mixin({
     methods: {
