@@ -169,9 +169,16 @@
 				<p>
 					Made with
 					<span class="font-handwritten text-primary text-4xl">LOVE</span> by
-					<a href="https://mattia.codes/" rel="noopener" target="_blank"
-						>Mattia Sinisi</a
+					<a
+						href="https://mattia.codes/"
+						rel="noopener"
+						target="_blank"
+						class="emphasized"
 					>
+						Mattia Sinisi
+					</a>
+					and
+					<a>Federica Spallino</a>
 				</p>
 			</div>
 		</section>
@@ -228,11 +235,11 @@ export default {
 		},
 	},
 	mounted() {
-		let acceptedCookies = this.$local.getItem("acceptedCookies")
+		let acceptedCookies = this.$local.getItem("acceptedCookies");
 		this.closed = acceptedCookies != undefined;
 
-		if (acceptedCookies == "true"){
-			bootstrap()
+		if (acceptedCookies == "true") {
+			bootstrap();
 		}
 	},
 	methods: {
