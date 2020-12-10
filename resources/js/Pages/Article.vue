@@ -26,18 +26,10 @@
 					<div>{{ article.snippet }}</div>
 
 					<div v-if="published_at" class="py-4">
-						<p class="capitalize">{{published_at}}</p>
+						<p class="capitalize">{{ published_at }}</p>
 					</div>
 
 					<AuthorBadge v-bind="article.author" />
-
-					<div class="mt-12">
-						<Reactions
-							:givenReactions="reactions"
-							reactTo="article"
-							:itemId="article.id"
-						/>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -52,8 +44,17 @@
 						class="article content bg-white py-3 px-6 rounded-none lg:rounded-lg lg:shadow-lg"
 					/>
 
-					<div class="py-3">
-						<ShareButtons :link="$route('articles.read', article.id)" class="justify-center"/>
+					<div class="py-3 lg:grid grid-cols-2 items-center">
+						<Reactions
+							:givenReactions="reactions"
+							reactTo="article"
+							:itemId="article.id"
+						/>
+
+						<ShareButtons
+							:link="$route('articles.read', article.id)"
+							class="justify-center mt-10 lg:mt-0"
+						/>
 					</div>
 
 					<div v-if="suggested.ofCategory" class="pt-5">
@@ -132,11 +133,16 @@ export default {
 	},
 	computed: {
 		published_at() {
-			let original = this.article.published_at
+			let original = this.article.published_at;
 
-			if(original){
-				let converted = original.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")
-				return new Date(converted).toLocaleDateString("it-IT", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+			if (original) {
+				let converted = original.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3");
+				return new Date(converted).toLocaleDateString("it-IT", {
+					weekday: "long",
+					year: "numeric",
+					month: "long",
+					day: "numeric",
+				});
 			}
 		},
 	},
