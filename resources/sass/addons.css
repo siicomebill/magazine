@@ -14,6 +14,10 @@ body{
     @apply bg-black rounded-full;
 }
 
+a[href].emphasized {
+    @apply text-primary;
+}
+
 hr {
     @apply my-3;
 }
