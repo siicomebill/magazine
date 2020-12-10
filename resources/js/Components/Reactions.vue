@@ -7,9 +7,9 @@
 			type="button"
 			class="block"
 		>
-			<div class="grid grid-cols-4">
+			<div class="grid grid-cols-4 shadow-lg rounded-lg">
 				<span	
-					class="flex items-center justify-items-center col-span-3 rounded-l-lg appearance-none bg-gradient-to-br from-blue-600 to-blue-700 py-2 px-4 hover:bg-gradient-to-l hover:from-white hover:to-blue-300 hover:text-blue-600 transition-all duration-300"
+					class="text-white flex items-center justify-items-center col-span-3 rounded-l-lg appearance-none bg-gradient-to-br from-blue-600 to-blue-700 py-2 px-4 hover:bg-gradient-to-l hover:from-white hover:to-blue-300 hover:text-blue-600 transition-all duration-300"
 				>
 					<span class="m-auto">{{ reaction.name }}</span>
 				</span>
