@@ -44,7 +44,7 @@
 						class="article content bg-white py-3 px-6 rounded-none lg:rounded-lg lg:shadow-lg"
 					/>
 
-					<div class="py-3 lg:grid grid-cols-2 items-center">
+					<div class="py-3 px-4 lg:px-0 lg:grid grid-cols-2 items-center">
 						<Reactions
 							:givenReactions="reactions"
 							reactTo="article"
