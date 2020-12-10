@@ -44,17 +44,21 @@
 						class="article content bg-white py-3 px-6 rounded-none lg:rounded-lg lg:shadow-lg"
 					/>
 
-					<div class="py-3 px-4 lg:px-0 lg:grid grid-cols-2 items-center">
-						<Reactions
-							:givenReactions="reactions"
-							reactTo="article"
-							:itemId="article.id"
-						/>
+					<div class="py-3 px-4 lg:px-0">
+						<div class="pb-10 lg:grid grid-cols-2 items-center">
+							<Reactions
+								:givenReactions="reactions"
+								reactTo="article"
+								:itemId="article.id"
+							/>
 
-						<ShareButtons
-							:link="$route('articles.read', article.id)"
-							class="justify-center mt-10 lg:mt-0"
-						/>
+							<ShareButtons
+								:link="$route('articles.read', article.id)"
+								class="justify-center mt-10 lg:mt-0"
+							/>
+						</div>
+
+						<Disqus />
 					</div>
 
 					<div v-if="suggested.ofCategory" class="pt-5">
