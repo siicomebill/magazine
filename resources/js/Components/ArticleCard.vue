@@ -2,7 +2,7 @@
 	<a
 		class="block my-4 rounded-lg bg-dark text-white items-center grid-cols-4 border-2 border-white overflow-hidden"
 		:class="{ grid: fixed, 'block lg:grid': !fixed }"
-		:href="href"
+		:href="$route('articles.read', identifier)"
 		:target="target"
 		:rel="rel"
 	>
@@ -67,8 +67,12 @@
 <script>
 import Card from "~/Card";
 import AuthorBadge from "~/AuthorBadge";
+import ResourceWithSlug from "@/Mixins/ResourceWithSlug";
 
 export default {
+	mixins: [
+		ResourceWithSlug,
+	],
 	extends: Card,
 	components: {
 		AuthorBadge,
