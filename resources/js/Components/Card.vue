@@ -42,6 +42,10 @@ export default {
 		Thumbnail,
 	},
 	props: {
+		id: {
+			type: [Number, String],
+			required: false,
+		},
 		title: {
 			type: String,
 			required: true,
