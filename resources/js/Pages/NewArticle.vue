@@ -17,8 +17,32 @@
 							}}</span>
 						</div>
 
+						<div class="my-4">
+							<div
+								class="flex shadow w-full leading-tight rounded-lg text-xl font-bold text-gray-700 items-center bg-blue-500"
+							>
+								<div class="text-center text-white px-5">
+									<span>&sol;</span>
+								</div>
+								<input
+									type="text"
+									v-model="edited.slug"
+									placeholder="your-custom-slug"
+									class="flex-grow appearance-none bg-white leading-tight p-4 rounded-r-lg text-gray-700"
+									:class="{ 'border border-red-500': error('slug') }"
+								/>
+							</div>
+
+							<span class="text-red-500 text-sm italic" v-if="error('slug')">{{
+								error("slug")
+							}}</span>
+							<span class="text-gray-500 text-sm italic" v-else>
+								Se lasciato vuoto viene creato al salvataggio.
+							</span>
+						</div>
+
 						<div class="text-sm italic text-gray-500 text-right" v-if="stored">
-							<p>{{stored.created_at}}</p>
+							<p>{{ stored.created_at }}</p>
 						</div>
 
 						<div class="my-4">
@@ -47,7 +71,7 @@
 										Categoria
 									</option>
 
-									<hr class="my-3"/>
+									<hr class="my-3" />
 
 									<option
 										v-for="category in categories"
@@ -146,6 +170,7 @@ export default {
 				category_id: "",
 				image: "",
 				published_at: "",
+				slug: null,
 			},
 		};
 	},
