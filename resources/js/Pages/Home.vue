@@ -33,10 +33,7 @@
 			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
 				<div v-for="(article, i) in articles" :key="article.id">
 					<div>
-						<ArticleCard
-							v-bind="article"
-							:href="$route('articles.read', article.id)"
-						/>
+						<ArticleCard v-bind="article" />
 
 						<div v-if="sponsors[i]" class="lg:w-1/2 mx-auto">
 							<SponsorCard v-bind="sponsors[i]" />

@@ -2,7 +2,7 @@
 	<a
 		class="block my-4 rounded-lg bg-dark text-white items-center grid-cols-4 border-2 border-white overflow-hidden"
 		:class="{ grid: fixed, 'block lg:grid': !fixed }"
-		:href="href"
+		:href="$route('articles.read', slug ? slug : id)"
 		:target="target"
 		:rel="rel"
 	>
@@ -79,6 +79,7 @@ export default {
 			default: false,
 		},
 		category: Object,
+		slug: String,
 	},
 };
 </script>
