@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import Card from "~/ImageCard";
+import Card from "~/ArticleImageCard";
 import Thumbnail from "~/Thumbnail";
 
 export default {
