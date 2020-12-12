@@ -37,7 +37,9 @@
 								error("slug")
 							}}</span>
 							<span class="text-gray-500 text-sm italic" v-else>
-								Se lasciato vuoto viene creato al salvataggio.
+								<span class="block">Se lasciato vuoto viene creato al salvataggio.</span>
+								<hr />
+								<span class="block"><strong class="uppercase">Attenzione: </strong> Modificando questo parametro dopo la pubblicazione rende i vecchi link non utilizzabili.</span>
 							</span>
 						</div>
 
