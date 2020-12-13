@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import Card from "~/ImageCard";
+import Card from "~/ArticleImageCard";
 
 export default {
 	components: {

@@ -72,4 +72,12 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
 
         return $article;
     }
+
+    public function find($id)
+    {
+        if ($article = parent::asModel()->where('slug', $id)->first())
+            return $article;
+        else
+            return parent::find($id);
+    }
 }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Classes\SEOInfo;
-use App\Helpers\SEO;
 use App\Interfaces\Models\SEOCompatibleInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -27,6 +27,7 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
         "user",
         "image",
         "published_at",
+        "slug",
     ];
 
     protected $dates = [
