@@ -15,6 +15,7 @@ const ChunkRenamePlugin = require('webpack-chunk-rename-plugin');
  */
 
 mix
+    .version()
     .js('resources/js/app.js', 'public/js')
     .extract(['vue'])
     .sass('resources/sass/app.scss', 'public/css')
@@ -36,7 +37,7 @@ mix
         output: {
             publicPath: '/',
             filename: '[name].js',
-            chunkFilename: 'js/chunks/component.[name].js' + (mix.inProduction() ? '?id=[chunkhash]' : ''),
+            chunkFilename: 'js/chunks/component.[name].js',
         },
         node: {
             fs: 'empty',
