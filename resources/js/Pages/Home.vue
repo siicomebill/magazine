@@ -35,7 +35,7 @@
 					<div>
 						<ArticleCard v-bind="article" />
 
-						<div v-if="sponsors[i]" class="lg:w-1/2 mx-auto">
+						<div v-if="sponsors[i]" class="lg:w-1/3 mx-auto">
 							<SponsorCard v-bind="sponsors[i]" />
 						</div>
 					</div>
