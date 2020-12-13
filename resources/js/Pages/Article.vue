@@ -58,7 +58,7 @@
 							/>
 						</div>
 
-						<Disqus />
+						<Disqus :pageConfig="pageConfig"/>
 					</div>
 
 					<div v-if="suggested.ofCategory" class="pt-5">
@@ -149,6 +149,12 @@ export default {
 				});
 			}
 		},
+		pageConfig(){
+			return {
+				title: this.article.title,
+				identifier: `article#${this.article.id}`,
+			}
+		}
 	},
 };
 </script>
