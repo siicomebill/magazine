@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class ArticleRequest extends FormRequest
 {
@@ -32,6 +34,7 @@ class ArticleRequest extends FormRequest
             "category_id" => "numeric|nullable",
             "user_id" => "numeric",
             "published_at" => "date|nullable",
+            "slug" => ["string", Rule::unique('articles')->ignore($this->id)],
         ];
     }
 
@@ -41,6 +44,7 @@ class ArticleRequest extends FormRequest
             "content" => json_decode($this->get('content'), true),
             "author" => json_decode($this->get('author'), true),
             "published_at" => $this->get('published_at') ?? now(),
+            "slug" => $this->get('slug') ?? Str::slug($this->get('title'))
         ]);
     }
 }

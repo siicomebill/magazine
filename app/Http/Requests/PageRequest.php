@@ -38,7 +38,7 @@ class PageRequest extends FormRequest
 
     protected function prepareForValidation(){
         $this->merge([
-            "slug" => Str::slug($this->name),
+            "slug" => $this->slug ?? Str::slug($this->name),
             "components" => Arr::pluck($this->components, 'id')
         ]);
     }

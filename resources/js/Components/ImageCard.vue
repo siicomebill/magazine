@@ -36,41 +36,12 @@
 
 <script>
 import Thumbnail from "~/Thumbnail";
+import Card from "~/Card";
 
 export default {
+	extends: Card,
 	components: {
 		Thumbnail,
 	},
-	props: {
-		title: {
-			type: String,
-			required: true,
-		},
-		snippet: {
-			type: String,
-			required: false,
-		},
-		image: String,
-		author: {
-			type: Object,
-			required: false,
-		},
-		href: {
-			type: String,
-			required: false,
-		},
-		outsider: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	computed: {
-		rel(){
-			return this.outsider ? 'noopener noreferrer nofollow' : ''
-		},
-		target(){
-			return this.outsider ? '_blank' : ''
-		}
-	}
 };
 </script>

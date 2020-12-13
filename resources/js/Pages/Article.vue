@@ -126,7 +126,7 @@ export default {
 		SponsorCard: () => import("~/SponsorCard"),
 		Reactions,
 		AuthorBadge,
-		Card: () => import("~/ImageCard"),
+		Card: () => import("~/ArticleImageCard"),
 		ShareButtons,
 	},
 	props: {
