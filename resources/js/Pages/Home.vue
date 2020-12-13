@@ -32,7 +32,7 @@
 		<div class="container mx-auto" v-if="articles.length">
 			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
 				<div v-for="(article, i) in articles" :key="article.id">
-					<div>
+					<div class="xl:flex gap-4 items-center">
 						<ArticleCard v-bind="article" />
 
 						<div v-if="sponsors[i]" class="lg:w-1/3 mx-auto">
