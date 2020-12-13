@@ -71,8 +71,9 @@
 								v-for="item in suggested.ofCategory"
 								:key="item.id"
 								v-bind="item"
+								fixed
 								:href="$route('articles.read', item.id)"
-								class="shadow-xl rounded-lg bg-white"
+								class="shadow-xl"
 							/>
 						</div>
 					</div>
@@ -105,7 +106,7 @@
 					:key="item.id"
 					v-bind="item"
 					:href="$route('articles.read', item.id)"
-					class="shadow-xl rounded-lg"
+					fixed
 				/>
 			</div>
 		</div>
@@ -126,7 +127,7 @@ export default {
 		SponsorCard: () => import("~/SponsorCard"),
 		Reactions,
 		AuthorBadge,
-		Card: () => import("~/ArticleImageCard"),
+		Card: () => import("~/ArticleCard"),
 		ShareButtons,
 	},
 	props: {
