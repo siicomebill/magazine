@@ -29,8 +29,6 @@
 
 <script>
 import { Reader } from "vue-publisher";
-import Card from "~/Card";
-import PageComponentContainer from "~/PageComponentContainer";
 
 export default {
 	props: {
@@ -38,8 +36,8 @@ export default {
 	},
 	components: {
 		Reader,
-		Card,
-		PageComponentContainer,
+		Card: () => import("~/Card"),
+		PageComponentContainer: () => import("~/PageComponentContainer"),
 	},
 	computed: {
 		page() {

@@ -113,21 +113,17 @@
 </template>
 
 <script>
-import Thumbnail from "~/Thumbnail";
 import { Reader } from "vue-publisher";
-import Reactions from "~/Reactions";
-import AuthorBadge from "~/AuthorBadge";
-import ShareButtons from "~/ShareButtons";
 
 export default {
 	components: {
 		Reader,
-		Thumbnail,
+		Thumbnail: () => import("~/Thumbnail"),
 		SponsorCard: () => import("~/SponsorCard"),
-		Reactions,
-		AuthorBadge,
+		Reactions: () => import("~/Reactions"),
+		AuthorBadge: () => import("~/AuthorBadge"),
 		Card: () => import("~/ArticleImageCard"),
-		ShareButtons,
+		ShareButtons: () => import("~/ShareButtons"),
 	},
 	props: {
 		article: Object,

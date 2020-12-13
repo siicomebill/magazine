@@ -46,19 +46,15 @@
 </template>
 
 <script>
-import ArticleCard from "~/ArticleCard";
-import SponsorCard from "~/MiniSponsorCard";
-import Dropdown from "~/Dropdown";
 import { Reader } from "vue-publisher";
-import CategoryCard from "~/CategoryCard";
 
 export default {
 	components: {
-		ArticleCard,
-		SponsorCard,
-		Dropdown,
+		ArticleCard: () => import("~/ArticleCard"),
+		SponsorCard: () => import("~/MiniSponsorCard"),
+		Dropdown: () => import("~/Dropdown"),
+		CategoryCard: () => import("~/CategoryCard"),
 		Reader,
-		CategoryCard,
 	},
 	props: {
 		sponsors: Array,
