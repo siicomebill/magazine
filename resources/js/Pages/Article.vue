@@ -17,7 +17,7 @@
 						{{ article.category.name }}
 					</a>
 
-					<h1 class="lg:text-6xl text-4xl align-middle my-2">
+					<h1 class="lg:text-6xl text-4xl font-banner align-middle my-2">
 						{{ article.title }}
 					</h1>
 
