@@ -18,13 +18,6 @@ mix
     .version()
     .js('resources/js/app.js', 'public/js')
     .extract(['vue'])
-    .sass('resources/sass/app.scss', 'public/css')
-    .options({
-        postCss: [
-            require('postcss-import'),
-            require('tailwindcss'),
-        ]
-    })
     .alias({
         '@': '/resources/js',
         '~': '/resources/js/Components',
