@@ -123,7 +123,7 @@ export default {
 		SponsorCard: () => import("~/SponsorCard"),
 		Reactions: () => import("~/Reactions"),
 		AuthorBadge: () => import("~/AuthorBadge"),
-		Card: () => import("~/ArticleImageCard"),
+		Card: () => import("~/ArticleCard"),
 		ShareButtons: () => import("~/ShareButtons"),
 	},
 	props: {
