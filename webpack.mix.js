@@ -17,7 +17,7 @@ const ChunkRenamePlugin = require('webpack-chunk-rename-plugin');
 mix
     .version()
     .js('resources/js/app.js', 'public/js')
-    .extract(['vue'])
+    .extract()
     .alias({
         '@': '/resources/js',
         '~': '/resources/js/Components',
