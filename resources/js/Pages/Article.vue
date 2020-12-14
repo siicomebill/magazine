@@ -17,7 +17,7 @@
 						{{ article.category.name }}
 					</a>
 
-					<h1 class="lg:text-6xl text-4xl align-middle my-2">
+					<h1 class="lg:text-6xl text-4xl font-banner align-middle my-2">
 						{{ article.title }}
 					</h1>
 
@@ -71,8 +71,9 @@
 								v-for="item in suggested.ofCategory"
 								:key="item.id"
 								v-bind="item"
+								fixed
 								:href="$route('articles.read', item.id)"
-								class="shadow-xl rounded-lg bg-white"
+								class="shadow-xl"
 							/>
 						</div>
 					</div>
@@ -105,7 +106,7 @@
 					:key="item.id"
 					v-bind="item"
 					:href="$route('articles.read', item.id)"
-					class="shadow-xl rounded-lg"
+					fixed
 				/>
 			</div>
 		</div>
