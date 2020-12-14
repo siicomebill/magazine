@@ -30,7 +30,7 @@ mix
         output: {
             publicPath: '/',
             filename: '[name].js',
-            chunkFilename: 'js/chunks/component.[name].js',
+            chunkFilename: 'js/chunks/chunk.[contenthash].js',
         },
         node: {
             fs: 'empty',
