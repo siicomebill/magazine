@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 require('laravel-mix-alias');
+const ChunkRenamePlugin = require('webpack-chunk-rename-plugin');
+
 
 /*
  |--------------------------------------------------------------------------
@@ -13,35 +15,30 @@ require('laravel-mix-alias');
  */
 
 mix
+    .version()
     .js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .options({
-        postCss: [
-            require('postcss-import'),
-            require('tailwindcss'),
-        ]
+    .extract()
+    .alias({
+        '@': '/resources/js',
+        '~': '/resources/js/Components',
+        '#': '/resources/js/Components/PageComponents',
+        'Jet': '/resources/js/Jetstream',
+        'Assets': '/resources/assets',
     })
-
-mix.alias({
-    '@': '/resources/js',
-    '~': '/resources/js/Components',
-    '#': '/resources/js/Components/PageComponents',
-    'Jet': '/resources/js/Jetstream',
-    'Assets': '/resources/assets',
-})
-
-mix.options({
-    terser: {
-        sourceMap: true,
-    }
-})
-
-mix.webpackConfig({
-    cache: true,
-    output: {
-        chunkFilename: 'js/chunks/component.[name].js',
-    },
-    node: {
-        fs: 'empty',
-    },
-})
+    .webpackConfig({
+        cache: true,
+        output: {
+            publicPath: '/',
+            filename: '[name].js',
+            chunkFilename: 'js/chunks/chunk.[contenthash].js',
+        },
+        node: {
+            fs: 'empty',
+        },
+        plugins: [
+            new ChunkRenamePlugin({
+                initialChunksWithEntry: true,
+                '/js/vendor': '/js/vendor.js'
+            }),
+        ],
+    })
