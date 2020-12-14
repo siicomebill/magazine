@@ -50,9 +50,7 @@
         "vue-template-compiler": "^2.6.10",
         "vue-vanilla-datetime-picker": "^1.1.15",
         "vue2-scrollspy": "^2.3.1",
-        "webpack-chunk-rename-plugin": "^1.0.3"
-    },
-    "dependencies": {
+        "webpack-chunk-rename-plugin": "^1.0.3",
         "laravel-mix-alias": "^1.0.2",
         "ziggy-js": "^0.9.4"
     }
