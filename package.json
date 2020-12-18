@@ -5,13 +5,16 @@
         "npm": "6.x"
     },
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
+        "dev": "npm run js-dev",
+        "js-dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "css-dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --env.mixfile=webpack.css.mix --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run js-dev -- --watch",
+        "css-watch": "npm run css-dev -- --watch",
         "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "js-prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "css-prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --env.mixfile=webpack.css.mix --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run js-prod && npm run css-prod",
         "heroku-postbuild": "npm run prod"
     },
     "devDependencies": {
@@ -27,7 +30,7 @@
         "cross-env": "^7.0",
         "dotenv": "^8.2.0",
         "laravel-jetstream": "^0.0.3",
-        "laravel-mix": "^5.0.1",
+        "laravel-mix": "^5.0.9",
         "localStorage": "^1.0.4",
         "lodash": "^4.17.19",
         "portal-vue": "^2.1.7",
@@ -49,9 +52,8 @@
         "vue-publisher": "^1.4.4",
         "vue-template-compiler": "^2.6.10",
         "vue-vanilla-datetime-picker": "^1.1.15",
-        "vue2-scrollspy": "^2.3.1"
-    },
-    "dependencies": {
+        "vue2-scrollspy": "^2.3.1",
+        "webpack-chunk-rename-plugin": "^1.0.3",
         "laravel-mix-alias": "^1.0.2",
         "ziggy-js": "^0.9.4"
     }

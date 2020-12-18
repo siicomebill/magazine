@@ -32,12 +32,14 @@
 		<div class="container mx-auto" v-if="articles.length">
 			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
 				<div v-for="(article, i) in articles" :key="article.id">
-					<div>
-						<ArticleCard v-bind="article" />
+					<div class="xl:grid grid-cols-5 gap-4 items-center">
+						<ArticleCard :class="{'col-span-3': sponsors[i], 'col-span-5': !sponsors[i], 'order-1': i % 2 == 0}" v-bind="article"/>
 
-						<div v-if="sponsors[i]" class="lg:w-1/2 mx-auto">
-							<SponsorCard v-bind="sponsors[i]" />
-						</div>
+						<SponsorCard
+							v-if="sponsors[i]"
+							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
+							v-bind="sponsors[i]"
+						/>
 					</div>
 				</div>
 			</div>
@@ -46,19 +48,15 @@
 </template>
 
 <script>
-import ArticleCard from "~/ArticleCard";
-import SponsorCard from "~/MiniSponsorCard";
-import Dropdown from "~/Dropdown";
 import { Reader } from "vue-publisher";
-import CategoryCard from "~/CategoryCard";
 
 export default {
 	components: {
-		ArticleCard,
-		SponsorCard,
-		Dropdown,
+		ArticleCard: () => import("~/ArticleCard"),
+		SponsorCard: () => import("~/MiniSponsorCard"),
+		Dropdown: () => import("~/Dropdown"),
+		CategoryCard: () => import("~/CategoryCard"),
 		Reader,
-		CategoryCard,
 	},
 	props: {
 		sponsors: Array,

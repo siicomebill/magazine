@@ -43,13 +43,10 @@
 </template>
 
 <script>
-import Card from "~/ArticleImageCard";
-import Thumbnail from "~/Thumbnail";
-
 export default {
 	components: {
-		Card,
-		Thumbnail,
+		Card: () => import("~/ArticleImageCard"),
+		Thumbnail: () => import("~/Thumbnail"),
 		CategoryCard: () => import("~/CategoryCard"),
 	},
 	props: {

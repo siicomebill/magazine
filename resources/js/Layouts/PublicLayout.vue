@@ -178,7 +178,14 @@
 						Mattia Sinisi
 					</a>
 					and
-					<a>Federica Spallino</a>
+					<a
+						href="https://www.linkedin.com/in/federica-spallino-5a7827114/"
+						rel="noopener"
+						target="_blank"
+						class="emphasized"
+					>
+						Federica Spallino
+					</a>
 				</p>
 			</div>
 		</section>
