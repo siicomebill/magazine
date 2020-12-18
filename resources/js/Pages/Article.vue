@@ -53,7 +53,7 @@
 							/>
 
 							<ShareButtons
-								:link="$route('articles.read', article.id)"
+								:link="$route('articles.read', article.slug ? article.slug : article.id)"
 								class="justify-center mt-10 lg:mt-0"
 							/>
 						</div>
