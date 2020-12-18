@@ -7,6 +7,7 @@ use App\Repositories\ArticleRepository;
 use App\Repositories\ConfigurationRepository;
 use App\Repositories\PageRepository;
 use App\Repositories\SponsorRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Support\Arr;
 use Inertia\Inertia;
 
@@ -36,5 +37,14 @@ class PublicPagesController extends Controller
             ]);
         else
             return abort(404);
+    }
+
+    public function userPage($id, UserRepository $users)
+    {
+        $user = $users->asModel()->where('id', $id)->with('articles')->firstOrFail();
+
+        return Inertia::render('User', [
+            "user" => $user,
+        ]);
     }
 }
