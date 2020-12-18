@@ -37,7 +37,7 @@
 
 						<SponsorCard
 							v-if="sponsors[i]"
-							class="col-span-2"
+							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
 							v-bind="sponsors[i]"
 						/>
 					</div>
