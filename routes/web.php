@@ -22,6 +22,10 @@ Route::middleware(["shared"])->group(function () {
         Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
     });
 
+    Route::prefix('u')->group(function () {
+        Route::get('{id}', 'PublicPagesController@userPage')->name('user.articles');
+    });
+
     Route::prefix('a')->group(function () {
         Route::get('{id}', 'ArticleController@read')->name('articles.read');
     });
