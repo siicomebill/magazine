@@ -21,15 +21,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Setup PHP environment
+        # You may pin to the exact commit or the version.
+        # uses: nanasess/setup-php@91ce150aeacfb1b2d935e7abf419bfc37244a76c
+        uses: nanasess/setup-php@v3.0.6
+        with:
+          # Version Spec of the version to use.  Examples: 7.1
+          php-version: 7.4
 
       - name: Install Composer packages
-        with:
-          php_version: 7.4
         run: composer install --prefer-dist --no-autoloader --no-progress
 
       - name: Validate Composer packages
-        with:
-          php_version: 7.4
         run: composer validate
 
       - name: Install NPM packages
