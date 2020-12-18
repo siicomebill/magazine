@@ -23,7 +23,7 @@ Route::middleware(["shared"])->group(function () {
     });
 
     Route::prefix('u')->group(function () {
-        Route::get('{id}', 'PublicPagesController@userPage')->name('user.articles');
+        Route::get('{id}', 'PublicPagesController@userPage')->name('user.page');
     });
 
     Route::prefix('a')->group(function () {

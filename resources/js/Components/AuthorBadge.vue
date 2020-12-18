@@ -1,5 +1,5 @@
 <template>
-	<div class="py-4 rounded-lg flex flex-col md:flex-row items-center gap-4">
+	<a class="py-4 rounded-lg flex flex-col md:flex-row items-center gap-4" :href="userURL">
 		<div
 			v-if="profile_photo_url"
 			class="inline-block border-4 border-white p-0 rounded-full"
@@ -15,7 +15,7 @@
 		<div class="text-4xl text-center">
 			<p class="leading-none font-handwritten">{{ name }}</p>
 		</div>
-	</div>
+	</a>
 </template>
 
 <script>
@@ -28,6 +28,14 @@ export default {
 	props: {
 		profile_photo_url: String,
 		name: String,
+		id: [Number, String]
+	},
+	computed: {
+		userURL(){
+			return this.$route("user.page", {
+				id: this.id
+			})
+		},
 	},
 };
 </script>
