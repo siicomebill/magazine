@@ -33,11 +33,11 @@
 			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
 				<div v-for="(article, i) in articles" :key="article.id">
 					<div class="xl:grid grid-cols-5 gap-4 items-center">
-						<ArticleCard class="col-span-3" v-bind="article" :class="{'order-1': i % 2 == 0}"/>
+						<ArticleCard :class="{'col-span-3': sponsors[i], 'col-span-5': !sponsors[i], 'order-1': i % 2 == 0}" v-bind="article"/>
 
 						<SponsorCard
 							v-if="sponsors[i]"
-							class="col-span-2"
+							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
 							v-bind="sponsors[i]"
 						/>
 					</div>
