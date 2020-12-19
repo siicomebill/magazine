@@ -29,11 +29,18 @@
 			</div>
 		</div>
 
-		<div class="container mx-auto" v-if="articles.length">
+		<div class="container mx-auto" v-if="articles.data.length">
 			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
-				<div v-for="(article, i) in articles" :key="article.id">
+				<div v-for="(article, i) in articles.data" :key="article.id">
 					<div class="xl:grid grid-cols-5 gap-4 items-center">
-						<ArticleCard :class="{'col-span-3': showSponsor(i), 'col-span-5': !showSponsor(i), 'order-1': i % 2 == 0}" v-bind="article"/>
+						<ArticleCard
+							:class="{
+								'col-span-3': showSponsor(i),
+								'col-span-5': !showSponsor(i),
+								'order-1': i % 2 == 0,
+							}"
+							v-bind="article"
+						/>
 
 						<SponsorCard
 							v-if="showSponsor(i)"
@@ -42,6 +49,22 @@
 						/>
 					</div>
 				</div>
+			</div>
+
+			<div
+				class="grid grid-cols-3 gap-4 font-banner uppercase text-center items-center py-10"
+			>
+				<span>
+					<a v-if="articles.prev_page_url" class="bg-primary rounded-full py-4 px-6" :href="articles.prev_page_url">Indietro</a>
+				</span>
+
+				<span>
+					<a v-if="articles.next_page_url || articles.prev_page_url" class="bg-dark border-2 border-primary rounded-full py-4 px-6 text-white">{{articles.current_page}}</a>
+				</span>
+
+				<span>
+					<a v-if="articles.next_page_url" class="bg-primary rounded-full py-4 px-6" :href="articles.next_page_url">Prossimo</a>
+				</span>
 			</div>
 		</div>
 	</div>
@@ -62,18 +85,18 @@ export default {
 		sponsors: Array,
 		categories: Array,
 		navbarCategories: Array,
-		articles: Array,
+		articles: Object,
 		config: [Object, Array],
 	},
-	data(){
+	data() {
 		return {
 			articlesBetweenSponsors: 3,
-		}
+		};
 	},
 	methods: {
-		showSponsor(i){
-			return i % this.articlesBetweenSponsors == 0 && this.sponsors[i]
-		}
-	}
+		showSponsor(i) {
+			return i % this.articlesBetweenSponsors == 0 && this.sponsors[i];
+		},
+	},
 };
 </script>
