@@ -92,6 +92,6 @@ class ResourceRepository implements ResourceRepositoryInterface
 
     public function paginated($perPage = 5)
     {
-        return $this->latest()->paginate(1);
+        return $this->latest()->paginate($perPage);
     }
 }
