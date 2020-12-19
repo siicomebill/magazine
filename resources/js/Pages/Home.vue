@@ -33,10 +33,10 @@
 			<div class="sm:grid xl:grid-cols-1 grid-flow-rows gap-4">
 				<div v-for="(article, i) in articles" :key="article.id">
 					<div class="xl:grid grid-cols-5 gap-4 items-center">
-						<ArticleCard :class="{'col-span-3': sponsors[i], 'col-span-5': !sponsors[i], 'order-1': i % 2 == 0}" v-bind="article"/>
+						<ArticleCard :class="{'col-span-3': showSponsor(i), 'col-span-5': !showSponsor(i), 'order-1': i % 2 == 0}" v-bind="article"/>
 
 						<SponsorCard
-							v-if="sponsors[i]"
+							v-if="showSponsor(i)"
 							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
 							v-bind="sponsors[i]"
 						/>
@@ -65,5 +65,15 @@ export default {
 		articles: Array,
 		config: [Object, Array],
 	},
+	data(){
+		return {
+			articlesBetweenSponsors: 3,
+		}
+	},
+	methods: {
+		showSponsor(i){
+			return i % this.articlesBetweenSponsors == 0 && this.sponsors[i]
+		}
+	}
 };
 </script>
