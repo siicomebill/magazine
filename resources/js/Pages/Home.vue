@@ -114,17 +114,19 @@ export default {
 		},
 	},
 	computed: {
-		sponsor() {
-			let i = this.sponsorIndex;
-			let s = this.sponsors[i]
+		sponsor: {
+			get(){
+				let i = this.sponsorIndex;
+				let s = this.sponsors[i]
 
-			if(i < this.sponsors.length - 1)
-				this.sponsorIndex++;
+				if(i < this.sponsors.length)
+					this.sponsorIndex++;
 
-			console.log(i, s.id, this.showSponsor(index))
+				console.log(i, s.name, s.id)
 
-			return s;
-		},
-	},
+				return s;
+			},
+		}
+	}
 };
 </script>
