@@ -45,7 +45,7 @@
 						<SponsorCard
 							v-if="showSponsor(i)"
 							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
-							v-bind="sponsors[i]"
+							v-bind="sponsorToBind(i)"
 						/>
 					</div>
 				</div>
@@ -96,6 +96,9 @@ export default {
 	methods: {
 		showSponsor(i) {
 			return i % this.articlesBetweenSponsors == 0 && this.sponsors[i];
+		},
+		sponsorToBind(i) {
+			return this.sponsors[i]
 		},
 	},
 };
