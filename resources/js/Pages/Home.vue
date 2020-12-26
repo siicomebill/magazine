@@ -45,7 +45,7 @@
 						<SponsorCard
 							v-if="showSponsor(i)"
 							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
-							v-bind="sponsorToBind(i)"
+							v-bind="sponsor"
 						/>
 					</div>
 				</div>
@@ -55,15 +55,29 @@
 				class="grid grid-cols-3 gap-4 font-banner uppercase text-center items-center py-10"
 			>
 				<span>
-					<a v-if="articles.prev_page_url" class="bg-primary rounded-full py-4 px-6" :href="articles.prev_page_url">Indietro</a>
+					<a
+						v-if="articles.prev_page_url"
+						class="bg-primary rounded-full py-4 px-6"
+						:href="articles.prev_page_url"
+						>Indietro</a
+					>
 				</span>
 
 				<span>
-					<a v-if="articles.next_page_url || articles.prev_page_url" class="bg-dark border-2 border-primary rounded-full py-4 px-6 text-white">{{articles.current_page}}</a>
+					<a
+						v-if="articles.next_page_url || articles.prev_page_url"
+						class="bg-dark border-2 border-primary rounded-full py-4 px-6 text-white"
+						>{{ articles.current_page }}</a
+					>
 				</span>
 
 				<span>
-					<a v-if="articles.next_page_url" class="bg-primary rounded-full py-4 px-6" :href="articles.next_page_url">Prossimo</a>
+					<a
+						v-if="articles.next_page_url"
+						class="bg-primary rounded-full py-4 px-6"
+						:href="articles.next_page_url"
+						>Prossimo</a
+					>
 				</span>
 			</div>
 		</div>
@@ -91,14 +105,25 @@ export default {
 	data() {
 		return {
 			articlesBetweenSponsors: 3,
+			sponsorIndex: 0,
 		};
 	},
 	methods: {
 		showSponsor(i) {
-			return i % this.articlesBetweenSponsors == 0 && this.sponsors[i];
+			return i % this.articlesBetweenSponsors == 0 && this.sponsorIndex < this.sponsors.length;
 		},
-		sponsorToBind(i) {
-			return this.sponsors[i]
+	},
+	computed: {
+		sponsor() {
+			let i = this.sponsorIndex;
+			let s = this.sponsors[i]
+
+			if(i < this.sponsors.length - 1)
+				this.sponsorIndex++;
+
+			console.log(i, s.id, this.showSponsor(index))
+
+			return s;
 		},
 	},
 };
