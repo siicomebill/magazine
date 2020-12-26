@@ -45,7 +45,7 @@
 						<SponsorCard
 							v-if="showSponsor(i)"
 							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
-							v-bind="sponsor"
+							v-bind="sponsors[s()]"
 						/>
 					</div>
 				</div>
@@ -110,23 +110,15 @@ export default {
 	},
 	methods: {
 		showSponsor(i) {
-			return i % this.articlesBetweenSponsors == 0 && this.sponsorIndex < this.sponsors.length;
+			return i % this.articlesBetweenSponsors === 0;
+		},
+		s() {
+			let i = this.sponsorIndex;
+
+			if (i < this.sponsors.length) this.sponsorIndex++;
+
+			return i;
 		},
 	},
-	computed: {
-		sponsor: {
-			get(){
-				let i = this.sponsorIndex;
-				let s = this.sponsors[i]
-
-				if(i < this.sponsors.length)
-					this.sponsorIndex++;
-
-				console.log(i, s.name, s.id)
-
-				return s;
-			},
-		}
-	}
 };
 </script>
