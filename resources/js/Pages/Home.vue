@@ -37,7 +37,7 @@
 							:class="{
 								'col-span-3': showSponsor(i),
 								'col-span-5': !showSponsor(i),
-								'order-1': i % 2 == 0,
+								'order-last': i % 2 == 0,
 							}"
 							v-bind="article"
 						/>
