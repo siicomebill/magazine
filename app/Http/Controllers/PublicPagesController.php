@@ -41,7 +41,9 @@ class PublicPagesController extends Controller
 
     public function userPage($id, UserRepository $users)
     {
-        $user = $users->asModel()->where('id', $id)->with('articles')->firstOrFail();
+        $user = $users->asModel()->where('id', $id)->with(['articles' => function ($query) {
+            $query->public();
+        }])->firstOrFail();
 
         return Inertia::render('User', [
             "user" => $user,
