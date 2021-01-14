@@ -14,9 +14,9 @@
 				</div>
 
 				<div class="order-first col-span-3 mx-auto py-20 px-10 text-center" v-if="category">
-					<p class="text-4xl font-banner capitalize">{{ category.name }}</p>
+					<p class="text-lg sm:text-2xl lg:text-4xl font-banner capitalize">{{ category.name }}</p>
 
-					<p class="text-xl" v-if="category.snippet">{{ category.snippet }}</p>
+					<p v-if="category.snippet">{{ category.snippet }}</p>
 				</div>
 			</div>
 		</div>
