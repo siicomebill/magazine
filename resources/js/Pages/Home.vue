@@ -37,7 +37,7 @@
 							:class="{
 								'col-span-3': showSponsor(i),
 								'col-span-5': !showSponsor(i),
-								'order-1': i % 2 == 0,
+								'order-last': i % 2 == 0,
 							}"
 							v-bind="article"
 						/>
@@ -55,15 +55,29 @@
 				class="grid grid-cols-3 gap-4 font-banner uppercase text-center items-center py-10"
 			>
 				<span>
-					<a v-if="articles.prev_page_url" class="bg-primary rounded-full py-4 px-6" :href="articles.prev_page_url">Indietro</a>
+					<a
+						v-if="articles.prev_page_url"
+						class="bg-primary rounded-full py-4 px-6"
+						:href="articles.prev_page_url"
+						>Indietro</a
+					>
 				</span>
 
 				<span>
-					<a v-if="articles.next_page_url || articles.prev_page_url" class="bg-dark border-2 border-primary rounded-full py-4 px-6 text-white">{{articles.current_page}}</a>
+					<a
+						v-if="articles.next_page_url || articles.prev_page_url"
+						class="bg-dark border-2 border-primary rounded-full py-4 px-6 text-white"
+						>{{ articles.current_page }}</a
+					>
 				</span>
 
 				<span>
-					<a v-if="articles.next_page_url" class="bg-primary rounded-full py-4 px-6" :href="articles.next_page_url">Prossimo</a>
+					<a
+						v-if="articles.next_page_url"
+						class="bg-primary rounded-full py-4 px-6"
+						:href="articles.next_page_url"
+						>Prossimo</a
+					>
 				</span>
 			</div>
 		</div>
@@ -90,12 +104,23 @@ export default {
 	},
 	data() {
 		return {
-			articlesBetweenSponsors: 3,
+			articlesBetweenSponsors: 0,
+			sponsorIndex: 0,
 		};
 	},
 	methods: {
 		showSponsor(i) {
-			return i % this.articlesBetweenSponsors == 0 && this.sponsors[i];
+			// FIXME Not working properly, unused for now
+			// return i % this.articlesBetweenSponsors === 0;
+			return this.sponsors[i] != undefined
+		},
+		// FIXME Not working properly, unused for now
+		s() {
+			let i = this.sponsorIndex;
+
+			if (i < this.sponsors.length) this.sponsorIndex++;
+
+			return i;
 		},
 	},
 };
