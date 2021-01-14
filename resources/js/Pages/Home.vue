@@ -57,26 +57,27 @@
 				<span>
 					<a
 						v-if="articles.prev_page_url"
-						class="bg-primary rounded-full py-4 px-6"
+						class="bg-primary rounded-full py-2 px-6"
 						:href="articles.prev_page_url"
-						>Indietro</a
+						>&lt;&lt;</a
 					>
 				</span>
 
 				<span>
 					<a
 						v-if="articles.next_page_url || articles.prev_page_url"
-						class="bg-dark border-2 border-primary rounded-full py-4 px-6 text-white"
-						>{{ articles.current_page }}</a
+						class="bg-dark border-primary text-white border-2 rounded-full py-2 px-6"
+						href="/"
+						>Home</a
 					>
 				</span>
 
 				<span>
 					<a
 						v-if="articles.next_page_url"
-						class="bg-primary rounded-full py-4 px-6"
+						class="bg-primary rounded-full py-2 px-6"
 						:href="articles.next_page_url"
-						>Prossimo</a
+						>&gt;&gt;</a
 					>
 				</span>
 			</div>
