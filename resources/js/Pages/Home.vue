@@ -45,7 +45,7 @@
 						<SponsorCard
 							v-if="showSponsor(i)"
 							class="col-span-2 xl:w-auto lg:w-1/2 xl:mx-0 mx-auto"
-							v-bind="sponsors[s()]"
+							v-bind="sponsors[i]"
 						/>
 					</div>
 				</div>
@@ -104,14 +104,17 @@ export default {
 	},
 	data() {
 		return {
-			articlesBetweenSponsors: 3,
+			articlesBetweenSponsors: 0,
 			sponsorIndex: 0,
 		};
 	},
 	methods: {
 		showSponsor(i) {
-			return i % this.articlesBetweenSponsors === 0;
+			// FIXME Not working properly, unused for now
+			// return i % this.articlesBetweenSponsors === 0;
+			return this.sponsors[i] != undefined
 		},
+		// FIXME Not working properly, unused for now
 		s() {
 			let i = this.sponsorIndex;
 
