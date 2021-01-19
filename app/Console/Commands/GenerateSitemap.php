@@ -56,7 +56,7 @@ class GenerateSitemap extends Command
                     ->setNodeModulePath($nodeModulesPath);
 
                 $crawler
-                    ->ignoreRobots()
+                    //->ignoreRobots()
                     ->setUserAgent('Sitemap Generator Crawler')
                     ->setBrowsershot($browsershot);
             })
