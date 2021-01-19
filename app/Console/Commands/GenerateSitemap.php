@@ -40,10 +40,10 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        $mainRoute = route("home");
+        $mainRoute = config('app.entrypoint_url', route("home"));
         $destinationPath = public_path('sitemap.xml');
 
-        SitemapGenerator::create(env('INTERNAL_ENTRYPOINT_NAME'))
+        SitemapGenerator::create($mainRoute)
             ->configureCrawler(function (Crawler $crawler) {
                 $chromePath = config('sitemap.chrome_binary_path');
                 $nodeModulesPath = base_path('node_modules');
