@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'entrypoint_url' => env('INTERNAL_ENTRYPOINT_NAME', env('APP_URL')),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

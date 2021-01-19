@@ -40,7 +40,7 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        $mainRoute = route("home");
+        $mainRoute = config('app.entrypoint_url', route("home"));
         $destinationPath = public_path('sitemap.xml');
 
         SitemapGenerator::create($mainRoute)
@@ -56,8 +56,8 @@ class GenerateSitemap extends Command
                     ->setNodeModulePath($nodeModulesPath);
 
                 $crawler
-                    ->ignoreRobots()
-                    ->setUserAgent('sitemap-generator-crawler')
+                    //->ignoreRobots()
+                    ->setUserAgent('Sitemap Generator Crawler')
                     ->setBrowsershot($browsershot);
             })
             ->writeToFile($destinationPath);
