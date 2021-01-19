@@ -43,7 +43,7 @@ class GenerateSitemap extends Command
         $mainRoute = route("home");
         $destinationPath = public_path('sitemap.xml');
 
-        SitemapGenerator::create($mainRoute)
+        SitemapGenerator::create('http://nginx') //FIXME Use environement variable
             ->configureCrawler(function (Crawler $crawler) {
                 $chromePath = config('sitemap.chrome_binary_path');
                 $nodeModulesPath = base_path('node_modules');
@@ -57,7 +57,7 @@ class GenerateSitemap extends Command
 
                 $crawler
                     ->ignoreRobots()
-                    ->setUserAgent('sitemap-generator-crawler')
+                    ->setUserAgent('Sitemap Generator Crawler')
                     ->setBrowsershot($browsershot);
             })
             ->writeToFile($destinationPath);
