@@ -34,7 +34,7 @@ return [
          */
         RequestOptions::ALLOW_REDIRECTS => true,
 
-        RequestOptions::VERIFY => false,
+        RequestOptions::VERIFY => false, //FIXME Use HTTPS environment variable
     ],
 
     /*
