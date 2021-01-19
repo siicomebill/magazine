@@ -32,7 +32,9 @@ return [
         /*
          * Describes the redirect behavior of a request.
          */
-        RequestOptions::ALLOW_REDIRECTS => false,
+        RequestOptions::ALLOW_REDIRECTS => true,
+
+        RequestOptions::VERIFY => false,
     ],
 
     /*
@@ -46,7 +48,7 @@ return [
      * The package will make an educated guess as to where Google Chrome is installed.
      * You can also manually pass it's location here.
      */
-    'chrome_binary_path' => null,
+    'chrome_binary_path' => base_path() . '/node_modules/puppeteer/.local-chromium/linux-818858/chrome-linux/chrome',
 
     /*
      * The sitemap generator uses a CrawlProfile implementation to determine
