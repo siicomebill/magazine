@@ -34,6 +34,9 @@ return [
          */
         RequestOptions::ALLOW_REDIRECTS => true,
 
+        /**
+         * Describes if you need to check for HTTPS.
+         */
         RequestOptions::VERIFY => false, //FIXME Use HTTPS environment variable
     ],
 
