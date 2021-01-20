@@ -23,6 +23,7 @@
         "laravel/tinker": "^2.0",
         "spatie/laravel-csp": "^2.6",
         "spatie/laravel-permission": "^3.16",
+        "spatie/laravel-sitemap": "^5.9",
         "staudenmeir/eloquent-eager-limit": "^1.6",
         "tightenco/ziggy": "^0.9.4"
     },
