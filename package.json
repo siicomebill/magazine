@@ -36,7 +36,6 @@
         "lodash": "^4.17.19",
         "portal-vue": "^2.1.7",
         "postcss-import": "^12.0.1",
-        "puppeteer": "^5.5.0",
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
@@ -57,5 +56,8 @@
         "vue2-scrollspy": "^2.3.1",
         "webpack-chunk-rename-plugin": "^1.0.3",
         "ziggy-js": "^0.9.4"
+    },
+    "dependencies": {
+        "puppeteer": "^5.5.0"
     }
 }
