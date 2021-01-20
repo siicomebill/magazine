@@ -22,7 +22,10 @@ build:
 	(cd environment && docker-compose build nginx postgres)
 
 rebuild:
-	(cd environment && docker-compose build --no-cache nginx postgres)
+	(cd environment && docker-compose build --no-cache workspace nginx postgres)
+
+recreate:
+	(cd environment && docker-compose up -d --force-recreate workspace nginx postgres)
 
 env:
 	cp .env.example .env
