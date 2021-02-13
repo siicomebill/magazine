@@ -37,7 +37,7 @@ class ArticleRepository extends ReactableResourceRepository implements ArticleRe
 
     public function latest(int $limit = 0){
         return $this->asModel()->public()->latest('published_at')->limit($limit)->with(['category' => function ($query) {
-            $query->with('parent');
+            $query->with('parent'); //TODO Move category parent query by default in model
         }]);
     }
 
