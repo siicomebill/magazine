@@ -17,7 +17,7 @@ class AMPMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $request->AMP = true;
+        $request->SSR = true;
 
         $originalUri = Str::replaceFirst("/amp", "/", $request->getRequestUri());
         $request->canonicalUrl =  Str::replaceFirst("//", "/", $originalUri);
