@@ -21,6 +21,11 @@ trait Renderable
      */
     public function render(string $viewName, $data = []){
         //TODO Decide what view to render (Client side or server side)
-        return $this->renderer::render($viewName, $data);
+        if (request()->AMP){
+            return view("amp." . strtolower($viewName), $data);
+        }
+        else {
+            return $this->renderer::render($viewName, $data);
+        }
     }
 }
