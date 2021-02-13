@@ -98,6 +98,6 @@ class ResourceRepository implements ResourceRepositoryInterface, FeedableResourc
 
     public function getFeedItems()
     {
-        return $this->list();
+        return $this->latest(20)->get();
     }
 }
