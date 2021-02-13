@@ -16,7 +16,8 @@ class AMPMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        //NOTE This middleware is only needed to individuate AMP pages
+        $request->AMP = true;
+
         return $next($request);
     }
 }
