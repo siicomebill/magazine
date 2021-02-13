@@ -17,6 +17,8 @@ Route::middleware(["shared"])->group(function () {
     Route::get('/', 'PublicPagesController@index')->name('home');
     Route::get('~/{slug}', 'PublicPagesController@page')->name('page');
 
+    Route::feeds();
+
     Route::prefix('c')->group(function () {
         Route::get('/', 'CategoryController@getMinimal')->name('categories');
         Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
