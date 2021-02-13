@@ -6,25 +6,21 @@ use App\Helpers\PaginatedCollection;
 use App\Http\Controllers\Controller;
 use App\Interfaces\Controllers\ResourceControllerInterface;
 use App\Repositories\ResourceRepository;
+use App\Traits\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
 
 abstract class ResourceController extends Controller implements ResourceControllerInterface
 {
+    use Renderable;
+
     /**
      * The prefix for the routes that the given resource uses.
      * 
      * @var string
      */
     protected $routeNamePrefix;
-
-    /**
-     * The page renderer class.
-     * 
-     * @var mixed
-     */
-    protected $renderer = Inertia::class;
 
     /**
      * Route names to all the actions possible with the given resource.
@@ -68,7 +64,7 @@ abstract class ResourceController extends Controller implements ResourceControll
 
         $paginatedResource = new PaginatedCollection($items);
 
-        return $this->renderer::render($this->pageComponents["managerPage"], [
+        return $this->render($this->pageComponents["managerPage"], [
             "items" => $paginatedResource
         ]);
     }
@@ -83,7 +79,7 @@ abstract class ResourceController extends Controller implements ResourceControll
             "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
         ];
 
-        return $this->renderer::render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
+        return $this->render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
     }
 
     /**
