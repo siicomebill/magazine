@@ -78,9 +78,16 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/api.php'));
     }
 
+    /**
+     * Define the "AMP" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
     protected function mapAmpRoutes()
     {
-        Route::middleware(['amp', 'web', 'shared'])
+        Route::middleware(['amp', 'web'])
             ->prefix('amp')
             ->namespace($this->namespace)
             ->name('amp')
