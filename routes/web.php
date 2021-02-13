@@ -19,6 +19,10 @@ Route::middleware(["shared"])->group(function () {
 
     Route::feeds();
 
+    Route::prefix("sitemap")->group(function () {
+        Route::get('/', 'SitemapController@main');
+    });
+
     Route::prefix('c')->group(function () {
         Route::get('/', 'CategoryController@getMinimal')->name('categories');
         Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
