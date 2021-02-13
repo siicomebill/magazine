@@ -22,8 +22,10 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <p class="text-2xl text-center my-2 font-banner"> {{config("app.name")}} </p>
+        <div class="font-sans text-gray-900 antialiased bg-white container mx-auto my-6 rounded-lg shadow-lg">
             @yield('page')
         </div>
+        <p class="text-sm text-gray-600 text-center my-2"> Torna al <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">sito originale</a>. </p>
     </body>
 </html>
