@@ -10,9 +10,11 @@ use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
-class Article extends Model implements ReactableInterface, SEOCompatibleInterface
+class Article extends Model implements ReactableInterface, SEOCompatibleInterface, Feedable
 {
     use HasFactory;
     use Reactable; //FIXME Disable eager loading of reactions
@@ -68,5 +70,18 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
     public function toSEOInfo(): SEOInfo
     {
         return new SEOInfo($this->title, $this->snippet, $this->author->name, $this->image);
+    }
+
+    public function toFeedItem() : FeedItem
+    {
+        $link = $this->slug ? route('articles.read', $this->slug) : route('articles.read', $this->id);
+
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->snippet)
+            ->updated($this->updated_at)
+            ->link($link)
+            ->author($this->author->name);
     }
 }
