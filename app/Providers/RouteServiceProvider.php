@@ -90,7 +90,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware(['amp', 'web', 'shared'])
             ->prefix('amp')
             ->namespace($this->namespace)
-            ->name('amp')
             ->group(base_path('routes/amp.php'));
     }
 }

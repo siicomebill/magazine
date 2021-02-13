@@ -13,18 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PublicPagesController@index')->name('home');
-Route::get('~/{slug}', 'PublicPagesController@page')->name('page');
+Route::get('/', 'PublicPagesController@index')->name('amp.home');
+Route::get('~/{slug}', 'PublicPagesController@page')->name('amp.page');
 
 Route::prefix('c')->group(function () {
-    Route::get('/', 'CategoryController@getMinimal')->name('categories');
-    Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
+    Route::get('/', 'CategoryController@getMinimal')->name('amp.categories');
+    Route::get('{id}', 'CategoryController@articlesOfCategory')->name('amp.categories.articles');
 });
 
 Route::prefix('u')->group(function () {
-    Route::get('{id}', 'PublicPagesController@userPage')->name('user.page');
+    Route::get('{id}', 'PublicPagesController@userPage')->name('amp.user.page');
 });
 
 Route::prefix('a')->group(function () {
-    Route::get('{id}', 'ArticleController@read')->name('articles.read');
+    Route::get('{id}', 'ArticleController@read')->name('amp.articles.read');
 });
