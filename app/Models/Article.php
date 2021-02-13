@@ -82,6 +82,7 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
             ->summary($this->snippet)
             ->updated($this->updated_at)
             ->link($link)
-            ->author($this->author->name);
+            ->author($this->author->name)
+            ->category($this->category->name);
     }
 }
