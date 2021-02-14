@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1cc2c42020202a84b7d63777662c725",
+    "content-hash": "989c3560b4b3e5b76a6db4bad88f6741",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6934,6 +6934,59 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
             },
             "time": "2020-07-13T06:12:54+00:00"
+        },
+        {
+            "name": "ueberdosis/prosemirror-to-html",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ueberdosis/prosemirror-to-html.git",
+                "reference": "e8527f7f9aefe73b54f5a999a6104e2b57b07c82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ueberdosis/prosemirror-to-html/zipball/e8527f7f9aefe73b54f5a999a6104e2b57b07c82",
+                "reference": "e8527f7f9aefe73b54f5a999a6104e2b57b07c82",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.15",
+                "league/climate": "^3.5",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ProseMirrorToHtml\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hans Pagel"
+                }
+            ],
+            "description": "Takes HTML and outputs ProseMirror compatible JSON.",
+            "keywords": [
+                "prosemirror"
+            ],
+            "support": {
+                "issues": "https://github.com/ueberdosis/prosemirror-to-html/issues",
+                "source": "https://github.com/ueberdosis/prosemirror-to-html/tree/2.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/ueberdosis/",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-19T11:40:25+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
