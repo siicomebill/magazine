@@ -9,10 +9,6 @@
 
         @include('feed::links')
 
-        <title>
-            @yield('title', 'Home') · {{ config('app.name', 'Bill') }}
-        </title>
-
         <link rel="canonical" href="{{ request()->canonicalUrl }}">
 
         <!-- Fonts -->
