@@ -1,9 +1,9 @@
 @extends('layouts.amp')
 
 @section('page')
-    <section class="lg:grid grid-flow-cols grid-cols-3 items-center">
+    <section class="lg:grid grid-flow-cols grid-cols-3 items-center mt-32">
         <div class="py-7 px-8">
-            <img src="{{$article->image}}" alt="{{$article->title}}" class="block rounded-lg shadow-lg mx-auto" />
+            <img src="{{$article->image}}" alt="{{$article->title}}" class="block rounded-lg shadow-lg mx-auto -mt-32" />
 
             <div class="flex justify-center -mt-12">
                 <a class="block text-center" href="{{ route('amp.user.page', $article->author->id) }}">
@@ -22,7 +22,62 @@
         </div>
     </section>
 
-    <section class="content mx-auto lg:w-2/3 lg:px-0 px-8 py-10">
+    @if (isset($sponsors))
+        <section class="my-4 bg-blue-500 text-white banner py-8">
+            <div class="p-4 mx-auto lg:w-2/3">
+                <p class="text-white text-sm opacity-70">Sponsor</p>
+
+                <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center">
+                    <a class="block" href="{{$sponsors[0]->link}}">
+                        <img src="{{ $sponsors[0]->image }}" class="max-h-96 w-full mx-auto rounded-lg shadow-lg" />
+                    </a>
+
+                    <div class="col-span-1 w-full">
+                        <div class="mb-6">
+                            <p class="font-banner text-3xl">{{$sponsors[0]->name}}</p>
+
+                            <p class="text-xl">{{$sponsors[0]->snippet}}</p>
+                        </div>
+
+                        <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg" href="{{$sponsors[0]->link}}">{{$sponsors[0]->cta}}</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    @endif
+
+    <section class="article content mx-auto lg:w-2/3 lg:px-0 px-8 py-10">
         {!! prosemirrorToHtml($article->content) !!}
+    </section>
+
+    <section class="px-10 lg:grid grid-cols-3 gap-4">
+        @if (isset($article->category))
+            @foreach ($suggested["ofAuthor"] as $a)
+                @component('components.card', [
+                    'title' => $a->title,
+                    'description' => $a->snippet,
+
+                    'image' => $a->image,
+                    'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
+                ])
+                @endcomponent
+            @endforeach
+        @endif
+    </section>
+
+    <section class="px-10 lg:grid grid-cols-3 gap-4 bg-primary banner rounded-b-lg">
+        @if (isset($article->category))
+            @foreach ($suggested["ofCategory"] as $a)
+                @component('components.card', [
+                    'title' => $a->title,
+                    'description' => $a->snippet,
+
+                    'image' => $a->image,
+                    'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
+                ])
+                @endcomponent
+            @endforeach
+        @endif
     </section>
 @endsection
