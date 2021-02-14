@@ -22,6 +22,10 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js" defer></script>
     </head>
     <body class="font-sans antialiased bg-dark text-white banner">
+        <div class="sticky top-0 py-2 bg-dark">
+            <p class="text-sm text-center my-0">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Sito originale</a>. </p>
+        </div>
+
         <header class="py-6">
             @if (isset($config['logo']['big']))
 
@@ -46,8 +50,6 @@
         </main>
         
         <footer class="footer py-10 px-4">
-            <p class="text-sm text-center my-2">Stai usando la <strong>versione lite</strong>. Torna al <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">sito originale</a>. </p>
-
             <section>
                 @if (isset($configuration['footer']))
                     <div class="mx-auto text-center py-6">
@@ -116,6 +118,8 @@
                     </p>
                 </div>
             </section>
+
+            <p class="text-center pt-10">⚡</p>
         </footer>
     </body>
 </html>
