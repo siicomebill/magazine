@@ -27,7 +27,7 @@
     </head>
     <body class="font-sans antialiased bg-dark text-white banner">
         <div class="sticky top-0 py-2 bg-dark">
-            <p class="text-sm text-center my-0">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Sito originale</a>. </p>
+            <p class="text-sm text-center my-0">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
         </div>
 
         <header class="py-6">
