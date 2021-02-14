@@ -36,7 +36,7 @@
             
             @if (isset($config['banner']))
                 <div class="text-center font-handwritten">
-                    use "prosemirror_to_html"
+                    {!! prosemirrorToHtml($config['banner']) !!}
                 </div>
             @endif
         </header>
@@ -49,11 +49,9 @@
             <p class="text-sm text-center my-2">Stai usando la <strong>versione lite</strong>. Torna al <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">sito originale</a>. </p>
 
             <section>
-                @if (isset($config['footer']))
-                    <!-- footer -->
-
-                    <div class="mx-auto text-center">
-                    
+                @if (isset($configuration['footer']))
+                    <div class="mx-auto text-center py-6">
+                        {!! prosemirrorToHtml($configuration['footer']) !!}
                     </div>
                 @endif
                 
