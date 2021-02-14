@@ -17,7 +17,7 @@ trait Renderable
      * Return a view with the provided data.
      * 
      * @param string $viewName The name of the view to render.
-     * @param $data The data to insert in the view
+     * @param array $data The data to insert in the view
      */
     public function render(string $viewName, $data = []){
         if (request()->SSR){
