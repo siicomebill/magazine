@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        @metas
+
+        @include('feed::links')
+
         <title>
             @yield('title', 'Home') · {{ config('app.name', 'Bill') }}
         </title>
