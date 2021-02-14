@@ -28,7 +28,7 @@
                 <p class="text-white text-sm opacity-70">Sponsor</p>
 
                 <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center">
-                    <a class="block" href="{{$sponsors[0]->link}}">
+                    <a class="block" href="{{$sponsors[0]->link}}" rel="sponsored">
                         <img src="{{ $sponsors[0]->image }}" class="max-h-96 lg:mx-auto rounded-lg shadow-lg" />
                     </a>
 
@@ -39,7 +39,7 @@
                             <p class="text-xl">{{$sponsors[0]->snippet}}</p>
                         </div>
 
-                        <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg" href="{{$sponsors[0]->link}}">{{$sponsors[0]->cta}}</a>
+                        <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg" href="{{$sponsors[0]->link}}" rel="sponsored">{{$sponsors[0]->cta}}</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
             <div class="p-4 lg:w-5/6 mx-auto lg:grid grid-flow-cols grid-cols-2 gap-4">
                 @foreach ($sponsors->forget(0) as $sponsor)
                     <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center my-20">
-                        <a class="block" href="{{$sponsor->link}}">
+                        <a class="block" href="{{$sponsor->link}}" rel="sponsored">
                             <img src="{{ $sponsor->image }}" class="max-h-96 lg:mx-auto rounded-lg shadow-lg" />
                         </a>
 
@@ -69,7 +69,7 @@
                                 <p class="text-xl">{{$sponsor->snippet}}</p>
                             </div>
 
-                            <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg" href="{{$sponsor->link}}">{{$sponsor->cta}}</a>
+                            <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg" href="{{$sponsor->link}}" rel="sponsored">{{$sponsor->cta}}</a>
                         </div>
                     </div>
                 @endforeach
