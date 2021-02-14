@@ -22,14 +22,14 @@
         </div>
     </section>
 
-    @if (isset($sponsors))
+    @if (isset($sponsors[0]))
         <section class="my-4 bg-blue-500 text-white banner py-8">
             <div class="p-4 mx-auto lg:w-2/3">
                 <p class="text-white text-sm opacity-70">Sponsor</p>
 
                 <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center">
                     <a class="block" href="{{$sponsors[0]->link}}">
-                        <img src="{{ $sponsors[0]->image }}" class="max-h-96 w-full mx-auto rounded-lg shadow-lg" />
+                        <img src="{{ $sponsors[0]->image }}" class="max-h-96 lg:mx-auto rounded-lg shadow-lg" />
                     </a>
 
                     <div class="col-span-1 w-full">
@@ -50,6 +50,33 @@
     <section class="article content mx-auto lg:w-2/3 lg:px-0 px-8 py-10">
         {!! prosemirrorToHtml($article->content) !!}
     </section>
+
+    @if (isset($sponsors) && count($sponsors) > 1)
+        <p class="text-sm opacity-70 text-center pt-2 pb-4">Sponsors</p>
+        <section class="my-4 bg-blue-500 text-white banner py-8">
+
+            <div class="p-4 lg:w-5/6 mx-auto lg:grid grid-flow-cols grid-cols-2 gap-4">
+                @foreach ($sponsors->forget(0) as $sponsor)
+                    <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center my-20">
+                        <a class="block" href="{{$sponsor->link}}">
+                            <img src="{{ $sponsor->image }}" class="max-h-96 lg:mx-auto rounded-lg shadow-lg" />
+                        </a>
+
+                        <div class="col-span-1 w-full">
+                            <div class="mb-6">
+                                <p class="font-banner text-3xl">{{$sponsor->name}}</p>
+
+                                <p class="text-xl">{{$sponsor->snippet}}</p>
+                            </div>
+
+                            <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg" href="{{$sponsor->link}}">{{$sponsor->cta}}</a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            
+        </section>
+    @endif
 
     <section class="px-10 lg:grid grid-cols-3 gap-4">
         @if (isset($article->category))
