@@ -39,7 +39,7 @@
 
             
             @if (isset($config['banner']))
-                <div class="text-center font-handwritten">
+                <div class="text-center font-handwritten content">
                     {!! prosemirrorToHtml($config['banner']) !!}
                 </div>
             @endif
@@ -52,7 +52,7 @@
         <footer class="footer py-10 px-4">
             <section>
                 @if (isset($configuration['footer']))
-                    <div class="mx-auto text-center py-6">
+                    <div class="mx-auto text-center py-6 content">
                         {!! prosemirrorToHtml($configuration['footer']) !!}
                     </div>
                 @endif
