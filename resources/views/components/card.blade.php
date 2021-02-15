@@ -1,7 +1,12 @@
 <div class="md:grid grid-cols-4 my-4 items-center">
     @if (isset($image))
         <a class="block" href="{{$link}}">
-            <img src="{{$image}}" alt="{{$title}}" class="rounded-lg shadow-lg w-full">
+            @component('components.image', [
+                "src" => $image,
+                "alt" => $title,
+                "class" => "rounded-lg shadow-lg w-full"
+            ])
+            @endcomponent
         </a>
     @endif
     <div class="px-4 py-2 col-span-3">
