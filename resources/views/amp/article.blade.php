@@ -56,8 +56,8 @@
     </section>
 
     @if (isset($sponsors) && count($sponsors) > 1)
-        <p class="text-sm opacity-70 text-center pt-2 pb-4">Sponsors</p>
-        <section class="my-4 bg-blue-500 text-white banner py-8">
+        <p class="mt-4 mb-0 text-sm text-blue-500 text-center pt-2 pb-2">Sponsors</p>
+        <section class="mb-4 bg-blue-500 text-white banner py-8">
 
             <div class="p-4 lg:w-5/6 mx-auto lg:grid grid-flow-cols grid-cols-2 gap-4">
                 @foreach ($sponsors->forget(0) as $sponsor)
@@ -83,18 +83,16 @@
     @endif
 
     <section class="px-10 lg:grid grid-cols-3 gap-4">
-        @if (isset($article->category))
-            @foreach ($suggested["ofAuthor"] as $a)
-                @component('components.card', [
-                    'title' => $a->title,
-                    'description' => $a->snippet,
+        @foreach ($suggested["ofAuthor"] as $a)
+            @component('components.card', [
+                'title' => $a->title,
+                'description' => $a->snippet,
 
-                    'image' => $a->image,
-                    'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
-                ])
-                @endcomponent
-            @endforeach
-        @endif
+                'image' => $a->image,
+                'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
+            ])
+            @endcomponent
+        @endforeach
     </section>
 
     <section class="px-10 lg:grid grid-cols-3 gap-4 bg-primary banner rounded-b-lg">
