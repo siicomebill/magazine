@@ -28,6 +28,12 @@
         </div>
 
         <div class="col-span-2 px-8">
+            @if (isset($article->category))
+                <p>
+                    Pubblicato in
+                    <a class="font-bold" href="{{ route("amp.categories.articles", $article->category->id) }}">{{$article->category->name}}</a>
+                </p>
+            @endif
             <h1 class="lg:text-5xl text-3xl font-banner">{{$article->title}}</h1>
 
             <p class="lg:text-2xl text-xl">{{$article->snippet}}</p>
