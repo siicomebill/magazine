@@ -61,7 +61,7 @@
 						<Disqus :pageConfig="pageConfig"/>
 					</div>
 
-					<div v-if="suggested.ofCategory" class="pt-5">
+					<div v-if="article.category && suggested.ofCategory" class="pt-5">
 						<p class="text-2xl text-center font-banner uppercase">
 							<span class="font-banner text-primary">#</span>
 							{{ article.category.name }}
