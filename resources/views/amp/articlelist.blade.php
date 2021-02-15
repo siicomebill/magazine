@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        @if (isset($category->children))
+        @if (isset($category->children) && count($category->children))
             <div class="mb-4 py-4 text-center bg-gray-200">
                 @foreach ($category->children as $child)
                     <a href="{{ route('amp.categories.articles', $child->id) }}" class="px-6 font-banner underline">{{$child->name}}</a>
