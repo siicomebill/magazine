@@ -19,7 +19,7 @@ This configuration has **A LOT** of processes and hosts, but to get started you'
 Before doing anything though, copy the pre-configured environment file to the folder.
 
 ```bash
-cp laradock.env bill-environment/.env
+cp laradock.env environment/.env
 ```
 
 In order to start <u>only what you need to start the application</u> simply run the following command:
@@ -56,3 +56,4 @@ Thank you for contributing to our project, please follow our [code of conduct](C
 ## Stats
 
 [![GitHub issues](https://img.shields.io/github/issues/sinisimattia/bill?color=gray&logo=github&style=for-the-badge)](https://github.com/sinisimattia/bill/issues)
+[![GitHub stars](https://img.shields.io/github/stars/siicomebill/magazine?color=%23ffd000&label=%E2%AD%90&logo=GitHub&style=for-the-badge)](https://github.com/siicomebill/magazine/stargazers)
