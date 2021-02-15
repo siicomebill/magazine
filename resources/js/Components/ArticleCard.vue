@@ -1,18 +1,22 @@
 <template>
-	<a
+	<span
 		class="block my-4 rounded-lg bg-dark text-white items-center grid-cols-4 border-2 border-white overflow-hidden"
 		:class="{ 'block': fixed, 'block lg:grid': !fixed, }"
-		:href="$route('articles.read', identifier)"
-		:target="target"
-		:rel="rel"
 	>
-		<Thumbnail
+		<a
+			:href="$route('articles.read', identifier)"
+			:target="target"
+			:rel="rel"
 			v-if="image"
-			:src="image"
-			square
-			:class="{'h-full lg:border-r-2 lg:border-b-0 lg:rounded-r-0': !fixed}"
 			class="text-center overflow-hidden border-white border-b-2"
-		/>
+			:class="{'h-full lg:border-r-2 lg:border-b-0 lg:rounded-r-0': !fixed}"
+		>
+			<Thumbnail
+				:src="image"
+				square
+				:class="{'h-full lg:rounded-r-0': !fixed}"
+			/>
+		</a>
 		<div
 			class="col-span-3 flex flex-col p-4 justify-between leading-normal w-full break-normal"
 		>
@@ -40,9 +44,9 @@
 			</div>
 
 			<div class="mt-4">
-				<p class="font-banner text-xl xl:text-3xl mb-2 break-words">
+				<a class="block font-banner text-xl xl:text-3xl mb-2 break-words" :href="$route('articles.read', identifier)" :target="target" :rel="rel">
 					{{ title }}
-				</p>
+				</a>
 				<div class="my-3" v-if="snippet">
 					<div class="mb-3">
 						<p class="leading-none">{{ snippet }}</p>
@@ -62,7 +66,7 @@
 				<slot name="footer"></slot>
 			</div>
 		</div>
-	</a>
+	</span>
 </template>
 
 <script>

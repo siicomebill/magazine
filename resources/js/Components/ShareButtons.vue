@@ -34,10 +34,10 @@ export default {
 					},
                 },
                 {
-					icon: "reddit",
-					class: "bg-orange-600",
+					icon: "linkedin",
+					class: "bg-blue-600",
 					url: (link) => {
-						return `http://www.reddit.com/submit?url=${link}`
+						return `https://www.linkedin.com/sharing/share-offsite/?url=${link}`
 					},
 				},
 				{

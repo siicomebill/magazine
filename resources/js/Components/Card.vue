@@ -1,19 +1,21 @@
 <template>
 	<div class="my-4">
-		<a class="block rounded-lg shadow-xl" :href="href" :target="target" :rel="rel">
-			<Thumbnail
-				:src="image"
-				:alt="title"
-				square
-				class="w-auto rounded-t-lg text-center overflow-hidden"
-			/>
+		<span class="block rounded-lg shadow-xl">
+			<a :href="href" :target="target" :rel="rel">
+				<Thumbnail
+					:src="image"
+					:alt="title"
+					square
+					class="w-auto rounded-t-lg text-center overflow-hidden"
+				/>
+			</a>
 			<div
 				class="flex flex-col p-4 w-50 justify-between leading-normal break-normal"
 			>
 				<div class="mb-8">
-					<p class="font-bold text-2xl mb-2 break-words">
+					<a class="block font-bold text-2xl mb-2 break-words" :href="href" :target="target" :rel="rel">
 						{{ title }}
-					</p>
+					</a>
 					<p class="text-gray-700 text-base">{{ snippet }}</p>
 					<div class="my-3">
 						<div class="text-sm" v-if="author">
@@ -30,7 +32,7 @@
 					<slot name="footer"></slot>
 				</div>
 			</div>
-		</a>
+		</span>
 	</div>
 </template>
 
