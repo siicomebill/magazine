@@ -56,3 +56,4 @@ Thank you for contributing to our project, please follow our [code of conduct](C
 ## Stats
 
 [![GitHub issues](https://img.shields.io/github/issues/sinisimattia/bill?color=gray&logo=github&style=for-the-badge)](https://github.com/sinisimattia/bill/issues)
+[![GitHub stars](https://img.shields.io/github/stars/siicomebill/magazine?color=%23ffd000&label=%E2%AD%90&logo=GitHub&style=for-the-badge)](https://github.com/siicomebill/magazine/stargazers)
