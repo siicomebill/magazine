@@ -3,11 +3,25 @@
 @section('page')
     <section class="lg:grid grid-flow-cols grid-cols-3 items-center mt-32">
         <div class="py-7 px-8">
-            <img src="{{$article->image}}" alt="{{$article->title}}" class="block rounded-lg shadow-lg mx-auto -mt-32" />
+            <div class="-mt-32">
+            @if ($article->image)
+                @component('components.image', [
+                    "src" => $article->image,
+                    "alt" => $article->title,
+                    "class" => "block rounded-lg shadow-lg mx-auto"
+                ])
+                @endcomponent
+            @endif
+            </div>
 
             <div class="flex justify-center -mt-12">
                 <a class="block text-center" href="{{ route('amp.user.page', $article->author->id) }}">
-                    <img src="{{$article->author->profile_photo_url}}" alt="{{$article->author->name}}" class="block rounded-full h-24 border-4 border-white shadow-lg" />
+                    @component('components.image', [
+                        "src" => $article->author->profile_photo_url,
+                        "alt" => $article->author->name,
+                        "class" => "block rounded-full h-24 border-4 border-white shadow-lg"
+                    ])
+                    @endcomponent
                     <p class="font-handwritten text-4xl">{{$article->author->name}}</p>
                 </a>
             </div>
@@ -29,7 +43,11 @@
 
                 <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center">
                     <a class="block" href="{{$sponsors[0]->link}}" rel="sponsored">
-                        <img src="{{ $sponsors[0]->image }}" class="max-h-96 lg:mx-auto rounded-lg shadow-lg" />
+                        @component('components.image', [
+                            "src" => $sponsors[0]->image,
+                            "class" => "max-h-96 lg:mx-auto rounded-lg shadow-lg"
+                        ])
+                        @endcomponent
                     </a>
 
                     <div class="col-span-1 w-full">
@@ -56,14 +74,18 @@
     </section>
 
     @if (isset($sponsors) && count($sponsors) > 1)
-        <p class="text-sm opacity-70 text-center pt-2 pb-4">Sponsors</p>
-        <section class="my-4 bg-blue-500 text-white banner py-8">
+        <p class="mt-4 mb-0 text-sm text-blue-500 text-center pt-2 pb-2">Sponsors</p>
+        <section class="mb-4 bg-blue-500 text-white banner py-8">
 
             <div class="p-4 lg:w-5/6 mx-auto lg:grid grid-flow-cols grid-cols-2 gap-4">
                 @foreach ($sponsors->forget(0) as $sponsor)
                     <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center my-20">
                         <a class="block" href="{{$sponsor->link}}" rel="sponsored">
-                            <img src="{{ $sponsor->image }}" class="max-h-96 lg:mx-auto rounded-lg shadow-lg" />
+                            @component('components.image', [
+                                "src" => $sponsor->image,
+                                "class" => "max-h-96 lg:mx-auto rounded-lg shadow-lg"
+                            ])
+                            @endcomponent
                         </a>
 
                         <div class="col-span-1 w-full">
@@ -82,22 +104,20 @@
         </section>
     @endif
 
-    <section class="px-10 lg:grid grid-cols-3 gap-4">
-        @if (isset($article->category))
-            @foreach ($suggested["ofAuthor"] as $a)
-                @component('components.card', [
-                    'title' => $a->title,
-                    'description' => $a->snippet,
+    <section class="px-10 lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+        @foreach ($suggested["ofAuthor"] as $a)
+            @component('components.card', [
+                'title' => $a->title,
+                'description' => $a->snippet,
 
-                    'image' => $a->image,
-                    'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
-                ])
-                @endcomponent
-            @endforeach
-        @endif
+                'image' => $a->image,
+                'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
+            ])
+            @endcomponent
+        @endforeach
     </section>
 
-    <section class="px-10 lg:grid grid-cols-3 gap-4 bg-primary banner rounded-b-lg">
+    <section class="px-10 lg:grid lg:grid-cols-2 xl:grid-cols-3 bg-primary banner rounded-b-lg">
         @if (isset($article->category))
             @foreach ($suggested["ofCategory"] as $a)
                 @component('components.card', [

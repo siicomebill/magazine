@@ -5,7 +5,12 @@
         <div class="py-6 flex rounded-t-lg justify-center bg-primary banner">
             <div class="block text-center">
                 @if (isset($category->image))
-                    <img src="{{$category->image}}" alt="{{$category->name}}" class="mx-auto block rounded-lg h-80 border-4 border-white shadow-lg" />
+                    @component('components.image', [
+                        "src" => $category->image,
+                        "alt" => $category->name,
+                        "class" => "mx-auto block rounded-lg h-80 border-4 border-white shadow-lg"
+                    ])
+                    @endcomponent
                 @endif
 
                 <p class="font-banner text-2xl">{{$category->name}}</p>
@@ -14,7 +19,7 @@
             </div>
         </div>
 
-        @if (isset($category->children))
+        @if (isset($category->children) && count($category->children))
             <div class="mb-4 py-4 text-center bg-gray-200">
                 @foreach ($category->children as $child)
                     <a href="{{ route('amp.categories.articles', $child->id) }}" class="px-6 font-banner underline">{{$child->name}}</a>

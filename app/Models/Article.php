@@ -76,13 +76,18 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
     {
         $link = $this->slug ? route('articles.read', $this->slug) : route('articles.read', $this->id);
 
-        return FeedItem::create()
+        $item = FeedItem::create()
             ->id($this->id)
             ->title($this->title)
             ->summary($this->snippet)
             ->updated($this->updated_at)
             ->link($link)
-            ->author($this->author->name)
-            ->category($this->category->name);
+            ->author($this->author->name);
+
+        if ($this->category){
+            $item->category($this->category->name);
+        }
+
+        return $item;
     }
 }
