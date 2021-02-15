@@ -37,7 +37,7 @@ class CategoryController extends ResourceController implements ResourceControlle
     {
         $categories = $this->resource->asModel()->all(["name", "id"]);
 
-        return $this->renderer::render('Categories', [
+        return $this->render('Categories', [
             "categories" => $categories
         ]);
     }
@@ -49,7 +49,7 @@ class CategoryController extends ResourceController implements ResourceControlle
 
         SEO::set($category);
 
-        return $this->renderer::render('ArticleList', [
+        return $this->render('ArticleList', [
             "category" => $category,
             "articles" => $articles,
             "children" => $category->children()->with(['articles' => function ($query) {
@@ -74,6 +74,6 @@ class CategoryController extends ResourceController implements ResourceControlle
             "categories" => $categoriesQuery->get(["name", "id"])
         ];
 
-        return $this->renderer::render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
+        return $this->render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
     }
 }

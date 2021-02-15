@@ -2,11 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Interfaces\Repositories\FeedableResourceRepositoryInterface;
 use App\Interfaces\Repositories\ResourceRepositoryInterface;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 
-class ResourceRepository implements ResourceRepositoryInterface
+class ResourceRepository implements ResourceRepositoryInterface, FeedableResourceRepositoryInterface
 {
     protected $model = Model::class;
 
@@ -93,5 +94,10 @@ class ResourceRepository implements ResourceRepositoryInterface
     public function paginated($perPage = 5)
     {
         return $this->latest()->paginate($perPage);
+    }
+
+    public function getFeedItems()
+    {
+        return $this->latest(20)->get();
     }
 }

@@ -49,7 +49,7 @@ class UserController extends ResourceController implements ResourceControllerChi
 
         $paginatedResource = new PaginatedCollection($items);
 
-        return $this->renderer::render($this->pageComponents["managerPage"], [
+        return $this->render($this->pageComponents["managerPage"], [
             "items" => $paginatedResource
         ]);
     }

@@ -1,14 +1,16 @@
 <template>
 	<div>
 		<div class="text-white">
-			<div class="mx-auto lg:grid grid-cols-2 gap-2 min-h-screen">
-				<Thumbnail
-					:src="article.image"
-					square
-					class="h-full text-center overflow-hidden"
-				/>
+			<div class="mx-auto lg:grid grid-cols-3 gap-2 min-h-screen items-center">
+				<div class="p-4">
+					<Thumbnail
+						:src="article.image"
+						class="text-center overflow-hidden rounded-lg"
+					/>
+				</div>
+				
 
-				<div class="my-auto px-10 py-7">
+				<div class="my-auto px-10 py-7 col-span-2">
 					<a
 						v-if="article.category"
 						class="border-2 border-white rounded-full px-4 py-1 align-middle"
@@ -61,7 +63,7 @@
 						<Disqus :pageConfig="pageConfig"/>
 					</div>
 
-					<div v-if="suggested.ofCategory" class="pt-5">
+					<div v-if="article.category && suggested.ofCategory" class="pt-5">
 						<p class="text-2xl text-center font-banner uppercase">
 							<span class="font-banner text-primary">#</span>
 							{{ article.category.name }}

@@ -8,14 +8,16 @@ use App\Repositories\ConfigurationRepository;
 use App\Repositories\PageRepository;
 use App\Repositories\SponsorRepository;
 use App\Repositories\UserRepository;
+use App\Traits\Renderable;
 use Illuminate\Support\Arr;
-use Inertia\Inertia;
 
 class PublicPagesController extends Controller
 {
+    use Renderable;
+
     public function index(SponsorRepository $sponsor, ArticleRepository $article, ConfigurationRepository $config)
     {
-        return Inertia::render('Home', [
+        return $this->render('Home', [
             "sponsors" => $sponsor->important()->get(),
             "articles" => $article->paginated(20),
             "config" => $config->get(["banner" , "logo"]),
@@ -32,7 +34,7 @@ class PublicPagesController extends Controller
         SEO::set($model);
 
         if($content)
-            return Inertia::render('PageContainer', [
+            return $this->render('PageContainer', [
                 "content" => $content
             ]);
         else
@@ -45,7 +47,7 @@ class PublicPagesController extends Controller
             $query->public();
         }])->firstOrFail();
 
-        return Inertia::render('User', [
+        return $this->render('User', [
             "user" => $user,
         ]);
     }

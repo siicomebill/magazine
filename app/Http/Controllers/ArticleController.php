@@ -15,7 +15,6 @@ use App\Repositories\UserRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-use Inertia\Inertia;
 
 class ArticleController extends ResourceController implements ReactableResourceControllerInterface
 {
@@ -36,7 +35,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
 
         $paginatedResource = new PaginatedCollection($this->article->forManagerPage($userId, $routes));
 
-        return Inertia::render('ArticlesManager', [
+        return $this->render('ArticlesManager', [
             'items' => $paginatedResource,
             'newItem' => $userId ? route('articles.ofUser.write', [
                 'userId' => $userId
@@ -48,7 +47,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
     {
         $article = $this->article->forEditor($id, auth()->user()->id);
 
-        return Inertia::render('NewArticle', [
+        return $this->render('NewArticle', [
             "stored" => $article ?? null,
             "publishTo" => URL::route('articles.publish'),
             "categories" => $this->category->list(["name", "id"])
@@ -59,7 +58,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
     {
         $article = $this->article->forEditor($id, $userId);
 
-        return Inertia::render('NewArticle', [
+        return $this->render('NewArticle', [
             "stored" => $article,
             "publishTo" => URL::route('articles.ofUser.publish', [
                 'userId' => $userId,
@@ -118,7 +117,7 @@ class ArticleController extends ResourceController implements ReactableResourceC
 
         $suggested["ofAuthor"] = $article->author->articles()->public()->take(4)->get(["title", "image", "id"]);
 
-        return Inertia::render('Article', [
+        return $this->render('Article', [
             "article" => $article,
             "sponsors" => $this->sponsor->random(3)->get(),
             "reactions" => $this->article->getReactions($article),

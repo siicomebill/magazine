@@ -13,6 +13,9 @@
         <!-- Routes -->
         @routes
 
+        <!-- RSS Feed -->
+        @include('feed::links')
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
