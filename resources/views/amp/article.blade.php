@@ -104,7 +104,7 @@
         </section>
     @endif
 
-    <section class="px-10 lg:grid grid-cols-3 gap-4">
+    <section class="px-10 lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach ($suggested["ofAuthor"] as $a)
             @component('components.card', [
                 'title' => $a->title,
@@ -117,7 +117,7 @@
         @endforeach
     </section>
 
-    <section class="px-10 lg:grid grid-cols-3 gap-4 bg-primary banner rounded-b-lg">
+    <section class="px-10 lg:grid lg:grid-cols-2 xl:grid-cols-3 bg-primary banner rounded-b-lg">
         @if (isset($article->category))
             @foreach ($suggested["ofCategory"] as $a)
                 @component('components.card', [
