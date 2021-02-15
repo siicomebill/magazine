@@ -3,12 +3,16 @@
 @section('page')
     <section class="lg:grid grid-flow-cols grid-cols-3 items-center mt-32">
         <div class="py-7 px-8">
-            @component('components.image', [
-                "src" => $article->image,
-                "alt" => $article->title,
-                "class" => "block rounded-lg shadow-lg mx-auto -mt-32"
-            ])
-            @endcomponent
+            <div class="-mt-32">
+            @if ($article->image)
+                @component('components.image', [
+                    "src" => $article->image,
+                    "alt" => $article->title,
+                    "class" => "block rounded-lg shadow-lg mx-auto"
+                ])
+                @endcomponent
+            @endif
+            </div>
 
             <div class="flex justify-center -mt-12">
                 <a class="block text-center" href="{{ route('amp.user.page', $article->author->id) }}">
