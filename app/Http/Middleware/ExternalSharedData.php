@@ -7,6 +7,7 @@ use App\Repositories\ConfigurationRepository;
 use App\Repositories\PageRepository;
 use Closure;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 use Inertia\Inertia;
 
 class ExternalSharedData
@@ -27,13 +28,16 @@ class ExternalSharedData
      */
     public function handle($request, Closure $next)
     {
-        Inertia::share([
+        $shared = [
             'configuration' => $this->config->get(['footer', 'logo']),
             'navbar' => [
                 'categories' => $this->category->important()->get(),
             ],
             'pages' => $this->page->list(['name', 'slug'])
-        ]);
+        ];
+
+        Inertia::share($shared);
+        View::share($shared);
 
         return $next($request);
     }

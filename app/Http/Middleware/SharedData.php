@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 use Inertia\Inertia;
 use Meta;
 
@@ -18,7 +19,7 @@ class SharedData
      */
     public function handle($request, Closure $next)
     {
-        Inertia::share([
+        $shared = [
             'app' => [
                 'name' => config('app.name', 'BILL')
             ],
@@ -41,7 +42,10 @@ class SharedData
 
                 return (object)[];
             },
-        ]);
+        ];
+
+        Inertia::share($shared);
+        View::share($shared);
 
         return $next($request);
     }
