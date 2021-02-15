@@ -5,11 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <link rel="icon" href="/favicon.ico">
+
+        <!-- Meta Tags -->
         @metas
 
-        @include('feed::links')
+        <!-- Routes -->
+        @routes
 
-        <link rel="canonical" href="{{ request()->canonicalUrl }}">
+        <!-- RSS Feed -->
+        @include('feed::links')
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
