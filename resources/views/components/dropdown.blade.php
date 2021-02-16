@@ -12,7 +12,7 @@
     </span>
 
     <div
-        x-bind:class="{ {{ ($mobileOnly ?? '') ? 'hidden lg:block' : 'hidden' }}: !open }"
+        x-bind:class="{ '{{ ($mobileOnly ?? '') ? 'hidden lg:block' : 'hidden' }}': !open }"
         @click.away="open = false"
 
         class="order-first flex-col absolute right-0 top-full z-40 align-items-center shadow-lg bg-white text-black border-2 border-black rounded-lg {{($mobileOnly ?? '') ? 'lg:relative lg:border-none lg:shadow-none lg:p-0' : 'py-2 px-4'}}"
