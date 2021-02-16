@@ -31,7 +31,83 @@
     </head>
     <body class="font-sans antialiased bg-dark text-white banner">
         <div class="sticky top-0 py-2 bg-dark">
-            <p class="text-sm text-center my-0">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
+            <p class="text-sm text-center my-0 pb-2">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
+            
+            <div class="top-0 left-0 right-0 z-30">
+                <nav class="bg-white text-dark shadow-lg lg:px-0 lg:py-4 px-4 py-2">
+                    <div
+                        class="container mx-auto flex items-center justify-between flex-wrap"
+                    >
+                        <div class="flex items-center flex-shrink-0 mr-6">
+                            <a
+                                href="/amp"
+                                class="font-semibold text-xl tracking-tight font-banner uppercase"
+                                >{{ $app["name"] }}</a
+                            >
+                        </div>
+    
+                        <div class="lg:inline-block lg:order-last flex items-end">
+                            @auth
+                                <div>
+                                    UserDropdown
+                                </div>
+                            @endauth
+
+                            @guest
+                                <div class="lg:grid grid-cols-2 gap-2 font-banner uppercase">
+                                    <a
+                                        href="{{route('login')}}"
+                                        class="block text-sm text-center px-4 py-2 leading-none border rounded-full bg-primary border-none text-black lg:mt-0"
+                                        >Login</a
+                                    >
+                                    <a
+                                        href="{{route('register')}}"
+                                        class="block text-sm text-center text-black px-4 py-2 leading-none lg:mt-0"
+                                        >Registrati</a
+                                    >
+                                </div>
+                            @endguest
+                        </div>
+                    </div>
+                </nav>
+    
+                <nav
+                    class="bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end"
+                >
+                    @if (isset($navbar["categories"]))
+                        <div class="text-sm lg:mb-0 mb-4 lg:inline-block">
+                            <ul v-if="$page.navbar.categories" class="lg:flex">
+                                @foreach ($navbar["categories"] as $category)
+                                    <li
+                                        class="lg:mx-3 h-10 flex"
+                                    >
+                                        <a
+                                            class="flex flex-grow cursor-pointer my-auto"
+                                            href="{{ route('amp.categories.articles', $category->id) }}"
+                                        >
+                                            <span class="cursor-pointer block my-auto font-bold uppercase">{{ $category->name }}</span>
+                                        </a>
+                                        <div class="flex">
+                                            @if (isset($category->children) && $category->children->count() > 0)
+                                                <div class="flex-grow my-auto capitalize rounded-lg pr-3 px-4" >
+                                                    @component('components.dropdown')
+                                                        @slot('body')
+                                                            @foreach ($category->children as $child)
+                                                                <a class="text-sm block lg:flex-grow pb-3" href="{{route('amp.categories.articles', $child->id)}}" > {{ $child->name }}</a >
+                                                            @endforeach
+                                                        @endslot
+                                                    @endcomponent
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </nav>
+            </div>
+        
         </div>
 
         <header class="py-6">
