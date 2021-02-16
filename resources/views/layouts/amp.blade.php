@@ -41,12 +41,12 @@
                         <a href="{{ route('amp.home') }}" class="text-2xl tracking-tight font-banner uppercase" >{{ $app["name"] }}</a >
                     </div>
 
-                    <div class="lg:order-last lg:px-0 lg:pt-4 px-4 pt-2">
-                        <div class="py-4 flex items-end">
+                    <div class="hidden lg:block lg:order-last lg:px-0 lg:pt-4 px-4 pt-2">
+                        <div class="py-4 flex justify-end">
                             @auth
-                                <div>
-                                    UserDropdown
-                                </div>
+                                <p>
+                                    <a href="{{route('dashboard') }}" class="font-bold text-primary underline">Bacheca</a>
+                                </p>
                             @endauth
 
                             @guest
