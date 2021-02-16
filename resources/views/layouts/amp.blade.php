@@ -56,11 +56,33 @@
             @yield('page')
         </main>
         
-        <footer class="footer py-10 px-4">
-            <section>
+        <footer class="footer bg-dark rounded-t-lg py-10 px-4">
+            <section class="lg:w-2/3 mx-auto">
                 @if (isset($configuration['footer']))
                     <div class="mx-auto text-center py-6 content">
                         {!! prosemirrorToHtml($configuration['footer']) !!}
+                    </div>
+                @endif
+
+                @if (isset($pages))
+                    <div class="my-6">
+                        <fieldset class="border-2 border-white rounded-lg">
+                            <legend class="text-center">
+                                <p class="text-3xl">Esplora</p>
+                            </legend>
+
+                            <div class="md:grid md:grid-cols-2 lg:grid-cols-4 px-4">
+                                @foreach ($pages as $page)
+                                    <a
+                                        href="{{route('page', $page->slug)}}"
+                                        class="capitalize md:inline md:text-left block text-center my-3"
+                                    >
+                                        {{ $page->name }}
+                                    </a>
+                                @endforeach
+                            </div>
+                            
+                        </fieldset>
                     </div>
                 @endif
                 
