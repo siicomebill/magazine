@@ -41,11 +41,11 @@
                         <a href="{{ route('amp.home') }}" class="text-2xl tracking-tight font-banner uppercase" >{{ $app["name"] }}</a >
                     </div>
 
-                    <div class="hidden lg:block lg:order-last lg:px-0 lg:pt-4 px-4 pt-2">
+                    <div class=" lg:block lg:order-last lg:px-0 lg:pt-4 px-4 pt-2">
                         <div class="py-4 flex justify-end">
                             @auth
                                 <p>
-                                    <a href="{{route('dashboard') }}" class="font-bold text-primary underline">Bacheca</a>
+                                    <a href="{{route('dashboard') }}" class="uppercase font-banner text-primary underline">Bacheca</a>
                                 </p>
                             @endauth
 
@@ -65,39 +65,47 @@
                             @endguest
                         </div>
 
-                        <nav class="bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end rounded-t-lg">
-                            @if (isset($navbar["categories"]))
-                                <div class="text-sm lg:mb-0 mb-4 lg:inline-block">
-                                    <ul v-if="$page.navbar.categories" class="lg:flex">
-                                        @foreach ($navbar["categories"] as $category)
-                                            <li
-                                                class="lg:mx-3 h-10 flex"
-                                            >
-                                                <a
-                                                    class="flex flex-grow cursor-pointer my-auto"
-                                                    href="{{ route('amp.categories.articles', $category->id) }}"
+                        @component('components.dropdown', ["mobileOnly" => true])
+                            @slot('title')
+                                <span class="font-banner uppercase">Sezioni</span>
+                            @endslot
+                            @slot('body')
+                            <nav class="bg-dark text-white shadow-lg lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end rounded-t-lg">
+                                @if (isset($navbar["categories"]))
+                                    <div class="text-sm lg:mb-0 mb-4 lg:inline-block">
+                                        <ul v-if="$page.navbar.categories" class="lg:flex">
+                                            @foreach ($navbar["categories"] as $category)
+                                                <li
+                                                    class="lg:mx-3 h-10 flex"
                                                 >
-                                                    <span class="cursor-pointer block my-auto font-bold uppercase">{{ $category->name }}</span>
-                                                </a>
-                                                <div class="flex">
-                                                    @if (isset($category->children) && $category->children->count() > 0)
-                                                        <div class="flex-grow my-auto capitalize rounded-lg pr-3 px-4" >
-                                                            @component('components.dropdown')
-                                                                @slot('body')
-                                                                    @foreach ($category->children as $child)
-                                                                        <a class="text-sm block lg:flex-grow pb-3" href="{{route('amp.categories.articles', $child->id)}}" > {{ $child->name }}</a >
-                                                                    @endforeach
-                                                                @endslot
-                                                            @endcomponent
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                        </nav>
+                                                    <a
+                                                        class="flex flex-grow cursor-pointer my-auto"
+                                                        href="{{ route('amp.categories.articles', $category->id) }}"
+                                                    >
+                                                        <span class="cursor-pointer block my-auto font-bold uppercase">{{ $category->name }}</span>
+                                                    </a>
+                                                    <div class="flex">
+                                                        @if (isset($category->children) && $category->children->count() > 0)
+                                                            <div class="flex-grow my-auto capitalize rounded-lg pr-3 px-4" >
+                                                                @component('components.dropdown')
+                                                                    @slot('body')
+                                                                        @foreach ($category->children as $child)
+                                                                            <a class="text-sm block lg:flex-grow pb-3" href="{{route('amp.categories.articles', $child->id)}}" > {{ $child->name }}</a >
+                                                                        @endforeach
+                                                                    @endslot
+                                                                @endcomponent
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            </nav>
+                            @endslot
+                        @endcomponent
+                        
                     </div>
                     
                 </div>
