@@ -1,10 +1,6 @@
 @extends('layouts.amp')
 
 @section('page')
-    <div class="p-4 text-center border-b border-gray-400 rounded-t-lg">
-        <a href="{{route('amp.categories')}}" class="font-bold text-primary">Vai alle categorie</a>
-    </div>
-
     <div class="xl:grid grid-cols-2">
         @foreach ($articles as $id => $article)
             <div class="py-4 px-6">
