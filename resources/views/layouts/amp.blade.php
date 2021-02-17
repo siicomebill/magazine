@@ -47,7 +47,7 @@
                     @component('components.dropdown', ["mobileOnly" => true, "class" => "lg:mx-auto"])
                         @slot('body')
                             <div class="lg:block lg:order-last lg:px-0 lg:pt-4 px-4 pt-2">
-                                <div class="py-4 flex justify-end">
+                                <div class="pb-2 flex justify-end">
                                     @auth
                                         <p>
                                             <a href="{{route('dashboard') }}" class="uppercase font-banner text-primary underline">Bacheca</a>
