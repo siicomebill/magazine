@@ -1,4 +1,4 @@
-<div x-data="{ open: false }" class="flex relative items-center">
+<div x-data="{ open: false }" class="flex relative items-center {{$class ?? ''}}">
     <span @click="open = !open" class="flex items-center focus:outline-none cursor-pointer {{ ($mobileOnly ?? '') ? 'lg:hidden' : '' }}">
         <span>
             @if (isset($title))
