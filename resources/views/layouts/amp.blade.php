@@ -30,10 +30,10 @@
         <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     </head>
     <body class="font-sans antialiased bg-dark text-white banner">
-        <div class="sticky top-0 py-2 bg-dark">
-            <p class="text-sm text-center my-0 pb-2">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
+        <div class="sticky top-0">
+            <p class="text-sm text-center my-0 py-2 bg-dark">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
             
-            <nav class="top-0 left-0 right-0 z-3 px-4 bg-white text-dark shadow-lg">
+            <nav class="top-0 left-0 right-0 z-3 px-4 bg-white text-dark shadow-lg rounded-b-lg">
                 <div
                     class="container mx-auto flex items-center justify-between flex-wrap"
                 >
@@ -75,7 +75,7 @@
                                         <span class="font-banner uppercase">Sezioni</span>
                                     @endslot
                                     @slot('body')
-                                    <nav class="bg-white text-dark shadow-lg lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end rounded-t-lg">
+                                    <nav class="bg-white text-dark border lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end rounded-t-lg">
                                         @if (isset($navbar["categories"]))
                                             <div class="text-sm lg:mb-0 mb-4 lg:inline-block">
                                                 <ul v-if="$page.navbar.categories" class="lg:flex">
