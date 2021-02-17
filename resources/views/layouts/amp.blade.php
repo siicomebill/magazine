@@ -74,6 +74,7 @@
                                     @slot('title')
                                         <span class="font-banner uppercase">Sezioni</span>
                                     @endslot
+
                                     @slot('body')
                                     <nav class="bg-white text-dark border lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end rounded-t-lg">
                                         @if (isset($navbar["categories"]))
