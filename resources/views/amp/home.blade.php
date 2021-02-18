@@ -4,22 +4,15 @@
     <div class="xl:grid grid-cols-2">
         @foreach ($articles as $id => $article)
             <div class="py-4 px-6">
-                @component('components.card', [
-                    'title' => $article->title,
-                    'description' => $article->snippet,
+                @component('components.articlecard', [
+                    "identifier" => $article->slug ?? $article->id,
 
-                    'image' => $article->image,
-                    'link' => route('amp.articles.read', ($article->slug ?? $article->id)),
+                    "title" => $article->title,
+                    "description" => $article->snippet,
+                    "image" => $article->image,
+                    "author" => $article->author,
+                    "category" => $article->category,
                 ])
-                    @if (isset($article->category))
-                        @slot('header')
-                            <a href="{{ route('amp.categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
-                        @endslot
-                    @endif
-
-                    @slot('footer')
-                        <p class="font-handwritten text-4xl">Scritto da <a class="font-bold" href="{{route('amp.user.page', $article->author->id)}}">{{$article->author->name}}</a></p>
-                    @endslot
                 @endcomponent
             </div>
 
