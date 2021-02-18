@@ -1,4 +1,4 @@
-@extends('layouts.compact')
+@extends('layouts.content.compact')
 
 @section('content')
     <div class="pb-6">

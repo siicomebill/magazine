@@ -1,4 +1,4 @@
-@extends('layouts.compact')
+@extends('layouts.content.compact')
 
 @section('content')
     <section class="lg:grid grid-flow-cols grid-cols-3 items-center mt-32">

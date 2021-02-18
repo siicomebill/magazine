@@ -1,6 +1,6 @@
-@extends('layouts.amp')
+@extends('layouts.content.compact')
 
-@section('page')
+@section('content')
     <div class="py-6">
         <section class="px-10">
             @foreach ($categories as $category)
