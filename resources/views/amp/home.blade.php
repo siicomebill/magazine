@@ -17,7 +17,7 @@
             </div>
 
             @if (isset($sponsors[max($id - 2, 0)]) && ($id - 1) % 2 == 0)
-                <section class="my-4 bg-blue-500 col-span-2 text-white banner py-8">
+                <section class="my-4 bg-blue-500 col-span-2 text-white banner py-8 container-small mx-auto rounded-lg">
                     <div class="p-4 mx-auto lg:w-2/3">
                         <p class="text-white text-sm opacity-70">Sponsor</p>
 
