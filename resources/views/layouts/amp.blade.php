@@ -32,8 +32,8 @@
     <body class="font-sans antialiased bg-dark text-white banner">
         <p class="text-sm text-center my-0 py-2 bg-dark">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
 
-        <div class="sticky top-0">
-            <nav class="top-0 left-0 right-0 z-3 px-4 bg-white text-dark shadow-lg rounded-b-lg">
+        <div class="sticky top-0 z-50">
+            <nav class="top-0 left-0 right-0 px-4 bg-white text-dark shadow-lg rounded-b-lg">
                 <div
                     class="container mx-auto flex items-center justify-between flex-wrap"
                 >
