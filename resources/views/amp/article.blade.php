@@ -1,6 +1,6 @@
-@extends('layouts.amp')
+@extends('layouts.compact')
 
-@section('page')
+@section('content')
     <section class="lg:grid grid-flow-cols grid-cols-3 items-center mt-32">
         <div class="py-7 px-8">
             <div class="-mt-32">

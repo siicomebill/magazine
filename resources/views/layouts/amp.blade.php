@@ -137,7 +137,7 @@
             @endif
         </header>
         
-        <main class="font-sans text-gray-900 antialiased bg-white container mx-auto my-6 rounded-lg shadow-lg">
+        <main class="font-sans antialiased text-white mx-auto my-6 rounded-lg shadow-lg">
             @yield('page')
         </main>
         

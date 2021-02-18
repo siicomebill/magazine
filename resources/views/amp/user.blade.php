@@ -1,6 +1,6 @@
-@extends('layouts.amp')
+@extends('layouts.compact')
 
-@section('page')
+@section('content')
     <div class="py-6">
         <div class="flex justify-center">
             <div class="block text-center">
