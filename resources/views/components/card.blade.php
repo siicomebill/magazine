@@ -14,10 +14,11 @@
             <div class="mb-4">
                 {{ $header }}
             </div>
+
+            <hr/>
         @endif
 
         <a class="block font-banner text-xl lg:text-3xl" href="{{$link ?? ''}}">{{$title}}</a>
-        <hr>
         <p>{{$description ?? ''}}</p>
 
         @if (isset($footer))

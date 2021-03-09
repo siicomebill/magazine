@@ -1,29 +1,49 @@
 @extends('layouts.amp')
 
 @section('page')
-    <div class="p-4 text-center border-b border-gray-400 rounded-t-lg">
-        <a href="{{route('amp.categories')}}" class="font-bold text-primary">Vai alle categorie</a>
-    </div>
+    <div class="xl:grid grid-cols-2 items-center">
+        @foreach ($articles as $id => $article)
+            <div class="py-4 px-6">
+                @component('components.articlecard', [
+                    "identifier" => $article->slug ?? $article->id,
 
-    <div class="py-4 px-6 xl:grid grid-cols-2">
-        @foreach ($articles as $article)
-            @component('components.card', [
-                'title' => $article->title,
-                'description' => $article->snippet,
+                    "title" => $article->title,
+                    "description" => $article->snippet,
+                    "image" => $article->image,
+                    "author" => $article->author,
+                    "category" => $article->category,
+                ])
+                @endcomponent
+            </div>
 
-                'image' => $article->image,
-                'link' => route('amp.articles.read', ($article->slug ?? $article->id)),
-            ])
-                @if (isset($article->category))
-                    @slot('header')
-                        <a href="{{ route('amp.categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
-                    @endslot
-                @endif
+            @if (isset($sponsors[max($id - 2, 0)]) && ($id - 1) % 2 == 0)
+                <section class="my-4 bg-blue-500 col-span-2 text-white banner py-8 container mx-auto rounded-lg">
+                    <div class="p-4 mx-auto lg:w-2/3">
+                        <p class="text-white text-sm opacity-70">Sponsor</p>
 
-                @slot('footer')
-                    <p class="font-handwritten text-4xl">Scritto da <a class="font-bold" href="{{route('amp.user.page', $article->author->id)}}">{{$article->author->name}}</a></p>
-                @endslot
-            @endcomponent
+                        <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center">
+                            <a class="block" href="{{$sponsors[max($id - 2, 0)]->link}}" rel="sponsored">
+                                @component('components.image', [
+                                    "src" => $sponsors[max($id - 2, 0)]->image,
+                                    "class" => "max-h-96 lg:mx-auto rounded-lg shadow-lg"
+                                ])
+                                @endcomponent
+                            </a>
+
+                            <div class="col-span-1 w-full">
+                                <div class="mb-6">
+                                    <p class="font-banner text-3xl">{{$sponsors[max($id - 2, 0)]->name}}</p>
+
+                                    <p class="text-xl">{{$sponsors[max($id - 2, 0)]->snippet}}</p>
+                                </div>
+
+                                <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg" href="{{$sponsors[max($id - 2, 0)]->link}}" rel="sponsored">{{$sponsors[max($id - 2, 0)]->cta}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            @endif
         @endforeach
     </div>
 
