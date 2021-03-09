@@ -1,13 +1,10 @@
 <span
-    x-data="{ fixed: {{$fixed ?? 'false'}} }"
-    class="my-4 rounded-lg bg-dark text-white items-center grid-cols-4 border-2 border-white overflow-hidden"
-    :class="{ 'block': fixed, 'block lg:grid': !fixed, }"
+    class="my-4 rounded-lg bg-dark text-white items-center grid-cols-4 border-2 border-white overflow-hidden {{ isset($fixed) && $fixed ? 'block' : 'block lg:grid' }}"
 >
     @if (isset($image))
         <a
             href="{{ route('amp.articles.read', $identifier) }}"
-            class="text-center overflow-hidden border-white border-b-2"
-            :class="{'h-full lg:border-r-2 lg:border-b-0 lg:rounded-r-0': !fixed}"
+            class="text-center overflow-hidden border-white border-b-2 {{ !($fixed ?? false) ? 'h-full lg:border-r-2 lg:border-b-0 lg:rounded-r-0' : '' }}"
         >
             @component('components.image', [
                 "src" => $image,
@@ -16,11 +13,6 @@
                 "class" => "flex object-cover",
             ])
             @endcomponent
-            {{-- <Thumbnail
-                :src="image"
-                square
-                :class="{'h-full lg:rounded-r-0': !fixed}"
-            /> --}}
         </a>
     @endif
 
