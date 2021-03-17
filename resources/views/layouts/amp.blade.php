@@ -10,6 +10,11 @@
         <!-- Meta Tags -->
         @metas
 
+        <meta
+            name="amp-script-src"
+            content="sha384-0prhHMCKLP6R_z-J-OI6LNBiJIWzX6CqcAZnAWu4XaxgXkiqOBVPW7qLuQa2pkc_"
+        />
+
         <!-- Routes -->
         @routes
 

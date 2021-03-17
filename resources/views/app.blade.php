@@ -13,6 +13,8 @@
         <!-- Routes -->
         @routes
 
+        <link rel="amphtml" href="{{ url('/') }}/amp/{{ request()->path() }}">
+
         <!-- RSS Feed -->
         @include('feed::links')
 
