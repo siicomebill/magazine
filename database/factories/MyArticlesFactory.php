@@ -29,6 +29,7 @@ class MyArticlesFactory extends Factory
             "title" => $this->faker->sentence,
             "snippet" => $this->faker->paragraph,
             "image" => "https://picsum.photos/600",
+            "published_at" => now(),
             "content" => [
                 'type' => 'doc',
                 'content' =>
