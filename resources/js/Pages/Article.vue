@@ -47,12 +47,12 @@
 					/>
 
 					<div class="py-3 px-4 lg:px-0">
-						<div class="pb-10 lg:grid grid-cols-2 items-center">
-							<Reactions
+						<div class="pb-10 items-center">
+							<!-- <Reactions
 								:givenReactions="reactions"
 								reactTo="article"
 								:itemId="article.id"
-							/>
+							/> -->
 
 							<ShareButtons
 								:link="$route('articles.read', article.slug ? article.slug : article.id)"
@@ -123,7 +123,7 @@ export default {
 		Reader,
 		Thumbnail: () => import("~/Thumbnail"),
 		SponsorCard: () => import("~/SponsorCard"),
-		Reactions: () => import("~/Reactions"),
+		// Reactions: () => import("~/Reactions"),
 		AuthorBadge: () => import("~/AuthorBadge"),
 		Card: () => import("~/ArticleCard"),
 		ShareButtons: () => import("~/ShareButtons"),
