@@ -57,7 +57,5 @@
         "webpack-chunk-rename-plugin": "^1.0.3",
         "ziggy-js": "^0.9.4"
     },
-    "dependencies": {
-        "puppeteer": "^5.5.0"
-    }
+    "dependencies": {}
 }
