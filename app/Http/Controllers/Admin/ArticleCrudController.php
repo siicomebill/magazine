@@ -69,10 +69,17 @@ class ArticleCrudController extends CrudController
         CRUD::field('snippet');
         CRUD::field('content')->type('prosemirror');
         CRUD::field('category_id');
-        CRUD::field('image')->type('image');
         CRUD::field('slug');
         CRUD::field('published_at')->default(now());
         
+
+        //FIXME Implement with Cloudinary
+        //TODO Extend to category and sponsors maybe?
+        CRUD::field('image')
+            ->type('image')
+            ->label('Thumbnail')
+            ->aspectRatio(0);
+
         CRUD::field('user_id')
             ->value(auth()->user()->id)
             ->wrapper([
