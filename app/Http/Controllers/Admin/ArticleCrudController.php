@@ -69,10 +69,15 @@ class ArticleCrudController extends CrudController
         CRUD::field('snippet');
         CRUD::field('content')->type('prosemirror');
         CRUD::field('category_id');
-        CRUD::field('user');
-        CRUD::field('image');
-        CRUD::field('published_at');
+        CRUD::field('image')->type('image');
         CRUD::field('slug');
+        CRUD::field('published_at')->default(now());
+        
+        CRUD::field('user_id')
+            ->value(auth()->user()->id)
+            ->wrapper([
+                "style" => "display:none",
+            ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
