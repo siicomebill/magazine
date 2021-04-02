@@ -27,7 +27,7 @@
         <script src="https://unpkg.com/vue-publisher"></script>
         
         <script>
-            const app = new Vue({
+            new Vue({
                 el: '#editor',
                 data: {
                     content: {},
