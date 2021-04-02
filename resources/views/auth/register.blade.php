@@ -38,6 +38,16 @@
                     {{ __('Register') }}
                 </x-jet-button>
             </div>
+
+            <div class="mt-4">
+                <p class="text-sm text-gray-900">
+                    Iscrivendoti accetti di essere inserito nella nostra newsletter.
+                </p>
+
+                <p class="text-sm text-gray-900">
+                    Odiamo lo spam e puoi <strong>disiscriverti quando vuoi</strong>.
+                </p>
+            </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

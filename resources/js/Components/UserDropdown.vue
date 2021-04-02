@@ -23,7 +23,7 @@
 
 					<jet-dropdown-link href="/user/profile"> Gestisci profilo </jet-dropdown-link>
 
-					<jet-dropdown-link href="/dashboard"> Vai alla tua bacheca </jet-dropdown-link>
+					<jet-dropdown-link href="/manage"> Vai alla tua bacheca </jet-dropdown-link>
 
 					<jet-dropdown-link
 						href="/user/api-tokens"

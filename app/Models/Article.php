@@ -16,6 +16,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Article extends Model implements ReactableInterface, SEOCompatibleInterface, Feedable
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
     use Reactable; //FIXME Disable eager loading of reactions
     use HasEagerLimit;
