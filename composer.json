@@ -78,6 +78,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
+            "composer dump",
             "php artisan vendor:publish --provider='Backpack\\CRUD\\BackpackServiceProvider' --tag=public --force"
         ],
         "post-update-cmd": [
