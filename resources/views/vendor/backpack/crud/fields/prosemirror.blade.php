@@ -30,12 +30,12 @@
             new Vue({
                 el: '#editor',
                 data: {
-                    content: {},
+                    content: {!! json_encode($field['value']) !!},
                 },
                 components: {
                     Editor: Publisher.Publisher
                 },
-                template: "<Editor v-model='content'/>"
+                template: "<div><textarea name='{{ $field['name'] }}' v-html='content' style='display:none'></textarea><Editor v-model='content'/></div>"
             });
         </script>
     @endpush
