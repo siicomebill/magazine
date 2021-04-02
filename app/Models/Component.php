@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Component extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     public $timestamps = false;
