@@ -67,7 +67,7 @@ class ArticleCrudController extends CrudController
 
         CRUD::field('title');
         CRUD::field('snippet');
-        CRUD::field('content');
+        CRUD::field('content')->type('prosemirror');
         CRUD::field('category_id');
         CRUD::field('user');
         CRUD::field('image');
