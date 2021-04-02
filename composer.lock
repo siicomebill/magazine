@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "989c3560b4b3e5b76a6db4bad88f6741",
+    "content-hash": "743b504371d212c8c1504f695da64397",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,6 +61,99 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.0.2"
             },
             "time": "2020-10-29T16:03:21+00:00"
+        },
+        {
+            "name": "backpack/crud",
+            "version": "4.1.41",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/CRUD.git",
+                "reference": "44770347b918e42c052d0a138c24535b43e32472"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/44770347b918e42c052d0a138c24535b43e32472",
+                "reference": "44770347b918e42c052d0a138c24535b43e32472",
+                "shasum": ""
+            },
+            "require": {
+                "composer/package-versions-deprecated": "^1.8",
+                "creativeorange/gravatar": "~1.0",
+                "doctrine/dbal": "^2.5|^3.0",
+                "guzzlehttp/guzzle": "^7.0|^6.3",
+                "laravel/framework": "^8.0|^7.0|^6.0",
+                "prologue/alerts": "^0.4.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^5.0|^4.0|^3.0",
+                "phpunit/phpunit": "~8.0|~7.0|~9.0",
+                "scrutinizer/ocular": "~1.7|~1.1",
+                "spatie/laravel-translatable": "^4.0"
+            },
+            "suggest": {
+                "backpack/filemanager": "Required to use the browse and browse_multiple fields.",
+                "backpack/generators": "Required on localhost to easily generate CRUDs, models, controllers etc.",
+                "backpack/revise-operation": "Optional operation to remember all entry changes, undo and redo them (aka audit trait).",
+                "digitallyhappy/toggle-field-for-backpack": "Optional field to toggle a boolean. Prettier alternative to the checkbox field."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Backpack\\CRUD\\BackpackServiceProvider"
+                    ],
+                    "aliases": {
+                        "CRUD": "Backpack\\CRUD\\app\\Library\\CrudPanel\\CrudPanelFacade",
+                        "Widget": "Backpack\\CRUD\\app\\Library\\Widget"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\CRUD\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "http://www.tabacitu.ro",
+                    "role": "Creator & Maintainer"
+                }
+            ],
+            "description": "Quickly build an admin interfaces using Laravel 7, CoreUI, Boostrap 4 and jQuery.",
+            "homepage": "https://github.com/laravel-backpack/CRUD",
+            "keywords": [
+                "Admin Interface",
+                "Content management system",
+                "admin panel",
+                "admin panel for laravel",
+                "backpack",
+                "base",
+                "bootstrap 4 admin panel laravel",
+                "bread",
+                "cms",
+                "content management framework",
+                "coreui for laravel",
+                "create",
+                "crud",
+                "delete",
+                "laravel admin",
+                "read",
+                "update"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/4.1.41"
+            },
+            "time": "2021-03-29T16:03:35+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -228,6 +321,142 @@
                 "source": "https://github.com/cloudinary/cloudinary_php/tree/1.19.0"
             },
             "time": "2020-10-29T04:01:07+00:00"
+        },
+        {
+            "name": "composer/package-versions-deprecated",
+            "version": "1.11.99.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/package-versions-deprecated.git",
+                "reference": "7413f0b55a051e89485c5cb9f765fe24bb02a7b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/7413f0b55a051e89485c5cb9f765fe24bb02a7b6",
+                "reference": "7413f0b55a051e89485c5cb9f765fe24bb02a7b6",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0 || ^2.0",
+                "php": "^7 || ^8"
+            },
+            "replace": {
+                "ocramius/package-versions": "1.11.99"
+            },
+            "require-dev": {
+                "composer/composer": "^1.9.3 || ^2.0@dev",
+                "ext-zip": "^1.13",
+                "phpunit/phpunit": "^6.5 || ^7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
+                }
+            ],
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "support": {
+                "issues": "https://github.com/composer/package-versions-deprecated/issues",
+                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.1"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-11-11T10:22:58+00:00"
+        },
+        {
+            "name": "creativeorange/gravatar",
+            "version": "v1.0.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creativeorange/gravatar.git",
+                "reference": "8c2c1a3a59fdf05f50c9d9413dd9d2d50835e017"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creativeorange/gravatar/zipball/8c2c1a3a59fdf05f50c9d9413dd9d2d50835e017",
+                "reference": "8c2c1a3a59fdf05f50c9d9413dd9d2d50835e017",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5|^6|^7|^8",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "nunomaduro/larastan": "^0.6.2",
+                "orchestra/testbench": "^5.4",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Creativeorange\\Gravatar\\GravatarServiceProvider"
+                    ],
+                    "aliases": {
+                        "Gravatar": "Creativeorange\\Gravatar\\Facades\\Gravatar"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Creativeorange\\Gravatar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jaco Tijssen",
+                    "email": "jaco@creativeorange.nl",
+                    "homepage": "https://www.creativeorange.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
+            "keywords": [
+                "avatar",
+                "gravatar",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/creativeorange/gravatar/issues",
+                "source": "https://github.com/creativeorange/gravatar/tree/v1.0.20"
+            },
+            "time": "2020-09-09T14:53:57+00:00"
         },
         {
             "name": "cybercog/laravel-love",
@@ -3192,6 +3421,76 @@
                 "source": "https://github.com/antonioribeiro/google2fa/tree/8.0.0"
             },
             "time": "2020-04-05T10:47:18+00:00"
+        },
+        {
+            "name": "prologue/alerts",
+            "version": "0.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prologuephp/alerts.git",
+                "reference": "a6412e318c0171526bc8b25ef597f2cc61f5b800"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prologuephp/alerts/zipball/a6412e318c0171526bc8b25ef597f2cc61f5b800",
+                "reference": "a6412e318c0171526bc8b25ef597f2cc61f5b800",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5|~6|~7|~8",
+                "illuminate/session": "~5|~6|~7|~8",
+                "illuminate/support": "~5|~6|~7|~8",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Prologue\\Alerts\\AlertsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Alert": "Prologue\\Alerts\\Facades\\Alert"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prologue\\Alerts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com",
+                    "homepage": "http://driesvints.com",
+                    "role": "Creator"
+                },
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "http://tabacitu.ro",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Prologue Alerts is a package that handles global site messages.",
+            "keywords": [
+                "alerts",
+                "laravel",
+                "messages"
+            ],
+            "support": {
+                "issues": "https://github.com/prologuephp/alerts/issues",
+                "source": "https://github.com/prologuephp/alerts/tree/master"
+            },
+            "time": "2020-09-08T14:24:39+00:00"
         },
         {
             "name": "psr/container",
