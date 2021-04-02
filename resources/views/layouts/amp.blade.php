@@ -55,7 +55,7 @@
                                 <div class="pb-2 flex justify-end">
                                     @auth
                                         <p>
-                                            <a href="{{route('dashboard') }}" class="uppercase font-banner text-primary underline">Bacheca</a>
+                                            <a href="{{ route('profile.show') }}" class="uppercase font-banner text-primary underline">Profilo</a>
                                         </p>
                                     @endauth
         
