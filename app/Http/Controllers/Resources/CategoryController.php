@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Resources;
 
 use App\Helpers\SEO;
 use App\Http\Controllers\Base\ResourceController;

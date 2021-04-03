@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Resources;
 
 use App\Http\Controllers\Base\ResourceController;
 use App\Http\Requests\PageRequest;
