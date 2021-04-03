@@ -28,7 +28,7 @@ jobs:
         uses: nanasess/setup-php@v3.0.6
         with:
           # Version Spec of the version to use.  Examples: 7.1
-          php-version: 7.4
+          php-version: 8.0
 
       - name: Install Composer packages
         run: composer install --prefer-dist --no-autoloader --no-progress
