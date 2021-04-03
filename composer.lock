@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "015cfe57ba56b98f88e3b1acc39f961a",
+    "content-hash": "2eaa98c4d4087f425afd01c5829f9165",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -537,22 +537,22 @@
         },
         {
             "name": "cybercog/laravel-love",
-            "version": "8.7.1",
+            "version": "8.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cybercog/laravel-love.git",
-                "reference": "bc466e443db419685f631dc9b93d3dcbaf0ab7b3"
+                "reference": "a56a11f031acb94665fcc662cc693dad0975a747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cybercog/laravel-love/zipball/bc466e443db419685f631dc9b93d3dcbaf0ab7b3",
-                "reference": "bc466e443db419685f631dc9b93d3dcbaf0ab7b3",
+                "url": "https://api.github.com/repos/cybercog/laravel-love/zipball/a56a11f031acb94665fcc662cc693dad0975a747",
+                "reference": "a56a11f031acb94665fcc662cc693dad0975a747",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "5.7.*|5.8.*|^6.0|^7.0|^8.0",
-                "illuminate/support": "5.7.*|5.8.*|^6.0|^7.0|^8.0",
-                "php": "^7.1.3|^8.0"
+                "illuminate/database": "^6.20.14|^7.30.4|^8.24",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.2.5|^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
@@ -629,7 +629,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-12-08T22:09:25+00:00"
+            "time": "2021-04-03T12:17:00+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -8188,61 +8188,6 @@
             "time": "2021-03-30T12:00:00+00:00"
         },
         {
-            "name": "fzaninotto/faker",
-            "version": "v1.9.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3.3 || ^7.0"
-            },
-            "require-dev": {
-                "ext-intl": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.7",
-                "squizlabs/php_codesniffer": "^2.9.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.9-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "support": {
-                "issues": "https://github.com/fzaninotto/Faker/issues",
-                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
-            },
-            "abandoned": true,
-            "time": "2020-12-11T09:56:16+00:00"
-        },
-        {
             "name": "myclabs/deep-copy",
             "version": "1.10.2",
             "source": {
@@ -9904,7 +9849,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.5"
+        "php": ">= 8.0.0",
+        "ext-gd": "^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
