@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\File;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
@@ -99,13 +100,12 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
     {
         $base64File = $value;
 
-        // decode the base64 file
-        $fileData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64File));
+        $image = Image::make($value);
 
         // save it to temporary dir first.
-        $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString();
-        file_put_contents($tmpFilePath, $fileData);
-
+        $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString() . '.' . mime2ext($image->mime());
+        $image->save($tmpFilePath);        
+            
         // this just to help us get file info.
         $tmpFile = new File($tmpFilePath);
 
