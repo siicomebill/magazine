@@ -1,7 +1,7 @@
 init:
 	git submodule init
 	git submodule update
-	make env
+	
 	make build
 	make start
 	make install
