@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "backpack/crud": "^4.1",
+        "cloudinary-labs/cloudinary-laravel": "^1.0",
         "cybercog/laravel-love": "^8.6",
         "doctrine/dbal": "^2.11",
         "eusonlito/laravel-meta": "^3.1",
@@ -17,7 +18,6 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.2.9",
-        "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^8.0",
         "laravel/jetstream": "^1.0",
         "laravel/sanctum": "^2.6",
