@@ -98,27 +98,30 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
 
     public function setImageAttribute($value)
     {
-        $base64File = $value;
+        if($value && base64_decode($value, true)){
+            $image = Image::make($value);
 
-        $image = Image::make($value);
+            // save it to temporary dir first.
+            $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString() . '.' . mime2ext($image->mime());
+            $image->save($tmpFilePath);        
+                
+            // this just to help us get file info.
+            $tmpFile = new File($tmpFilePath);
 
-        // save it to temporary dir first.
-        $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString() . '.' . mime2ext($image->mime());
-        $image->save($tmpFilePath);        
-            
-        // this just to help us get file info.
-        $tmpFile = new File($tmpFilePath);
+            $file = new UploadedFile(
+                $tmpFile->getPathname(),
+                $tmpFile->getFilename(),
+                $tmpFile->getMimeType(),
+                0,
+                true // Mark it as test, since the file isn't from real HTTP POST.
+            );
 
-        $file = new UploadedFile(
-            $tmpFile->getPathname(),
-            $tmpFile->getFilename(),
-            $tmpFile->getMimeType(),
-            0,
-            true // Mark it as test, since the file isn't from real HTTP POST.
-        );
+            $result = image()->upload($file);
 
-        $result = image()->upload($file);
-
-        $this->image = $result->url;
+            $this->image = $result->url;
+        }
+        else {
+            $this->image = $value;
+        }
     }
 }
