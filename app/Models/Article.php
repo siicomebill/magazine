@@ -31,7 +31,7 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
         "snippet",
         "content",
         "category_id",
-        "user",
+        "user_id",
         "image",
         "published_at",
         "slug",
@@ -98,7 +98,7 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
 
     public function setImageAttribute($value)
     {
-        if($value && base64_decode($value, true)){
+        if(isset($value) && base64_decode($value)){
             $image = Image::make($value);
 
             // save it to temporary dir first.
@@ -118,7 +118,7 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
 
             $result = image()->upload($file);
 
-            $this->image = $result->url;
+            $this->attributes['image'] = $result->url;
         }
         else {
             $this->image = $value;
