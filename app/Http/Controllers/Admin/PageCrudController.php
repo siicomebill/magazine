@@ -40,8 +40,6 @@ class PageCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
-        CRUD::column('content');
-        CRUD::column('details');
         CRUD::column('slug');
 
         /**
@@ -62,8 +60,8 @@ class PageCrudController extends CrudController
         CRUD::setValidation(PageRequest::class);
 
         CRUD::field('name');
-        CRUD::field('content');
-        CRUD::field('details');
+        CRUD::field('content')->type('prosemirror');
+        CRUD::field('details')->type('json');
         CRUD::field('slug');
 
         /**
