@@ -30,7 +30,7 @@
             new Vue({
                 el: '#editor',
                 data: {
-                    content: {!! json_encode($field['value']) !!},
+                    content: {!! json_encode( isset($field['value']) ? $field['value'] : [] ) !!},
                 },
                 components: {
                     Editor: Publisher.Publisher
