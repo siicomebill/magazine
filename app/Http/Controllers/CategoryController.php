@@ -23,25 +23,6 @@ class CategoryController extends ResourceController implements ResourceControlle
         parent::__construct($category);
     }
 
-    /**
-     * Create or update an element of the specified resource.
-     * 
-     * @param CategoryRequest $request
-     */
-    public function store(CategoryRequest $request)
-    {
-        return $this->save($request);
-    }
-
-    public function getMinimal()
-    {
-        $categories = $this->resource->asModel()->all(["name", "id"]);
-
-        return $this->render('Categories', [
-            "categories" => $categories
-        ]);
-    }
-
     public function articlesOfCategory($id)
     {
         $category = $this->resource->find($id);
@@ -56,24 +37,5 @@ class CategoryController extends ResourceController implements ResourceControlle
                 $query->latest()->public()->limit(4);
             }])->get(),
         ]);
-    }
-
-    public function editItemPage(Request $request, $id = null, array $additionalData = [])
-    {
-        $model = $this->resource->asModel();
-        $item = $model->find($id ?? $request[$model->getKeyName()] ?? null);
-
-        $categoriesQuery = $this->resource->asModel();
-
-        if($item)
-            $categoriesQuery = $categoriesQuery->where('id', '!=', $item->id);
-
-        $edited = [
-            "stored" => $item ?? null,
-            "publishTo" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["publish"]),
-            "categories" => $categoriesQuery->get(["name", "id"])
-        ];
-
-        return $this->render($this->pageComponents["editItemPage"], array_merge($edited, $additionalData));
     }
 }

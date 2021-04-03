@@ -21,14 +21,4 @@ class ConfigurationController extends ResourceController implements ResourceCont
     {
         parent::__construct($configuration);
     }
-
-    /**
-     * Create or update an element of the specified resource.
-     * 
-     * @param ConfigurationRequest $request
-     */
-    public function store(ConfigurationRequest $request)
-    {
-        return $this->save($request);
-    }
 }

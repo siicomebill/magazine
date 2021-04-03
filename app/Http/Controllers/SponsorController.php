@@ -20,14 +20,4 @@ class SponsorController extends ResourceController implements ResourceController
     {
         parent::__construct($sponsor);
     }
-
-    /**
-     * Create or update an element of the specified resource.
-     * 
-     * @param SponsorRequest $request
-     */
-    public function store(SponsorRequest $request)
-    {
-        return $this->save($request);
-    }
 }

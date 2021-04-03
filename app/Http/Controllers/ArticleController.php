@@ -26,81 +26,6 @@ class ArticleController extends ResourceController implements ReactableResourceC
         $this->user = $user;
     }
 
-    public function managerPage(Request $request, $userId = null)
-    {
-        $routes = $userId ? [
-            "edit" => "articles.ofUser.write",
-            "delete" => "articles.ofUser.delete"
-        ] : [];
-
-        $paginatedResource = new PaginatedCollection($this->article->forManagerPage($userId, $routes));
-
-        return $this->render('ArticlesManager', [
-            'items' => $paginatedResource,
-            'newItem' => $userId ? route('articles.ofUser.write', [
-                'userId' => $userId
-            ]) : null
-        ]);
-    }
-
-    public function editItemPage(Request $request, $id = null, $additionalData = [])
-    {
-        $article = $this->article->forEditor($id, auth()->user()->id);
-
-        return $this->render('NewArticle', [
-            "stored" => $article ?? null,
-            "publishTo" => URL::route('articles.publish'),
-            "categories" => $this->category->list(["name", "id"])
-        ]);
-    }
-
-    public function editOtherItemPage(Request $request, $userId = null, $id = null)
-    {
-        $article = $this->article->forEditor($id, $userId);
-
-        return $this->render('NewArticle', [
-            "stored" => $article,
-            "publishTo" => URL::route('articles.ofUser.publish', [
-                'userId' => $userId,
-            ]),
-            "categories" => $this->category->list(["name", "id"])
-        ]);
-    }
-
-    public function store(ArticleRequest $request)
-    {
-        $data = $request->all();
-        if ($request->hasFile('image')) {
-            $result = image()->upload($request->file('image'));
-            if ($result->success) {
-                $data["image"] = $result->url;
-            }
-        }
-
-        return $this->article->store($data) ? redirect()->route('articles.mine.list') : abort(500);
-    }
-
-    public function storeAsOther(ArticleRequest $request, $userId, $id = null)
-    {
-        $data = $request->all();
-
-        if ($user = $userId ? $this->user->find($userId) : null) {
-            if ($user->hasRole('writer')) {
-                if ($request->hasFile('image')) {
-                    $result = image()->upload($request->file('image'));
-                    if ($result->success) {
-                        $data["image"] = $result->url;
-                    }
-                }
-                return $this->article->store($data, $user) ? redirect()->route('articles.ofUser.list', ['userId' => $user->id]) : abort(500);
-            } else {
-                return abort(403, 'The user selected is not a writer.');
-            }
-        } else {
-            return abort(404, 'You tried posting an article as a non-existent user.');
-        }
-    }
-
     public function read($id)
     {
         $article = $this->article->find($id);
@@ -123,20 +48,6 @@ class ArticleController extends ResourceController implements ReactableResourceC
             "reactions" => $this->article->getReactions($article),
             "suggested" => $suggested,
         ]);
-    }
-
-    public function delete($id)
-    {
-        $this->article->asModel()->user(auth()->user()->id)->find($id)->delete();
-
-        return redirect()->back();
-    }
-
-    public function deleteFromOther($userId, $id)
-    {
-        $this->article->delete($id);
-
-        return redirect()->back();
     }
 
     public function react(ReactionRequest $request): JsonResponse

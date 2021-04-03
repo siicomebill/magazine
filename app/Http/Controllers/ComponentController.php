@@ -21,9 +21,4 @@ class ComponentController extends ResourceController implements ResourceControll
     {
         parent::__construct($component);
     }
-
-    public function store(ComponentRequest $request)
-    {
-        return $this->save($request);
-    }
 }

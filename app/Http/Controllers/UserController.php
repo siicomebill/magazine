@@ -22,35 +22,4 @@ class UserController extends ResourceController implements ResourceControllerChi
     {
         parent::__construct($user);
     }
-
-    /**
-     * Create or update an element of the specified resource.
-     * 
-     * @param Request $request
-     */
-    public function store(Request $request)
-    {
-        return $this->save($request);
-    }
-
-    //FIXME Repeated logic, find a way to abstract it
-    public function managerPage(Request $request){
-        if($request->role)
-            $items = $this->resource->asModel()->role($request->role)->paginate(5);
-        else
-            $items = $this->resource->paginated();
-
-        $items->each(function ($value, $key) {
-            $value["links"] = [
-                "edit" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["edit"], $value->id),
-                "delete" => URL::route($this->routeNamePrefix . '.' . $this->actionRoutes["delete"], $value->id),
-            ];
-        });
-
-        $paginatedResource = new PaginatedCollection($items);
-
-        return $this->render($this->pageComponents["managerPage"], [
-            "items" => $paginatedResource
-        ]);
-    }
 }

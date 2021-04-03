@@ -24,21 +24,4 @@ class PageController extends ResourceController implements ResourceControllerChi
         parent::__construct($page);
         $this->component = $component;
     }
-
-    /**
-     * Create or update an element of the specified resource.
-     * 
-     * @param PageRequest $request
-     */
-    public function store(PageRequest $request)
-    {
-        return $this->save($request);
-    }
-
-    public function editItemPage(Request $request, $id = null, array $additionalData = [])
-    {
-        return parent::editItemPage($request, $id, [
-            "components" => $this->component->list(['name', 'id'])
-        ]);
-    }
 }
