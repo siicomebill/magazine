@@ -10,6 +10,9 @@ use Cog\Laravel\Love\Reactable\Models\Traits\Reactable;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\File;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
@@ -90,5 +93,32 @@ class Article extends Model implements ReactableInterface, SEOCompatibleInterfac
         }
 
         return $item;
+    }
+
+    public function setImageAttribute($value)
+    {
+        $base64File = $value;
+
+        // decode the base64 file
+        $fileData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64File));
+
+        // save it to temporary dir first.
+        $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString();
+        file_put_contents($tmpFilePath, $fileData);
+
+        // this just to help us get file info.
+        $tmpFile = new File($tmpFilePath);
+
+        $file = new UploadedFile(
+            $tmpFile->getPathname(),
+            $tmpFile->getFilename(),
+            $tmpFile->getMimeType(),
+            0,
+            true // Mark it as test, since the file isn't from real HTTP POST.
+        );
+
+        $result = image()->upload($file);
+
+        $this->image = $result->url;
     }
 }
