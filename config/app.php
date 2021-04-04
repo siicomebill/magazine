@@ -163,11 +163,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Eusonlito\LaravelMeta\MetaServiceProvider::class,
-
+        
         /*
-         * Package Service Providers...
-         */
+        * Package Service Providers...
+        */
+        Eusonlito\LaravelMeta\MetaServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
 
