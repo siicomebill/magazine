@@ -12,6 +12,7 @@
         "ext-gd": "^7.4",
         "backpack/crud": "^4.1",
         "backpack/generators": "^3.1",
+        "backpack/permissionmanager": "^6.0",
         "cloudinary-labs/cloudinary-laravel": "^1.0",
         "cybercog/laravel-love": "^8.6",
         "doctrine/dbal": "^2.11",
