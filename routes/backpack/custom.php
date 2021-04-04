@@ -13,14 +13,18 @@ Route::group([
     'middleware' => [
         config('backpack.base.web_middleware', 'web'),
         config('backpack.base.middleware_key', 'admin'),
-        'role:admin',
     ]   ,
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () {
-    Route::crud('article', 'ArticleCrudController');
-    Route::crud('category', 'CategoryCrudController');
-    Route::crud('component', 'ComponentCrudController');
-    Route::crud('configuration', 'ConfigurationCrudController');
-    Route::crud('page', 'PageCrudController');
-    Route::crud('sponsor', 'SponsorCrudController');
+    Route::middleware(['role:writer', 'role:admin'])->group(function () {
+        Route::crud('article', 'ArticleCrudController');
+    });
+
+    Route::middleware('role:admin')->group(function () {
+        Route::crud('category', 'CategoryCrudController');
+        Route::crud('component', 'ComponentCrudController');
+        Route::crud('configuration', 'ConfigurationCrudController');
+        Route::crud('page', 'PageCrudController');
+        Route::crud('sponsor', 'SponsorCrudController');
+    });
 }); // 🛑 This should remain the last line of the file. 🛑
