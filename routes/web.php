@@ -13,36 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('Resources')->group(function () {
-    Route::middleware(["shared"])->group(function () {
-        Route::get('/', 'PublicPagesController@index')->name('home');
-        Route::get('~/{slug}', 'PublicPagesController@page')->name('page');
+Route::middleware(["shared"])->group(function () {
+    Route::get('/', 'PublicPagesController@index')->name('home');
+    Route::get('~/{slug}', 'PublicPagesController@page')->name('page');
 
-        Route::feeds();
+    Route::feeds();
 
-        Route::prefix("sitemap")->group(function () {
-            Route::get('/', 'SitemapController@main');
-        });
-
-        Route::prefix('c')->group(function () {
-            Route::get('/', 'CategoryController@getMinimal')->name('categories');
-            Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
-        });
-
-        Route::prefix('u')->group(function () {
-            Route::get('{id}', 'PublicPagesController@userPage')->name('user.page');
-        });
-
-        Route::prefix('a')->group(function () {
-            Route::get('{id}', 'ArticleController@read')->name('articles.read');
-        });
+    Route::prefix("sitemap")->group(function () {
+        Route::get('/', 'SitemapController@main');
     });
 
-    Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-        Route::middleware('role:reader')->group(function () {
-            Route::prefix('react')->group(function () {
-                Route::post('article', 'ArticleController@react');
-            });
+    Route::prefix('c')->group(function () {
+        Route::get('/', 'CategoryController@getMinimal')->name('categories');
+        Route::get('{id}', 'CategoryController@articlesOfCategory')->name('categories.articles');
+    });
+
+    Route::prefix('u')->group(function () {
+        Route::get('{id}', 'PublicPagesController@userPage')->name('user.page');
+    });
+
+    Route::prefix('a')->group(function () {
+        Route::get('{id}', 'ArticleController@read')->name('articles.read');
+    });
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::middleware('role:reader')->group(function () {
+        Route::prefix('react')->group(function () {
+            Route::post('article', 'ArticleController@react');
         });
     });
 });
