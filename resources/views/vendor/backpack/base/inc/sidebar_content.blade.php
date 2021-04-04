@@ -6,7 +6,6 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('configuration') }}'><i class='nav-icon la la-cogs'></i> Configurations</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-file'></i> Pages</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('sponsor') }}'><i class='nav-icon la la-comments-dollar'></i> Sponsors</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('user') }}'><i class='nav-icon la la-users-cog'></i> Users</a></li>
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Authentication</a>
 	<ul class="nav-dropdown-items">
