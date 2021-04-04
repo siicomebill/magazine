@@ -26,5 +26,6 @@ Route::group([
         Route::crud('configuration', 'ConfigurationCrudController');
         Route::crud('page', 'PageCrudController');
         Route::crud('sponsor', 'SponsorCrudController');
+        Route::crud('user', 'UserCrudController');
     });
 }); // 🛑 This should remain the last line of the file. 🛑
