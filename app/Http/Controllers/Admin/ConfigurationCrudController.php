@@ -60,7 +60,7 @@ class ConfigurationCrudController extends CrudController
         CRUD::setValidation(ConfigurationRequest::class);
 
         CRUD::field('name');
-        CRUD::field('content')->type('json'); //FIXME And also 'prosemirror'
+        CRUD::field('content')->type('config');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
