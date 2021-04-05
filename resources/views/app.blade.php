@@ -8,7 +8,7 @@
         <link rel="icon" href="/favicon.ico">
 
         <!-- Meta Tags -->
-        @metas
+        @include('components.head.meta')
 
         <!-- Routes -->
         @routes

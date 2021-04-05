@@ -14,6 +14,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements ReacterableInterface
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;

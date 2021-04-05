@@ -5,6 +5,7 @@ init:
 	make build
 	make start
 	make install
+	make setup
 
 start:
 	(cd environment && docker-compose up -d nginx postgres)

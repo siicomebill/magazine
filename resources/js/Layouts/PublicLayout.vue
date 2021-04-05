@@ -134,7 +134,7 @@
 					class="my-5 py-5 mx-auto text-center text-black uppercase font-banner flex justify-center items-center gap-4"
 				>
 					<a
-						href="https://www.instagram.com/siicomebill/"
+						href="https://www.instagram.com/siicomebillmagazine.it/"
 						target="_blank"
 						rel="noopener"
 						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"
@@ -143,7 +143,7 @@
 					</a>
 
 					<a
-						href="https://www.facebook.com/siicomebill/"
+						href="https://www.facebook.com/siicomebillmagazine"
 						target="_blank"
 						rel="noopener"
 						class="block bg-primary h-16 w-16 rounded-full flex justify-center items-center"

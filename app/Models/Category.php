@@ -10,6 +10,7 @@ use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Category extends Model implements SEOCompatibleInterface
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
     use HasEagerLimit;
 

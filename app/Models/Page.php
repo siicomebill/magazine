@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model implements SEOCompatibleInterface
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     public $timestamps = false;

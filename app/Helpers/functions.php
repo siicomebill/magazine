@@ -11,3 +11,8 @@ function prosemirrorToHtml(array $data) : string
 {
     return (new \ProseMirrorToHtml\Renderer)->render($data);
 }
+
+function mime2ext($mime) : string
+{
+    return \App\Helpers\FormatHelpers::mime2ext($mime);
+}
