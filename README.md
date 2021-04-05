@@ -1,5 +1,9 @@
 # Sii Come Bill - The online magazine 📰
 
+<div>
+	<img src="https://i.ibb.co/RhyTj9v/billboard.png" alt width="300"/>	
+</div>
+
 Made with ❤️, ☕ and **[Laravel](https://laravel.com)** by [Mattia Sinisi](https://mattia.codes)
 
 ## Bring up the development environment
