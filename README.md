@@ -1,5 +1,14 @@
 # Sii Come Bill - The online magazine 📰
 
+<div>
+	<img src="https://i.ibb.co/RhyTj9v/billboard.png" alt width="300"/>	
+</div>
+
+
+[![GitHub release](https://img.shields.io/github/release/siicomebill/magazine.svg?style=for-the-badge&color=%23d9503c)](https://github.com/siicomebill/magazine/releases/latest)
+[![GitHub issues](https://img.shields.io/github/issues/siicomebill/magazine?color=gray&logo=github&style=for-the-badge)](https://github.com/sinisimattia/bill/issues)
+[![GitHub stars](https://img.shields.io/github/stars/siicomebill/magazine?color=%23ffd000&label=%E2%AD%90&logo=GitHub&style=for-the-badge)](https://github.com/siicomebill/magazine/stargazers)
+
 Made with ❤️, ☕ and **[Laravel](https://laravel.com)** by [Mattia Sinisi](https://mattia.codes)
 
 ## Bring up the development environment
@@ -52,8 +61,3 @@ Thank you for contributing to our project, please follow our [code of conduct](C
 | email          | password |
 |----------------|----------|
 | bill@email.com | password |
-
-## Stats
-
-[![GitHub issues](https://img.shields.io/github/issues/sinisimattia/bill?color=gray&logo=github&style=for-the-badge)](https://github.com/sinisimattia/bill/issues)
-[![GitHub stars](https://img.shields.io/github/stars/siicomebill/magazine?color=%23ffd000&label=%E2%AD%90&logo=GitHub&style=for-the-badge)](https://github.com/siicomebill/magazine/stargazers)
