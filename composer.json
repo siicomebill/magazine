@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "ext-exif": "^7.4",
         "ext-gd": "^7.4",
         "backpack/crud": "^4.1",
         "backpack/generators": "^3.1",
