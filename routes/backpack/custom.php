@@ -16,7 +16,7 @@ Route::group([
     ]   ,
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () {
-    Route::middleware(['role:writer', 'role:admin'])->group(function () {
+    Route::middleware('role:writer')->group(function () {
         Route::crud('article', 'ArticleCrudController');
     });
 
