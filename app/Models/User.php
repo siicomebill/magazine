@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableInterface;
 use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,7 +15,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements ReacterableInterface
 {
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use CrudTrait;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -86,6 +87,7 @@ class User extends Authenticatable implements ReacterableInterface
         return $this->profile_photo_path ?? $this->defaultProfilePhotoUrl();
     }
 
+    //NOTE this could be private.
     public function defaultProfilePhotoUrl()
     {
         return "https://dummyimage.com/400/000000/fff&text=" . $this->name[0];

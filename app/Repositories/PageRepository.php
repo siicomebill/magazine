@@ -41,7 +41,7 @@ class PageRepository extends ResourceRepository {
 
     public function latest(int $limit = 0)
     {
-        return $this->asModel()->orderBy('depth', 'desc');
+        return $this->asModel()->orderBy('lft', 'asc');
     }
 
     public function delete($id)
