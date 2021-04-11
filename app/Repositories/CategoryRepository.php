@@ -22,7 +22,7 @@ class CategoryRepository extends ResourceRepository
     {
         //TODO Check for latest articles
         return $this->model
-            ::orderBy('depth', 'desc')
+            ::orderBy('lft', 'asc')
             ->has('articles')
             ->with(['articles' => function($query){
                 $query->select(['title', 'id', 'category_id', 'user_id', 'image']);
