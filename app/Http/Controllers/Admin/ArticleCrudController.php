@@ -51,6 +51,8 @@ class ArticleCrudController extends CrudController
             'attribute' => 'name',
         ]);
 
+        CRUD::addClause('where', 'user_id', '=', auth()->user()->id);
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
