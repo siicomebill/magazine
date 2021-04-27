@@ -3,5 +3,7 @@
     <p>Reazioni e commenti non disponibili nella versione lite, per mostrarli <a href="{{request()->canonicalUrl}}" class="underline font-bold text-blue-500">vai alla pagina originale</a> dell'articolo.</p>
 </section>
 @else
-<div id="disqus_thread"></div>
+<div class="px-10 py-4">
+    <div id="disqus_thread"></div>
+</div>
 @endif
