@@ -45,9 +45,11 @@
                             <div class="lg:block lg:order-last lg:px-0 lg:pt-4 px-4 pt-2">
                                 <div class="pb-2 flex justify-end">
                                     @auth
-                                        <p>
-                                            <a href="{{ route('profile.show') }}" class="uppercase font-banner text-primary underline">Profilo</a>
-                                        </p>
+                                        <div>
+                                            <span class="px-2">Ciao <strong>{{auth()->user()->name}}</strong>! 👋</span>
+                                            <a href="{{ route('profile.show') }}" class="px-2 uppercase text-primary underline">Profilo</a>
+                                            <a href="{{ route('backpack.dashboard') }}" class="px-2 uppercase text-primary underline">Bacheca</a>
+                                        </div>
                                     @endauth
         
                                     @guest

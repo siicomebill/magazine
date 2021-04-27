@@ -9,6 +9,8 @@
     <div class="dropdown-menu {{ config('backpack.base.html_direction') == 'rtl' ? 'dropdown-menu-left' : 'dropdown-menu-right' }} mr-4 pb-1 pt-1">
   
       <a class="dropdown-item" href="{{ route('profile.show') }}"><i class="la la-user"></i> {{ trans('backpack::base.my_account') }}</a>
+
+      <a class="dropdown-item" href="{{ route('backpack.dashboard') }}"><i class="la la-coffee"></i> {{ trans('backpack::base.dashboard') }}</a>
   
       {{-- <div class="dropdown-divider"></div>
 
