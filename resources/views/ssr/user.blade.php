@@ -4,12 +4,11 @@
     <div class="py-6">
         <div class="flex justify-center">
             <div class="block text-center">
-                @component('components.image', [
+                @include('components.image', [
                     "src" => $user->profile_photo_url,
                     "alt" => $user->name,
                     "class" => "block rounded-full h-24 border-4 border-white shadow-lg"
                 ])
-                @endcomponent
                 <p class="font-handwritten text-4xl">{{$user->name}}</p>
             </div>
         </div>

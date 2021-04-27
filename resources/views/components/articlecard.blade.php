@@ -6,13 +6,12 @@
             href="{{ route('articles.read', $identifier) }}"
             class="text-center overflow-hidden border-white border-b-2 {{ !($fixed ?? false) ? 'h-full lg:border-r-2 lg:border-b-0 lg:rounded-r-0' : '' }}"
         >
-            @component('components.image', [
+            @include('components.image', [
                 "src" => $image,
                 "alt" => $title,
                 "aspectRatio" => "square",
                 "class" => "flex object-cover",
             ])
-            @endcomponent
         </a>
     @endif
 

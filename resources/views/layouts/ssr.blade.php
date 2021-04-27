@@ -113,25 +113,6 @@
                 </div>
             </nav>
         </div>
-
-        <header class="py-6">
-            @if (isset($config['logo']['big']))
-
-                <a href="/amp">
-                    <img src="{{ $config['logo']['big'] }}" alt="Logo" class="sm:max-w-sm mx-auto" />
-                </a>
-
-            @else
-                <a class="block text-2xl text-center my-2 font-banner" href="/amp"> {{config("app.name")}} </a>
-            @endif
-
-            
-            @if (isset($config['banner']))
-                <div class="text-center font-handwritten content">
-                    {!! prosemirrorToHtml($config['banner']) !!}
-                </div>
-            @endif
-        </header>
         
         <main class="font-sans antialiased text-white mx-auto my-6 rounded-lg shadow-lg">
             @yield('page')

@@ -5,12 +5,11 @@
         <div class="py-6 flex rounded-t-lg justify-center bg-primary banner">
             <div class="block text-center">
                 @if (isset($category->image))
-                    @component('components.image', [
+                    @include('components.image', [
                         "src" => $category->image,
                         "alt" => $category->name,
                         "class" => "mx-auto block rounded-lg h-80 border-4 border-white shadow-lg"
                     ])
-                    @endcomponent
                 @endif
 
                 <p class="font-banner text-2xl">{{$category->name}}</p>
