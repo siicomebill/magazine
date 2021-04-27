@@ -13,7 +13,7 @@
         <!-- Routes -->
         @routes
 
-        @if (request()->AMP)
+        @if (request()->hasAMPVersion)
         <!-- AMP -->
         <link rel="amphtml" href="{{ url('/') }}/amp/{{ request()->path() }}">
         @endif
