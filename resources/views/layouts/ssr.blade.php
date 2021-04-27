@@ -26,6 +26,7 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         @include('components.head.disqus')
+        @include('components.head.gtag')
     </head>
     <body class="font-sans antialiased bg-dark text-white banner">        
         <div class="sticky top-0 z-50">
