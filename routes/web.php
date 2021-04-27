@@ -33,7 +33,7 @@ Route::middleware(["shared"])->group(function () {
     });
 
     Route::prefix('a')->group(function () {
-        Route::get('{id}', 'ArticleController@read')->name('articles.read');
+        Route::get('{id}', 'ArticleController@read')->middleware('hasAmp')->name('articles.read');
     });
 });
 
