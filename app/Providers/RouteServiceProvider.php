@@ -87,7 +87,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAmpRoutes()
     {
-        Route::middleware(['amp', 'web', 'shared'])
+        Route::middleware(['amp', 'web', 'shared', 'ssr'])
             ->prefix('amp')
             ->namespace($this->namespace . '\Resources')
             ->group(base_path('routes/amp.php'));

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Meta;
 
@@ -19,6 +20,9 @@ class SharedData
      */
     public function handle($request, Closure $next)
     {
+        $originalUri = Str::replaceFirst("/amp", "/", $request->getRequestUri());
+        $request->canonicalUrl =  Str::replaceFirst("//", "/", $originalUri);
+
         $shared = [
             'app' => [
                 'name' => config('app.name', 'BILL')

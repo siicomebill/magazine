@@ -9,11 +9,11 @@
         <form method="POST" action="/reset-password">
             @csrf
 
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+            <input type="hidden" name="token" value="{{ request()->route('token') }}">
 
             <div class="block">
                 <x-jet-label value="Email" />
-                <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email', request()->email)" required autofocus />
             </div>
 
             <div class="mt-4">

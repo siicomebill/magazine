@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ⚡ lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html {{ request()->AMP ? '⚡' : '' }} lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,10 +34,13 @@
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        @include('components.head.disqus')
     </head>
     <body class="font-sans antialiased bg-dark text-white banner">
+        @if (request()->AMP)
         <p class="text-sm text-center my-0 py-2 bg-dark">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
-
+        @endif
+        
         <div class="sticky top-0 z-50">
             <nav class="top-0 left-0 right-0 px-4 bg-white text-dark shadow-lg rounded-b-lg">
                 <div
@@ -239,7 +242,9 @@
                 </div>
             </section>
 
+            @if (request()->AMP)
             <p class="text-center pt-10">⚡</p>
+            @endif
         </footer>
     </body>
 </html>

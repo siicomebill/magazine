@@ -75,9 +75,7 @@
         {!! prosemirrorToHtml($article->content) !!}
     </section>
 
-    <section class="bg-gray-200 text-center py-8 px-2">
-        <p>Reazioni e commenti non disponibili nella versione lite, per mostrarli <a href="{{request()->canonicalUrl}}" class="underline font-bold text-blue-500">vai alla pagina originale</a> dell'articolo.</p>
-    </section>
+    @include('components.disqus')
 
     @if (isset($sponsors) && count($sponsors) > 1)
         <p class="mt-4 mb-0 text-sm text-blue-500 text-center pt-2 pb-2">Sponsors</p>
