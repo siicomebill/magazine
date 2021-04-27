@@ -1,0 +1,1 @@
+@include('components.head.cookieconsent')
