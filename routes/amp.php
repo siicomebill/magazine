@@ -13,18 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PublicPagesController@index')->name('ssr.home');
-Route::get('~/{slug}', 'PublicPagesController@page')->name('ssr.page');
+// Route::get('/', 'PublicPagesController@index')->name('ssr.home');
+// Route::get('~/{slug}', 'PublicPagesController@page')->name('ssr.page');
 
-Route::prefix('c')->group(function () {
-    Route::get('/', 'CategoryController@getMinimal')->name('ssr.categories');
-    Route::get('{id}', 'CategoryController@articlesOfCategory')->name('ssr.categories.articles');
-});
+// Route::prefix('c')->group(function () {
+//     Route::get('/', 'CategoryController@getMinimal')->name('ssr.categories');
+//     Route::get('{id}', 'CategoryController@articlesOfCategory')->name('ssr.categories.articles');
+// });
 
-Route::prefix('u')->group(function () {
-    Route::get('{id}', 'PublicPagesController@userPage')->name('ssr.user.page');
-});
+// Route::prefix('u')->group(function () {
+//     Route::get('{id}', 'PublicPagesController@userPage')->name('ssr.user.page');
+// });
 
 Route::prefix('a')->group(function () {
-    Route::get('{id}', 'ArticleController@read')->name('ssr.articles.read');
+    Route::get('{id}', 'ArticleController@read')->name('amp.articles.read');
 });

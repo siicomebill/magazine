@@ -47,7 +47,7 @@
                     class="container mx-auto flex items-center justify-between flex-wrap"
                 >
                     <div class="flex items-center flex-shrink-0 py-4 px-2">
-                        <a href="{{ route('ssr.home') }}" class="text-2xl tracking-tight font-banner uppercase" >
+                        <a href="{{ route('home') }}" class="text-2xl tracking-tight font-banner uppercase" >
                             <span class="hidden lg:block">{{ $app["name"] }}</span>
                             <span class="lg:hidden block"><img class="h-10 w-10" src="/favicon.ico" /></span>
                         </a>
@@ -95,7 +95,7 @@
                                                         >
                                                             <a
                                                                 class="flex flex-grow cursor-pointer my-auto"
-                                                                href="{{ route('ssr.categories.articles', $category->id) }}"
+                                                                href="{{ route('categories.articles', $category->id) }}"
                                                             >
                                                                 <span class="cursor-pointer block my-auto font-bold uppercase">{{ $category->name }}</span>
                                                             </a>
@@ -105,7 +105,7 @@
                                                                         @component('components.dropdown')
                                                                             @slot('body')
                                                                                 @foreach ($category->children as $child)
-                                                                                    <a class="text-sm block lg:flex-grow pb-3" href="{{route('ssr.categories.articles', $child->id)}}" > {{ $child->name }}</a >
+                                                                                    <a class="text-sm block lg:flex-grow pb-3" href="{{route('categories.articles', $child->id)}}" > {{ $child->name }}</a >
                                                                                 @endforeach
                                                                             @endslot
                                                                         @endcomponent
