@@ -370,7 +370,7 @@ return [
         // "id" => "Indonesian",
         // "ga_IE" => "Irish (Ireland)",
         // "ga" => "Irish",
-        // "it_IT" => "Italian (Italy)",
+        "it_IT" => "Italian (Italy)",
         // "it_CH" => "Italian (Switzerland)",
         'it' => 'Italian',
         // "ja_JP" => "Japanese (Japan)",
