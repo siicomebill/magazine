@@ -90,15 +90,17 @@
 <body>
     <div style="overflow: hidden;height: 3em;">Non dovresti vedermi</div>
     <nav class="imponent">
-        <a href="{{ route('home') }}" class="brand">
+        <a href="{{ request()->canonicalUrl }}" class="brand">
             <span>&lt;</span>
-            <span>Home</span>
+            <span>Pagina originale</span>
         </a>
     </nav>
 
     <main>
         @yield('page')
     </main>
+
+    <hr/>
 
     <footer>
         <section>
