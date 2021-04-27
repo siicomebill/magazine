@@ -21,7 +21,7 @@ trait Renderable
      */
     public function render(string $viewName, $data = []){
         if (request()->SSR){
-            return view("amp." . strtolower($viewName), $data);
+            return view("ssr." . strtolower($viewName), $data);
         }
         else {
             return $this->renderer::render($viewName, $data);

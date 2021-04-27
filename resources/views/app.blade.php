@@ -13,7 +13,10 @@
         <!-- Routes -->
         @routes
 
+        @if (request()->AMP)
+        <!-- AMP -->
         <link rel="amphtml" href="{{ url('/') }}/amp/{{ request()->path() }}">
+        @endif
 
         <!-- RSS Feed -->
         @include('feed::links')

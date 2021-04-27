@@ -9,11 +9,11 @@
                     'description' => $category->snippet,
 
                     'image' => $category->image,
-                    'link' => route('amp.categories.articles', ($category->id)),
+                    'link' => route('ssr.categories.articles', ($category->id)),
                 ])
                     @if (isset($category->parent))
                         @slot('header')
-                            <a href="{{ route('amp.categories.articles', $category->parent->id) }}">{{ $category->parent->name }}</a>
+                            <a href="{{ route('ssr.categories.articles', $category->parent->id) }}">{{ $category->parent->name }}</a>
                         @endslot
                     @endif
                 @endcomponent

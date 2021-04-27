@@ -3,7 +3,7 @@
 >
     @if (isset($image))
         <a
-            href="{{ route('amp.articles.read', $identifier) }}"
+            href="{{ route('ssr.articles.read', $identifier) }}"
             class="text-center overflow-hidden border-white border-b-2 {{ !($fixed ?? false) ? 'h-full lg:border-r-2 lg:border-b-0 lg:rounded-r-0' : '' }}"
         >
             @component('components.image', [
@@ -25,7 +25,7 @@
             >
                 @if (isset($category->parent))
                     <a
-                        href="{{ route('amp.categories.articles', $category->parent->id) }}"
+                        href="{{ route('ssr.categories.articles', $category->parent->id) }}"
                         class="block text-xl font-banner capitalize mb-3 lg:mb-0"
                     >
                         <span class="text-primary">#</span>
@@ -35,7 +35,7 @@
 
                 <div>
                     <a
-                        href="{{ route('amp.categories.articles', $category->id) }}"
+                        href="{{ route('ssr.categories.articles', $category->id) }}"
                         class="bg-primary py-1 px-4 text-black rounded-full font-banner uppercase text-lg"
                     >
                         {{ $category->name }}
@@ -45,7 +45,7 @@
         @endif
 
         <div class="mt-4">
-            <a class="block font-banner text-xl xl:text-3xl mb-2 break-words" href="{{ route('amp.articles.read', $identifier) }}">
+            <a class="block font-banner text-xl xl:text-3xl mb-2 break-words" href="{{ route('ssr.articles.read', $identifier) }}">
                 {{ $title }}
             </a>
             <div class="my-3" v-if="snippet">
@@ -61,7 +61,7 @@
 
         @if (isset($author))
             <div class="text-4xl font-handwritten">
-                <a href="{{route('amp.user.page', $author->id)}}">{{$author->name}}</a>
+                <a href="{{route('ssr.user.page', $author->id)}}">{{$author->name}}</a>
             </div>
         @endif
 

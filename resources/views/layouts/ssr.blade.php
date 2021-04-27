@@ -10,10 +10,15 @@
         <!-- Meta Tags -->
         @include('components.head.meta')
 
+        <!-- AMP -->
+        @if (request()->AMP)
         <meta
             name="amp-script-src"
             content="sha384-0prhHMCKLP6R_z-J-OI6LNBiJIWzX6CqcAZnAWu4XaxgXkiqOBVPW7qLuQa2pkc_"
         />
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+        @endif
 
         <!-- Routes -->
         @routes
@@ -28,11 +33,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
-        <script async src="https://cdn.ampproject.org/v0.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
-        <!-- AMP Boilerplate -->
-        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     </head>
     <body class="font-sans antialiased bg-dark text-white banner">
         <p class="text-sm text-center my-0 py-2 bg-dark">Stai usando la <strong>versione lite</strong>. 👉 <a class="text-primary underline font-bold" href="{{request()->canonicalUrl}}">Pagina originale</a>. </p>
@@ -43,7 +44,7 @@
                     class="container mx-auto flex items-center justify-between flex-wrap"
                 >
                     <div class="flex items-center flex-shrink-0 py-4 px-2">
-                        <a href="{{ route('amp.home') }}" class="text-2xl tracking-tight font-banner uppercase" >
+                        <a href="{{ route('ssr.home') }}" class="text-2xl tracking-tight font-banner uppercase" >
                             <span class="hidden lg:block">{{ $app["name"] }}</span>
                             <span class="lg:hidden block"><img class="h-10 w-10" src="/favicon.ico" /></span>
                         </a>
@@ -91,7 +92,7 @@
                                                         >
                                                             <a
                                                                 class="flex flex-grow cursor-pointer my-auto"
-                                                                href="{{ route('amp.categories.articles', $category->id) }}"
+                                                                href="{{ route('ssr.categories.articles', $category->id) }}"
                                                             >
                                                                 <span class="cursor-pointer block my-auto font-bold uppercase">{{ $category->name }}</span>
                                                             </a>
@@ -101,7 +102,7 @@
                                                                         @component('components.dropdown')
                                                                             @slot('body')
                                                                                 @foreach ($category->children as $child)
-                                                                                    <a class="text-sm block lg:flex-grow pb-3" href="{{route('amp.categories.articles', $child->id)}}" > {{ $child->name }}</a >
+                                                                                    <a class="text-sm block lg:flex-grow pb-3" href="{{route('ssr.categories.articles', $child->id)}}" > {{ $child->name }}</a >
                                                                                 @endforeach
                                                                             @endslot
                                                                         @endcomponent

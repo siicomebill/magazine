@@ -21,16 +21,16 @@
                     'description' => $article->snippet,
 
                     'image' => $article->image,
-                    'link' => route('amp.articles.read', ($article->slug ?? $article->id)),
+                    'link' => route('ssr.articles.read', ($article->slug ?? $article->id)),
                 ])
                     @if (isset($article->category))
                         @slot('header')
-                            <a href="{{ route('amp.categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
+                            <a href="{{ route('ssr.categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
                         @endslot
                     @endif
 
                     @slot('footer')
-                        <p class="font-handwritten text-4xl">Scritto da <a class="font-bold" href="{{route('amp.user.page', $article->author->id)}}">{{$article->author->name}}</a></p>
+                        <p class="font-handwritten text-4xl">Scritto da <a class="font-bold" href="{{route('ssr.user.page', $article->author->id)}}">{{$article->author->name}}</a></p>
                     @endslot
                 @endcomponent
             @endforeach

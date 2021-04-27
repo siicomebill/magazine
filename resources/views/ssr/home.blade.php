@@ -1,4 +1,4 @@
-@extends('layouts.amp')
+@extends('layouts.ssr')
 
 @section('page')
     <div class="xl:grid grid-cols-2 items-center">

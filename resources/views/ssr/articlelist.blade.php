@@ -22,7 +22,7 @@
         @if (isset($category->children) && count($category->children))
             <div class="mb-4 py-4 text-center bg-gray-200">
                 @foreach ($category->children as $child)
-                    <a href="{{ route('amp.categories.articles', $child->id) }}" class="px-6 font-banner underline">{{$child->name}}</a>
+                    <a href="{{ route('ssr.categories.articles', $child->id) }}" class="px-6 font-banner underline">{{$child->name}}</a>
                 @endforeach
             </div>
         @endif
@@ -34,10 +34,10 @@
                     'description' => $article->snippet,
 
                     'image' => $article->image,
-                    'link' => route('amp.articles.read', ($article->slug ?? $article->id)),
+                    'link' => route('ssr.articles.read', ($article->slug ?? $article->id)),
                 ])
                     @slot('footer')
-                        <p class="font-handwritten text-4xl">Scritto da <a class="font-bold" href="{{route('amp.user.page', $article->author->id)}}">{{$article->author->name}}</a></p>
+                        <p class="font-handwritten text-4xl">Scritto da <a class="font-bold" href="{{route('ssr.user.page', $article->author->id)}}">{{$article->author->name}}</a></p>
                     @endslot
                 @endcomponent
             @endforeach

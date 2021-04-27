@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class AMPMiddleware
+class ServerSideRenderMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,11 +17,7 @@ class AMPMiddleware
     public function handle(Request $request, Closure $next)
     {
         $request->SSR = true;
-        $request->AMP = true;
-
-        $originalUri = Str::replaceFirst("/amp", "/", $request->getRequestUri());
-        $request->canonicalUrl =  Str::replaceFirst("//", "/", $originalUri);
-
+        
         return $next($request);
     }
 }

@@ -15,7 +15,7 @@
             </div>
 
             <div class="flex justify-center -mt-12">
-                <a class="block text-center" href="{{ route('amp.user.page', $article->author->id) }}">
+                <a class="block text-center" href="{{ route('ssr.user.page', $article->author->id) }}">
                     @component('components.image', [
                         "src" => $article->author->profile_photo_url,
                         "alt" => $article->author->name,
@@ -31,7 +31,7 @@
             @if (isset($article->category))
                 <p>
                     Pubblicato in
-                    <a class="font-bold" href="{{ route("amp.categories.articles", $article->category->id) }}">{{$article->category->name}}</a>
+                    <a class="font-bold" href="{{ route("ssr.categories.articles", $article->category->id) }}">{{$article->category->name}}</a>
                 </p>
             @endif
             <h1 class="lg:text-5xl text-3xl font-banner">{{$article->title}}</h1>
@@ -117,7 +117,7 @@
                 'description' => $a->snippet,
 
                 'image' => $a->image,
-                'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
+                'link' => route('ssr.articles.read', ($a->slug ?? $a->id)),
             ])
             @endcomponent
         @endforeach
@@ -131,7 +131,7 @@
                     'description' => $a->snippet,
 
                     'image' => $a->image,
-                    'link' => route('amp.articles.read', ($a->slug ?? $a->id)),
+                    'link' => route('ssr.articles.read', ($a->slug ?? $a->id)),
                 ])
                 @endcomponent
             @endforeach
