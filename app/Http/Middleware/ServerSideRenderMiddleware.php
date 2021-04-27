@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AMPMiddleware
+class ServerSideRenderMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class AMPMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $request->AMP = true;
-
+        $request->SSR = true;
+        
         return $next($request);
     }
 }

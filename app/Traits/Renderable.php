@@ -20,8 +20,11 @@ trait Renderable
      * @param array $data The data to insert in the view
      */
     public function render(string $viewName, $data = []){
-        if (request()->SSR){
+        if(request()->AMP){
             return view("amp." . strtolower($viewName), $data);
+        }
+        elseif (request()->SSR){
+            return view("ssr." . strtolower($viewName), $data);
         }
         else {
             return $this->renderer::render($viewName, $data);

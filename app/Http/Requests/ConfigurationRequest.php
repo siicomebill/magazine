@@ -26,7 +26,7 @@ class ConfigurationRequest extends FormRequest
     {
         return [
             "name" => ["string", "required", Rule::unique('configurations')->ignore($this->id)],
-            "content" => "array|required",
+            "content" => "required",
         ];
     }
 }

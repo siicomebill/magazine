@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AMPMiddleware
+class HasAMPVersionMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class AMPMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $request->AMP = true;
+        $request->hasAMPVersion = true;
 
         return $next($request);
     }
