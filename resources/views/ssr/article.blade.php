@@ -81,8 +81,7 @@
     @if (isset($sponsors) && count($sponsors) > 1)
         <p class="mt-4 mb-0 text-sm text-blue-500 text-center pt-2 pb-2">Sponsors</p>
         <section class="mb-4 bg-blue-500 text-white banner py-8">
-
-            <div class="p-4 lg:w-5/6 mx-auto lg:grid grid-flow-cols grid-cols-2 gap-4">
+            <div class="p-4 lg:w-5/6 mx-auto xl:grid grid-flow-cols grid-cols-2 gap-4">
                 @foreach ($sponsors->forget(0) as $sponsor)
                     <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center my-20">
                         <a class="block" href="{{ $sponsor->link }}" rel="sponsored">
