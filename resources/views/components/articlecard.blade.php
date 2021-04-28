@@ -7,7 +7,7 @@
                 "src" => $image,
                 "alt" => $title,
                 "aspectRatio" => "square",
-                "class" => "flex object-cover w-full h-full",
+                "class" => "flex",
                 "containerClass" => "w-full h-full",
             ])
         </a>

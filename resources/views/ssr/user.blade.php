@@ -5,11 +5,13 @@
         <div class="flex justify-center">
             <div class="block text-center">
                 @include('components.image', [
-                    "src" => $user->profile_photo_url,
-                    "alt" => $user->name,
-                    "class" => "block rounded-full h-24 border-4 border-white shadow-lg"
+                "src" => $user->profile_photo_url,
+                "alt" => $user->name,
+                "class" => "block rounded-full border-4 border-white shadow-lg",
+                "containerClass" => "w-20 mx-auto",
+                "aspectRatio" => "square",
                 ])
-                <p class="font-handwritten text-4xl">{{$user->name}}</p>
+                <p class="font-handwritten text-4xl text-center">{{ $user->name }}</p>
             </div>
         </div>
 
@@ -20,16 +22,18 @@
                     'description' => $article->snippet,
 
                     'image' => $article->image,
-                    'link' => route('articles.read', ($article->slug ?? $article->id)),
-                ])
+                    'link' => route('articles.read', $article->slug ?? $article->id),
+                    ])
                     @if (isset($article->category))
                         @slot('header')
-                            <a href="{{ route('categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
+                            <a
+                                href="{{ route('categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
                         @endslot
                     @endif
 
                     @slot('footer')
-                        <p class="font-handwritten text-4xl">Scritto da <a class="font-bold" href="{{route('user.page', $article->author->id)}}">{{$article->author->name}}</a></p>
+                        <p class="font-handwritten text-4xl">Scritto da <a class="font-bold"
+                                href="{{ route('user.page', $article->author->id) }}">{{ $article->author->name }}</a></p>
                     @endslot
                 @endcomponent
             @endforeach

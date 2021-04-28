@@ -19,7 +19,7 @@
                         "src" => $article->author->profile_photo_url,
                         "alt" => $article->author->name,
                         "class" => "block rounded-full border-4 border-white shadow-lg",
-                        "containerClass" => "w-20",
+                        "containerClass" => "w-20 mx-auto",
                         "aspectRatio" => "square",
                     ])
                     <p class="font-handwritten text-4xl text-center">{{ $article->author->name }}</p>
