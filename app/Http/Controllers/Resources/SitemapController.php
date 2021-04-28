@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Resources;
 
+use App\Http\Controllers\Controller;
 use App\Repositories\ArticleRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\UserRepository;
-use Illuminate\Http\Request;
 use Spatie\Sitemap\Sitemap;
 
 class SitemapController extends Controller
