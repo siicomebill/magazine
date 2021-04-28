@@ -51,7 +51,7 @@
     </div>
 
     <div class="sticky top-0 z-50">
-        <nav class="top-0 left-0 right-0 px-4 bg-white text-dark shadow-lg rounded-b-lg">
+        <nav class="top-0 left-0 right-0 px-4 bg-white text-dark shadow-lg">
             <div class="container mx-auto flex items-center justify-between flex-wrap">
                 <div class="flex items-center flex-shrink-0 py-4 px-2">
                     <a href="{{ route('home') }}" class="text-2xl tracking-tight font-banner uppercase">
