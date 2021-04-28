@@ -41,11 +41,11 @@
         @endauth
 
         @guest
-            <div class="lg:grid grid-cols-2 gap-2 font-banner uppercase">
+            <div class="grid grid-cols-2 gap-2 font-banner uppercase">
                 <a href="{{ route('login') }}"
                     class="block text-sm text-center px-4 py-2 leading-none border rounded-full bg-primary border-none text-black lg:mt-0">Login</a>
                 <a href="{{ route('register') }}"
-                    class="block text-sm text-center text-black px-4 py-2 leading-none lg:mt-0">Registrati</a>
+                    class="block text-sm text-center text-white px-4 py-2 leading-none lg:mt-0">Registrati</a>
             </div>
         @endguest
     </div>
