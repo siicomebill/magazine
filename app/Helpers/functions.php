@@ -9,7 +9,11 @@ function image(): App\Containers\ImageServiceContainer
 
 function prosemirrorToHtml(array $data) : string
 {
-    return (new \ProseMirrorToHtml\Renderer)->render($data);
+    $renderer = new \ProseMirrorToHtml\Renderer();
+
+    $renderer->addNode(\App\Classes\IFrameNode::class);
+
+    return $renderer->render($data);
 }
 
 function mime2ext($mime) : string
