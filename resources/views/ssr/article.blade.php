@@ -14,13 +14,15 @@
             </div>
 
             <div class="flex justify-center -mt-12">
-                <a class="block text-center" href="{{ route('user.page', $article->author->id) }}">
+                <a class="block" href="{{ route('user.page', $article->author->id) }}">
                     @include('components.image', [
-                    "src" => $article->author->profile_photo_url,
-                    "alt" => $article->author->name,
-                    "class" => "block rounded-full h-24 border-4 border-white shadow-lg"
+                        "src" => $article->author->profile_photo_url,
+                        "alt" => $article->author->name,
+                        "class" => "block rounded-full border-4 border-white shadow-lg",
+                        "containerClass" => "w-20",
+                        "aspectRatio" => "square",
                     ])
-                    <p class="font-handwritten text-4xl">{{ $article->author->name }}</p>
+                    <p class="font-handwritten text-4xl text-center">{{ $article->author->name }}</p>
                 </a>
             </div>
         </div>
