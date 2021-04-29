@@ -1,4 +1,4 @@
-body{
+body {
     @apply bg-gray-200 bg-opacity-25;
 }
 
@@ -22,7 +22,9 @@ hr {
     @apply my-3;
 }
 
-button:focus, input:focus, textarea:focus {
+button:focus,
+input:focus,
+textarea:focus {
     @apply outline-none;
 }
 
@@ -31,10 +33,11 @@ button:focus, input:focus, textarea:focus {
 }
 
 .editor .content {
-    @apply my-4
+    @apply my-4;
 }
 
-.editor .commands button, .editor .menububble button {
+.editor .commands button,
+.editor .menububble button {
     @apply shadow px-4 py-2 mx-1 bg-gray-800 text-white rounded-lg;
 }
 
@@ -46,10 +49,17 @@ button:focus, input:focus, textarea:focus {
     @apply bg-white shadow border border-black px-4 py-2 rounded-lg;
 }
 
-.cta, .cta-royal {
+.cta,
+.cta-royal {
     @apply text-center py-2 px-3 border-solid border-white text-white font-bold bg-gradient-to-br from-yellow-400 via-red-500 to-purple-500 rounded-full;
 }
 
 .cta-blue {
     @apply text-center py-2 px-3 border-solid border-white text-white font-bold bg-gradient-to-br from-blue-700  to-blue-500 rounded-full;
+}
+
+.dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    transform: translate(0) scale(1);
+    visibility: visible;
 }

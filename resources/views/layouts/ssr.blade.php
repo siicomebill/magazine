@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     @include('components.head.disqus')
     @include('components.head.analytics')
 </head>
@@ -60,45 +59,27 @@
                     </a>
                 </div>
 
-                @component('components.dropdown', ['mobileOnly' => true, 'class' => 'lg:mx-auto'])
-                    @slot('body')
-                        <div class="lg:block lg:order-last lg:px-0 px-4">
-                            <nav
-                                class="bg-white text-dark lg:px-6 lg:py-1 px-4 py-3 font-banner flex justify-end items-end rounded-t-lg">
-                                @if (isset($navbar['categories']))
-                                    <div class="text-sm lg:mb-0 mb-4 lg:inline-block">
-                                        <ul v-if="$page.navbar.categories" class="lg:flex">
-                                            @foreach ($navbar['categories'] as $category)
-                                                <li class="lg:mx-3 h-10 flex">
-                                                    <a class="flex flex-grow cursor-pointer my-auto"
-                                                        href="{{ route('categories.articles', $category->id) }}">
-                                                        <span
-                                                            class="cursor-pointer block my-auto font-bold uppercase">{{ $category->name }}</span>
-                                                    </a>
-                                                    <div class="flex">
-                                                        @if (isset($category->children) && $category->children->count() > 0)
-                                                            <div class="flex-grow my-auto capitalize rounded-lg pr-3 px-4">
-                                                                @component('components.dropdown')
-                                                                    @slot('body')
-                                                                        @foreach ($category->children as $child)
-                                                                            <a class="text-sm block lg:flex-grow pb-3"
-                                                                                href="{{ route('categories.articles', $child->id) }}">
-                                                                                {{ $child->name }}</a>
-                                                                        @endforeach
-                                                                    @endslot
-                                                                @endcomponent
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                            </nav>
-                        </div>
-                    @endslot
-                @endcomponent
+                <div class="font-banner">
+                    @include('components.dropdown', [
+                        'mobileOnly' => true,
+                        'label' => 'Sezioni',
+                        'link' => '#',
+                        'items' => [
+                            [
+                                'link' => 'https://mattia.codes',
+                                'label' => 'ciao'
+                            ],
+                            [
+                                'link' => 'https://mattia.codes',
+                                'label' => 'coso con i sottomenu',
+                                'items' => [
+                                    ['link' => 'https://mattia.codes', 'label' => 'ciao']
+                                ]
+                            ]
+                        ]
+                    ])
+                </div>
+
             </div>
         </nav>
     </div>
