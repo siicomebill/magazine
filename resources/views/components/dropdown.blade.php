@@ -1,7 +1,7 @@
 <div class="group inline-block">
     <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
         @if (isset($label))
-            <a href="{{$link ?? 'javascript:void(0)'}}" class="pr-1 font-semibold flex-1">{{ $label }}</a>
+            <a href="{{ $link ?? 'javascript:void(0)' }}" class="pr-1 font-semibold flex-1">{{ $label }}</a>
         @endif
         <span>
             <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180
@@ -14,19 +14,20 @@
     transition duration-150 ease-in-out origin-top min-w-32">
         @if (isset($items))
             @foreach ($items as $item)
-                @if (isset($item['items']) && count($item['items']) > 0)
-                    @include('components.dropdown', [
+                <li class="relative rounded-sm px-3 py-1 hover:bg-gray-500">
+                    @if (isset($item['items']) && count($item['items']) > 0)
+                        @include('components.dropdown', [
                         'label' => $label,
                         'link' => $link,
                         'items' => $item['items']
-                    ])
-                @else
-                    <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
+                        ])
+                    @else
+
                         <a href="{{ $item['link'] ?? '' }}">
                             <span>{{ $item['label'] }}</span>
                         </a>
-                    </li>
-                @endif
+                    @endif
+                </li>
             @endforeach
         @endif
     </ul>
