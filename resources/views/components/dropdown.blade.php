@@ -17,8 +17,8 @@
                 <li class="relative rounded-sm px-3 py-1 hover:bg-gray-500">
                     @if (isset($item['items']) && count($item['items']) > 0)
                         @include('components.dropdown', [
-                        'label' => $label,
-                        'link' => $link,
+                        'label' => $item['label'],
+                        'link' => $item['link'],
                         'items' => $item['items']
                         ])
                     @else
