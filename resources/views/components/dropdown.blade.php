@@ -1,7 +1,7 @@
 <div class="group inline-block">
     <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
         @if (isset($label))
-            <span class="pr-1 font-semibold flex-1">{{ $label }}</span>
+            <a href="{{$link ?? 'javascript:void(0)'}}" class="pr-1 font-semibold flex-1">{{ $label }}</a>
         @endif
         <span>
             <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180
