@@ -1,42 +1,33 @@
-<div class="flex items-center justify-center p-12">
-    <div class="relative inline-block text-left dropdown">
-        <span class="rounded-md"><button
-                class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out rounded-md focus:outline-none focus:shadow-outline-blue active:bg-gray-50"
-                type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
-                <a href="{{ $link ?? "javascript:void(0)" }}">
-                    @if (isset($label))
-                        {{ $label }}
-                    @endif
-                </a>
-                <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button></span>
-        <div
-            class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
-            <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg outline-none"
-                aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
-
-                @if (isset($items))
-                    <div class="py-1">
-                        @foreach ($items as $item)
-                            @if (isset($item['items']))
-                                @include('components.dropdown', [
-                                    'label' => $item['label'],
-                                    'link' => $item['link'],
-                                    'items' => $item['items']
-                                ])
-                            @else
-                                <a href="{{ $item['link'] ?? 'javascript:void(0)' }}" tabindex="0"
-                                    class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                                    role="menuitem">{{ $item['label'] }}</a>
-                            @endif
-                        @endforeach
-                    </div>
+<div class="group inline-block">
+    <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
+        @if (isset($label))
+            <span class="pr-1 font-semibold flex-1">{{ $label }}</span>
+        @endif
+        <span>
+            <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180
+          transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+        </span>
+    </button>
+    <ul class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+    transition duration-150 ease-in-out origin-top min-w-32">
+        @if (isset($items))
+            @foreach ($items as $item)
+                @if (isset($item['items']) && count($item['items']) > 0)
+                    @include('components.dropdown', [
+                        'label' => $label,
+                        'link' => $link,
+                        'items' => $item['items']
+                    ])
+                @else
+                    <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
+                        <a href="{{ $item['link'] ?? '' }}">
+                            <span>{{ $item['label'] }}</span>
+                        </a>
+                    </li>
                 @endif
-            </div>
-        </div>
-    </div>
+            @endforeach
+        @endif
+    </ul>
 </div>
