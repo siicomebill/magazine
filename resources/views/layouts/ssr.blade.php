@@ -59,7 +59,7 @@
                     </a>
                 </div>
 
-                <div class="flex justify-end font-banner uppercase flex-grow">
+                <div class="flex justify-end font-banner uppercase flex-grow relative">
                     @include('components.dropdown', [
                         'label' => 'Sezioni',
                         'items' => $categories->map(function ($category) {
