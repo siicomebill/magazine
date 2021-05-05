@@ -49,10 +49,13 @@ module.exports = {
 	},
 
 	variants: {
-		opacity: ["responsive", "hover", "focus", "disabled"],
-		aspectRatio: ["responsive"],
-		backgroundImage: ['responsive', 'hover', 'focus'],
+		extend: {
+			opacity: ["responsive", "hover", "focus", "disabled"],
+			aspectRatio: ["responsive"],
+			backgroundImage: ['responsive', 'hover', 'focus'],
+		},
+		display: ['responsive', 'hover', 'focus', 'group-hover', 'group-focus'],
 	},
 
-	plugins: [require("@tailwindcss/ui"), require("tailwindcss-aspect-ratio")]
+	plugins: [require("@tailwindcss/ui"), require("tailwindcss-aspect-ratio"), require("tailwindcss-nested-groups")]
 };
