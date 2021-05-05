@@ -30,9 +30,7 @@ class ExternalSharedData
     {
         $shared = [
             'configuration' => $this->config->get(['footer', 'logo']),
-            'navbar' => [
-                'categories' => $this->category->important()->get(),
-            ],
+            'categories' => $this->category->important()->get(),
             'pages' => $this->page->list(['name', 'slug'])
         ];
 

@@ -61,22 +61,19 @@
 
                 <div class="flex justify-end font-banner uppercase flex-grow">
                     @include('components.dropdown', [
-                        'mobileOnly' => true,
                         'label' => 'Sezioni',
-                        'link' => '#',
-                        'items' => [
-                            [
-                                'link' => 'https://mattia.codes',
-                                'label' => 'ciao'
-                            ],
-                            [
-                                'link' => 'https://mattia.codes',
-                                'label' => 'coso con i sottomenu',
-                                'items' => [
-                                    ['link' => 'https://mattia.codes', 'label' => 'ciao']
-                                ]
-                            ]
-                        ]
+                        'items' => $categories->map(function ($category) {
+                            return [
+                                'label' => $category->name,
+                                'link' => route('categories.articles', $category->id),
+                                'items' => $category->children->map(function ($child) {
+                                    return [
+                                        'label' => $child->name,
+                                        'link' => route('categories.articles', $child->id),
+                                    ];
+                                })
+                            ];
+                        })
                     ])
                 </div>
 
