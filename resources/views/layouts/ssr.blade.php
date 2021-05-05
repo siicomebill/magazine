@@ -51,15 +51,15 @@
 
     <div class="sticky top-0 z-50">
         <nav class="top-0 left-0 right-0 px-4 bg-white text-dark shadow-lg">
-            <div class="container mx-auto flex items-center justify-between flex-wrap">
-                <div class="flex items-center flex-shrink-0 py-4 px-2">
+            <div class="container mx-auto flex items-center flex-wrap">
+                <div class="flex items-center py-4 px-2">
                     <a href="{{ route('home') }}" class="text-2xl tracking-tight font-banner uppercase">
                         <span class="hidden lg:block">{{ $app['name'] }}</span>
                         <span class="lg:hidden block"><img class="h-10 w-10" src="/favicon.ico" /></span>
                     </a>
                 </div>
 
-                <div class="font-banner">
+                <div class="flex justify-end font-banner uppercase flex-grow">
                     @include('components.dropdown', [
                         'mobileOnly' => true,
                         'label' => 'Sezioni',
