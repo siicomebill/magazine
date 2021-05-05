@@ -10,7 +10,7 @@
             </svg>
         @endif
     </button>
-    <ul class="bg-white text-black border-2 border-black rounded-lg transform hidden group-scope-hover:block absolute left-0 right-0 transition duration-150 ease-in-out origin-top min-w-32">
+    <ul class="py-4 bg-white text-black border-2 border-black rounded-lg transform hidden group-scope-hover:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 absolute left-0 right-0 transition duration-150 ease-in-out origin-top min-w-32 justify-center">
         @if (isset($items))
             @foreach ($items as $item)
                 <li class="px-3 py-1 hover:bg-gray-100 rounded-lg">
