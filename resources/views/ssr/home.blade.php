@@ -66,7 +66,7 @@
                                     <p class="text-xl">{{ $sponsors[max($id - 2, 0)]->snippet }}</p>
                                 </div>
 
-                                <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
+                                <a class="inline-block rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
                                     href="{{ $sponsors[max($id - 2, 0)]->link }}"
                                     rel="sponsored">{{ $sponsors[max($id - 2, 0)]->cta }}</a>
                             </div>

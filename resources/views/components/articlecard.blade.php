@@ -1,5 +1,4 @@
-<span
-    class="my-4 rounded-lg bg-dark text-white items-center grid-cols-4 border-2 border-white overflow-hidden {{ isset($fixed) && $fixed ? 'block' : 'block lg:grid' }}">
+<span class="my-4 rounded-lg bg-dark text-white items-center grid-cols-4 border-2 border-white overflow-hidden {{ isset($fixed) && $fixed ? 'block' : 'block lg:grid' }}">
     @if (isset($image))
         <a href="{{ route('articles.read', $identifier) }}"
             class="text-center overflow-hidden border-white border-b-2 {{ !($fixed ?? false) ? 'h-full lg:border-r-2 lg:border-b-0 lg:rounded-r-0' : '' }}">
@@ -14,9 +13,28 @@
     @endif
 
     <div class="col-span-3 flex flex-col p-4 justify-between leading-normal w-full break-normal">
-        <div class="mb-4">
-            <div class="mb-4">
-                <a class="block font-banner text-xl xl:text-3xl mb-2 break-words"
+        @if (isset($category))
+            <div class="items-center text-center lg:text-left gap-4">
+                @if (isset($category->parent))
+                    <a href="{{ route('categories.articles', $category->parent->id) }}"
+                        class="block text-md font-banner capitalize mb-3 lg:mb-0">
+                        <span class="text-primary">#</span>
+                        <span>{{ $category->parent->name }}</span>
+                    </a>
+                @endif
+
+                <div>
+                    <a href="{{ route('categories.articles', $category->id) }}"
+                        class="inline-block bg-primary py-1 px-4 text-black rounded-full font-banner uppercase text-md">
+                        {{ $category->name }}
+                    </a>
+                </div>
+            </div>
+        @endif
+
+        <div class="mt-4">
+            <div class="my-4">
+                <a class="block font-banner text-2xl xl:text-3xl mb-2 break-words"
                     href="{{ route('articles.read', $identifier) }}">
                     {{ $title }}
                 </a>
@@ -38,25 +56,6 @@
             @endif
 
         </div>
-
-        @if (isset($category))
-            <div class="items-center text-center lg:text-left gap-4">
-                @if (isset($category->parent))
-                    <a href="{{ route('categories.articles', $category->parent->id) }}"
-                        class="block text-xl font-banner capitalize mb-3 lg:mb-0">
-                        <span class="text-primary">#</span>
-                        <span>{{ $category->parent->name }}</span>
-                    </a>
-                @endif
-
-                <div>
-                    <a href="{{ route('categories.articles', $category->id) }}"
-                        class="bg-primary py-1 px-4 text-black rounded-full font-banner uppercase text-lg">
-                        {{ $category->name }}
-                    </a>
-                </div>
-            </div>
-        @endif
 
         <div>
             @slot('footer')

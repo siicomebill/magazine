@@ -6,9 +6,9 @@
             <div class="-mt-32">
                 @if ($article->image)
                     @include('components.image', [
-                    "src" => $article->image,
-                    "alt" => $article->title,
-                    "class" => "block rounded-lg shadow-lg mx-auto"
+                        "src" => $article->image,
+                        "alt" => $article->title,
+                        "class" => "block rounded-lg shadow-lg mx-auto"
                     ])
                 @endif
             </div>
@@ -31,8 +31,7 @@
             @if (isset($article->category))
                 <p>
                     Pubblicato in
-                    <a class="font-bold"
-                        href="{{ route('categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
+                    <a class="font-bold" href="{{ route('categories.articles', $article->category->id) }}">{{ $article->category->name }}</a>
                 </p>
             @endif
             <h1 class="lg:text-5xl text-3xl font-banner">{{ $article->title }}</h1>
@@ -63,7 +62,7 @@
                             <p class="text-xl">{{ $sponsors[0]->snippet }}</p>
                         </div>
 
-                        <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
+                        <a class="inline-block rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
                             href="{{ $sponsors[0]->link }}" rel="sponsored">{{ $sponsors[0]->cta }}</a>
                     </div>
                 </div>
@@ -98,7 +97,7 @@
                                 <p class="text-xl">{{ $sponsor->snippet }}</p>
                             </div>
 
-                            <a class="rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
+                            <a class="inline-block rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
                                 href="{{ $sponsor->link }}" rel="sponsored">{{ $sponsor->cta }}</a>
                         </div>
                     </div>
