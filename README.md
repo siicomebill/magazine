@@ -18,7 +18,6 @@ Made with ❤️, ☕ and **[Laravel](https://laravel.com)** by [Mattia Sinisi](
 The development environment is buil to run on [Docker](https://docker.com) so the only prerequisites you'll need are:
 
 - Docker 👉 [Download & Install](https://docs.docker.com/get-docker/)
-- Docker Compose 👉 [Download & Install](https://docs.docker.com/compose/install/)
 - Make (optional) 👉 [Information](https://www.tutorialspoint.com/unix_commands/make.htm)
 
 ### Start the essentials
@@ -34,7 +33,7 @@ cp laradock.env environment/.env
 In order to start <u>only what you need to start the application</u> simply run the following command:
 
 ```bash
-docker-compose up -d nginx postgres
+docker compose up -d nginx postgres
 ```
 
 If you want to quickly set up your environment with only one command simply run the following command:
@@ -56,7 +55,7 @@ These are not the only processes that you can start, for a full list of what you
 
 Thank you for contributing to our project, please follow our [code of conduct](CODE_OF_CONDUCT.md) in order to keep everything clean and organized!
 
-## Credentials for the local environments
+## Credentials for the offline local environment
 
 | email          | password |
 |----------------|----------|
