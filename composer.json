@@ -1,12 +1,13 @@
 {
-    "name": "laravel/laravel",
+    "name": "siicomebill/magazine",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "A lightweight blog engine written in Laravel.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "blog"
     ],
-    "license": "MIT",
+    "license": "EPL-2.0",
     "require": {
         "php": "^7.2.5",
         "ext-exif": "^7.4",
