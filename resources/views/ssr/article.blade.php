@@ -43,15 +43,15 @@
     </section>
 
     @if (isset($sponsors[0]))
-        <section class="my-4 bg-blue-500 text-white banner py-8">
+        <section class="my-4 bg-gray-100 py-2">
             <div class="p-4 mx-auto lg:w-2/3">
-                <p class="text-white text-sm opacity-70">Sponsor</p>
+                <p class="text-sm opacity-70">Sponsor</p>
 
                 <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center">
                     <a class="block" href="{{ $sponsors[0]->link }}" rel="sponsored">
                         @include('components.image', [
-                        "src" => $sponsors[0]->image,
-                        "class" => "max-h-96 lg:mx-auto rounded-lg shadow-lg"
+                            "src" => $sponsors[0]->image,
+                            "class" => "w-full lg:mx-auto rounded-lg shadow-lg"
                         ])
                     </a>
 
@@ -62,7 +62,7 @@
                             <p class="text-xl">{{ $sponsors[0]->snippet }}</p>
                         </div>
 
-                        <a class="inline-block rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
+                        <a class="inline-block rounded-full bg-white text-blue-500 px-4 py-2 font-banner shadow-lg text-lg"
                             href="{{ $sponsors[0]->link }}" rel="sponsored">{{ $sponsors[0]->cta }}</a>
                     </div>
                 </div>
@@ -79,14 +79,14 @@
 
     @if (isset($sponsors) && count($sponsors) > 1)
         <p class="mt-4 mb-0 text-sm text-blue-500 text-center pt-2 pb-2">Sponsors</p>
-        <section class="mb-4 bg-blue-500 text-white banner py-8">
+        <section class="mb-4 bg-gray-100 py-2">
             <div class="p-4 lg:w-5/6 mx-auto xl:grid grid-flow-cols grid-cols-2 gap-4">
                 @foreach ($sponsors->forget(0) as $sponsor)
-                    <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center my-20">
+                    <div class="items-center my-10 lg:my-0">
                         <a class="block" href="{{ $sponsor->link }}" rel="sponsored">
                             @include('components.image', [
-                            "src" => $sponsor->image,
-                            "class" => "max-h-96 lg:mx-auto rounded-lg shadow-lg"
+                                "src" => $sponsor->image,
+                                "class" => "w-full lg:w-auto lg:max-w-96 rounded-lg shadow-lg"
                             ])
                         </a>
 
@@ -97,7 +97,7 @@
                                 <p class="text-xl">{{ $sponsor->snippet }}</p>
                             </div>
 
-                            <a class="inline-block rounded-full bg-white text-blue-500 px-4 py-2 font-banner text-lg"
+                            <a class="inline-block rounded-full bg-white text-blue-500 px-4 py-2 font-banner shadow-lg text-lg"
                                 href="{{ $sponsor->link }}" rel="sponsored">{{ $sponsor->cta }}</a>
                         </div>
                     </div>

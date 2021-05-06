@@ -47,7 +47,7 @@
             </div>
 
             @if (isset($sponsors[max($id - 2, 0)]) && ($id - 1) % 2 == 0)
-                <section class="my-4 bg-blue-500 col-span-2 text-white banner py-8 container mx-auto rounded-lg">
+                <section class="my-4 col-span-2 text-white py-2">
                     <div class="p-4 mx-auto lg:w-2/3">
                         <p class="text-white text-sm opacity-70">Sponsor</p>
 
@@ -55,7 +55,7 @@
                             <a class="block" href="{{ $sponsors[max($id - 2, 0)]->link }}" rel="sponsored">
                                 @include('components.image', [
                                     'src' => $sponsors[max($id - 2, 0)]->image,
-                                    'class' => 'max-h-96 lg:mx-auto rounded-lg shadow-lg',
+                                    'class' => 'w-full lg:mx-auto rounded-lg shadow-lg',
                                 ])
                             </a>
 
