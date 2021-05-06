@@ -47,7 +47,7 @@
             <div class="p-4 mx-auto lg:w-2/3">
                 <p class="text-sm opacity-70">Sponsor</p>
 
-                <div class="lg:grid grid-auto-cols grid-cols-3 gap-4 items-center">
+                <div class="md:grid grid-auto-cols grid-cols-3 gap-4 items-center">
                     <a class="block" href="{{ $sponsors[0]->link }}" rel="sponsored">
                         @include('components.image', [
                             "src" => $sponsors[0]->image,
@@ -80,17 +80,17 @@
     @if (isset($sponsors) && count($sponsors) > 1)
         <p class="mt-4 mb-0 text-sm text-blue-500 text-center pt-2 pb-2">Sponsors</p>
         <section class="mb-4 bg-gray-100 py-2">
-            <div class="p-4 lg:w-5/6 mx-auto xl:grid grid-flow-cols grid-cols-2 gap-4">
+            <div class="p-4 lg:w-5/6 mx-auto md:grid grid-flow-cols grid-cols-2 gap-4">
                 @foreach ($sponsors->forget(0) as $sponsor)
                     <div class="items-center my-10 lg:my-0">
                         <a class="block" href="{{ $sponsor->link }}" rel="sponsored">
                             @include('components.image', [
                                 "src" => $sponsor->image,
-                                "class" => "w-full lg:w-auto lg:max-w-96 rounded-lg shadow-lg"
+                                "class" => "max-h-64 rounded-lg shadow-lg"
                             ])
                         </a>
 
-                        <div class="col-span-1 w-full">
+                        <div class="col-span-1 w-full mt-2">
                             <div class="mb-6">
                                 <p class="font-banner text-3xl">{{ $sponsor->name }}</p>
 
