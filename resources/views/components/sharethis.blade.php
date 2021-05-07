@@ -1,0 +1,2 @@
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6094ea4624242b001185ccbe&product=inline-share-buttons" async="async"></script>

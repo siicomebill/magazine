@@ -75,7 +75,10 @@
         {!! prosemirrorToHtml($article->content) !!}
     </section>
 
-    @include('components.disqus')
+    <div class="lg:w-2/3 mx-auto">
+        @include('components.sharethis')
+        @include('components.disqus')
+    </div>
 
     @if (isset($sponsors) && count($sponsors) > 1)
         <p class="mt-4 mb-0 text-sm text-blue-500 text-center pt-2 pb-2">Sponsors</p>
